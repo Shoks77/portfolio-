@@ -802,10 +802,13 @@
 
  .tagline{
   font-family: var(--mono);
-  font-size: 15px;
+  font-size: 13px;
   color: var(--ink-warm);
-  max-width: 38ch;
-  line-height: 1.7;
+  max-width: 40ch;
+  line-height: 1.72;
+ }
+ @media (max-width: 600px){
+  .tagline{ font-size: 11.5px; line-height: 1.68; max-width: 42ch; }
  }
  .tagline em{
   font-family: var(--serif);
@@ -2043,8 +2046,26 @@
   .rb-o-text em{ font-size:7.5px; letter-spacing:.14em; }
   .rb-axis{ display:none; }
  }
- @media (max-width: 560px){
-  .ripple-band{ display:none; }
+ /* Phone: the band keeps its true proportions inside a swipeable frame,
+    rather than collapsing its labels into each other. */
+ .rb-frame{ position:relative; }
+ @media (max-width: 700px){
+  .rb-frame{
+   overflow-x: auto; overflow-y: hidden;
+   -webkit-overflow-scrolling: touch; scrollbar-width: none;
+   margin-inline: calc(50% - 50vw); padding-inline: 0;
+   scroll-snap-type: x proximity;
+  }
+  .rb-frame::-webkit-scrollbar{ display:none; }
+  .rb-frame::after{
+   content:"swipe →"; position:absolute; right:14px; bottom:9px; z-index:6;
+   font-family:var(--mono); font-size:8.5px; letter-spacing:.2em; text-transform:uppercase;
+   color:var(--mono-grey); opacity:.6; pointer-events:none;
+  }
+  .ripple-band{ width: 860px; min-width: 860px; height: 240px; --rb-k:.66px; }
+  .rb-t{ font-size:10px; letter-spacing:.05em; }
+  .rb-s{ display:block; font-size:8px; letter-spacing:.09em; }
+  .rb-axis{ display:none; }
  }
 
  /* ── Minimal pocket extension (collapsed breakdown → iPhone-sized 3D) ── */
@@ -2808,8 +2829,8 @@
 <header class="topbar">
   <nav class="topnav">
     <a href="#work" class="nav-link">Work</a>
-    <a href="#sandbox" class="nav-link">Sandbox</a>
     <a href="#about" class="nav-link">About</a>
+    <a href="#news" class="nav-link">Dispatch</a>
     <span class="topnav-social">
       <a class="topnav-btn github" href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.7 5.38-5.26 5.67.42.36.79 1.07.79 2.16v3.2c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
@@ -3082,9 +3103,9 @@
 
     <div class="hero-row">
       <p class="tagline">
-        Designing at the intersection of <em>product</em>, <em>brand</em>, and
-        <em>business strategy</em>. Based between NYC and Tokyo — energized by working
-        with people, exchanging perspectives, and building something meaningful together.
+        Designing across <em>product</em>, <em>brand</em>, and <em>business strategy</em>.
+        NYC–Tokyo based. Thrive on collaboration with people and building inevitable
+        meaningful things.
       </p>
     </div>
   </div>
@@ -3125,7 +3146,8 @@
     </div>
 
     <!-- Butterfly band — one origin, seven projects placed by the reach of their effect -->
-    <div class="ripple-band reveal" aria-label="Projects by scale of effect">
+    <div class="rb-frame reveal">
+    <div class="ripple-band" aria-label="Projects by scale of effect">
       <canvas id="rippleField" aria-hidden="true"></canvas>
       <span class="rb-base" aria-hidden="true"></span>
       <span class="rb-origin" aria-hidden="true">
@@ -3734,9 +3756,7 @@
         <p class="sf-desc">
           Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo —
           where plating, timing, and anticipating a guest's needs became a craft I
-          still design by. Outside of work, I love cooking Japanese, Korean, and
-          Italian food, and discovering places worth bringing friends to.
-          (Still a hobby.)
+          still design by.
         </p>
         <div class="sf-tags"><span>Hobby</span><span>Ritz-Carlton</span><span>Plating</span><span>Hospitality</span></div>
       </div>
@@ -3788,7 +3808,7 @@
             </p>
             <p>
               Now, back in Tokyo, I'm exploring new ideas and connecting passionate
-              communities through <em>Figma</em>.
+              communities through <em>Figma</em> and etc.
             </p>
             <p>
               Always happy to meet <em class="hl">ventures</em> and
@@ -4332,11 +4352,6 @@
         <a href="https://www.linkedin.com/in/shoki-sakuma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:shoki1888@gmail.com">Email</a>
       </div>
-    </div>
-    <div class="foot-sign">
-      <span>Designed &amp; built by Shoki Sakuma</span>
-      <span class="foot-dot">·</span>
-      <span>Last updated <time datetime="2026-06">June 2026</time></span>
     </div>
   </div>
 </footer>
