@@ -317,10 +317,10 @@
  /* ── Minimal liquid-glass music capsule (bottom-right, draggable) ── */
  .music-term{
   position: fixed;
-  right: 22px; bottom: 22px;
+  right: 20px; bottom: 20px;
   z-index: 130;
-  display: flex; align-items: center; gap: 10px;
-  padding: 6px 14px 6px 6px;
+  display: flex; align-items: center; justify-content: center; gap: 0;
+  padding: 0;
   font-family: var(--mono);
   color: #ECEAF4;
   border-radius: 999px;
@@ -339,8 +339,8 @@
   /* Locked size — the capsule never grows, shrinks, or resizes.
      No overflow clip here: the hover tooltip lives outside this box. */
   box-sizing: border-box;
-  height: 44px;
-  width: 188px;
+  height: 42px;
+  width: 42px;
   flex: 0 0 auto;
   resize: none;
   animation: term-float 7s ease-in-out infinite;
@@ -355,49 +355,53 @@
  }
  @keyframes term-float{
   0%,100%{ transform: translateY(0) rotate(0deg); }
-  50%{ transform: translateY(-7px) rotate(-.5deg); }
+  50%{ transform: translateY(-5px) rotate(-.4deg); }
  }
  .music-term .term-play{
-  width:30px; height:30px; flex:0 0 auto; border-radius:50%;
+  width:100%; height:100%; flex:0 0 auto; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  background: rgba(200,157,222,.18); border:1px solid rgba(200,157,222,.45);
+  background: transparent; border:none;
   color:#EADBF4; cursor:pointer; transition:.18s ease; padding:0;
  }
- .music-term .term-play:hover{ background: rgba(200,157,222,.34); }
- .music-term .term-play svg{ width:12px; height:12px; fill:currentColor; }
+ .music-term .term-play:hover{ background: rgba(200,157,222,.16); }
+ .music-term .term-play svg{ width:11px; height:11px; fill:currentColor; }
+ /* Playing: the eq bars sit as a tiny arc under the glyph */
+ .music-term .eq{ position:absolute; left:50%; bottom:7px; transform:translateX(-50%); pointer-events:none; }
+ .music-term:not(.playing) .eq{ opacity:0; }
+ .music-term.playing .term-play svg{ opacity:.9; }
  /* hover tooltip — song title floats above the capsule */
  .music-tip{
-  position:absolute; bottom:calc(100% + 10px); right:0;
-  font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase;
+  position:absolute; bottom:calc(100% + 9px); right:0; transform-origin:bottom right;
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.14em; text-transform:uppercase;
   color:#ECEAF4; white-space:nowrap;
   background:linear-gradient(150deg, rgba(34,29,48,.92), rgba(13,11,19,.9));
   border:1px solid rgba(200,157,222,.4);
-  padding:7px 11px; border-radius:10px;
+  padding:6px 9px; border-radius:8px;
   box-shadow:0 12px 30px rgba(0,0,0,.5);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   opacity:0; transform:translateY(4px); pointer-events:none;
   transition:opacity .25s ease, transform .25s ease;
  }
  .music-tip b{ color:#C89DDE; font-weight:600; }
- .music-tip::after{ content:""; position:absolute; top:100%; right:22px; border:5px solid transparent; border-top-color:rgba(200,157,222,.4); }
+ .music-tip::after{ content:""; position:absolute; top:100%; right:14px; border:5px solid transparent; border-top-color:rgba(200,157,222,.4); }
  .music-term:hover .music-tip{ opacity:1; transform:translateY(0); }
- .music-term .eq{ display:flex; align-items:flex-end; gap:2.6px; height:16px; }
- .music-term .eq span{ width:2.6px; height:4px; border-radius:2px; background:linear-gradient(#C89DDE,#E0A860); opacity:.5; transform-origin:bottom; }
+ .music-term .eq{ display:flex; align-items:flex-end; gap:1.6px; height:7px; }
+ .music-term .eq span{ width:1.6px; height:2px; border-radius:1px; background:linear-gradient(#C89DDE,#E0A860); opacity:.5; transform-origin:bottom; }
  .music-term.playing .eq span{ animation: eq-bounce .9s ease-in-out infinite; opacity:1; }
  .music-term.playing .eq span:nth-child(2){ animation-delay:.12s; }
  .music-term.playing .eq span:nth-child(3){ animation-delay:.24s; }
  .music-term.playing .eq span:nth-child(4){ animation-delay:.36s; }
  .music-term.playing .eq span:nth-child(5){ animation-delay:.48s; }
- .music-term .term-track{ position:relative; width:92px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent); mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent); }
- .music-term .term-track .tt-inner{ display:inline-block; white-space:nowrap; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(236,234,244,.9); transform:translateX(6px); }
+ .music-term .term-track{ display:none; position:relative; width:76px; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent); mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent); }
+ .music-term .term-track .tt-inner{ display:inline-block; white-space:nowrap; font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(236,234,244,.88); transform:translateX(5px); }
  .music-term.playing .term-track .tt-inner{ animation:tt-marquee 7.5s linear infinite; }
  .music-term.playing .term-track .tt-inner::before{ content:"◈ "; color:#C89DDE; }
- @keyframes tt-marquee{ 0%{ transform:translateX(92px); } 100%{ transform:translateX(-100%); } }
- @media (prefers-reduced-motion:reduce){ .music-term.playing .term-track .tt-inner{ animation:none; transform:translateX(6px); } }
- @keyframes eq-bounce{ 0%,100%{ height:4px; } 50%{ height:15px; } }
+ @keyframes tt-marquee{ 0%{ transform:translateX(76px); } 100%{ transform:translateX(-100%); } }
+ @media (prefers-reduced-motion:reduce){ .music-term.playing .term-track .tt-inner{ animation:none; transform:translateX(5px); } }
+ @keyframes eq-bounce{ 0%,100%{ height:2px; } 50%{ height:7px; } }
  #yt-audio{ position: fixed; width: 1px; height: 1px; left: -9999px; top: -9999px; pointer-events: none; opacity: 0; }
  @media (max-width: 760px){
-  .music-term{ right: 12px; bottom: 12px; height: 44px; width: 188px; }
+  .music-term{ right: 13px; bottom: 13px; height: 38px; width: 38px; }
  }
  @media (prefers-reduced-motion: reduce){
   .music-term{ animation: none; }
@@ -653,13 +657,13 @@
  @media (max-width: 600px){
   .name{ padding-right: 4px; }
   .name .ghost, .name .script{
-   font-size: clamp(36px, 14vw, 66px);
+   font-size: clamp(42px, 16.5vw, 74px);
    letter-spacing: 0;
    max-width: 100%;
   }
  }
  @media (max-width: 380px){
-  .name .ghost, .name .script{ font-size: 13vw; }
+  .name .ghost, .name .script{ font-size: 15.5vw; }
  }
 
  .name-kanji{
@@ -687,6 +691,12 @@
  @keyframes kanji-caret{
   0%, 100% { border-right-color: var(--hinomaru); }
   50%      { border-right-color: transparent; }
+ }
+ @media (max-width: 600px){
+  .name-kanji{ font-size: 14px; letter-spacing: .22em; margin-top: 9px; }
+ }
+ @media (max-width: 380px){
+  .name-kanji{ font-size: 12.5px; letter-spacing: .18em; }
  }
  @media (prefers-reduced-motion: reduce){
   .name-kanji{ animation: none; width: auto; border-right-color: transparent; }
@@ -1573,6 +1583,30 @@
   max-width: 44ch;
   margin-bottom: 32px;
  }
+ /* Result phrases inside a description — quiet emphasis, no decoration */
+ .work-info .desc .hl{
+  font-style: normal;
+  font-weight: 600;
+  color: var(--sumi);
+  background: linear-gradient(transparent 62%, rgba(200,157,222,.34) 62%);
+  padding: 0 1px;
+ }
+ [data-theme="dark"] .work-info .desc .hl{
+  color: #F2EFF7;
+  background: linear-gradient(transparent 62%, rgba(200,157,222,.3) 62%);
+ }
+ /* Measured-result line — sits under the description, quietly emphasised */
+ .work-info .desc.outcome{
+  margin-top: -22px;
+  margin-bottom: 32px;
+  padding-left: 13px;
+  border-left: 1px solid var(--murasaki);
+  color: var(--sumi);
+ }
+ .work-info .desc.outcome strong{
+  font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  font-size: 11px; color: var(--murasaki);
+ }
  .work-info .cta{
   display: inline-flex;
   align-items: center;
@@ -1877,6 +1911,142 @@
  .we-corner.br{ bottom:12px; right:12px; border-left:0; border-top:0; }
  @media (max-width:760px){ .we-frame{ height:66vh; min-height:400px; } }
 
+ /* ── Butterfly band: one origin, projects placed by the reach of their effect ── */
+ .ripple-band{
+  position: relative;
+  height: 300px;
+  margin: 0 0 42px;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+  overflow: hidden;
+  background:
+   radial-gradient(115% 150% at 4% 96%, rgba(200,157,222,.16) 0%, rgba(200,157,222,.05) 26%, transparent 62%),
+   linear-gradient(180deg, rgba(12,11,17,.03), rgba(12,11,17,.09));
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+ }
+ [data-theme="dark"] .ripple-band{
+  background:
+   radial-gradient(115% 150% at 4% 96%, rgba(200,157,222,.26) 0%, rgba(200,157,222,.07) 28%, transparent 64%),
+   linear-gradient(180deg, #0b0a10, #07060b);
+ }
+ .ripple-band canvas{
+  position:absolute; left:0; top:0; width:100%; height:100%; display:block;
+ }
+ /* Baseline the magnitude ticks hang from */
+ .rb-base{
+  position:absolute; left:0; right:0; bottom:52px; height:1px; z-index:2;
+  background:linear-gradient(90deg, rgba(200,157,222,.5), rgba(122,116,108,.22) 55%, transparent);
+  pointer-events:none;
+ }
+ .rb-origin{
+  position:absolute; left:max(2.2%, calc(50vw - 50% + 4px)); bottom:52px; z-index:4;
+  display:flex; align-items:center; gap:13px; pointer-events:none;
+  transform: translateY(50%);
+ }
+ .rb-o-dot{
+  position:relative; flex:0 0 auto;
+  width:14px; height:14px; border-radius:50%; background:#efe4fb;
+  box-shadow:
+   0 0 0 5px rgba(200,157,222,.2),
+   0 0 0 12px rgba(200,157,222,.09),
+   0 0 34px 6px rgba(200,157,222,.75);
+  animation: rb-beat 2.6s ease-in-out infinite;
+ }
+ @keyframes rb-beat{
+  0%,100%{ box-shadow:0 0 0 5px rgba(200,157,222,.2), 0 0 0 12px rgba(200,157,222,.09), 0 0 34px 6px rgba(200,157,222,.75); }
+  50%    { box-shadow:0 0 0 8px rgba(200,157,222,.14), 0 0 0 18px rgba(200,157,222,.05), 0 0 48px 10px rgba(200,157,222,.95); }
+ }
+ .rb-o-text{
+  font-family:var(--mono); line-height:1.35; display:flex; flex-direction:column; gap:3px;
+ }
+ .rb-o-text b{
+  font-weight:600; font-size:12.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink);
+ }
+ .rb-o-text em{
+  font-style:normal; font-size:9px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--murasaki); opacity:.95;
+ }
+ .rb-nodes{ position:absolute; inset:0; z-index:5; }
+ .rb-node{
+  -webkit-appearance:none; appearance:none; border:none; background:transparent;
+  position:absolute; left:var(--x); bottom:52px;
+  transform: translateX(-50%);
+  height:calc(var(--h) * var(--rb-k, 1px));
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  gap:0; padding:0; cursor:pointer;
+ }
+ /* Vertical stem from the baseline up to the marker */
+ .rb-node::after{
+  content:""; position:absolute; left:50%; bottom:0; width:1px; height:100%;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg, var(--murasaki), rgba(200,157,222,.05));
+  opacity:.35; transition:opacity .3s;
+ }
+ .rb-mark{
+  position:relative; z-index:1; flex:0 0 auto;
+  width:9px; height:9px; border-radius:50%;
+  background:var(--murasaki);
+  box-shadow:0 0 0 4px rgba(200,157,222,.14), 0 0 16px 2px rgba(200,157,222,.5);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+ }
+ .rb-cap{
+  position:absolute; bottom:calc(100% + 11px); left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  white-space:nowrap;
+ }
+ .rb-t{
+  font-family:var(--mono); font-size:12px; font-weight:600;
+  letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink); transition:color .3s, text-shadow .3s;
+ }
+ .rb-s{
+  font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--murasaki); opacity:.72; transition:opacity .3s;
+ }
+ .rb-node:hover .rb-mark, .rb-node:focus-visible .rb-mark{
+  transform:scale(1.9);
+  box-shadow:0 0 0 7px rgba(200,157,222,.2), 0 0 30px 6px rgba(200,157,222,.9);
+ }
+ .rb-node:hover::after, .rb-node:focus-visible::after{ opacity:.9; }
+ .rb-node:hover .rb-t, .rb-node:focus-visible .rb-t{
+  color:var(--murasaki); text-shadow:0 0 22px rgba(200,157,222,.6);
+ }
+ .rb-node:hover .rb-s, .rb-node:focus-visible .rb-s{ opacity:1; }
+ .rb-node:focus-visible{ outline:none; }
+ /* Current role — a marker, not a project link */
+ .rb-node--now{ cursor:default; }
+ .rb-node--now .rb-mark{ background:#efe4fb; box-shadow:0 0 0 5px rgba(200,157,222,.18), 0 0 22px 3px rgba(200,157,222,.7); }
+ .rb-node--now .rb-t{ color:var(--murasaki); }
+ .rb-axis{
+  position:absolute; right:max(2.2%, calc(50vw - 50% + 4px)); bottom:20px; z-index:4;
+  pointer-events:none;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--mono-grey); opacity:.62;
+ }
+ [data-theme="dark"] .rb-o-text b{ color:#f2eefb; }
+ [data-theme="dark"] .rb-t{ color:#eae6f4; }
+ @media (max-width: 1100px){
+  .ripple-band{ height:250px; --rb-k:.74px; }
+  .rb-t{ font-size:10px; letter-spacing:.07em; }
+  .rb-s{ font-size:8px; letter-spacing:.1em; }
+  .rb-o-text b{ font-size:10.5px; }
+ }
+ @media (max-width: 760px){
+  .ripple-band{ height:210px; margin-bottom:28px; --rb-k:.6px; }
+  .rb-base, .rb-origin, .rb-node{ bottom:40px; }
+  .rb-t{ font-size:8.5px; letter-spacing:.03em; }
+  .rb-s{ display:none; }
+  .rb-o-dot{ width:11px; height:11px; }
+  .rb-o-text b{ font-size:9px; letter-spacing:.1em; }
+  .rb-o-text em{ font-size:7.5px; letter-spacing:.14em; }
+  .rb-axis{ display:none; }
+ }
+ @media (max-width: 560px){
+  .ripple-band{ display:none; }
+ }
+
  /* ── Minimal pocket extension (collapsed breakdown → iPhone-sized 3D) ── */
  .pocket{ margin: 10px 0 4px; }
  .pocket-tab{
@@ -2180,14 +2350,14 @@
  }
  .meta-item .v.green{ color: var(--matcha); display:flex; align-items:center; gap: 10px; }
  /* Small square social buttons under the current-role item */
- .meta-links{ display:flex; gap:10px; margin-top:14px; }
+ .meta-links{ display:flex; gap:12px; margin-top:18px; }
  .meta-btn{
-  width:36px; height:36px; border-radius:9px;
+  width:52px; height:52px; border-radius:13px;
   display:inline-flex; align-items:center; justify-content:center;
   transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,.16);
  }
- .meta-btn svg{ width:19px; height:19px; display:block; }
+ .meta-btn svg{ width:26px; height:26px; display:block; }
  .meta-btn.linkedin{ background:#1b1714; }
  .meta-btn.linkedin svg{ fill:#f4f1ea; }
  .meta-btn.github{ background:#1b1714; }
@@ -2261,11 +2431,24 @@
   font-family: var(--mono); font-size: 12px; color: var(--mono-grey);
   margin-top: clamp(48px, 6vw, 90px);
  }
- .foot-row .right{ display:flex; gap: 28px; }
+ .foot-row .right{ display:flex; gap: 12px; align-items:center; flex-wrap:wrap; }
  .foot-row .right a{
-  transition: color .2s;
+  font-size: 13.5px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 12px 22px; border-radius: 999px;
+  border: 1px solid rgba(122,116,108,.34);
+  color: inherit; text-decoration: none; white-space: nowrap;
+  transition: color .22s, background .22s, border-color .22s, transform .22s;
  }
- .foot-row .right a:hover{ color: var(--murasaki); }
+ .foot-row .right a:hover{
+  color: var(--paper); background: var(--murasaki);
+  border-color: var(--murasaki); transform: translateY(-2px);
+ }
+ [data-theme="dark"] .foot-row .right a{ border-color: rgba(255,255,255,.26); }
+ @media (max-width: 720px){
+  .foot-row{ flex-direction: column; align-items: flex-start; gap: 20px; }
+  .foot-row .right{ gap: 10px; }
+  .foot-row .right a{ padding: 11px 18px; font-size: 12.5px; }
+ }
 
  .foot-sign{
   display:flex; flex-wrap:wrap; align-items:center; gap:10px;
@@ -2368,6 +2551,9 @@
 
  .reveal{ opacity: 0; transform: translateY(20px); transition: all .9s cubic-bezier(.2,.8,.2,1); }
  .reveal.in{ opacity: 1; transform: none; }
+ @media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1; transform: none; transition: none; }
+ }
 
  .hero .eyebrow{
   opacity: 0; transform: translateY(28px);
@@ -2625,7 +2811,7 @@
     <a href="#sandbox" class="nav-link">Sandbox</a>
     <a href="#about" class="nav-link">About</a>
     <span class="topnav-social">
-      <a class="topnav-btn github" href="https://github.com/dpproducts-pro" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <a class="topnav-btn github" href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.7 5.38-5.26 5.67.42.36.79 1.07.79 2.16v3.2c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
       </a>
       <a class="topnav-btn linkedin" href="https://www.linkedin.com/in/shoki-sakuma/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -2649,6 +2835,17 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+ }
+ /* Contour field behind the name — one origin, deviation amplifying outward */
+ .hero-bg canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 1;
+  -webkit-mask-image: radial-gradient(130% 115% at 68% 50%, #000 42%, rgba(0,0,0,.5) 78%, transparent 100%);
+          mask-image: radial-gradient(130% 115% at 68% 50%, #000 42%, rgba(0,0,0,.5) 78%, transparent 100%);
  }
  .hero-bg img{
   position: absolute;
@@ -2843,15 +3040,11 @@
  @media (prefers-reduced-motion: reduce){ .hud-scan, .hud-status .live i{ animation: none; } }
 </style>
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"><img src="media/cosmos.gif" alt=""></div>
+  <div class="hero-bg" aria-hidden="true"><canvas id="heroField"></canvas></div>
   <div class="hero-hud" id="heroHud" aria-hidden="true">
     <span class="hud-bracket tl"></span><span class="hud-bracket tr"></span>
     <span class="hud-bracket bl"></span><span class="hud-bracket br"></span>
     <span class="hud-scan"></span>
-    <div class="hud-coord">
-      <div>35.6586°N · 139.6917°E</div>
-      <div><b>TYO</b> — SETAGAYA</div>
-    </div>
     <div class="hud-status">
       <span class="live"><i></i>SYS / ONLINE</span>
       <span class="sep"></span>
@@ -2890,13 +3083,9 @@
     <div class="hero-row">
       <p class="tagline">
         Designing at the intersection of <em>product</em>, <em>brand</em>, and
-        <em>business strategy</em>. Based between NYC and Tokyo — building things
-        that feel inevitable.
+        <em>business strategy</em>. Based between NYC and Tokyo — energized by working
+        with people, exchanging perspectives, and building something meaningful together.
       </p>
-      <a class="hero-now" href="https://www.lorealparisusa.com/" target="_blank" rel="noopener noreferrer" aria-label="Brand Strategy Marketing Intern at L'Oréal Paris">
-        <span class="hero-now-pulse" aria-hidden="true"></span>
-        <span class="hero-now-role" data-drum>Brand Strategy Marketing Intern · <strong>L'Oréal Paris</strong></span>
-      </a>
     </div>
   </div>
 </section>
@@ -2923,26 +3112,6 @@
   </div>
 </section>
 
-<!-- ─────────── EXPERIENCE LOGO MARQUEE ─────────── -->
-<section class="exp-marquee" aria-label="Experience">
-  <div class="exp-label">Built & Grown with</div>
-  <div class="marquee-track">
-    <div class="marquee-row">
-
-      <div class="logo-cell" title="L'Oréal Groupe" style="background:#000;"><a href="https://www.loreal.com/en/consumer-products-division/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-cgdlfc-2oj.jpg" alt="L'Oréal Groupe"></a></div>
-      <div class="logo-cell" title="L'Oréal Paris" style="background:#fff;"><a href="https://www.lorealparisusa.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/logo-loreal-paris.png" alt="L'Oréal Paris"></a></div>
-      <div class="logo-cell" title="Ishii Clinic Beauty Lab"><a href="https://dr-ishiiselectusa.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1n22gol-3xv.jpg" alt="Ishii Clinic Beauty Lab"></a></div>
-      <div class="logo-cell" title="HUMAN X" style="background:#2a2ae0;"><a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1are7tr-31v.jpg" alt="HUMAN X"></a></div>
-      <div class="logo-cell" title="The George Washington University"><a href="https://business.gwu.edu/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-31bv8m-3e6.png" alt="The George Washington University"></a></div>
-      <div class="logo-cell" title="Shirosaka"><a href="https://www.shirosaka.jp/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1o8iwev-46n.jpg" alt="Shirosaka"></a></div>
-      <div class="logo-cell" title="The Ritz-Carlton, Tokyo"><a href="https://www.ritzcarlton.com/en/hotels/tyorz-the-ritz-carlton-tokyo/overview/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-2lxgp-4sf.jpg" alt="The Ritz-Carlton, Tokyo"></a></div>
-      <div class="logo-cell" title="Gemini Café & Bakery"><a href="https://www.thegeminicafe.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1ai8udf-7jq.png" alt="Gemini Café & Bakery"></a></div>
-      <div class="logo-cell" title="Gould Academy"><a href="https://www.gouldacademy.org/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-ix8fns-27gq.png" alt="Gould Academy"></a></div>
-
-        </div>
-  </div>
-</section>
-
 <!-- ─────────── SELECTED WORK ─────────── -->
 <section class="section" id="work">
   <div class="wrap">
@@ -2955,17 +3124,39 @@
       <span class="jp">作品集</span>
     </div>
 
+    <!-- Butterfly band — one origin, seven projects placed by the reach of their effect -->
+    <div class="ripple-band reveal" aria-label="Projects by scale of effect">
+      <canvas id="rippleField" aria-hidden="true"></canvas>
+      <span class="rb-base" aria-hidden="true"></span>
+      <span class="rb-origin" aria-hidden="true">
+        <span class="rb-o-dot"></span>
+        <span class="rb-o-text"><b>The Ritz-Carlton</b><em>the origin</em></span>
+      </span>
+      <div class="rb-nodes">
+        <button type="button" class="rb-node" data-target="3" style="--x:16%; --h:70;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Shirosaka</span><span class="rb-s">UI/UX Project</span></span></button>
+        <button type="button" class="rb-node" data-target="0" style="--x:26%; --h:175;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">LooksMax™</span><span class="rb-s">#1 in the U.S.</span></span></button>
+        <button type="button" class="rb-node" data-target="2" style="--x:38%; --h:100;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal × IDSA.GW</span><span class="rb-s">500+ in a room</span></span></button>
+        <button type="button" class="rb-node" data-target="5" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
+        <button type="button" class="rb-node" data-target="4" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
+        <span class="rb-node rb-node--now" style="--x:65%; --h:118;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Morgan Stanley</span><span class="rb-s">Early Insight Program</span></span></span>
+        <button type="button" class="rb-node" data-target="1" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
+        <span class="rb-node rb-node--now" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></span>
+        <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">Campus Leader · Tokyo</span></span></span>
+      </div>
+      <span class="rb-axis" aria-hidden="true">scale of effect →</span>
+    </div>
+
     <div class="work-cinema shelf">
 
       <!-- Project index rail — named menu, jumps to each panel -->
       <nav class="work-dots" aria-label="Project index">
         <button class="dot active" data-target="0"><span class="n">01</span><span class="t">LooksMax™</span></button>
         <button class="dot" data-target="1"><span class="n">02</span><span class="t">Airable</span></button>
-        <button class="dot" data-target="2"><span class="n">03</span><span class="t">Ignite</span></button>
+        <button class="dot" data-target="2"><span class="n">03</span><span class="t">L’Oréal × IDSA.GW</span></button>
         <button class="dot" data-target="3"><span class="n">04</span><span class="t">Shirosaka</span></button>
         <button class="dot" data-target="4"><span class="n">05</span><span class="t">Dr. Ishii</span></button>
-        <button class="dot" data-target="5"><span class="n">06</span><span class="t">Auréole</span></button>
-        <button class="dot" data-target="6"><span class="n">07</span><span class="t">HumanX</span></button>
+        <button class="dot" data-target="5"><span class="n">06</span><span class="t">HumanX</span></button>
+        <button class="dot" data-target="6"><span class="n">07</span><span class="t">Auréole</span></button>
       </nav>
 
       <!-- 01 — LooksMax™ -->
@@ -2975,11 +3166,11 @@
           <div class="gallery-track">
             
             <figure class="gallery-slide is-active">
-              <img src="media/img-9jl9ui-soj.jpg" alt="LooksMax product — purple water splash composition" loading="lazy">
+              <img src="media/img-rx680u-ofz.jpg" alt="LooksMax monogram with Men Expert reference" loading="lazy">
             </figure>
             
             <figure class="gallery-slide">
-              <img src="media/img-rx680u-ofz.jpg" alt="LooksMax monogram with Men Expert reference" loading="lazy">
+              <img src="media/looksmax-brandstorm-team.jpg" alt="LooksMax team with the L'Oréal jury at the Brandstorm 2025 US finals" loading="lazy">
             </figure>
             <figure class="gallery-slide"><img src="media/img-639y5r-5qjf.jpg" alt="LooksMax presentation slide" loading="lazy"></figure>
             <figure class="gallery-slide"><img src="media/img-121367z-5t2z.jpg" alt="LooksMax presentation slide" loading="lazy"></figure>
@@ -3014,11 +3205,11 @@
           <p class="desc">
             Co-invented a modular men's grooming device integrating lip care
             and fragrance, designed for scalable, refill-based consumer use
-            within L'Oréal Groupe's innovation with 5,000+ consumer research
-            + forecasted 24 M retail store + e-commerce sales.
+            with <em class="hl">two teammates from GWU</em>, within L'Oréal Groupe's innovation with <em class="hl">5,000+ consumer research</em>
+            + forecasted <em class="hl">24 M</em> retail store + e-commerce sales.
           </p>
           <div class="cta-group">
-            <a href="https://gwtoday.gwu.edu/gw-students-win-us-finals-2025-loreal-brandstorm-competition" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
+            <a href="https://www.linkedin.com/posts/lor%C3%A9al_2025-loreal-brandstorm-finals-usa-activity-7318272247905869827-6Ql8/" target="_blank" rel="noopener noreferrer" class="cta">View Achievements →</a>
             <a href="https://www.loreal.com/en/brandstorm/" target="_blank" rel="noopener noreferrer" class="cta">View Brandstorm →</a>
           </div>
         </div>
@@ -3052,9 +3243,10 @@
             <span class="k">Category</span><span class="v">Hardware · Product</span>
             <span class="k">Year</span><span class="v">2026</span>
           </div>
-          <p class="desc">An ongoing project — Clean climate systems, reimagined for the home and commercial.</p>
+          <p class="desc">An ongoing project with <em class="hl">five teammates from Yale, Stanford Graduates, and GWU</em> — Clean climate systems, reimagined for the home and commercial. Submitted to the <em class="hl">James Dyson Award 2026</em>, the international design and engineering prize for student-led inventions that solve a real problem.</p>
           <div class="cta-group">
             <a class="cta" href="https://shoks77.github.io/AIRABLE.AC/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
+            <a class="cta" href="https://www.jamesdysonaward.org/2026/project/airable" target="_blank" rel="noopener noreferrer">Dyson Award entry <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
@@ -3078,7 +3270,7 @@
         <div class="work-image media-gallery ignite-gallery">
           <div class="gallery-track">
             <figure class="gallery-slide is-active">
-              <img src="media/img-1ay6gsq-13zv.jpg" alt="L'Oréal × GW IDSA 2025 Recap — collage of L'Oréal Brandstorm campus kickoff event at George Washington University, including panel speakers, product display, and student attendance" loading="lazy">
+              <img src="media/img-1910w6d-y67.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm 2026 official event poster with IDSA | GW, GWU Department of OSC, and GW Student Affairs branding" loading="lazy">
             </figure>
             <figure class="gallery-slide">
               <img src="media/img-7ejpjl-vgv.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm USC Grand Ballroom event poster, red lip variant" loading="lazy">
@@ -3087,7 +3279,7 @@
               <img src="media/img-160j8pz-12ur.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm USC Grand Ballroom event poster, blue crystal variant" loading="lazy">
             </figure>
             <figure class="gallery-slide">
-              <img src="media/img-1910w6d-y67.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm 2026 official event poster with IDSA | GW, GWU Department of OSC, and GW Student Affairs branding" loading="lazy">
+              <img src="media/img-1ay6gsq-13zv.jpg" alt="L'Oréal × GW IDSA 2025 Recap — collage of L'Oréal Brandstorm campus kickoff event at George Washington University, including panel speakers, product display, and student attendance" loading="lazy">
             </figure>
           </div>
           <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
@@ -3097,24 +3289,24 @@
             <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
           </button>
           <div class="gallery-dots" role="tablist" aria-label="Ignite gallery">
-            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — 2025 Recap collage"></button>
+            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — Brandstorm 2026 event poster"></button>
             <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — poster red"></button>
             <button class="gallery-dot" data-slide="2" aria-label="Slide 3 — poster blue"></button>
-            <button class="gallery-dot" data-slide="3" aria-label="Slide 4 — Brandstorm event poster"></button>
+            <button class="gallery-dot" data-slide="3" aria-label="Slide 4 — 2025 Recap collage"></button>
           </div>
         </div>
         <div class="work-info">
           <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 07</div>
-          <h3>Ignite Your<br/>Innovation</h3>
+          <h3>L’Oréal ×<br/>IDSA.GW</h3>
           <div class="meta">
-            <span class="k">Role</span><span class="v role">Creative &amp; Marketing Lead</span>
+            <span class="k">Role</span><span class="v role">Co-Founder · Creative &amp; Partnership Lead</span>
             <span class="k">Category</span><span class="v">Event · Brand · Logistics</span>
             <span class="k">Year</span><span class="v">2025</span>
           </div>
-          <p class="desc">Event identity for L'Oréal Brandstorm 2026. Led creative marketing, and execution for Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom. Built the through-line across staging, digital campaigns, beauty tech demos, and guest experience with L'Oréal USA Talent Acquisition Team.</p>
+          <p class="desc">Event identity and creative direction for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — the through-line across staging, digital campaigns, beauty tech demos, and guest experience — staged as an open <em class="hl">recruiting event for every student</em>. Managed L'Oréal, GW leadership, and Whole Foods Market to bring <em class="hl">500+ attendees</em> into the room.</p>
           <div class="cta-group">
-            <a href="https://lines-pause-09134074.figma.site" target="_blank" rel="noopener noreferrer" class="cta">View the Project →</a>
-            <a href="https://www.instagram.com/p/DSxt5wxDsNN/?hl=en&amp;img_index=1" target="_blank" rel="noopener noreferrer" class="cta">View the Scene →</a>
+            <a href="https://lines-pause-09134074.figma.site" target="_blank" rel="noopener noreferrer" class="cta">View Research Paper →</a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7405367124157960192" target="_blank" rel="noopener noreferrer" class="cta">View the Scene →</a>
           </div>
         </div>
       </article>
@@ -3158,7 +3350,7 @@
             <span class="k">Category</span><span class="v">CRM · Ops · UI/UX</span>
             <span class="k">Year</span><span class="v">2025</span>
           </div>
-          <p class="desc">Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo for maintaining one Michelin star for 10 consecutive years through refined seasonal cuisine and precise hospitality.</p>
+          <p class="desc">Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. <em class="hl">Results are still awaiting.</em></p>
           <div class="cta-group">
             <a href="https://chroma-video-34182257.figma.site" target="_blank" rel="noopener noreferrer" class="cta">View Internal CRM →</a>
             <a href="https://www.shirosaka.jp/english/" target="_blank" rel="noopener noreferrer" class="cta">Visit Restaurant →</a>
@@ -3202,76 +3394,22 @@
           <h3>Dr. Ishii</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">U.S. Market Development</span>
-            <span class="k">Category</span><span class="v">Strategy · Product · 3D</span>
+            <span class="k">Category</span><span class="v">Marketing · Brand Activation</span>
             <span class="k">Year</span><span class="v">2026</span>
           </div>
           <p class="desc">
             Helped the brand's first East Coast market entry and runs
             U.S. marketing by bringing Dr. Ishii products into Washington,
-            D.C., while actively exploring merchandise display channels for
+            D.C. with <em class="hl">GW Women in Business (GWWB)</em>, while actively
+            exploring merchandise display channels for
             its rice fermentation–based skincare technology.
           </p>
           <a href="https://dr-ishiiselectusa.com/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
         </div>
       </article>
 
-      <!-- 05 — Auréole × Kering's Jewelry Maisons -->
-      <article class="work-panel" data-index="5">
-        <span class="ghost-word">Auréole</span>
-        <div class="work-image media-gallery aureole-gallery">
-          <div class="gallery-track">
-            <figure class="gallery-slide is-active">
-              <img src="media/img-1o9pj4n-iyn.jpg" alt="Auréole — 18K rose gold bangle product shot with diamond pavé inlay and floral jewel stud, on stone surface in natural light" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-1htmsv8-14ub.jpg" alt="Auréole — engineering blueprint of the wearable fragrance bracelet, showing inner fragrance layer (porous ceramic channel), micro vent on inner rim, spherical micro-mechanism for fragrance timing control, boost-touch pressure activation, and re-spray zone, with section A-A dimensions (Ø 65.00 mm × 6.80 mm) and five detail views" loading="lazy">
-            </figure>
-          </div>
-          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
-          </button>
-          <button class="gallery-arrow next" type="button" aria-label="Next slide">
-            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
-          </button>
-          <div class="gallery-dots" role="tablist" aria-label="Auréole gallery">
-            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — bangle product shot"></button>
-            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — engineering blueprint"></button>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 07</div>
-          <h3>Auréole</h3>
-          <div class="meta">
-            <span class="k">Role</span><span class="v role">Concept &amp; Product Design</span>
-            <span class="k">Collab</span><span class="v">Kering's Jewelry Maisons</span>
-            <span class="k">Category</span><span class="v">Fragrance · Jewelry · Product</span>
-            <span class="k">Year</span><span class="v">2026</span>
-          </div>
-          <p class="desc">
-            Conceptualized & designed a wearable fragrance object developed
-            in potential collaboration with Kering's jewelry maisons,
-            translating scent into a piece of adornment that lives at
-            the wrist.
-          </p>
-        </div>
-      </article>
-
-      <!-- 05 · 3D engineering breakdown — minimal pocket extension under Auréole -->
-      <div class="pocket reveal" data-screen-label="Auréole 3D Breakdown">
-        <button class="pocket-tab" type="button" aria-expanded="true" aria-controls="pk-aureole">
-          <span class="pk-rule"></span>
-          <span class="pk-label">Industrial Design · Engineering Breakdown</span>
-          <span class="pk-chev" aria-hidden="true">+</span>
-        </button>
-        <div class="pocket-body open" id="pk-aureole">
-          <div class="pk-phone">
-            <iframe data-src="aureole-3d.html" title="Auréole × Kering 3D engineering breakdown"></iframe>
-          </div>
-        </div>
-      </div>
-
       <!-- 06 — Human X -->
-      <article class="work-panel" data-index="6">
+      <article class="work-panel" data-index="5">
         <span class="ghost-word">Human X</span>
         <div class="work-image media-gallery humanx-gallery">
           <div class="gallery-track">
@@ -3298,7 +3436,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 07</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 07</div>
           <h3>Human X</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Pavilion Stage Co-Lead</span>
@@ -3306,12 +3444,66 @@
             <span class="k">Year</span><span class="v">2026</span>
           </div>
           <p class="desc">
-            Co-led the Agentic AI Pavilion Stage at HumanX 2026, supporting a
-            fast-moving showcase of 20+ sponsored sessions.
+            Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside
+            <em class="hl">two teammates</em>, supporting a fast-moving showcase of
+            <em class="hl">20+ sponsored sessions</em>.
           </p>
           <a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
         </div>
       </article>
+
+      <!-- 07 — Auréole -->
+      <article class="work-panel" data-index="6">
+        <span class="ghost-word">Auréole</span>
+        <div class="work-image media-gallery aureole-gallery">
+          <div class="gallery-track">
+            <figure class="gallery-slide is-active">
+              <img src="media/img-1o9pj4n-iyn.jpg" alt="Auréole — 18K rose gold bangle product shot with diamond pavé inlay and floral jewel stud, on stone surface in natural light" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/img-1htmsv8-14ub.jpg" alt="Auréole — engineering blueprint of the wearable fragrance bracelet, showing inner fragrance layer (porous ceramic channel), micro vent on inner rim, spherical micro-mechanism for fragrance timing control, boost-touch pressure activation, and re-spray zone, with section A-A dimensions (Ø 65.00 mm × 6.80 mm) and five detail views" loading="lazy">
+            </figure>
+          </div>
+          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
+          </button>
+          <button class="gallery-arrow next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
+          </button>
+          <div class="gallery-dots" role="tablist" aria-label="Auréole gallery">
+            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — bangle product shot"></button>
+            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — engineering blueprint"></button>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 07</div>
+          <h3>Auréole</h3>
+          <div class="meta">
+            <span class="k">Role</span><span class="v role">Concept &amp; Product Design</span>
+            <span class="k">Category</span><span class="v">Fragrance · Jewelry · Product</span>
+            <span class="k">Year</span><span class="v">2026</span>
+          </div>
+          <p class="desc">
+            Conceptualized & designed a wearable fragrance object for the
+            luxury jewelry market, translating scent into a piece of adornment
+            that lives at the wrist.
+          </p>
+        </div>
+      </article>
+
+      <!-- 07 · 3D engineering breakdown — minimal pocket extension under Auréole -->
+      <div class="pocket reveal" data-screen-label="Auréole 3D Breakdown">
+        <button class="pocket-tab" type="button" aria-expanded="true" aria-controls="pk-aureole">
+          <span class="pk-rule"></span>
+          <span class="pk-label">Industrial Design · Engineering Breakdown</span>
+          <span class="pk-chev" aria-hidden="true">+</span>
+        </button>
+        <div class="pocket-body open" id="pk-aureole">
+          <div class="pk-phone">
+            <iframe data-src="aureole-3d.html" title="Auréole 3D engineering breakdown"></iframe>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -3494,6 +3686,26 @@
   .polaroid.wide{ width:84vw; }
  }
 </style>
+<!-- ─────────── EXPERIENCE LOGO MARQUEE ─────────── -->
+<section class="exp-marquee" aria-label="Experience">
+  <div class="exp-label">Built & Grown with</div>
+  <div class="marquee-track">
+    <div class="marquee-row">
+
+      <div class="logo-cell" title="L'Oréal Groupe" style="background:#000;"><a href="https://www.loreal.com/en/consumer-products-division/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-cgdlfc-2oj.jpg" alt="L'Oréal Groupe"></a></div>
+      <div class="logo-cell" title="L'Oréal Paris" style="background:#fff;"><a href="https://www.lorealparisusa.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/logo-loreal-paris.png" alt="L'Oréal Paris"></a></div>
+      <div class="logo-cell" title="Ishii Clinic Beauty Lab"><a href="https://dr-ishiiselectusa.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1n22gol-3xv.jpg" alt="Ishii Clinic Beauty Lab"></a></div>
+      <div class="logo-cell" title="HUMAN X" style="background:#2a2ae0;"><a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1are7tr-31v.jpg" alt="HUMAN X"></a></div>
+      <div class="logo-cell" title="The George Washington University"><a href="https://business.gwu.edu/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-31bv8m-3e6.png" alt="The George Washington University"></a></div>
+      <div class="logo-cell" title="Shirosaka"><a href="https://www.shirosaka.jp/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1o8iwev-46n.jpg" alt="Shirosaka"></a></div>
+      <div class="logo-cell" title="The Ritz-Carlton, Tokyo"><a href="https://www.ritzcarlton.com/en/hotels/tyorz-the-ritz-carlton-tokyo/overview/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-2lxgp-4sf.jpg" alt="The Ritz-Carlton, Tokyo"></a></div>
+      <div class="logo-cell" title="Gemini Café & Bakery"><a href="https://www.thegeminicafe.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1ai8udf-7jq.png" alt="Gemini Café & Bakery"></a></div>
+      <div class="logo-cell" title="Gould Academy"><a href="https://www.gouldacademy.org/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-ix8fns-27gq.png" alt="Gould Academy"></a></div>
+
+        </div>
+  </div>
+</section>
+
 <section class="section" id="sandbox">
   <div class="wrap">
     <div class="section-head reveal">
@@ -3522,9 +3734,11 @@
         <p class="sf-desc">
           Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo —
           where plating, timing, and anticipating a guest's needs became a craft I
-          still design by. Still a hobby I cook by, most weekends.
+          still design by. Outside of work, I love cooking Japanese, Korean, and
+          Italian food, and discovering places worth bringing friends to.
+          (Still a hobby.)
         </p>
-        <div class="sf-tags"><span>Hobby</span><span>Michelin-trained</span><span>Ritz-Carlton</span><span>Plating</span><span>Hospitality</span></div>
+        <div class="sf-tags"><span>Hobby</span><span>Ritz-Carlton</span><span>Plating</span><span>Hospitality</span></div>
       </div>
     </div>
 
@@ -3553,27 +3767,34 @@
         <div class="about-body about-body-split">
           <div class="about-col">
             <p>
-              Creative &amp; business strategist from <em>Tokyo</em>, based across
-              <em>NYC, Tokyo, and Washington, D.C.</em> Currently a
-              <span class="role-now" style="color: #a87fc9;">Brand Strategy Marketing Intern at L'Oréal Paris,
-              Consumer Products Division</span>.
+              Hi, I'm Shoki. I'm from <em>Tokyo</em>, with a perspective shaped by
+              studying in <em>Washington, D.C.</em>, and working in <em>New York</em>.
             </p>
             <p>
-              My work connects <em>consumer insights</em>, <em>brand storytelling</em>,
-              <em>product design</em>, and <em>market strategy</em> to create
-              experiences that feel intentional and relevant.
+              Curious about what makes people love a product — and what makes the
+              business behind it work. I enjoy connecting <em>creative ideas</em> with
+              <em>consumer insights</em> and <em>numbers</em>, whether exploring a
+              product concept, shaping a brand story, or bringing communities together.
             </p>
           </div>
           <div class="about-col">
             <p>
-              Previously worked across <em>Michelin-starred dining</em>,
-              <em>The Ritz-Carlton Tokyo</em>, and <em>hospitality</em>, where I
-              learned the power of anticipating customer needs before they are spoken.
+              I recently completed a
+              <span class="role-now" style="color: #a87fc9;">brand strategy marketing
+              internship with L'Oréal Paris</span> in New York. Before that, experiences
+              in <em>Michelin-starred dining</em> and at <em>The Ritz-Carlton Tokyo</em>
+              taught me to notice the small things: what people care about, what they
+              need, and what they don't always say.
             </p>
             <p>
-              Fluent in <em>English</em> and <em>Japanese</em>. Open to projects across
-              <em>design</em>, <em>beauty</em>,
-              <em>strategy</em>, and <em>international business</em>.
+              Now, back in Tokyo, I'm exploring new ideas and connecting passionate
+              communities through <em>Figma</em>.
+            </p>
+            <p>
+              Always happy to meet <em class="hl">ventures</em> and
+              <em class="hl">start-up people</em> building
+              <em class="hl">something they care about</em> for international benefits, in
+              <em>Japanese</em> or <em>English</em>.
             </p>
           </div>
         </div>
@@ -3581,10 +3802,10 @@
 
       <div class="meta-list reveal">
         <div class="meta-item">
-          <div class="k">Current Role</div>
+          <div class="k">Recent Role</div>
           <div class="v">Brand Strategy Marketing Intern<br/><span style="font-style:italic;color:var(--mono-grey);font-size:15px">L'Oréal Paris · CPD</span></div>
           <div class="meta-links">
-            <a class="meta-btn github" href="https://github.com/dpproducts-pro" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a class="meta-btn github" href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.7 5.38-5.26 5.67.42.36.79 1.07.79 2.16v3.2c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
             </a>
             <a class="meta-btn linkedin" href="https://www.linkedin.com/in/shoki-sakuma/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -3594,10 +3815,6 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M3.5 6.5 12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
-        </div>
-        <div class="meta-item">
-          <div class="k">Focus</div>
-          <div class="v">Product · Brand · Strategy</div>
         </div>
         <div class="meta-item">
           <div class="k">Status</div>
@@ -4062,9 +4279,9 @@
           <h3 class="bs-head">A campaign worth sharing</h3>
           <div class="bs-meta">GoFundMe · 2026</div>
           <p class="bs-body">
-            I'm raising <em style="font-style:normal;color:var(--hinomaru)">$15k</em> in support of a cause close to me. Every
-            contribution — and every share — helps it move forward. Take a look,
-            and pass it along if it resonates with you.
+            I've raised <em style="font-style:normal;color:var(--hinomaru)">$15k</em> in support of a cause close to me. Every
+            contribution — and every share — helped it move forward. Take a look,
+            and pass along my life story if it resonates with you.
             <span class="bs-note">P.S. The campaign is currently closed.</span>
           </p>
           <a class="bs-link" href="https://gofund.me/ceaf335c7" target="_blank" rel="noopener noreferrer">
@@ -4111,7 +4328,7 @@
     <div class="foot-row">
       <span>© 2026 Shoki Sakuma 聖暉 佐久間</span>
       <div class="right">
-        <a href="https://github.com/dpproducts-pro" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/shoki-sakuma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:shoki1888@gmail.com">Email</a>
       </div>
@@ -4493,7 +4710,7 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!reduce && fine){
-   var cosmos = document.querySelector(".hero-bg img");
+   var cosmos = document.querySelector(".hero-bg canvas");
    var nameEl = document.querySelector(".name");
    var hero = document.querySelector(".hero");
    var tx = 0, ty = 0, cx = 0, cy = 0;
@@ -4510,7 +4727,7 @@
      cy += (ty - cy) * 0.08;
      if (cosmos){
       cosmos.style.transform =
-       "translateY(-50%) translate3d(" + (cx * 52) + "px," + (cy * 38) + "px,0) scale(1.05)";
+       "translate3d(" + (cx * 26) + "px," + (cy * 18) + "px,0) scale(1.04)";
      }
      if (nameEl){
       nameEl.style.transition = "none";  // raf drives it directly while moving
@@ -4522,6 +4739,305 @@
    }
   }
  })();
+ /* Ripple band — the hero's motif at project scale, turned up: a shockwave front
+    leaving one origin, and a trajectory whipping through every project. */
+ function rippleBand(){
+  var cv = document.getElementById("rippleField");
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext("2d");
+  var band = cv.parentElement;
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var W = 0, H = 0, ox = 0, oy = 0, live = true, pts = [];
+
+  var A0 = -Math.PI * 0.56, A1 = Math.PI * 0.10;
+
+  function size(){
+   var r = cv.getBoundingClientRect();
+   if (!r.width || !r.height) return false;
+   var dpr = Math.min(window.devicePixelRatio || 1, 2);
+   W = r.width; H = r.height;
+   cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+   var bl = band.querySelector(".rb-base");
+   oy = bl ? (bl.getBoundingClientRect().top - r.top) : H - 52;
+   ox = W * 0.045;
+   // node anchor points, read straight off the DOM so canvas and labels agree
+   pts = [];
+   band.querySelectorAll(".rb-node").forEach(function(n){
+    var mk = n.querySelector(".rb-mark");
+    if (!mk) return;
+    var m = mk.getBoundingClientRect();
+    pts.push({ x: m.left - r.left + m.width / 2, y: m.top - r.top + m.height / 2 });
+   });
+   return true;
+  }
+
+  function arc(r, amp, t, seed){
+   ctx.beginPath();
+   var first = true;
+   for (var a = A0; a <= A1; a += 0.035){
+    var rr = r + Math.sin(a * 4.6 + t * 0.6 + seed) * amp
+               + Math.sin(a * 9.1 - t * 0.9 + seed * 2) * amp * 0.35;
+    var x = ox + Math.cos(a) * rr;
+    var y = oy + Math.sin(a) * rr * 0.9;
+    if (first){ ctx.moveTo(x, y); first = false; } else { ctx.lineTo(x, y); }
+   }
+   ctx.stroke();
+  }
+
+  function draw(t){
+   ctx.clearRect(0, 0, W, H);
+   var span = W * 1.08;
+
+   // radial rays — the field the waves travel through
+   ctx.save();
+   ctx.lineWidth = 0.6;
+   for (var k = 0; k <= 9; k++){
+    var a = A0 + (A1 - A0) * (k / 9);
+    ctx.beginPath();
+    ctx.moveTo(ox, oy);
+    ctx.lineTo(ox + Math.cos(a) * span, oy + Math.sin(a) * span * 0.9);
+    var g = ctx.createLinearGradient(ox, oy, ox + Math.cos(a) * span, oy + Math.sin(a) * span * 0.9);
+    g.addColorStop(0, "rgba(200,157,222,.20)");
+    g.addColorStop(1, "rgba(200,157,222,0)");
+    ctx.strokeStyle = g;
+    ctx.stroke();
+   }
+   ctx.restore();
+
+   // standing contours, brightening and deviating outward
+   ctx.save();
+   for (var i = 1; i <= 15; i++){
+    var p = i / 15;
+    ctx.lineWidth = 0.6 + p * 0.9;
+    ctx.strokeStyle = "rgba(200,157,222," + (0.09 + p * 0.2).toFixed(3) + ")";
+    ctx.shadowColor = "rgba(200,157,222,.45)";
+    ctx.shadowBlur = p * 9;
+    arc(p * span, 1.5 + p * p * 26, t, i * 0.8);
+   }
+   ctx.restore();
+
+   // two travelling shockwave fronts
+   ctx.save();
+   [0, 0.5].forEach(function(off){
+    var p = ((t * 0.13) + off) % 1;
+    var e = 1 - p;
+    ctx.lineWidth = 1.1 + p * 2.4;
+    ctx.strokeStyle = "rgba(226,200,246," + (0.85 * e * e).toFixed(3) + ")";
+    ctx.shadowColor = "rgba(200,157,222,.95)";
+    ctx.shadowBlur = 22 * e + 6;
+    arc(p * span, 1.5 + p * p * 26, t, 0);
+   });
+   ctx.restore();
+
+   if (!pts.length) return;
+
+   // trajectory: origin → every project, a whip of light
+   ctx.save();
+   ctx.beginPath();
+   ctx.moveTo(ox, oy);
+   for (var j = 0; j < pts.length; j++){
+    var cur = pts[j], prev = j ? pts[j - 1] : { x: ox, y: oy };
+    var mx = (prev.x + cur.x) / 2;
+    ctx.bezierCurveTo(mx, prev.y, mx, cur.y, cur.x, cur.y);
+   }
+   var tg = ctx.createLinearGradient(ox, oy, W, 0);
+   tg.addColorStop(0, "rgba(200,157,222,.15)");
+   tg.addColorStop(0.45, "rgba(214,178,236,.6)");
+   tg.addColorStop(1, "rgba(240,224,255,.95)");
+   ctx.strokeStyle = tg;
+   ctx.lineWidth = 1.6;
+   ctx.shadowColor = "rgba(200,157,222,.8)";
+   ctx.shadowBlur = 16;
+   ctx.stroke();
+
+   // a spark running the trajectory
+   var seg = (t * 0.34) % pts.length;
+   var si = Math.floor(seg), sf = seg - si;
+   var a1 = si ? pts[si - 1] : { x: ox, y: oy }, b1 = pts[si];
+   var sx = a1.x + (b1.x - a1.x) * sf, sy = a1.y + (b1.y - a1.y) * sf;
+   ctx.beginPath();
+   ctx.arc(sx, sy, 3.2, 0, Math.PI * 2);
+   ctx.fillStyle = "rgba(248,240,255,.98)";
+   ctx.shadowColor = "rgba(200,157,222,1)";
+   ctx.shadowBlur = 26;
+   ctx.fill();
+   ctx.restore();
+  }
+
+  var t0 = performance.now();
+  var drawn = false;
+  function paint(t){
+   if (!W || !pts.length || cv.width <= 300) size();
+   if (!W || cv.width <= 300) return false;
+   draw(t);
+   drawn = true;
+   return true;
+  }
+  function frame(now){
+   if (still){ if (!paint(0)) requestAnimationFrame(frame); return; }
+   if (live) paint((now - t0) / 1000);
+   requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  if (still){
+   var tries = 0;
+   var iv = setInterval(function(){ if (paint(0) || ++tries > 80) clearInterval(iv); }, 150);
+   window.addEventListener("load", function(){ paint(0); });
+   window.addEventListener("splash-done", function(){ setTimeout(function(){ paint(0); }, 60); });
+  }
+  if (band && "IntersectionObserver" in window){
+   new IntersectionObserver(function(e){ live = e[0].isIntersecting; }, { threshold: 0 }).observe(band);
+  }
+  function remeasure(){ size(); paint(still ? 0 : (performance.now() - t0) / 1000); }
+  if ("ResizeObserver" in window) new ResizeObserver(remeasure).observe(band);
+  var rt;
+  window.addEventListener("resize", function(){
+   clearTimeout(rt); rt = setTimeout(remeasure, 180);
+  });
+
+  // Nodes jump to their project in Full view
+  var cinema = document.querySelector(".work-cinema");
+  document.querySelectorAll(".rb-node").forEach(function(n){
+   n.addEventListener("click", function(){
+    var panels = document.querySelectorAll(".work-panel");
+    var p = panels[parseInt(n.dataset.target, 10)];
+    if (!p) return;
+    if (cinema){
+     cinema.classList.remove("shelf");
+     var sw = document.getElementById("viewSwitch");
+     if (sw) sw.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.view === "cinema"); });
+     try{ localStorage.setItem("ss-work-view", "cinema"); }catch(e){}
+    }
+    requestAnimationFrame(function(){ p.scrollIntoView({ behavior: "smooth", block: "start" }); });
+   });
+  });
+ }
+ try{ rippleBand(); }catch(e){ console.warn("rippleBand", e); }
+
+ /* Hero contour field — one origin; deviation amplifies with distance.
+    Micro perturbation at the source, wide divergence at the edges. */
+ function heroField(){
+  var cv = document.getElementById("heroField");
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext("2d");
+  var hero = document.querySelector(".hero");
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var W = 0, H = 0, dpr = 1, ox = 0, oy = 0, maxD = 1, step = 6, live = true;
+
+  function size(){
+   var r = cv.getBoundingClientRect();
+   if (!r.width || !r.height) return false;
+   dpr = Math.min(window.devicePixelRatio || 1, 2);
+   W = r.width; H = r.height;
+   cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+   ox = W * 0.68; oy = H * 0.5;
+   maxD = Math.hypot(Math.max(ox, W - ox), Math.max(oy, H - oy));
+   step = W > 900 ? 5 : 8;
+   return true;
+  }
+
+  // The Lorenz attractor — the origin of the term "butterfly effect".
+  // A trajectory that orbits two points forever and settles on neither.
+  var path = [], built = false;
+  function build(){
+   var x = 0.01, y = 0, z = 0, a = 10, b = 28, c = 8 / 3, dt = 0.0042;
+   path = [];
+   for (var i = 0; i < 24000; i++){
+    var dx = a * (y - x), dy = x * (b - z) - y, dz = x * y - c * z;
+    x += dx * dt; y += dy * dt; z += dz * dt;
+    if (i > 400) path.push([x, z - 27]);
+   }
+   built = true;
+  }
+
+  function draw(t){
+   if (!built) build();
+   ctx.clearRect(0, 0, W, H);
+
+   var s = Math.min(W / 62, H / 62) * 1.05;
+   var cx = W * 0.68, cy = H * 0.5;
+   var rot = Math.sin(t * 0.07) * 0.22, cr = Math.cos(rot), sr = Math.sin(rot);
+   function px(p){ return cx + (p[0] * cr - p[1] * sr * 0.35) * s; }
+   function py(p){ return cy - p[1] * s; }
+
+   // the whole attractor, faint: every path the system could have taken
+   ctx.save();
+   ctx.lineWidth = 0.5;
+   ctx.beginPath();
+   for (var i = 0; i < path.length; i++){
+    if (i) ctx.lineTo(px(path[i]), py(path[i]));
+    else ctx.moveTo(px(path[i]), py(path[i]));
+   }
+   ctx.strokeStyle = "rgba(196,190,214,.10)";
+   ctx.stroke();
+
+   // a lit head tracing the one trajectory actually taken
+   var span = 1400, head = Math.floor((t * 260) % path.length);
+   for (var k = 0; k < span; k++){
+    var idx = (head - k + path.length) % path.length;
+    var p0 = path[idx], p1 = path[(idx + 1) % path.length];
+    if (!p0 || !p1) continue;
+    var e = 1 - k / span;
+    ctx.beginPath();
+    ctx.moveTo(px(p0), py(p0));
+    ctx.lineTo(px(p1), py(p1));
+    ctx.strokeStyle = "rgba(" + (214 + e * 30 | 0) + "," + (186 + e * 50 | 0) + "," + (240 + e * 15 | 0) + "," + (e * e * 0.85).toFixed(3) + ")";
+    ctx.lineWidth = 0.5 + e * 1.7;
+    ctx.shadowColor = "rgba(200,157,222," + (e * 0.8).toFixed(2) + ")";
+    ctx.shadowBlur = e * 16;
+    ctx.stroke();
+   }
+   ctx.restore();
+
+   // the two fixed points it can never settle on
+   [[-8.485, 0], [8.485, 0]].forEach(function(p){
+    var fx = px(p), fy = py(p);
+    var gl = ctx.createRadialGradient(fx, fy, 0, fx, fy, 20);
+    gl.addColorStop(0, "rgba(236,222,252,.9)");
+    gl.addColorStop(0.2, "rgba(200,157,222,.3)");
+    gl.addColorStop(1, "rgba(200,157,222,0)");
+    ctx.fillStyle = gl;
+    ctx.beginPath(); ctx.arc(fx, fy, 20, 0, Math.PI * 2); ctx.fill();
+   });
+  }
+
+  var t0 = performance.now();
+  var drawn = false;
+  function paint(t){
+   if (!W || cv.width <= 300) size();
+   if (!W || cv.width <= 300) return false;
+   draw(t);
+   drawn = true;
+   return true;
+  }
+  function frame(now){
+   if (still){ if (!paint(0)) requestAnimationFrame(frame); return; }
+   if (live) paint((now - t0) / 1000);
+   requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  // still mode has no animation loop to fall back on: keep retrying until a
+  // draw genuinely lands (the intro overlay leaves the canvas unmeasurable).
+  if (still){
+   var tries = 0;
+   var iv = setInterval(function(){ if (paint(0) || ++tries > 80) clearInterval(iv); }, 150);
+   window.addEventListener("load", function(){ paint(0); });
+   window.addEventListener("splash-done", function(){ setTimeout(function(){ paint(0); }, 60); });
+  }
+  if (hero && "IntersectionObserver" in window){
+   new IntersectionObserver(function(e){ live = e[0].isIntersecting; }, { threshold: 0 }).observe(hero);
+  }
+  function remeasure(){ size(); paint(still ? 0 : (performance.now() - t0) / 1000); }
+  if ("ResizeObserver" in window) new ResizeObserver(remeasure).observe(cv);
+  var rt;
+  window.addEventListener("resize", function(){
+   clearTimeout(rt);
+   rt = setTimeout(remeasure, 180);
+  });
+ }
+ try{ heroField(); }catch(e){ console.warn("heroField", e); }
 
  document.querySelectorAll(".nav-link").forEach(link => {
   link.addEventListener("click", (e) => {
@@ -4981,7 +5497,7 @@
 <div id="yt-audio"></div>
 <script>
 (function(){
-  const VIDEO_ID = "H_LP_bN4l0k";
+  const VIDEO_ID = "2l_qSw9gqak";
   const term  = document.getElementById("musicTerm");
   const btn   = document.getElementById("musicToggle");
   const icon  = document.getElementById("termIcon").firstElementChild;
@@ -5000,7 +5516,7 @@
       videoId: VIDEO_ID,
       playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: VIDEO_ID, modestbranding: 1, playsinline: 1 },
       events: {
-        onReady: function(){ ready = true; player.setVolume(26); if (pending) play(); },
+        onReady: function(){ ready = true; player.setVolume(2); if (pending) play(); },
         onStateChange: function(e){
           if (e.data === YT.PlayerState.PLAYING) setUI(true);
           else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) setUI(false);
@@ -5018,8 +5534,20 @@
     trackEl.textContent = on ? "now playing — shoki’s tune" : "paused";
   }
   let pending = false;
-  function play(){ if (ready && player){ pending = false; player.playVideo(); } else { pending = true; } }
-  function pause(){ if (ready && player) player.pauseVideo(); }
+  const VOL = 13;
+  let fadeTimer = null;
+  function fadeUp(){
+    if (fadeTimer) clearInterval(fadeTimer);
+    let v = 2;
+    try{ player.setVolume(v); }catch(_){}
+    fadeTimer = setInterval(function(){
+      v += 1;
+      if (v >= VOL){ v = VOL; clearInterval(fadeTimer); fadeTimer = null; }
+      try{ player.setVolume(v); }catch(_){}
+    }, 700);
+  }
+  function play(){ if (ready && player){ pending = false; player.playVideo(); fadeUp(); } else { pending = true; } }
+  function pause(){ if (fadeTimer){ clearInterval(fadeTimer); fadeTimer = null; } if (ready && player) player.pauseVideo(); }
 
   btn.addEventListener("click", function(e){ e.stopPropagation(); if (playing) pause(); else { play(); } });
 
