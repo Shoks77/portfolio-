@@ -165,7 +165,7 @@
   font-family: var(--mono);
   font-size: 14px;
   line-height: 1.55;
-  overflow-x: hidden;
+  overflow-x: clip;
 
   background-image:
    radial-gradient(circle at 20% 30%, rgba(192,57,43,.025), transparent 40%),
@@ -189,7 +189,10 @@
  /* Minimal hairline top bar: monogram far left, a thin divided rail of
     links + a single live clock on the right. Wraps gracefully on phones. */
  .topbar{
-  position: sticky; top:0; z-index: 50;
+  position: sticky; position: -webkit-sticky; top:0; z-index: 90;
+  /* keep it on its own layer so it can't be repainted away mid-scroll */
+  will-change: transform;
+  transform: translateZ(0);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2068,7 +2071,11 @@
    font-family:var(--mono); font-size:8.5px; letter-spacing:.2em; text-transform:uppercase;
    color:var(--mono-grey); opacity:.6; pointer-events:none;
   }
-  .ripple-band{ width: 860px; min-width: 860px; height: 240px; --rb-k:.66px; }
+  .ripple-band{
+   width: 860px; min-width: 860px; height: 240px; --rb-k:.66px;
+   margin-inline: 0; padding-inline: 0;
+   border-top: none; border-bottom: none;
+  }
   .rb-t{ font-size:10px; letter-spacing:.05em; }
   .rb-s{ display:block; font-size:8px; letter-spacing:.09em; }
   .rb-axis{ display:none; }
@@ -3172,6 +3179,7 @@
         <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">Campus Leader · Tokyo</span></span></span>
       </div>
       <span class="rb-axis" aria-hidden="true">scale of effect →</span>
+    </div>
     </div>
 
     <div class="work-cinema shelf">
@@ -4768,6 +4776,9 @@
   var ctx = cv.getContext("2d");
   var band = cv.parentElement;
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Small screens get a lighter draw: fewer rings, no shadow blur, 1× DPR, 30fps.
+  var LOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+  function blur(px){ ctx.shadowBlur = LOW ? 0 : px; }
   var W = 0, H = 0, ox = 0, oy = 0, live = true, pts = [];
 
   var A0 = -Math.PI * 0.56, A1 = Math.PI * 0.10;
@@ -4775,7 +4786,7 @@
   function size(){
    var r = cv.getBoundingClientRect();
    if (!r.width || !r.height) return false;
-   var dpr = Math.min(window.devicePixelRatio || 1, 2);
+   var dpr = LOW ? 1 : Math.min(window.devicePixelRatio || 1, 2);
    W = r.width; H = r.height;
    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -4796,7 +4807,7 @@
   function arc(r, amp, t, seed){
    ctx.beginPath();
    var first = true;
-   for (var a = A0; a <= A1; a += 0.035){
+   for (var a = A0, STEP = LOW ? 0.075 : 0.035; a <= A1; a += STEP){
     var rr = r + Math.sin(a * 4.6 + t * 0.6 + seed) * amp
                + Math.sin(a * 9.1 - t * 0.9 + seed * 2) * amp * 0.35;
     var x = ox + Math.cos(a) * rr;
@@ -4813,8 +4824,9 @@
    // radial rays — the field the waves travel through
    ctx.save();
    ctx.lineWidth = 0.6;
-   for (var k = 0; k <= 9; k++){
-    var a = A0 + (A1 - A0) * (k / 9);
+   var RAYS = LOW ? 5 : 9;
+   for (var k = 0; k <= RAYS; k++){
+    var a = A0 + (A1 - A0) * (k / RAYS);
     ctx.beginPath();
     ctx.moveTo(ox, oy);
     ctx.lineTo(ox + Math.cos(a) * span, oy + Math.sin(a) * span * 0.9);
@@ -4828,12 +4840,13 @@
 
    // standing contours, brightening and deviating outward
    ctx.save();
-   for (var i = 1; i <= 15; i++){
-    var p = i / 15;
+   var RINGS = LOW ? 7 : 15;
+   for (var i = 1; i <= RINGS; i++){
+    var p = i / RINGS;
     ctx.lineWidth = 0.6 + p * 0.9;
     ctx.strokeStyle = "rgba(200,157,222," + (0.09 + p * 0.2).toFixed(3) + ")";
     ctx.shadowColor = "rgba(200,157,222,.45)";
-    ctx.shadowBlur = p * 9;
+    blur(p * 9);
     arc(p * span, 1.5 + p * p * 26, t, i * 0.8);
    }
    ctx.restore();
@@ -4846,7 +4859,7 @@
     ctx.lineWidth = 1.1 + p * 2.4;
     ctx.strokeStyle = "rgba(226,200,246," + (0.85 * e * e).toFixed(3) + ")";
     ctx.shadowColor = "rgba(200,157,222,.95)";
-    ctx.shadowBlur = 22 * e + 6;
+    blur(22 * e + 6);
     arc(p * span, 1.5 + p * p * 26, t, 0);
    });
    ctx.restore();
@@ -4869,7 +4882,7 @@
    ctx.strokeStyle = tg;
    ctx.lineWidth = 1.6;
    ctx.shadowColor = "rgba(200,157,222,.8)";
-   ctx.shadowBlur = 16;
+   blur(16);
    ctx.stroke();
 
    // a spark running the trajectory
@@ -4881,7 +4894,7 @@
    ctx.arc(sx, sy, 3.2, 0, Math.PI * 2);
    ctx.fillStyle = "rgba(248,240,255,.98)";
    ctx.shadowColor = "rgba(200,157,222,1)";
-   ctx.shadowBlur = 26;
+   blur(26);
    ctx.fill();
    ctx.restore();
   }
@@ -4895,9 +4908,10 @@
    drawn = true;
    return true;
   }
+  var lastPaint = 0;
   function frame(now){
    if (still){ if (!paint(0)) requestAnimationFrame(frame); return; }
-   if (live) paint((now - t0) / 1000);
+   if (live && (!LOW || now - lastPaint > 33)){ lastPaint = now; paint((now - t0) / 1000); }
    requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -4910,7 +4924,10 @@
   if (band && "IntersectionObserver" in window){
    new IntersectionObserver(function(e){ live = e[0].isIntersecting; }, { threshold: 0 }).observe(band);
   }
-  function remeasure(){ size(); paint(still ? 0 : (performance.now() - t0) / 1000); }
+  function remeasure(){
+   LOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+   size(); paint(still ? 0 : (performance.now() - t0) / 1000);
+  }
   if ("ResizeObserver" in window) new ResizeObserver(remeasure).observe(band);
   var rt;
   window.addEventListener("resize", function(){
@@ -4944,6 +4961,9 @@
   var ctx = cv.getContext("2d");
   var hero = document.querySelector(".hero");
   var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Small screens get a lighter draw: fewer rings, no shadow blur, 1× DPR, 30fps.
+  var LOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+  function blur(px){ ctx.shadowBlur = LOW ? 0 : px; }
   var W = 0, H = 0, dpr = 1, ox = 0, oy = 0, maxD = 1, step = 6, live = true;
 
   function size(){
@@ -4995,20 +5015,37 @@
    ctx.stroke();
 
    // a lit head tracing the one trajectory actually taken
-   var span = 1400, head = Math.floor((t * 260) % path.length);
-   for (var k = 0; k < span; k++){
-    var idx = (head - k + path.length) % path.length;
-    var p0 = path[idx], p1 = path[(idx + 1) % path.length];
-    if (!p0 || !p1) continue;
-    var e = 1 - k / span;
-    ctx.beginPath();
-    ctx.moveTo(px(p0), py(p0));
-    ctx.lineTo(px(p1), py(p1));
-    ctx.strokeStyle = "rgba(" + (214 + e * 30 | 0) + "," + (186 + e * 50 | 0) + "," + (240 + e * 15 | 0) + "," + (e * e * 0.85).toFixed(3) + ")";
-    ctx.lineWidth = 0.5 + e * 1.7;
-    ctx.shadowColor = "rgba(200,157,222," + (e * 0.8).toFixed(2) + ")";
-    ctx.shadowBlur = e * 16;
-    ctx.stroke();
+   var span = LOW ? 300 : 1400, head = Math.floor((t * 260) % path.length);
+   if (LOW){
+    // Batched: 6 polylines, one stroke each, no shadow.
+    var BANDS = 6, per = Math.ceil(span / BANDS);
+    for (var b = 0; b < BANDS; b++){
+     var e = 1 - b / BANDS;
+     ctx.beginPath();
+     for (var q = b * per; q <= (b + 1) * per && q < span; q++){
+      var pp = path[(head - q + path.length) % path.length];
+      if (!pp) continue;
+      if (q === b * per) ctx.moveTo(px(pp), py(pp)); else ctx.lineTo(px(pp), py(pp));
+     }
+     ctx.strokeStyle = "rgba(" + (214 + e * 30 | 0) + "," + (186 + e * 50 | 0) + "," + (240 + e * 15 | 0) + "," + (e * e * 0.85).toFixed(3) + ")";
+     ctx.lineWidth = 0.5 + e * 1.7;
+     ctx.stroke();
+    }
+   } else {
+    for (var k = 0; k < span; k++){
+     var idx = (head - k + path.length) % path.length;
+     var p0 = path[idx], p1 = path[(idx + 1) % path.length];
+     if (!p0 || !p1) continue;
+     var e2 = 1 - k / span;
+     ctx.beginPath();
+     ctx.moveTo(px(p0), py(p0));
+     ctx.lineTo(px(p1), py(p1));
+     ctx.strokeStyle = "rgba(" + (214 + e2 * 30 | 0) + "," + (186 + e2 * 50 | 0) + "," + (240 + e2 * 15 | 0) + "," + (e2 * e2 * 0.85).toFixed(3) + ")";
+     ctx.lineWidth = 0.5 + e2 * 1.7;
+     ctx.shadowColor = "rgba(200,157,222," + (e2 * 0.8).toFixed(2) + ")";
+     ctx.shadowBlur = e2 * 16;
+     ctx.stroke();
+    }
    }
    ctx.restore();
 
@@ -5033,9 +5070,10 @@
    drawn = true;
    return true;
   }
+  var lastPaint = 0;
   function frame(now){
    if (still){ if (!paint(0)) requestAnimationFrame(frame); return; }
-   if (live) paint((now - t0) / 1000);
+   if (live && (!LOW || now - lastPaint > 33)){ lastPaint = now; paint((now - t0) / 1000); }
    requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -5050,7 +5088,10 @@
   if (hero && "IntersectionObserver" in window){
    new IntersectionObserver(function(e){ live = e[0].isIntersecting; }, { threshold: 0 }).observe(hero);
   }
-  function remeasure(){ size(); paint(still ? 0 : (performance.now() - t0) / 1000); }
+  function remeasure(){
+   LOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+   size(); paint(still ? 0 : (performance.now() - t0) / 1000);
+  }
   if ("ResizeObserver" in window) new ResizeObserver(remeasure).observe(cv);
   var rt;
   window.addEventListener("resize", function(){
@@ -5131,7 +5172,7 @@
   const cy = H / 2;
   const R  = Math.min(W, H) * 0.42;
 
-  const N = 900;
+  const N = (window.matchMedia && window.matchMedia("(max-width: 900px)").matches) ? 420 : 900;
   const points = [];
   const goldenAngle = Math.PI * (3 - Math.sqrt(5));
   for (let i = 0; i < N; i++){
@@ -5144,8 +5185,18 @@
   }
 
   let angle = 0;
-  function frame(){
-   angle += 0.008;  // rotation speed around Y axis
+  // Only paint while the sphere is actually on screen, and at 30fps on phones.
+  let visible = true, lastT = 0;
+  const SLOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+  if ("IntersectionObserver" in window){
+   new IntersectionObserver(function(e){ visible = e[0].isIntersecting; },
+    { threshold: 0 }).observe(canvas);
+  }
+  function frame(now){
+   if (!visible){ requestAnimationFrame(frame); return; }
+   if (SLOW && now - lastT < 33){ requestAnimationFrame(frame); return; }
+   lastT = now;
+   angle += SLOW ? 0.016 : 0.008;  // rotation speed around Y axis
 
    const tilt = Math.sin(angle * 0.3) * 0.15;
 
@@ -5655,8 +5706,18 @@
     window.addEventListener("resize", fit);
     poll();
   }
-  // Auto-open pockets: load their 3D iframe immediately
-  document.querySelectorAll(".pocket-body.open").forEach(loadFrame);
+  // Phones can't afford two live three.js contexts at load: collapse the 3D
+  // pockets there and load each one only when its tab is tapped.
+  var SMALL = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
+  if (SMALL){
+    document.querySelectorAll(".pocket-body.open").forEach(function(b){
+      b.classList.remove("open");
+      var tab = b.parentElement && b.parentElement.querySelector(".pocket-tab");
+      if (tab) tab.setAttribute("aria-expanded", "false");
+    });
+  } else {
+    document.querySelectorAll(".pocket-body.open").forEach(loadFrame);
+  }
   document.querySelectorAll(".pocket-tab").forEach(function(tab){
     tab.addEventListener("click", function(){
       var body = document.getElementById(tab.getAttribute("aria-controls"));
