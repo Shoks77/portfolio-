@@ -1332,6 +1332,41 @@
  .work-panel:nth-child(5) .work-image{ background: linear-gradient(165deg, #2a2520, rgba(176,139,209,.4) 70%, #1a1428); }
  .work-panel:nth-child(6) .work-image{ background: linear-gradient(135deg, #f0ead8, #c8b896 50%, #6b5a3e); }
 
+ /* PDP window: product pages are white, so the frame stays light — no black band */
+ .site-window.site-window--light{
+  background:#fff;
+  border:1px solid var(--rule);
+  box-shadow:0 18px 44px rgba(26,24,22,.10), 0 2px 8px rgba(26,24,22,.05);
+ }
+ .site-window.site-window--light .site-chrome{
+  background:#fbf9f5;
+  border-bottom:1px solid var(--rule);
+ }
+ .site-window.site-window--light .site-url{ color:var(--mono-grey); }
+ .site-window.site-window--light .site-pop{ color:var(--sumi); }
+ /* PDP page strip — swipe through the shade guides and arm swatches */
+ .pdp-strip{
+  display: flex; gap: 14px;
+  padding: 16px;
+  background: #fff;
+  overflow-x: auto; overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+ }
+ .pdp-strip .pdp-page{
+  flex: 0 0 auto; margin: 0;
+  width: clamp(210px, 26vw, 320px);
+  scroll-snap-align: center;
+  border: 1px solid var(--rule);
+  border-radius: 3px; overflow: hidden; background: #fff;
+ }
+ .pdp-strip .pdp-page img{ display: block; width: 100%; height: auto; }
+ @media (max-width: 760px){
+  .pdp-strip{ padding: 12px; gap: 10px; }
+  .pdp-strip .pdp-page{ width: 74vw; }
+ }
  .work-image.media-gallery{
   padding: 0;
   background: #0a0908;
@@ -2023,6 +2058,7 @@
  .rb-node:focus-visible{ outline:none; }
  /* Current role — a marker, not a project link */
  .rb-node--now{ cursor:default; }
+ button.rb-node--now[data-target]{ cursor:pointer; }
  .rb-node--now .rb-mark{ background:#efe4fb; box-shadow:0 0 0 5px rgba(200,157,222,.18), 0 0 22px 3px rgba(200,157,222,.7); }
  .rb-node--now .rb-t{ color:var(--murasaki); }
  .rb-axis{
@@ -2645,80 +2681,199 @@
   </svg>
 </template>
 
-<!-- ─────────── OPENING SPLASH (monogram, fades once ready) ─────────── -->
+<!-- ─────────── OPENING SPLASH (terminal window, fades once ready) ─────────── -->
 <style>
  #splash{
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: block;
-  background: #0d0c0b;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: var(--paper);
   transition: opacity .7s ease, visibility .7s ease;
  }
  #splash.is-done{ opacity: 0; visibility: hidden; pointer-events: none; }
  #splash .splash-mark{ display: none; }
- /* corner registration brackets (cohesive with the hero HUD) */
- #splash .sp-br{ position:absolute; width:32px; height:32px; border:1px solid rgba(200,157,222,.45); }
- #splash .sp-br.tl{ top:26px; left:26px; border-right:0; border-bottom:0; }
- #splash .sp-br.tr{ top:26px; right:26px; border-left:0; border-bottom:0; }
- #splash .sp-br.bl{ bottom:26px; left:26px; border-right:0; border-top:0; }
- #splash .sp-br.br{ bottom:26px; right:26px; border-left:0; border-top:0; }
- /* boot status, top-left */
+
+ /* macOS-style window */
+ #splash .sp-win{
+  width: min(760px, 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(26,24,22,.10);
+  box-shadow: 0 34px 80px rgba(26,24,22,.16), 0 4px 14px rgba(26,24,22,.07);
+  transform: translateY(6px) scale(.985);
+  opacity: 0;
+  animation: sp-in .7s cubic-bezier(.22,.9,.24,1) .06s forwards;
+ }
+ @keyframes sp-in{ to{ transform: translateY(0) scale(1); opacity: 1; } }
+
+ #splash .sp-bar{
+  position: relative;
+  display: flex; align-items: center;
+  height: 40px; padding: 0 14px;
+  background: #fdfcfa;
+  border-bottom: 1px solid rgba(26,24,22,.09);
+ }
+ #splash .sp-lights{ display: flex; gap: 8px; }
+ #splash .sp-lights i{ width: 11px; height: 11px; border-radius: 50%; display: block; }
+ #splash .sp-lights i.r{ background: #ec6a5e; }
+ #splash .sp-lights i.y{ background: #f4bf4f; }
+ #splash .sp-lights i.g{ background: #61c454; }
+ #splash .sp-title{
+  position: absolute; left: 0; right: 0; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  letter-spacing: .01em; color: var(--sumi); pointer-events: none;
+ }
+ #splash .sp-folder{
+  position: relative; width: 17px; height: 13px; border-radius: 2.5px;
+  background: var(--murasaki); display: block; flex: 0 0 auto;
+ }
+ #splash .sp-folder::before{
+  content: ""; position: absolute; top: -3.5px; left: 0;
+  width: 7px; height: 4px; border-radius: 2px 2px 0 0; background: var(--murasaki);
+ }
+
+ #splash .sp-body{
+  position: relative;
+  min-height: clamp(260px, 44vh, 380px);
+  padding: 22px 24px 20px;
+  background: #fff;
+ }
+ /* soft palette wash standing in for the window's photo */
+ #splash .sp-wash{
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+   radial-gradient(120% 90% at 78% 16%, rgba(200,157,222,.26), transparent 62%),
+   radial-gradient(90% 80% at 96% 96%, rgba(214,90,80,.10), transparent 60%),
+   linear-gradient(180deg, rgba(250,247,236,.35), rgba(250,247,236,0) 42%);
+ }
+ /* Van Gogh, Wheatfield with Crows (1890) — held far back so the type reads */
+ #splash .sp-art{
+  position: absolute; inset: 0; pointer-events: none;
+  background: url("media/vangogh-wheatfield.jpg") center/cover no-repeat;
+  opacity: .55;
+ }
+ #splash .sp-art::after{
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(255,255,255,.93) 0%, rgba(255,255,255,.62) 46%, rgba(255,255,255,.06) 100%);
+ }
+ #splash .sp-tate{
+  position: absolute; right: 24px; top: 20px;
+  font-family: var(--jp); font-size: 12px; line-height: 1.5;
+  letter-spacing: .3em; text-align: center;
+  color: var(--sumi-soft); opacity: .5; pointer-events: none;
+ }
+ #splash .sp-console{ position: relative; font-family: var(--mono); }
+ #splash .sp-line{ font-size: clamp(14px, 1.5vw, 17px); line-height: 1.6; }
+ #splash .sp-prompt{
+  color: #14120f; font-weight: 500;
+  font-size: clamp(12px, 1.25vw, 14.5px); line-height: 1.7;
+  max-width: 60ch; text-wrap: pretty;
+ }
+ #splash .sp-by{
+  display: block; color: #4a443c; letter-spacing: .06em; margin-top: 2px;
+  opacity: 0; transition: opacity .5s ease;
+ }
+ #splash .sp-by.show{ opacity: 1; }
+ #splash .sp-qcaret{
+  display: inline-block; width: .5em; height: 1em; margin-left: 1px;
+  vertical-align: -.12em; background: #14120f; opacity: .8;
+  animation: sp-caret .95s steps(2) infinite;
+ }
+ #splash .sp-qcaret.done{ display: none; }
+ #splash .sp-jp{ font-family: var(--jp); font-size: .62em; letter-spacing: .16em; color: var(--sumi-soft); opacity: .7; margin-left: .5em; }
+ #splash .sp-cmd{ margin-top: 12px; opacity: 0; transition: opacity .35s ease; color: var(--mono-grey); display: flex; align-items: center; }
+ #splash .sp-cmd.show{ opacity: 1; }
+ #splash .sp-caret{
+  display: inline-block; width: .56em; height: 1.05em; margin-left: 1px;
+  background: var(--sumi); opacity: .82;
+  animation: sp-caret .95s steps(2) infinite;
+ }
+ @keyframes sp-caret{ 50%{ opacity: 0; } }
+
+ #splash .sp-run{
+  -webkit-appearance: none; appearance: none; border: 0; background: transparent;
+  margin: 18px 0 0; padding: 4px 2px;
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--mono); font-size: clamp(14px, 1.5vw, 17px); font-weight: 700;
+  color: var(--sumi); cursor: pointer;
+  opacity: 0; transform: translateY(3px);
+  transition: color .2s ease, gap .2s ease, opacity .4s ease, transform .4s ease;
+ }
+ #splash .sp-run.show{ opacity: 1; transform: none; }
+ #splash .sp-run:hover{ color: var(--murasaki); gap: 13px; }
+ #splash .sp-run .tri{ color: var(--murasaki); }
+ #splash .sp-run:focus-visible{ outline: 2px solid var(--murasaki); outline-offset: 3px; border-radius: 3px; }
+
+ #splash .sp-out{
+  position: relative; margin-top: 16px;
+  font-family: var(--mono); font-size: 11.5px; line-height: 1.85;
+  letter-spacing: .04em; color: var(--mono-grey);
+ }
+ #splash .sp-out b{ color: var(--murasaki); font-weight: 500; }
+
+ /* status footer inside the window */
  #splash .sp-status{
-  position:absolute; left:clamp(26px,6vw,116px); top:clamp(40px,9vh,96px);
-  display:flex; align-items:center; gap:13px;
-  font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase;
-  color:var(--mono-grey);
+  position: absolute; left: 24px; right: 24px; bottom: 16px;
+  display: flex; align-items: center; gap: 11px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--mono-grey);
  }
- #splash .sp-status i{ width:7px; height:7px; border-radius:50%; background:var(--hinomaru); animation:sp-blink .85s steps(1) infinite; }
- #splash .sp-status .jp{ font-family:var(--jp); letter-spacing:.14em; text-transform:none; color:var(--sumi-soft); }
- @keyframes sp-blink{ 50%{ opacity:.18; } }
- /* big odometer counter, bottom-left */
- #splash .splash-pct{
-  position:absolute; left:clamp(22px,6vw,112px); bottom:clamp(40px,9vh,92px);
-  display:flex; align-items:flex-end; gap:4px;
-  font-family:var(--mono); font-weight:700;
-  font-size:clamp(104px,22vw,300px); line-height:.78; letter-spacing:-.045em;
-  color:#f0ece3; font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1;
+ #splash .sp-status i{ width: 6px; height: 6px; border-radius: 50%; background: var(--hinomaru); animation: sp-blink .85s steps(1) infinite; }
+ #splash .sp-status .jp{ font-family: var(--jp); letter-spacing: .14em; text-transform: none; color: var(--sumi-soft); }
+ #splash .sp-status .sp-pct{ margin-left: auto; color: var(--sumi); font-variant-numeric: tabular-nums; letter-spacing: .1em; }
+ @keyframes sp-blink{ 50%{ opacity: .18; } }
+
+ @media (max-width: 600px){
+  #splash{ padding: 16px; }
+  #splash .sp-body{ padding: 18px 16px 18px; min-height: 250px; }
+  #splash .sp-title{ font-size: 11.5px; }
+  #splash .sp-status{ left: 16px; right: 16px; font-size: 8.5px; letter-spacing: .14em; gap: 8px; }
+  #splash .sp-status .jp{ display: none; }
+  #splash .sp-tate{ font-size: 10px; right: 16px; top: 14px; }
+  #splash .sp-jp{ display: none; }
  }
- #splash .splash-pct .pct-sign{ font-size:.2em; font-weight:500; letter-spacing:0; color:var(--murasaki); margin-bottom:.95em; }
- /* segmented tick meter, bottom-right */
- #splash .sp-ticks{
-  position:absolute; right:clamp(26px,6vw,116px); bottom:clamp(50px,9vh,110px);
-  display:flex; align-items:flex-end; gap:3px;
+ @media (prefers-reduced-motion: reduce){
+  #splash .sp-status i, #splash .sp-cmd.show{ opacity: 1; }
+ #splash .sp-caret{ animation: none; }
+  #splash .sp-win{ animation: none; opacity: 1; transform: none; }
  }
- #splash .sp-ticks span{ width:3px; height:9px; background:rgba(240,236,227,.13); transition:background .18s ease, height .18s ease; }
- #splash .sp-ticks span.on{ background:var(--murasaki); height:19px; }
- #splash .sp-ticks span.on:last-of-type{ background:var(--hinomaru); }
- @media (max-width:600px){
-  #splash .sp-ticks{ display:none; }
-  #splash .splash-pct{ font-size:34vw; }
-  #splash .sp-status{ font-size:9.5px; letter-spacing:.16em; gap:9px; }
- }
- @media (prefers-reduced-motion: reduce){ #splash .sp-status i{ animation:none; } }
 </style>
 <div id="splash" role="status" aria-label="Loading">
-  <span class="sp-br tl"></span><span class="sp-br tr"></span>
-  <span class="sp-br bl"></span><span class="sp-br br"></span>
-  <div class="sp-status"><i></i><span id="spPhase">Initializing</span><span class="jp" id="spPhaseJp">初期化</span></div>
-  <div class="splash-pct"><span id="splashPct">000</span><span class="pct-sign">%</span></div>
-  <div class="sp-ticks" id="spTicks" aria-hidden="true"></div>
+  <div class="sp-win">
+    <div class="sp-bar">
+      <span class="sp-lights" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></span>
+      <span class="sp-title"><span class="sp-folder" aria-hidden="true"></span>shoki sakuma portfolio</span>
+    </div>
+    <div class="sp-body">
+      <div class="sp-wash" aria-hidden="true"></div>
+      <div class="sp-art" aria-hidden="true"></div>
+      <span class="sp-tate" aria-hidden="true">佐久間<br/>聖暉</span>
+      <div class="sp-console">
+        <div class="sp-line sp-prompt">&gt; <span id="spQuote"></span><span class="sp-qcaret" id="spQCaret" aria-hidden="true"></span><span class="sp-by" id="spBy">— Vincent van Gogh</span></div>
+        <div class="sp-line sp-cmd"><span id="spCmd"></span><span class="sp-caret" aria-hidden="true"></span></div>
+        <button type="button" class="sp-run" id="spRun"><span class="tri" aria-hidden="true">&#9656;</span>Run</button>
+        <div class="sp-out" id="spOut" aria-hidden="true"></div>
+      </div>
+      <div class="sp-status">
+        <i></i><span id="spPhase">Initializing</span><span class="jp" id="spPhaseJp">初期化</span>
+        <span class="sp-pct"><span id="splashPct">000</span>%</span>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
  (function splash(){
   var el = document.getElementById('splash');
   if (!el) return;
-  var pctEl = document.getElementById('splashPct');
-  var dismissed = false;
-  var pct = 0;
-
-  // build the segmented tick meter
-  var ticks = [];
-  (function(){
-   var c = document.getElementById('spTicks');
-   if (!c) return;
-   for (var i = 0; i < 30; i++){ var s = document.createElement('span'); c.appendChild(s); ticks.push(s); }
-  })();
+  var pctEl  = document.getElementById('splashPct');
+  var cmdEl  = document.getElementById('spCmd');
+  var runEl  = document.getElementById('spRun');
+  var outEl  = document.getElementById('spOut');
+  var dismissed = false, ran = false, pct = 0;
 
   var phases = [['Initializing','初期化'], ['Loading assets','アセット読込'], ['Rendering','描画中'], ['Ready','準備完了']];
   function setPhase(v){
@@ -2727,34 +2882,64 @@
    if (a) a.textContent = phases[i][0];
    if (b) b.textContent = phases[i][1];
   }
-
-  function render(){
-   if (!pctEl) return;
-   var s = String(pct).padStart(3, '0');
-   // tech "boot scramble": flicker the trailing digit until locked at 100
-   if (!dismissed && pct < 100 && Math.random() < 0.6){
-    s = s.slice(0, 2) + Math.floor(Math.random() * 10);
-   }
-   pctEl.textContent = s;
-  }
-
   function setPct(v){
    pct = Math.max(pct, Math.min(100, Math.round(v)));
-   render();
-   var on = Math.round(pct / 100 * ticks.length);
-   for (var i = 0; i < ticks.length; i++){ ticks[i].classList.toggle('on', i < on); }
+   if (pctEl) pctEl.textContent = String(pct).padStart(3, '0');
    setPhase(pct);
   }
-  var flick = setInterval(render, 70);
 
-  // Ease the counter from 0→~90 on its own; real "ready" snaps it to 100.
-  var t0 = performance.now();
-  var raf;
+  // type the quote, then the command
+  var QUOTE = '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”';
+  var CMD   = 'open("the.journey")';
+  var qEl = document.getElementById('spQuote');
+  var qCaret = document.getElementById('spQCaret');
+  var byEl = document.getElementById('spBy');
+  var cmdWrap = cmdEl ? cmdEl.parentElement : null;
+  var qi = 0, i = 0, typer = null;
+
+  var qTyper = setInterval(function(){
+   if (qi >= QUOTE.length){
+    clearInterval(qTyper);
+    if (qCaret) qCaret.classList.add('done');
+    if (byEl) byEl.classList.add('show');
+    setTimeout(typeCmd, 420);
+    return;
+   }
+   if (qEl) qEl.textContent = QUOTE.slice(0, ++qi);
+  }, 24);
+
+  function typeCmd(){
+   if (cmdWrap) cmdWrap.classList.add('show');
+   typer = setInterval(function(){
+    if (i >= CMD.length){
+     clearInterval(typer);
+     if (runEl){ runEl.classList.add('show'); try{ runEl.focus({ preventScroll: true }); }catch(_){ } }
+     return;
+    }
+    if (cmdEl) cmdEl.textContent = CMD.slice(0, ++i);
+   }, 46);
+  }
+
+  function run(){
+   if (qi < QUOTE.length){   // still typing → skip ahead instead of running
+    clearInterval(qTyper);
+    if (qEl) qEl.textContent = QUOTE;
+    if (qCaret) qCaret.classList.add('done');
+    if (byEl) byEl.classList.add('show');
+    qi = QUOTE.length;
+    typeCmd();
+    return;
+   }
+   if (ran) return;
+   ran = true;
+   if (runEl) runEl.style.opacity = '.45';
+   finish();
+  }
+  if (runEl) runEl.addEventListener('click', run);
+
+  var t0 = performance.now(), raf;
   function tick(now){
-   var elapsed = now - t0;
-   // approach 90% over ~1.4s, decelerating
-   var target = 90 * (1 - Math.exp(-elapsed / 1500));
-   setPct(target);
+   setPct(92 * (1 - Math.exp(-(now - t0) / 1100)));
    if (!dismissed && pct < 100) raf = requestAnimationFrame(tick);
   }
   raf = requestAnimationFrame(tick);
@@ -2763,25 +2948,24 @@
    if (dismissed) return;
    dismissed = true;
    setPct(100);
-   if (flick) clearInterval(flick);
-   if (pctEl) pctEl.textContent = '100';
+   if (typer) clearInterval(typer);
+   if (qTyper) clearInterval(qTyper);
+   if (qEl) qEl.textContent = QUOTE;
+   if (cmdEl) cmdEl.textContent = CMD;
    if (raf) cancelAnimationFrame(raf);
    setTimeout(function(){
     el.classList.add('is-done');
-    // Tell the hero name typewriter it's now safe to play (was hidden behind splash)
     window.__splashDone = true;
     window.dispatchEvent(new Event('splash-done'));
     setTimeout(function(){ if (el && el.parentNode) el.parentNode.removeChild(el); }, 800);
-   }, 220);
+   }, 240);
   }
 
-  var minShow = setTimeout(function(){
-   if (document.fonts && document.fonts.ready){
-    document.fonts.ready.then(function(){ setTimeout(finish, 120); });
-   } else { finish(); }
-  }, 3400);
-  window.addEventListener('load', function(){ setTimeout(finish, 800); });
-  setTimeout(finish, 2600); // safety cap
+  // Enter/Space anywhere also runs it; nothing auto-runs — the visitor presses Run.
+  document.addEventListener('keydown', function(k){
+   if (!ran && (k.key === 'Enter' || k.key === ' ')){ k.preventDefault(); run(); }
+  });
+  setTimeout(function(){ if (!ran) run(); }, 20000); // last-resort release
  })();
 </script>
 
@@ -3168,15 +3352,15 @@
         <span class="rb-o-text"><b>The Ritz-Carlton</b><em>the origin</em></span>
       </span>
       <div class="rb-nodes">
-        <button type="button" class="rb-node" data-target="3" style="--x:16%; --h:70;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Shirosaka</span><span class="rb-s">UI/UX Project</span></span></button>
+        <button type="button" class="rb-node" data-target="4" style="--x:16%; --h:70;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Shirosaka</span><span class="rb-s">UI/UX Project</span></span></button>
         <button type="button" class="rb-node" data-target="0" style="--x:26%; --h:175;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">LooksMax™</span><span class="rb-s">#1 in the U.S.</span></span></button>
-        <button type="button" class="rb-node" data-target="2" style="--x:38%; --h:100;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal × IDSA.GW</span><span class="rb-s">500+ in a room</span></span></button>
-        <button type="button" class="rb-node" data-target="5" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
-        <button type="button" class="rb-node" data-target="4" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
+        <button type="button" class="rb-node" data-target="3" style="--x:38%; --h:100;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">IDSA.GW</span><span class="rb-s">500+ in a room</span></span></button>
+        <button type="button" class="rb-node" data-target="6" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
+        <button type="button" class="rb-node" data-target="5" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
         <span class="rb-node rb-node--now" style="--x:65%; --h:118;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Morgan Stanley</span><span class="rb-s">Early Insight Program</span></span></span>
         <button type="button" class="rb-node" data-target="1" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
-        <span class="rb-node rb-node--now" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></span>
-        <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">Campus Leader · Tokyo</span></span></span>
+        <button type="button" class="rb-node rb-node--now" data-target="2" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></button>
+        <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">President · FoF · Uni · Tokyo</span></span></span>
       </div>
       <span class="rb-axis" aria-hidden="true">scale of effect →</span>
     </div>
@@ -3188,11 +3372,12 @@
       <nav class="work-dots" aria-label="Project index">
         <button class="dot active" data-target="0"><span class="n">01</span><span class="t">LooksMax™</span></button>
         <button class="dot" data-target="1"><span class="n">02</span><span class="t">Airable</span></button>
-        <button class="dot" data-target="2"><span class="n">03</span><span class="t">L’Oréal × IDSA.GW</span></button>
-        <button class="dot" data-target="3"><span class="n">04</span><span class="t">Shirosaka</span></button>
-        <button class="dot" data-target="4"><span class="n">05</span><span class="t">Dr. Ishii</span></button>
-        <button class="dot" data-target="5"><span class="n">06</span><span class="t">HumanX</span></button>
-        <button class="dot" data-target="6"><span class="n">07</span><span class="t">Auréole</span></button>
+        <button class="dot" data-target="2"><span class="n">03</span><span class="t">L’Oréal Paris</span></button>
+        <button class="dot" data-target="3"><span class="n">04</span><span class="t">IDSA.GW</span></button>
+        <button class="dot" data-target="4"><span class="n">05</span><span class="t">Shirosaka</span></button>
+        <button class="dot" data-target="5"><span class="n">06</span><span class="t">Dr. Ishii</span></button>
+        <button class="dot" data-target="6"><span class="n">07</span><span class="t">HumanX</span></button>
+        <button class="dot" data-target="7"><span class="n">08</span><span class="t">Auréole</span></button>
       </nav>
 
       <!-- 01 — LooksMax™ -->
@@ -3227,7 +3412,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">壱</span>01 / 07 <span class="pill">Flagship</span></div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">壱</span>01 / 08 <span class="pill">Flagship</span></div>
           <h3>LooksMax™</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Team Lead &middot; Product Strategy</span>
@@ -3272,14 +3457,14 @@
           <img src="media/airable-device.jpg" alt="Airable — the final product, design language complementing the filtration functionality" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">弐</span>02 / 07 <span class="pill">Ongoing Project</span></div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">弐</span>02 / 08 <span class="pill">Hardware</span></div>
           <h3>Airable</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Head of Research &amp; Innovation</span>
             <span class="k">Category</span><span class="v">Hardware · Product</span>
             <span class="k">Year</span><span class="v">2026</span>
           </div>
-          <p class="desc">An ongoing project with <em class="hl">five teammates from Yale, Stanford Graduates, and GWU</em> — Clean climate systems, reimagined for the home and commercial. Submitted to the <em class="hl">James Dyson Award 2026</em>, the international design and engineering prize for student-led inventions that solve a real problem.</p>
+          <p class="desc">Built with <em class="hl">five teammates from Yale, Stanford Graduates, and GWU</em> — Clean climate systems, reimagined for the home and commercial. Submitted to the <em class="hl">James Dyson Award 2026</em>, the international design and engineering prize for student-led inventions that solve a real problem.</p>
           <div class="cta-group">
             <a class="cta" href="https://shoks77.github.io/AIRABLE.AC/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
             <a class="cta" href="https://www.jamesdysonaward.org/2026/project/airable" target="_blank" rel="noopener noreferrer">Dyson Award entry <span aria-hidden="true">↗</span></a>
@@ -3300,8 +3485,49 @@
       </div>
 
 
-      <!-- 03 — Ignite Your Innovation -->
+      <!-- 03 — L’Oréal Paris -->
       <article class="work-panel" data-index="2">
+        <span class="ghost-word">L’Oréal</span>
+        <div class="work-image" style="display:flex; align-items:center; justify-content:center; background:#fff;">
+          <img src="media/logo-loreal-paris.png" alt="L’Oréal Paris" loading="lazy" style="width:58%; max-width:320px; height:auto; object-fit:contain;"/>
+        </div>
+        <div class="work-info">
+          <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 08 <span class="pill">Recent</span></div>
+          <h3>L’Oréal Paris</h3>
+          <div class="meta">
+            <span class="k">Role</span><span class="v role">Brand Strategy Marketing Intern</span>
+            <span class="k">Category</span><span class="v">Brand Strategy · Consumer Products &amp; AI</span>
+            <span class="k">Year</span><span class="v">2026</span>
+          </div>
+          <div class="cta-group">
+            <a class="cta" href="https://ninth-left-64068603.figma.site/" target="_blank" rel="noopener noreferrer">Consumer Voice Hub — proposed tool <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 · L’Oréal Paris — PDP pages, a second display inside the project -->
+      <div class="work-image site-embed reveal" data-screen-label="L’Oréal Paris PDP">
+        <div class="site-window site-window--light">
+          <div class="site-chrome">
+            <span class="sc-dot r"></span><span class="sc-dot y"></span><span class="sc-dot g"></span>
+            <span class="site-url">true match · pdp pages</span>
+            <a class="site-pop" href="https://www.lorealparisusa.com/" target="_blank" rel="noopener noreferrer" aria-label="Open L’Oréal Paris USA in a new tab">↗</a>
+          </div>
+          <div class="pdp-strip">
+            <figure class="pdp-page"><img src="media/loreal-blush-finish.jpg" alt="True Match Powder Blush — “Build up your perfect natural finish” product-claims page" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-tm-blush.jpg" alt="True Match Powder Blush — arm swatches across three skin tones with the full shade index" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-tm-shades.jpg" alt="True Match Powder Blush — numbered arm swatches with shade names" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-blush-guide-1.jpg" alt="Blush shade guide — Baby Blossom, Tender Rose, Innocent Flush, Bare Honey, Barely Blushing on model" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-blush-guide-2.jpg" alt="Blush shade guide — Rosy Outlook, Spiced Plum, Apricot Kiss, Sweet Ginger, Subtle Sable on model" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-shade-light.jpg" alt="True Match shade guide — Light range, W1 to W3" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-shade-medium.jpg" alt="True Match shade guide — Medium range, N3 to N7" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-shade-deep.jpg" alt="True Match shade guide — Deep range, N6 to C12" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 — Ignite Your Innovation -->
+      <article class="work-panel" data-index="3">
         <span class="ghost-word">Ignite</span>
         <div class="work-image media-gallery ignite-gallery">
           <div class="gallery-track">
@@ -3332,8 +3558,8 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 07</div>
-          <h3>L’Oréal ×<br/>IDSA.GW</h3>
+          <div class="index"><span class="kanji-num" aria-hidden="true">四</span>04 / 08</div>
+          <h3>IDSA.GW</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Co-Founder · Creative &amp; Partnership Lead</span>
             <span class="k">Category</span><span class="v">Event · Brand · Logistics</span>
@@ -3348,7 +3574,7 @@
       </article>
 
       <!-- 03 — Shirosaka -->
-      <article class="work-panel" data-index="3">
+      <article class="work-panel" data-index="4">
         <span class="ghost-word">Shirosaka</span>
         <div class="work-image media-gallery shirosaka-gallery">
           <div class="gallery-track">
@@ -3379,14 +3605,14 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">四</span>04 / 07</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">伍</span>05 / 08</div>
           <h3>Shirosaka</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Operations &amp; UI/UX Designer</span>
             <span class="k">Category</span><span class="v">CRM · Ops · UI/UX</span>
             <span class="k">Year</span><span class="v">2025</span>
           </div>
-          <p class="desc">Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. <em class="hl">Results are still awaiting.</em></p>
+          <p class="desc">Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of <em class="hl">100–200 high-spend guests</em> cut new-operations training time and cost by <em class="hl">roughly 40%</em>.</p>
           <div class="cta-group">
             <a href="https://chroma-video-34182257.figma.site" target="_blank" rel="noopener noreferrer" class="cta">View Internal CRM →</a>
             <a href="https://www.shirosaka.jp/english/" target="_blank" rel="noopener noreferrer" class="cta">Visit Restaurant →</a>
@@ -3395,7 +3621,7 @@
       </article>
 
       <!-- 04 — Dr. Ishii -->
-      <article class="work-panel" data-index="4">
+      <article class="work-panel" data-index="5">
         <span class="ghost-word">Ishii</span>
         <div class="work-image media-gallery ishii-gallery">
           <div class="gallery-track">
@@ -3426,7 +3652,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">伍</span>05 / 07</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 08</div>
           <h3>Dr. Ishii</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">U.S. Market Development</span>
@@ -3445,7 +3671,7 @@
       </article>
 
       <!-- 06 — Human X -->
-      <article class="work-panel" data-index="5">
+      <article class="work-panel" data-index="6">
         <span class="ghost-word">Human X</span>
         <div class="work-image media-gallery humanx-gallery">
           <div class="gallery-track">
@@ -3472,7 +3698,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 07</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 08</div>
           <h3>Human X</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Pavilion Stage Co-Lead</span>
@@ -3489,7 +3715,7 @@
       </article>
 
       <!-- 07 — Auréole -->
-      <article class="work-panel" data-index="6">
+      <article class="work-panel" data-index="7">
         <span class="ghost-word">Auréole</span>
         <div class="work-image media-gallery aureole-gallery">
           <div class="gallery-track">
@@ -3512,7 +3738,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 07</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">八</span>08 / 08</div>
           <h3>Auréole</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Concept &amp; Product Design</span>
@@ -3730,6 +3956,7 @@
 
       <div class="logo-cell" title="L'Oréal Groupe" style="background:#000;"><a href="https://www.loreal.com/en/consumer-products-division/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-cgdlfc-2oj.jpg" alt="L'Oréal Groupe"></a></div>
       <div class="logo-cell" title="L'Oréal Paris" style="background:#fff;"><a href="https://www.lorealparisusa.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/logo-loreal-paris.png" alt="L'Oréal Paris"></a></div>
+      <div class="logo-cell" title="Figma" style="background:#fff;"><a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/logo-figma.png" alt="Figma"></a></div>
       <div class="logo-cell" title="Ishii Clinic Beauty Lab"><a href="https://dr-ishiiselectusa.com/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1n22gol-3xv.jpg" alt="Ishii Clinic Beauty Lab"></a></div>
       <div class="logo-cell" title="HUMAN X" style="background:#2a2ae0;"><a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-1are7tr-31v.jpg" alt="HUMAN X"></a></div>
       <div class="logo-cell" title="The George Washington University"><a href="https://business.gwu.edu/" target="_blank" rel="noopener noreferrer" class="logo-link"><img src="media/img-31bv8m-3e6.png" alt="The George Washington University"></a></div>
@@ -3813,12 +4040,9 @@
           </div>
           <div class="about-col">
             <p>
-              I recently completed a
-              <span class="role-now" style="color: #a87fc9;">brand strategy marketing
-              internship with L'Oréal Paris</span> in New York. Before that, experiences
-              in <em>Michelin-starred dining</em> and at <em>The Ritz-Carlton Tokyo</em>
-              taught me to notice the small things: what people care about, what they
-              need, and what they don't always say.
+              Experiences in <em>Michelin-starred dining</em> and at
+              <em>The Ritz-Carlton Tokyo</em> taught me to notice the small things:
+              what people care about, what they need, and what they don't always say.
             </p>
             <p>
               Now, back in Tokyo, I'm exploring new ideas and connecting passionate
@@ -5196,9 +5420,11 @@
    if (!visible){ requestAnimationFrame(frame); return; }
    if (SLOW && now - lastT < 33){ requestAnimationFrame(frame); return; }
    lastT = now;
-   angle += SLOW ? 0.016 : 0.008;  // rotation speed around Y axis
+   angle += SLOW ? 0.040 : 0.020;  // rotation speed around Y axis
 
    const tilt = Math.sin(angle * 0.3) * 0.15;
+   // gentle side-to-side drift across the canvas
+   const drift = Math.sin(angle * 0.22) * (W * 0.10);
 
    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
    const dotColor = isDark ? "255,255,255" : "20,20,20";
@@ -5217,7 +5443,7 @@
     const y2 = y1 * cosT - z1 * sinT;
     const z2 = y1 * sinT + z1 * cosT;
 
-    const px = cx + x1 * R;
+    const px = cx + drift + x1 * R;
     const py = cy + y2 * R;
 
     const depth = (z2 + 1) / 2;          // 0..1
