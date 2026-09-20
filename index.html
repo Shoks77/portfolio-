@@ -2643,10 +2643,7 @@
  }
  @keyframes rise{ to{ opacity:1; transform:none; } }
 
- .hero .hero-row{
-  opacity: 0;
-  animation: tagline-show 0.4s ease-out 3.2s forwards;
- }
+ .hero .hero-row{ opacity: 1; }
  @keyframes tagline-show{
   to { opacity: 1; }
  }
@@ -5352,38 +5349,7 @@
   });
  });
 
- (function setupTaglineSkate(){
-  const tagline = document.querySelector(".hero .tagline");
-  if (!tagline) return;
 
-  function wrap(node){
-   if (node.nodeType === Node.TEXT_NODE){
-    const frag = document.createDocumentFragment();
-    for (const ch of node.textContent){
-     if (ch === " "){
-      frag.appendChild(document.createTextNode(" "));
-     } else {
-      const span = document.createElement("span");
-      span.className = "skate-letter";
-      span.textContent = ch;
-      frag.appendChild(span);
-     }
-    }
-    node.parentNode.replaceChild(frag, node);
-   } else if (node.nodeType === Node.ELEMENT_NODE){
-
-    Array.from(node.childNodes).forEach(wrap);
-   }
-  }
-  Array.from(tagline.childNodes).forEach(wrap);
-
-  const letters = tagline.querySelectorAll(".skate-letter");
-  const baseDelay = 3400; // ms — tagline skate starts right after 佐久間 聖暉 types in
-  const stagger = 18;      // ms per letter
-  letters.forEach((el, i) => {
-   el.style.animationDelay = `${baseDelay + i * stagger}ms`;
-  });
- })();
 
  const sunrise = document.querySelector(".sunrise-interlude");
  if (sunrise){
