@@ -3,27 +3,28 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Shoki Sakuma — Creative & Business Strategist</title>
+<title>Shoki Sakuma — Business Strategy, Product & Brand</title>
 
 <!-- ─────────── SEO / Social meta ─────────── -->
-<meta name="description" content="Shoki Sakuma (佐久間 聖暉) — Creative & Business Strategist. Brand Marketing Intern at L'Oréal Paris. Work spanning brand storytelling, product design, CRM and market strategy across NYC, Tokyo and Washington, D.C." />
-<meta name="keywords" content="Shoki Sakuma, 佐久間聖暉, creative strategist, business strategist, brand marketing, product design, portfolio, L'Oréal Paris, CRM, market strategy" />
+<meta name="description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
+<meta name="keywords" content="Shoki Sakuma, 佐久間聖暉, business strategy, product strategy, brand strategy, portfolio, Airable, LooksMax, L'Oréal Paris, HumanX, Figma, Tokyo, New York" />
 <meta name="author" content="Shoki Sakuma" />
 <meta name="theme-color" content="#0d0c0b" />
-<link rel="canonical" href="https://shoki-sakuma.github.io/" />
+<link rel="canonical" href="https://shoks.studio/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Shoki Sakuma — Creative & Business Strategist" />
-<meta property="og:description" content="Brand storytelling, product design, CRM and market strategy — translating ideas into experiences that feel intentional. Brand Marketing Intern at L'Oréal Paris." />
+<meta property="og:title" content="Shoki Sakuma — Business Strategy, Product & Brand" />
+<meta property="og:description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
 <meta property="og:site_name" content="Shoki Sakuma" />
+<meta property="og:url" content="https://shoks.studio/" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="ja_JP" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Shoki Sakuma — Creative & Business Strategist" />
-<meta name="twitter:description" content="Brand storytelling, product design, CRM and market strategy. Brand Marketing Intern at L'Oréal Paris." />
+<meta name="twitter:title" content="Shoki Sakuma — Business Strategy, Product & Brand" />
+<meta name="twitter:description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
 
 <!-- Favicon: the Lorenz butterfly from the hero -->
 <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
@@ -813,6 +814,17 @@
  @media (max-width: 600px){
   .tagline{ font-size: 11.5px; line-height: 1.68; max-width: 42ch; }
  }
+ /* Tagline types itself in, keeping its final height reserved so nothing jumps */
+ .tagline[data-typed]{ min-height: calc(1.72em * 4); }
+ @media (max-width: 600px){ .tagline[data-typed]{ min-height: calc(1.68em * 6); } }
+ .tag-caret{
+  display: inline-block; width: .5em; height: 1em; margin-left: 1px;
+  vertical-align: -.14em; background: var(--murasaki); opacity: .85;
+  animation: tag-blink .9s steps(2) infinite;
+ }
+ .tag-caret.done{ display: none; }
+ @keyframes tag-blink{ 0%,100%{opacity:.85} 50%{opacity:0} }
+ @media (prefers-reduced-motion: reduce){ .tag-caret{ display: none; } }
  .tagline em{
   font-family: var(--serif);
   font-style: italic;
@@ -3299,10 +3311,9 @@
     </div>
 
     <div class="hero-row">
-      <p class="tagline">
-        Solving complex problems across <em>business strategy</em>, <em>product</em>, and
-        <em>brand</em>. NYC–Tokyo based. Driven by collaboration, insight, and turning
-        ideas into measurable impact and greater design.
+      <p class="tagline" id="heroTagline" data-typed>
+        <span class="tag-txt" id="tagTxt"></span><span class="tag-caret" aria-hidden="true"></span>
+        <span class="tag-src" hidden>Solving complex problems across <em>business strategy</em>, <em>product</em>, and <em>brand</em>. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.</span>
       </p>
     </div>
   </div>
@@ -3360,7 +3371,7 @@
         <span class="rb-node rb-node--now" style="--x:65%; --h:118;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Morgan Stanley</span><span class="rb-s">Early Insight Program</span></span></span>
         <button type="button" class="rb-node" data-target="1" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
         <button type="button" class="rb-node rb-node--now" data-target="2" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></button>
-        <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">President · FoF · Uni · Tokyo</span></span></span>
+        <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">Student Program Coordinator<br/>Tokyo</span></span></span>
       </div>
       <span class="rb-axis" aria-hidden="true">scale of effect →</span>
     </div>
@@ -5976,5 +5987,68 @@
 })();
 </script>
 
+<script>
+(function(){
+ var host = document.getElementById('tagTxt');
+ var p = document.getElementById('heroTagline');
+ if (!host || !p) return;
+ var src = p.querySelector('.tag-src');
+ var caret = p.querySelector('.tag-caret');
+ if (!src) return;
+ var full = src.innerHTML;
+ var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function settle(){ host.innerHTML = full; if (caret) caret.classList.add('done'); }
+ if (still){ settle(); return; }
+
+ // Walk the markup so <em> tags survive the reveal
+ var tmp = document.createElement('div'); tmp.innerHTML = full;
+ var steps = [];
+ (function walk(node, path){
+  for (var i = 0; i < node.childNodes.length; i++){
+   var c = node.childNodes[i], here = path.concat(i);
+   if (c.nodeType === 3){ for (var k = 1; k <= c.nodeValue.length; k++) steps.push([here, k]); }
+   else if (c.nodeType === 1) walk(c, here);
+  }
+ })(tmp, []);
+ if (!steps.length){ settle(); return; }
+
+ function render(upto){
+  var clone = tmp.cloneNode(true);
+  var target = steps[upto][0], chars = steps[upto][1];
+  (function trim(node, path){
+   for (var i = node.childNodes.length - 1; i >= 0; i--){
+    var c = node.childNodes[i], here = path.concat(i);
+    var cmp = 0;
+    for (var d = 0; d < Math.min(here.length, target.length); d++){
+     if (here[d] !== target[d]){ cmp = here[d] < target[d] ? -1 : 1; break; }
+    }
+    if (cmp === 0 && here.length > target.length) cmp = 1;
+    if (cmp > 0){ node.removeChild(c); continue; }
+    if (c.nodeType === 3 && cmp === 0) c.nodeValue = c.nodeValue.slice(0, chars);
+    else if (c.nodeType === 1) trim(c, here);
+   }
+  })(clone, []);
+  host.innerHTML = clone.innerHTML;
+ }
+
+ var i = 0, timer = null;
+ function tick(){
+  if (i >= steps.length){ clearInterval(timer); settle(); return; }
+  render(i++);
+ }
+ function start(){ if (timer) return; timer = setInterval(tick, 17); }
+
+ var sp = document.getElementById('splash');
+ if (sp && !sp.classList.contains('gone')){
+  var mo = new MutationObserver(function(){
+   if (sp.classList.contains('gone') || sp.style.display === 'none'){ mo.disconnect(); setTimeout(start, 380); }
+  });
+  mo.observe(sp, { attributes: true, attributeFilter: ['class','style'] });
+  setTimeout(start, 12000);
+ } else {
+  setTimeout(start, 420);
+ }
+})();
+</script>
 </body>
 </html>
