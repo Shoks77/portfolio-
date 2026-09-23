@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light" data-hero="c">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,16 +39,16 @@
 
  :root{
 
-  --paper:        #0d0c0b;
-  --paper-deep:   #161412;
-  --sumi:         #f0ece3;
-  --sumi-soft:    #c8c2b4;
-  --mono-grey:    #6e685e;
-  --rule:         #2a2622;
-  --hinomaru:     #d94a3b;
-  --murasaki:     #c89dde;
-  --matcha:       #8eb08a;
-  --ink-warm:     #d8d2c4;
+  --paper:        #f4f1ea;
+  --paper-deep:   #ebe6dc;
+  --sumi:         #1b1714;
+  --sumi-soft:    #423b34;
+  --mono-grey:    #6f675c;
+  --rule:         rgba(27,23,20,.14);
+  --hinomaru:     #c8402f;
+  --murasaki:     #8a5bb3;
+  --matcha:       #5f8a5a;
+  --ink-warm:     #2a2420;
 
   --topbar-bg:    #f4f1ea;
   --topbar-fg:    #1b1714;
@@ -3268,6 +3268,10 @@
 </style>
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"><canvas id="heroField"></canvas></div>
+  <figure class="hero-photo" aria-hidden="true">
+    <img src="media/hero-shibuya-bw.jpg" alt="" fetchpriority="high">
+    <figcaption>Shibuya Crossing · 渋谷</figcaption>
+  </figure>
   <div class="hero-hud" id="heroHud" aria-hidden="true">
     <span class="hud-bracket tl"></span><span class="hud-bracket tr"></span>
     <span class="hud-bracket bl"></span><span class="hud-bracket br"></span>
@@ -3316,27 +3320,7 @@
   </div>
 </section>
 
-<!-- ─────────── SUNRISE INTERLUDE ─────────── -->
-<section class="sunrise-interlude" aria-hidden="true">
-  <div class="sunrise-sky"></div>
-  <div class="sunrise-clouds"></div>
 
-  <!-- Reference photograph plugged in above the daybreak scene -->
-  <div class="dawn-texture" aria-hidden="true"></div>
-
-  <div class="sunrise-sun"><canvas id="sunSphere" width="220" height="220"></canvas></div>
-  <div class="sunrise-land"></div>
-  <div class="sunrise-sea"></div>
-  <div class="sunrise-grain"></div>
-
-  <!-- Manifesto line — sits below the sphere, fades in once the section is live -->
-  <div class="sunrise-tagline">
-    <span class="tagline-dash">—</span>
-    I'm drawn to building work that creates
-    <em>emotion</em>, <em>connection</em>, and <em>lasting impressions</em>.
-    <span class="tagline-dash">—</span>
-  </div>
-</section>
 
 <!-- ─────────── SELECTED WORK ─────────── -->
 <section class="section" id="work">
@@ -4587,10 +4571,31 @@
  })();
 </script>
 
+<!-- ─────────── SUNRISE INTERLUDE ─────────── -->
+<section class="sunrise-interlude" aria-hidden="true">
+  <div class="sunrise-sky"></div>
+  <div class="sunrise-clouds"></div>
+
+  <!-- Reference photograph plugged in above the daybreak scene -->
+  <div class="dawn-texture" aria-hidden="true"></div>
+
+  <div class="sunrise-sun"><canvas id="sunSphere" width="220" height="220"></canvas></div>
+  <div class="sunrise-land"></div>
+  <div class="sunrise-sea"></div>
+  <div class="sunrise-grain"></div>
+
+  <!-- Manifesto line — sits below the sphere, fades in once the section is live -->
+  <div class="sunrise-tagline">
+    <span class="tagline-dash">—</span>
+    I'm drawn to building work that creates
+    <em>emotion</em>, <em>connection</em>, and <em>lasting impressions</em>.
+    <span class="tagline-dash">—</span>
+  </div>
+</section>
+
 <!-- ─────────── FOOTER ─────────── -->
 <footer id="contact">
   <div class="wrap">
-    <span class="foot-mark">stay intentional.</span>
     <div class="foot-row">
       <span>© 2026 Shoki Sakuma 聖暉 佐久間</span>
       <div class="right">
@@ -5076,7 +5081,7 @@
    for (var i = 1; i <= RINGS; i++){
     var p = i / RINGS;
     ctx.lineWidth = 0.6 + p * 0.9;
-    ctx.strokeStyle = "rgba(200,157,222," + (0.09 + p * 0.2).toFixed(3) + ")";
+    ctx.strokeStyle = "rgba(120,80,160," + (0.10 + p * 0.22).toFixed(3) + ")";
     ctx.shadowColor = "rgba(200,157,222,.45)";
     blur(p * 9);
     arc(p * span, 1.5 + p * p * 26, t, i * 0.8);
@@ -5089,7 +5094,7 @@
     var p = ((t * 0.13) + off) % 1;
     var e = 1 - p;
     ctx.lineWidth = 1.1 + p * 2.4;
-    ctx.strokeStyle = "rgba(226,200,246," + (0.85 * e * e).toFixed(3) + ")";
+    ctx.strokeStyle = "rgba(138,91,179," + (0.75 * e * e).toFixed(3) + ")";
     ctx.shadowColor = "rgba(200,157,222,.95)";
     blur(22 * e + 6);
     arc(p * span, 1.5 + p * p * 26, t, 0);
@@ -5211,86 +5216,128 @@
    return true;
   }
 
-  // The Lorenz attractor — the origin of the term "butterfly effect".
-  // A trajectory that orbits two points forever and settles on neither.
-  var path = [], built = false;
-  function build(){
-   var x = 0.01, y = 0, z = 0, a = 10, b = 28, c = 8 / 3, dt = 0.0042;
-   path = [];
-   for (var i = 0; i < 24000; i++){
-    var dx = a * (y - x), dy = x * (b - z) - y, dz = x * y - c * z;
-    x += dx * dt; y += dy * dt; z += dz * dt;
-    if (i > 400) path.push([x, z - 27]);
+  // Ensō — a single brush circle that draws itself once, then breathes with the cursor.
+  // Strokes accumulate on an offscreen sheet so the finished circle costs one drawImage per frame.
+  var off = document.createElement("canvas"), octx = off.getContext("2d");
+  var R = 0, ecx = 0, ecy = 0, N = 0, done = -1, strands = [];
+  var TH0 = 2.05, SWEEP = 5.62, DUR = 3.4;
+  var begin = null, still2 = still;
+  var mx = 0, my = 0, tx = 0, ty = 0;
+
+  function sstep(e0, e1, x){ x = Math.max(0, Math.min(1, (x - e0) / (e1 - e0))); return x * x * (3 - 2 * x); }
+  function setup(){
+   off.width = cv.width; off.height = cv.height;
+   octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+   octx.clearRect(0, 0, W, H);
+   R = Math.min(W * 0.2, H * 0.27, 330);
+   ecx = W * (W > 900 ? 0.7 : 0.64); ecy = H * 0.47;
+   N = LOW ? 520 : 1100;
+   var B = LOW ? 14 : 30;
+   strands = [];
+   for (var k = 0; k < B; k++){
+    var seed = Math.sin(k * 91.7 + 3.1) * 43758.5; seed -= Math.floor(seed);
+    strands.push({ o: (k + 0.5) / B - 0.5, a: 0.5 + seed * 0.42, f: 0.06 + seed * 0.11, ph: seed * 40, lw: LOW ? 2.1 : 1.35 });
    }
-   built = true;
+   done = -1; hairs = null;
+  }
+  function pt(i){
+   var s = i / N, th = TH0 + SWEEP * s;
+   var r = R * (1 + 0.032 * Math.sin(2 * th + 0.6) + 0.012 * Math.sin(3 * th + 1.1) + 0.03 * s);
+   var w = R * 0.19 * (0.38 + 0.62 * sstep(0, 0.07, s)) * (1 + 0.1 * Math.sin(s * 3.1)) * (1 - 0.42 * sstep(0.5, 1, s));
+   return { x: ecx + Math.cos(th) * r, y: ecy + Math.sin(th) * r, nx: Math.cos(th), ny: Math.sin(th), w: w, s: s };
+  }
+  // Bristle brush: each hair carries its own ink and runs dry on its own.
+  // Solid where the brush is loaded; long, natural dry-brush streaks as it empties.
+  var hairs = null;
+  function rnd(n){ var x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); }
+  function mkHairs(){
+   hairs = [];
+   var B = LOW ? 34 : 78;
+   for (var k = 0; k < B; k++){
+    var o = (k + 0.5) / B - 0.5 + (rnd(k + 1) - 0.5) * (0.6 / B);
+    var edgeness = Math.abs(o) * 2;
+    hairs.push({
+     o: o,
+     ink: 1.05 + rnd(k + 7) * 0.45 - edgeness * 0.55,
+     rate: 1.0 + rnd(k + 13) * 0.9 + edgeness * 0.5,
+     f: 14 + rnd(k + 19) * 26, ph: rnd(k + 23) * 60,
+     wf: 6 + rnd(k + 29) * 9, wph: rnd(k + 31) * 40,
+     lw: 0.9 + rnd(k + 37) * 0.8
+    });
+   }
+  }
+  function inkAt(hr, s){ return hr.ink - hr.rate * Math.pow(sstep(0.42, 1, s), 1.15); }
+  function hairPos(hr, i){
+   var p = pt(i);
+   var o = hr.o + 0.035 * Math.sin(p.s * hr.wf + hr.wph);
+   return [p.x + p.nx * o * p.w, p.y + p.ny * o * p.w, p.s, p.w];
+  }
+  function drawUpTo(target){
+   if (target <= done) return;
+   if (!hairs) mkHairs();
+   var from = Math.max(done, 0);
+   octx.save();
+   octx.lineCap = "round";
+   octx.lineJoin = "round";
+   for (var k = 0; k < hairs.length; k++){
+    var hr = hairs[k];
+    var wFrac = 2.3 / hairs.length;
+    var prev = hairPos(hr, from), open = false;
+    octx.beginPath();
+    for (var i = from + 1; i <= target; i++){
+     var cur = hairPos(hr, i), ink = inkAt(hr, cur[2]);
+     var gap = ink < 0.32 ? (0.32 - ink) * 2.6 : 0;
+     var n = 0.5 + 0.5 * Math.sin(cur[2] * hr.f + hr.ph);
+     if (ink > 0 && n > gap){
+      if (!open){ octx.moveTo(prev[0], prev[1]); open = true; }
+      octx.lineTo(cur[0], cur[1]);
+     } else open = false;
+     prev = cur;
+    }
+    var mid = inkAt(hr, (from + target) / 2 / N);
+    octx.strokeStyle = "rgba(24,21,18," + (0.5 + 0.45 * Math.max(0, Math.min(1, mid))).toFixed(3) + ")";
+    octx.lineWidth = Math.max(hr.lw, pt(Math.round((from + target) / 2)).w * wFrac);
+    octx.stroke();
+   }
+   octx.restore();
+   done = target;
+  }
+
+  var coarse = window.matchMedia && window.matchMedia("(hover: none)").matches;
+  if (!coarse && !still && hero){
+   hero.addEventListener("pointermove", function(ev){
+    var r = cv.getBoundingClientRect();
+    tx = ((ev.clientX - r.left) / r.width - 0.5) * 2;
+    ty = ((ev.clientY - r.top) / r.height - 0.5) * 2;
+   });
+   hero.addEventListener("pointerleave", function(){ tx = 0; ty = 0; });
+  }
+  function ready(){
+   var sp = document.getElementById("splash");
+   return !sp || sp.classList.contains("gone") || sp.style.display === "none" || !sp.isConnected;
   }
 
   function draw(t){
-   if (!built) build();
+   if (off.width !== cv.width || off.height !== cv.height || !N) setup();
+   if (begin === null){ if (still2) begin = -99; else if (ready()) begin = t + 0.35; }
+   var e = begin === null ? 0 : Math.max(0, Math.min(1, (t - begin) / DUR));
+   var prog = e < 0.5 ? 2 * e * e : 1 - Math.pow(-2 * e + 2, 2) / 2;
+   drawUpTo(Math.round(prog * N));
+
+   mx += (tx - mx) * 0.06; my += (ty - my) * 0.06;
    ctx.clearRect(0, 0, W, H);
-
-   var s = Math.min(W / 62, H / 62) * 1.05;
-   var cx = W * 0.68, cy = H * 0.5;
-   var rot = Math.sin(t * 0.07) * 0.22, cr = Math.cos(rot), sr = Math.sin(rot);
-   function px(p){ return cx + (p[0] * cr - p[1] * sr * 0.35) * s; }
-   function py(p){ return cy - p[1] * s; }
-
-   // the whole attractor, faint: every path the system could have taken
+   // faint echo, drifting against the cursor — the brush's shadow on the paper
    ctx.save();
-   ctx.lineWidth = 0.5;
-   ctx.beginPath();
-   for (var i = 0; i < path.length; i++){
-    if (i) ctx.lineTo(px(path[i]), py(path[i]));
-    else ctx.moveTo(px(path[i]), py(path[i]));
-   }
-   ctx.strokeStyle = "rgba(196,190,214,.10)";
-   ctx.stroke();
-
-   // a lit head tracing the one trajectory actually taken
-   var span = LOW ? 300 : 1400, head = Math.floor((t * 260) % path.length);
-   if (LOW){
-    // Batched: 6 polylines, one stroke each, no shadow.
-    var BANDS = 6, per = Math.ceil(span / BANDS);
-    for (var b = 0; b < BANDS; b++){
-     var e = 1 - b / BANDS;
-     ctx.beginPath();
-     for (var q = b * per; q <= (b + 1) * per && q < span; q++){
-      var pp = path[(head - q + path.length) % path.length];
-      if (!pp) continue;
-      if (q === b * per) ctx.moveTo(px(pp), py(pp)); else ctx.lineTo(px(pp), py(pp));
-     }
-     ctx.strokeStyle = "rgba(" + (214 + e * 30 | 0) + "," + (186 + e * 50 | 0) + "," + (240 + e * 15 | 0) + "," + (e * e * 0.85).toFixed(3) + ")";
-     ctx.lineWidth = 0.5 + e * 1.7;
-     ctx.stroke();
-    }
-   } else {
-    for (var k = 0; k < span; k++){
-     var idx = (head - k + path.length) % path.length;
-     var p0 = path[idx], p1 = path[(idx + 1) % path.length];
-     if (!p0 || !p1) continue;
-     var e2 = 1 - k / span;
-     ctx.beginPath();
-     ctx.moveTo(px(p0), py(p0));
-     ctx.lineTo(px(p1), py(p1));
-     ctx.strokeStyle = "rgba(" + (214 + e2 * 30 | 0) + "," + (186 + e2 * 50 | 0) + "," + (240 + e2 * 15 | 0) + "," + (e2 * e2 * 0.85).toFixed(3) + ")";
-     ctx.lineWidth = 0.5 + e2 * 1.7;
-     ctx.shadowColor = "rgba(200,157,222," + (e2 * 0.8).toFixed(2) + ")";
-     ctx.shadowBlur = e2 * 16;
-     ctx.stroke();
-    }
-   }
+   ctx.globalAlpha = 0.07;
+   ctx.drawImage(off, -mx * 16, -my * 12, W, H);
    ctx.restore();
-
-   // the two fixed points it can never settle on
-   [[-8.485, 0], [8.485, 0]].forEach(function(p){
-    var fx = px(p), fy = py(p);
-    var gl = ctx.createRadialGradient(fx, fy, 0, fx, fy, 20);
-    gl.addColorStop(0, "rgba(236,222,252,.9)");
-    gl.addColorStop(0.2, "rgba(200,157,222,.3)");
-    gl.addColorStop(1, "rgba(200,157,222,0)");
-    ctx.fillStyle = gl;
-    ctx.beginPath(); ctx.arc(fx, fy, 20, 0, Math.PI * 2); ctx.fill();
-   });
+   // the circle itself, leaning toward the cursor
+   ctx.save();
+   ctx.translate(ecx + mx * 10, ecy + my * 8);
+   ctx.rotate(mx * 0.035);
+   ctx.translate(-ecx, -ecy);
+   ctx.drawImage(off, 0, 0, W, H);
+   ctx.restore();
   }
 
   var t0 = performance.now();
@@ -6016,5 +6063,138 @@
  }
 })();
 </script>
+<style id="light-invert">
+ /* ── Whole site in the About palette: warm paper, ink type ── */
+ html[data-theme="light"] body{ background-color: var(--paper); color: var(--sumi); }
+ html[data-theme="light"] .name .ghost,
+ html[data-theme="light"] .name .script,
+ html[data-theme="light"] .name-kanji{ color: #1b1714; }
+ html[data-theme="light"] .hero-now-tag,
+ html[data-theme="light"] .hero-now-role,
+ html[data-theme="light"] .hero-now-role strong{ color: #1b1714; }
+
+ /* Sunrise interlude → paper dawn */
+ html[data-theme="light"] .sunrise-interlude{ background: #f4f1ea; }
+ html[data-theme="light"] .sunrise-sky{
+  background: linear-gradient(to bottom, #f4f1ea 0%, #efeae0 40%, #e2dbcd 78%, #d6cebf 100%);
+ }
+ html[data-theme="light"] .sunrise-clouds{
+  background:
+   radial-gradient(ellipse 40% 8% at 30% 40%, rgba(27,23,20,.05), transparent 60%),
+   radial-gradient(ellipse 50% 6% at 70% 55%, rgba(27,23,20,.04), transparent 65%);
+ }
+ html[data-theme="light"] .sunrise-sea{
+  background: linear-gradient(to bottom, #d6cebf 0%, #e4ddd0 40%, #efeae1 80%, #f4f1ea 100%);
+ }
+ html[data-theme="light"] .sunrise-sea::before{
+  background: linear-gradient(to bottom, rgba(27,23,20,.12) 0%, rgba(27,23,20,.05) 40%, transparent 100%);
+ }
+ html[data-theme="light"] .sunrise-sea::after{
+  background-image:
+   linear-gradient(to bottom, transparent 0, transparent 8px, rgba(27,23,20,.05) 8px, rgba(27,23,20,.05) 9px),
+   linear-gradient(to bottom, transparent 0, transparent 16px, rgba(27,23,20,.035) 16px, rgba(27,23,20,.035) 17px);
+ }
+ html[data-theme="light"] .sunrise-land{ background: #1b1714; }
+ html[data-theme="light"] .sunrise-tagline{ color: #1b1714; }
+ html[data-theme="light"] .sunrise-tagline .tagline-dash{ color: rgba(27,23,20,.45); }
+ html[data-theme="light"] .sunrise-grain{ opacity: .35; mix-blend-mode: multiply; }
+
+ /* Project media on paper */
+ html[data-theme="light"] .work-image.media-gallery,
+ html[data-theme="light"] .media-gallery .gallery-slide img,
+ html[data-theme="light"] .media-gallery .gallery-video{ background: #ebe6dc; }
+
+ /* Sandbox card → paper card on a linen board */
+ html[data-theme="light"] .sandbox-cosmos{ display: none; }
+ html[data-theme="light"] .sandbox-feature{
+  background: #fbf9f4;
+  border: 1px solid rgba(27,23,20,.12);
+  box-shadow: 0 24px 60px rgba(27,23,20,.10), 0 3px 10px rgba(27,23,20,.06);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+ }
+ html[data-theme="light"] .sf-shots{
+  background:
+   repeating-linear-gradient(92deg, rgba(27,23,20,.035) 0 2px, transparent 2px 15px),
+   #e7e0d3;
+ }
+ html[data-theme="light"] .sf-shots figure{
+  box-shadow: 0 12px 24px rgba(27,23,20,.16), 0 2px 6px rgba(27,23,20,.1);
+ }
+
+ /* ── Simple bar: the right-edge dots become one slim segmented rail ── */
+ .scroll-marker{ mix-blend-mode: normal; gap: 5px; right: 22px; }
+ .scroll-marker .sm-dot{
+  width: 2px; height: 20px; border-radius: 1px;
+  background: #1b1714; opacity: .16; transform: none; box-shadow: none;
+  transition: opacity .35s ease, height .35s cubic-bezier(.2,.8,.2,1);
+ }
+ .scroll-marker .sm-dot:hover{ opacity: .45; transform: none; }
+ .scroll-marker .sm-dot.is-active{ opacity: .9; height: 38px; transform: none; box-shadow: none; background: var(--murasaki); }
+ @media (max-width: 640px){
+  .scroll-marker{ right: 8px; gap: 4px; }
+  .scroll-marker .sm-dot{ width: 2px; height: 14px; }
+  .scroll-marker .sm-dot.is-active{ height: 26px; }
+ }
+/* ── Top bar: ink field, paper type ── */
+ html[data-theme="light"] .topbar{
+  background: #1b1714 !important;
+  border-bottom-color: rgba(244,241,234,.12) !important;
+  --topbar-bg: #1b1714; --topbar-fg: #f4f1ea;
+ }
+ html[data-theme="light"] .topbar .nav-link{ color: #f4f1ea; opacity: .82; border-left-color: rgba(244,241,234,.18); }
+ html[data-theme="light"] .topbar .nav-link:hover{ opacity: 1; color: #f4f1ea; }
+ html[data-theme="light"] .topbar .topnav-social{ border-left-color: rgba(244,241,234,.2); }
+ html[data-theme="light"] .topbar .topnav-btn{ background: #f4f1ea; color: #1b1714; }
+ html[data-theme="light"] .topbar .topnav-btn svg{ fill: #1b1714; }
+ html[data-theme="light"] .topbar .topnav-btn.email svg{ fill: none; stroke: #1b1714; }
+ html[data-theme="light"] .topbar .topnav-time,
+ html[data-theme="light"] .topbar .monogram{ color: #f4f1ea; border-left-color: rgba(244,241,234,.16); }
+ html[data-theme="light"] .topbar .theme-toggle{ border-color: rgba(244,241,234,.3); color: #f4f1ea; }
+ /* ── Editorial hero: B&W Shibuya plate, name crosses into it (difference blend) ── */
+ html[data-hero] .hero-bg{ display: none; }
+ html[data-hero] .hero .wrap{ z-index: auto; }
+ html[data-hero] .hero .name{ position: relative; z-index: 3; mix-blend-mode: difference; }
+ html[data-hero] .hero .name .ghost,
+ html[data-hero] .hero .name .script{ color: #f4f1ea !important; text-shadow: none !important; }
+ .hero-photo{ display: none; }
+ html[data-hero] .hero-photo{
+  display: block; position: absolute; z-index: 0; margin: 0; overflow: hidden;
+ }
+ html[data-hero] .hero-photo img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+ html[data-hero] .hero-photo::after{
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; mix-blend-mode: overlay; opacity: .55;
+ }
+ html[data-hero] .hero-photo figcaption{
+  position: absolute; left: 14px; bottom: 12px; z-index: 2;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: #f4f1ea; opacity: .85;
+ }
+ html[data-hero] .hero .hero-row,
+ html[data-hero] .hero .name-kanji,
+ html[data-hero] .hero .name-jp-stack{ position: relative; z-index: 3; }
+ html[data-hero="c"] .hero .tagline{ max-width: min(40ch, 29vw); }
+ html[data-hero] .hero .hud-status{ left: auto; right: 16px; z-index: 4; color: #f4f1ea; }
+ html[data-hero] .hero .hud-status .geo{ color: rgba(244,241,234,.7); }
+ html[data-hero] .hero{ padding-bottom: 56px; }
+ html[data-hero] .hero-photo figcaption{ bottom: auto; top: 14px; }
+ html[data-hero] .hero .hero-avatar{ z-index: 4; box-shadow: 0 0 0 6px #f4f1ea, 0 10px 30px rgba(0,0,0,.25); }
+
+ /* C — full bleed behind everything, paper wash over the left */
+ html[data-hero="c"] .hero-photo{ inset: 0; }
+ html[data-hero="c"] .hero-photo img{ object-position: 50% 60%; }
+ html[data-hero="c"] .hero-photo::before{
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, #f4f1ea 0%, rgba(244,241,234,.95) 34%, rgba(244,241,234,.5) 42%, rgba(244,241,234,0) 54%);
+ }
+
+ @media (max-width: 760px){
+  html[data-hero] .hero-photo{ inset: auto 0 0 auto !important; top: 0 !important; width: 58% !important; bottom: 0 !important; right: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
+  html[data-hero] .hero-photo figcaption{ display: none; }
+  html[data-hero="c"] .hero-photo{ width: 100% !important; }
+ }
+
+</style>
 </body>
 </html>
