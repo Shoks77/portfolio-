@@ -752,23 +752,25 @@
   font-size: 15px;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: var(--sumi-soft);
+  color: #14120f !important;
+  font-weight: 600;
+  opacity: 1 !important;
   border-right: 2px solid var(--murasaki);
   width: 0;
   animation:
-   scue 5.6s steps(17) 1.4s infinite,
+   scue 6.4s steps(18) 1.4s infinite,
    caret-blink 0.7s steps(2) 1.4s infinite;
   opacity: 1;
  }
  @keyframes scue{
   0%   { width: 0; }
-  26%  { width: 18ch; }
-  74%  { width: 18ch; }
+  26%  { width: calc(18ch + 12px); }
+  74%  { width: calc(18ch + 12px); }
   90%  { width: 0; }
   100% { width: 0; }
  }
  @media (prefers-reduced-motion: reduce){
-  .scroll-cue-line{ width: 18ch; animation: none; border-right-color: transparent; }
+  .scroll-cue-line{ width: calc(18ch + 12px); animation: none; border-right-color: transparent; }
  }
  @keyframes jp2{
   0%   { width: 0;     opacity: 1; }
@@ -1776,6 +1778,15 @@
   display: block; margin: 0; gap: 0;
  }
  .work-cinema.shelf > .work-panel .cta-group > *:not(:first-child){ display: none; }
+ .work-cinema.shelf > .work-panel .cta-group.cta-both{ display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+ .work-cinema.shelf > .work-panel .cta-group.cta-both > *{ display: inline-flex !important; }
+ .work-cinema.shelf > .work-panel .cta-group.cta-both .cta{
+  white-space: normal; letter-spacing: .06em; line-height: 1.35; max-width: 22ch;
+ }
+ @media (max-width: 900px){
+  .work-cinema.shelf > .work-panel .cta-group.cta-both{ grid-column: 1 / -1; }
+  .work-cinema.shelf > .work-panel .cta-group.cta-both .cta{ max-width: none; }
+ }
  .work-cinema.shelf > .work-panel .work-info{
   padding: 0;
   display: grid;
@@ -2760,6 +2771,10 @@
    linear-gradient(180deg, rgba(250,247,236,.35), rgba(250,247,236,0) 42%);
  }
  /* Van Gogh, Wheatfield with Crows (1890) — held far back so the type reads */
+ #splash[data-art="wave"] .sp-art{
+  background-image: url("media/hokusai-wave.jpg") !important;
+  background-position: 62% 60% !important;
+ }
  #splash .sp-art{
   position: absolute; inset: 0; pointer-events: none;
   background: url("media/vangogh-wheatfield.jpg") center/cover no-repeat;
@@ -2898,7 +2913,21 @@
   }
 
   // type the quote, then the command
-  var QUOTE = '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”';
+  var DAYS = [
+   { q: '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”', by: '— Vincent van Gogh', art: '' },
+   { q: '“One who does not hold himself in high regard is a slave.”', by: '— Natsume Sōseki', art: 'wave' }
+  ];
+  // Alternate per visit: 1st open → Van Gogh, 2nd → Sōseki, 3rd → Van Gogh…
+  var visitN = 0;
+  try{ visitN = parseInt(localStorage.getItem('ss-visit') || '0', 10) || 0; localStorage.setItem('ss-visit', String(visitN + 1)); }catch(_){}
+  var TODAY = DAYS[visitN % DAYS.length];
+  var QUOTE = TODAY.q;
+  (function(){
+   var sp = document.getElementById('splash');
+   if (sp && TODAY.art) sp.setAttribute('data-art', TODAY.art);
+   var by = document.getElementById('spBy');
+   if (by) by.textContent = TODAY.by;
+  })();
   var CMD   = 'open("the.journey")';
   var qEl = document.getElementById('spQuote');
   var qCaret = document.getElementById('spQCaret');
@@ -3308,7 +3337,7 @@
     </h1>
     <div class="name-kanji" aria-label="佐久間 聖暉">~佐久間 聖暉~</div>
     <div class="name-jp-stack">
-      <div class="name-jp scroll-cue-line">Scroll to explore</div>
+      <div class="name-jp scroll-cue-line">Scroll and explore</div>
     </div>
 
     <div class="hero-row">
@@ -3350,8 +3379,8 @@
         <button type="button" class="rb-node" data-target="6" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
         <button type="button" class="rb-node" data-target="5" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
         <span class="rb-node rb-node--now" style="--x:65%; --h:118;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Morgan Stanley</span><span class="rb-s">Early Insight Program</span></span></span>
-        <button type="button" class="rb-node" data-target="1" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
-        <button type="button" class="rb-node rb-node--now" data-target="2" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></button>
+        <button type="button" class="rb-node" data-target="2" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
+        <button type="button" class="rb-node rb-node--now" data-target="1" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></button>
         <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">Student Program Coordinator<br/>Tokyo</span></span></span>
       </div>
       <span class="rb-axis" aria-hidden="true">scale of effect →</span>
@@ -3363,8 +3392,8 @@
       <!-- Project index rail — named menu, jumps to each panel -->
       <nav class="work-dots" aria-label="Project index">
         <button class="dot active" data-target="0"><span class="n">01</span><span class="t">LooksMax™</span></button>
-        <button class="dot" data-target="1"><span class="n">02</span><span class="t">Airable</span></button>
-        <button class="dot" data-target="2"><span class="n">03</span><span class="t">L’Oréal Paris</span></button>
+        <button class="dot" data-target="1"><span class="n">02</span><span class="t">L’Oréal Paris</span></button>
+        <button class="dot" data-target="2"><span class="n">03</span><span class="t">Airable</span></button>
         <button class="dot" data-target="3"><span class="n">04</span><span class="t">IDSA.GW</span></button>
         <button class="dot" data-target="4"><span class="n">05</span><span class="t">Shirosaka</span></button>
         <button class="dot" data-target="5"><span class="n">06</span><span class="t">Dr. Ishii</span></button>
@@ -3442,14 +3471,55 @@
         </div>
       </div>
 
-      <!-- 02 — Airable -->
+      <!-- 02 — L’Oréal Paris -->
       <article class="work-panel" data-index="1">
+        <span class="ghost-word">L’Oréal</span>
+        <div class="work-image" style="display:flex; align-items:center; justify-content:center; background:#fff;">
+          <img src="media/logo-loreal-paris.png" alt="L’Oréal Paris" loading="lazy" style="width:58%; max-width:320px; height:auto; object-fit:contain;"/>
+        </div>
+        <div class="work-info">
+          <div class="index"><span class="kanji-num" aria-hidden="true">弐</span>02 / 08 <span class="pill">Recent</span></div>
+          <h3>L’Oréal Paris</h3>
+          <div class="meta">
+            <span class="k">Role</span><span class="v role">Brand Strategy Marketing Intern</span>
+            <span class="k">Category</span><span class="v">Brand Strategy · Consumer Products &amp; AI</span>
+            <span class="k">Year</span><span class="v">2026</span>
+          </div>
+          <div class="cta-group cta-both">
+            <a class="cta" href="https://ninth-left-64068603.figma.site/" target="_blank" rel="noopener noreferrer">Consumer Voice Hub for Busy Marketers <span aria-hidden="true">↗</span></a>
+            <a class="cta" href="tm-competitive-analysis.html" target="_blank" rel="noopener noreferrer" data-viewer="tm-competitive-analysis.html" data-viewer-title="True Match — a Competitive Analysis">True Match — a Competitive Analysis <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 · L’Oréal Paris — PDP pages, a second display inside the project -->
+      <div class="work-image site-embed reveal" data-screen-label="L’Oréal Paris PDP">
+        <div class="site-window site-window--light">
+          <div class="site-chrome">
+            <span class="sc-dot r"></span><span class="sc-dot y"></span><span class="sc-dot g"></span>
+            <span class="site-url">PDP Pages</span>
+          </div>
+          <div class="pdp-strip">
+            <figure class="pdp-page"><img src="media/loreal-blush-finish.jpg" alt="True Match Powder Blush — “Build up your perfect natural finish” product-claims page" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-tm-blush.jpg" alt="True Match Powder Blush — arm swatches across three skin tones with the full shade index" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-tm-shades.jpg" alt="True Match Powder Blush — numbered arm swatches with shade names" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-blush-guide-1.jpg" alt="Blush shade guide — Baby Blossom, Tender Rose, Innocent Flush, Bare Honey, Barely Blushing on model" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-blush-guide-2.jpg" alt="Blush shade guide — Rosy Outlook, Spiced Plum, Apricot Kiss, Sweet Ginger, Subtle Sable on model" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-shade-light.jpg" alt="True Match shade guide — Light range, W1 to W3" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-shade-medium.jpg" alt="True Match shade guide — Medium range, N3 to N7" loading="lazy"></figure>
+            <figure class="pdp-page"><img src="media/loreal-shade-deep.jpg" alt="True Match shade guide — Deep range, N6 to C12" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 — Airable -->
+      <article class="work-panel" data-index="2">
         <span class="ghost-word">Airable</span>
         <div class="work-image" style="display:flex; align-items:center; justify-content:center;">
           <img src="media/airable-device.jpg" alt="Airable — the final product, design language complementing the filtration functionality" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">弐</span>02 / 08 <span class="pill">Hardware</span></div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 08 <span class="pill">Hardware</span></div>
           <h3>Airable</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Head of Research &amp; Innovation</span>
@@ -3464,7 +3534,7 @@
         </div>
       </article>
 
-      <!-- 02 · Airable live site — the canonical site, first under the panel -->
+      <!-- 03 · Airable live site — the canonical site, first under the panel -->
       <div class="work-image site-embed reveal" data-screen-label="Airable Live Site">
         <div class="site-window">
           <div class="site-chrome">
@@ -3476,47 +3546,6 @@
         </div>
       </div>
 
-
-      <!-- 03 — L’Oréal Paris -->
-      <article class="work-panel" data-index="2">
-        <span class="ghost-word">L’Oréal</span>
-        <div class="work-image" style="display:flex; align-items:center; justify-content:center; background:#fff;">
-          <img src="media/logo-loreal-paris.png" alt="L’Oréal Paris" loading="lazy" style="width:58%; max-width:320px; height:auto; object-fit:contain;"/>
-        </div>
-        <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 08 <span class="pill">Recent</span></div>
-          <h3>L’Oréal Paris</h3>
-          <div class="meta">
-            <span class="k">Role</span><span class="v role">Brand Strategy Marketing Intern</span>
-            <span class="k">Category</span><span class="v">Brand Strategy · Consumer Products &amp; AI</span>
-            <span class="k">Year</span><span class="v">2026</span>
-          </div>
-          <div class="cta-group">
-            <a class="cta" href="https://ninth-left-64068603.figma.site/" target="_blank" rel="noopener noreferrer">Consumer Voice Hub — proposed tool <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 · L’Oréal Paris — PDP pages, a second display inside the project -->
-      <div class="work-image site-embed reveal" data-screen-label="L’Oréal Paris PDP">
-        <div class="site-window site-window--light">
-          <div class="site-chrome">
-            <span class="sc-dot r"></span><span class="sc-dot y"></span><span class="sc-dot g"></span>
-            <span class="site-url">true match · pdp pages</span>
-            <a class="site-pop" href="https://www.lorealparisusa.com/" target="_blank" rel="noopener noreferrer" aria-label="Open L’Oréal Paris USA in a new tab">↗</a>
-          </div>
-          <div class="pdp-strip">
-            <figure class="pdp-page"><img src="media/loreal-blush-finish.jpg" alt="True Match Powder Blush — “Build up your perfect natural finish” product-claims page" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-tm-blush.jpg" alt="True Match Powder Blush — arm swatches across three skin tones with the full shade index" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-tm-shades.jpg" alt="True Match Powder Blush — numbered arm swatches with shade names" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-blush-guide-1.jpg" alt="Blush shade guide — Baby Blossom, Tender Rose, Innocent Flush, Bare Honey, Barely Blushing on model" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-blush-guide-2.jpg" alt="Blush shade guide — Rosy Outlook, Spiced Plum, Apricot Kiss, Sweet Ginger, Subtle Sable on model" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-shade-light.jpg" alt="True Match shade guide — Light range, W1 to W3" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-shade-medium.jpg" alt="True Match shade guide — Medium range, N3 to N7" loading="lazy"></figure>
-            <figure class="pdp-page"><img src="media/loreal-shade-deep.jpg" alt="True Match shade guide — Deep range, N6 to C12" loading="lazy"></figure>
-          </div>
-        </div>
-      </div>
 
       <!-- 04 — Ignite Your Innovation -->
       <article class="work-panel" data-index="3">
@@ -6180,6 +6209,15 @@
  html[data-hero] .hero{ padding-bottom: 56px; }
  html[data-hero] .hero-photo figcaption{ bottom: auto; top: 14px; }
  html[data-hero] .hero .hero-avatar{ z-index: 4; box-shadow: 0 0 0 6px #f4f1ea, 0 10px 30px rgba(0,0,0,.25); }
+ /* Pin the avatar to the hero's top-right corner at every width
+    (it lives inside the centred .wrap, so reach out to the viewport edge). */
+ .hero .hero-avatar{
+  top: clamp(-8px, calc(1.2vw - 20px), 0px);
+  right: calc((100% - 100vw) / 2 + clamp(16px, 2vw, 34px));
+ }
+ @media (max-width: 600px){
+  .hero .hero-avatar{ top: -12px; right: calc((100% - 100vw) / 2 + 12px); }
+ }
 
  /* C — full bleed behind everything, paper wash over the left */
  html[data-hero="c"] .hero-photo{ inset: 0; }
@@ -6196,5 +6234,59 @@
  }
 
 </style>
+<div class="doc-viewer" id="docViewer" role="dialog" aria-modal="true" aria-label="Document viewer" hidden>
+  <div class="dv-backdrop" data-close></div>
+  <div class="dv-window">
+    <div class="dv-chrome">
+      <span class="sc-dot r"></span><span class="sc-dot y"></span><span class="sc-dot g"></span>
+      <span class="dv-title" id="dvTitle"></span>
+      <a class="dv-pop" id="dvPop" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open in a new tab">↗</a>
+      <button type="button" class="dv-close" data-close aria-label="Close">✕</button>
+    </div>
+    <iframe id="dvFrame" title="Document" allow="fullscreen"></iframe>
+  </div>
+</div>
+<style>
+ .doc-viewer{ position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: clamp(10px, 3vw, 40px); }
+ .doc-viewer[hidden]{ display: none; }
+ .dv-backdrop{ position: absolute; inset: 0; background: rgba(20,18,15,.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+ .dv-window{ position: relative; width: min(1400px, 100%); height: min(88vh, 900px); display: flex; flex-direction: column;
+  background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+ .dv-chrome{ display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #fbf9f5; border-bottom: 1px solid var(--rule); }
+ .dv-chrome .sc-dot{ width: 10px; height: 10px; border-radius: 50%; }
+ .dv-chrome .sc-dot.r{ background:#ff5f57; } .dv-chrome .sc-dot.y{ background:#febc2e; } .dv-chrome .sc-dot.g{ background:#28c840; }
+ .dv-title{ flex: 1; margin-left: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--mono-grey); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+ .dv-pop, .dv-close{ -webkit-appearance: none; appearance: none; border: 0; background: transparent; cursor: pointer;
+  min-width: 36px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 14px; color: var(--sumi); text-decoration: none; border-radius: 6px; }
+ .dv-pop:hover, .dv-close:hover{ background: rgba(27,23,20,.07); }
+ #dvFrame{ flex: 1; width: 100%; border: 0; display: block; background: #fff; }
+ @media (max-width: 760px){ .dv-window{ height: 82vh; border-radius: 8px; } }
+ html.dv-open, html.dv-open body{ overflow: hidden; }
+</style>
+<script>
+(function(){
+ var v = document.getElementById('docViewer'); if (!v) return;
+ var f = document.getElementById('dvFrame'), t = document.getElementById('dvTitle'), pop = document.getElementById('dvPop');
+ var last = null;
+ function open(src, title){
+  last = document.activeElement;
+  f.src = src; t.textContent = title || ''; pop.href = src;
+  v.hidden = false; document.documentElement.classList.add('dv-open');
+  v.querySelector('.dv-close').focus();
+ }
+ function close(){
+  v.hidden = true; document.documentElement.classList.remove('dv-open');
+  f.src = 'about:blank';
+  if (last && last.focus) last.focus();
+ }
+ document.addEventListener('click', function(e){
+  var a = e.target.closest('[data-viewer]');
+  if (a){ e.preventDefault(); e.stopPropagation(); open(a.getAttribute('data-viewer'), a.getAttribute('data-viewer-title')); return; }
+  if (!v.hidden && e.target.closest('[data-close]')) close();
+ }, true);
+ document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !v.hidden) close(); });
+})();
+</script>
 </body>
 </html>
