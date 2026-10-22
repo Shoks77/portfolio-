@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&display=swap" />
+<script>(function(){var l=null;try{l=localStorage.getItem('ss-lang')}catch(e){}if(l!=='ja'&&l!=='en'){l=/^ja\b/i.test(navigator.language||'')?'ja':'en'}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
 <title>Shoki Sakuma — Business Strategy, Product & Brand</title>
 
 <!-- ─────────── SEO / Social meta ─────────── -->
@@ -210,17 +214,6 @@
  }
  [data-theme="dark"] .topbar{ border-bottom-color: rgba(240,236,227,.14); }
 
- .monogram{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px; height: 22px;
-  color: var(--topbar-fg);
-  flex: 0 0 auto;
- }
- .monogram svg{ width: 100%; height: 100%; display: block; }
- .monogram .blossom{ fill: var(--hinomaru); }
-
  .topnav{
   display: flex;
   align-items: center;
@@ -238,15 +231,6 @@
  .nav-link:first-child{ border-left: none; }
  .nav-link:hover{ opacity: 1; color: var(--hinomaru); }
  .nav-link::after{ display: none; }
-
- .topnav-time{
-  padding: 2px 0 2px 13px;
-  border-left: 1px solid rgba(27,23,20,.16);
-  opacity: .5;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: .1em;
- }
- [data-theme="dark"] .topnav-time{ border-left-color: rgba(240,236,227,.16); }
 
  /* Header social buttons — small monochrome squares, top-right */
  .topnav-social{
@@ -271,51 +255,13 @@
  .topnav-btn.github svg{ fill: #f4f1ea; }
  .topnav-btn:hover{ transform: translateY(-1px); opacity: .82; }
 
- .topbar .theme-toggle{
-  width: 18px; height: 18px;
-  margin-left: 12px;
-  border-color: rgba(27,23,20,.28);
- }
- [data-theme="dark"] .topbar .theme-toggle{ border-color: rgba(240,236,227,.26); }
- .topbar .theme-toggle .moon-glyph{ width: 18px; height: 18px; }
-
  @media (max-width: 600px){
   .topbar{ justify-content: space-between; gap: 0; padding: 6px 16px; flex-wrap: nowrap; }
-  .monogram{ flex: 0 0 auto; }
   .topnav{ gap: 0; }
   .nav-link{ font-size: 9.5px; padding: 2px 9px; letter-spacing: .12em; }
-  .topnav-time{ display: none; }
   .topnav-social{ margin-left: 8px; padding-left: 8px; gap: 6px; }
   .topnav-btn{ width: 21px; height: 21px; }
-  .topbar .theme-toggle{ margin-left: 9px; }
  }
-
- .moon-glyph{
-  width: 36px; height: 36px; display:inline-block;
-  border-radius: 50%;
-  position: absolute; inset: 0; margin: auto;
-  background-size: cover;
-  background-position: center;
-  transition: transform .6s cubic-bezier(.2,.8,.2,1);
-
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141414'/><circle cx='22' cy='52' r='1.4' fill='%23c8c8c8' opacity='0.8'/><path d='M 68 28 A 26 26 0 1 0 68 76 A 20 20 0 1 1 68 28 Z' fill='%23bdbdbd'/></svg>");
- }
-
- .theme-toggle{
-  position: relative;
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  border: 1px solid currentColor;
-  background: transparent;
-  cursor: pointer;
-  margin-left: 8px;
-  overflow: hidden;
-  color: inherit;
-  opacity: .9;
-  transition: opacity .25s, transform .45s, border-color .25s;
- }
- .theme-toggle:hover{ opacity: 1; transform: scale(1.08); }
- .theme-toggle:hover .moon-glyph{ transform: rotate(-8deg); }
 
  /* ── Floating liquid-glass music terminal (drifts on the right edge) ── */
  /* ── Minimal liquid-glass music capsule (bottom-right, draggable) ── */
@@ -527,10 +473,6 @@
   from { transform: translateX(60px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
  }
- .tokyo-tower-img{
-  animation: sideways-slide 1.2s cubic-bezier(.25,.46,.45,.94) .6s forwards;
-  opacity: 0;
- }
  /* Phone: keep it to the right of the name, nudged toward the corner. */
  @media (max-width: 600px){
   .hero-avatar{
@@ -560,11 +502,6 @@
  }
 
  /* Bounce reveal — each glyph drops in and bounces to rest, one by one. */
- .roll-letter{
-  display: inline-block;
-  opacity: 0;
-  animation: letter-bounce .7s cubic-bezier(.28,.84,.42,1) forwards;
- }
  @keyframes letter-bounce{
   0%   { opacity: 0; transform: translateY(-.85em) scale(.9); }
   28%  { opacity: 1; transform: translateY(0)      scale(1); }
@@ -574,9 +511,6 @@
   90%  { transform: translateY(0)       scale(1); }
   96%  { transform: translateY(-.03em); }
   100% { opacity: 1; transform: translateY(0)      scale(1); }
- }
- @media (prefers-reduced-motion: reduce){
-  .roll-letter{ animation: none; opacity: 1; }
  }
  /* Name reveal is a signature, finite motion — kept on intentionally. */
 
@@ -727,24 +661,11 @@
   top: 0; left: 0;
   border-right: 2px solid var(--murasaki);
  }
-
- .jp-line-1{
-  animation:
-   jp1 3.6s linear 1.2s forwards,
-   caret-blink 0.7s steps(2) 1.2s 5;
- }
  @keyframes jp1{
   0%   { width: 0;     opacity: 1; }
   33%  { width: 10em;  opacity: 1; }
   80%  { width: 10em;  opacity: 1; }
   100% { width: 10em;  opacity: 0; }
- }
-
- .jp-line-2{
-  animation:
-   jp2 8s linear 1.6s infinite,
-   caret-blink 0.7s steps(2) 1.6s infinite;
-  opacity: 0;
  }
  /* Latin “Scroll to explore” typewriter — loops continuously */
  .scroll-cue-line{
@@ -778,13 +699,6 @@
   40%  { width: 13em;  opacity: 1; }
   46%  { width: 13em;  opacity: 0; }
   100% { width: 13em;  opacity: 0; }
- }
-
- .jp-line-3{
-  animation:
-   jp3 8s linear 1.6s infinite,
-   caret-blink 0.7s steps(2) 1.6s infinite;
-  opacity: 0;
  }
  @keyframes jp3{
   0%   { width: 0;     opacity: 0; }
@@ -864,21 +778,6 @@
   letter-spacing: .3em;
   color: var(--sumi-soft);
  }
-
- .scroll-cue{
-  display: none;
- }
- .scroll-cue:hover{ transform: translateY(6px); opacity: .72; }
- [data-theme="dark"] .scroll-cue{ color: #f0ece3; }
-
- .scroll-arrow{
-  width: 92px;
-  height: auto;
-  opacity: 0;
-
-  animation: arrow-appear 0.3s ease-out 5.5s forwards,
-       arrow-bob 2.4s ease-in-out 7.2s infinite;
- }
  @keyframes arrow-appear{
   to { opacity: 1; }
  }
@@ -886,46 +785,14 @@
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(8px); }
  }
-
- .arrow-shaft{
-  stroke-dasharray: 320;
-  stroke-dashoffset: 320;
-  animation: draw-shaft 1.0s cubic-bezier(.45,.05,.55,.95) 5.6s forwards;
- }
  @keyframes draw-shaft{
   to { stroke-dashoffset: 0; }
- }
-
- .arrow-start{
-  stroke-dasharray: 24;
-  stroke-dashoffset: 24;
-  animation: draw-start 0.25s ease-out 5.6s forwards;
  }
  @keyframes draw-start{
   to { stroke-dashoffset: 0; }
  }
-
- .arrow-head{
-  stroke-dasharray: 80;
-  stroke-dashoffset: 80;
-  animation: draw-head 0.35s cubic-bezier(.5,.05,.5,.95) 6.6s forwards;
- }
  @keyframes draw-head{
   to { stroke-dashoffset: 0; }
- }
-
- @media (prefers-reduced-motion: reduce){
-  .scroll-arrow,
-  .arrow-shaft, .arrow-start, .arrow-head{
-   animation: none;
-   opacity: 1;
-   stroke-dashoffset: 0;
-  }
- }
-
- @media (max-width: 760px){
-  .scroll-arrow{ width: 70px; }
-  .scroll-cue{ padding: 4px 0 12px; }
  }
 
  .exp-marquee{
@@ -937,55 +804,6 @@
  }
  /* Small liquid-glass portrait floating in the corner of the strip below the
     logos — same glass language as the about deck, sized so the face reads. */
- .marquee-portrait{
-  position: absolute;
-  right: clamp(16px, 4vw, 64px);
-  bottom: 22px;
-  width: clamp(156px, 16.5vw, 222px);
-  padding: 7px;
-  border-radius: 40px;
-  z-index: 3;
-  rotate: 4deg;
-  background: linear-gradient(150deg,
-    rgba(255,255,255,.22) 0%, rgba(255,255,255,.05) 40%,
-    rgba(255,255,255,.015) 64%, rgba(255,255,255,.12) 100%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-          backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255,255,255,.3);
-  box-shadow:
-    inset 0 1.5px 0 rgba(255,255,255,.6),
-    inset 0 -1px 1px rgba(255,255,255,.14),
-    0 22px 48px rgba(0,0,0,.5),
-    0 4px 12px rgba(0,0,0,.3);
-  transition: rotate .5s cubic-bezier(.2,.8,.2,1), translate .5s cubic-bezier(.2,.8,.2,1);
- }
- .marquee-portrait::before{
-  content:""; position:absolute; inset:0; border-radius:30px; z-index:2;
-  background: linear-gradient(118deg,
-    rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 14%, rgba(255,255,255,0) 32%,
-    rgba(255,255,255,0) 72%, rgba(255,255,255,.14) 90%, rgba(255,255,255,0) 100%);
-  mix-blend-mode: screen; pointer-events:none;
- }
- .marquee-portrait::after{
-  content:""; position:absolute; inset:0; border-radius:30px; padding:1px; z-index:3;
-  background: linear-gradient(135deg,
-    rgba(255,180,200,.5), rgba(180,210,255,0) 35%,
-    rgba(190,255,225,0) 65%, rgba(210,190,255,.5));
-  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor; mask-composite:exclude;
-  opacity:.5; pointer-events:none;
- }
- .marquee-portrait img{
-  display:block; width:100%; aspect-ratio:4/5; object-fit:cover;
-  object-position: 50% 22%;
-  border-radius:32px; position:relative; z-index:1;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
- }
- .marquee-portrait:hover{ rotate:0deg; translate:0 -6px; }
- @media (max-width: 640px){
-  .marquee-portrait{ width: 130px; right: 12px; bottom: 16px; }
- }
  .exp-label{
   text-align: center;
   font-family: var(--mono);
@@ -1564,10 +1382,6 @@
   box-shadow: inset 0 1px 0 rgba(255,236,196,.3), 0 4px 12px rgba(27,23,20,.08);
   white-space: nowrap;
  }
- .award-badge .trophy{
-  font-size: 13px;
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
- }
  .award-badge strong{ color: #1b1714; font-weight: 700; letter-spacing: .02em; }
  .award-badge.global{
   color: #1b1714;
@@ -1651,17 +1465,6 @@
   background: linear-gradient(transparent 62%, rgba(200,157,222,.3) 62%);
  }
  /* Measured-result line — sits under the description, quietly emphasised */
- .work-info .desc.outcome{
-  margin-top: -22px;
-  margin-bottom: 32px;
-  padding-left: 13px;
-  border-left: 1px solid var(--murasaki);
-  color: var(--sumi);
- }
- .work-info .desc.outcome strong{
-  font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  font-size: 11px; color: var(--murasaki);
- }
  .work-info .cta{
   display: inline-flex;
   align-items: center;
@@ -1937,43 +1740,11 @@
  .site-window iframe{ display:block; width:100%; height:min(46vh, 420px); border:0; background:#fff; touch-action:auto; }
  @media (max-width:760px){ .site-window iframe{ height:min(38vh, 320px); } }
  /* explicit open button — all devices */
- .site-open-mobile{
-  display:flex; align-items:center; justify-content:center; gap:9px;
-  margin:12px auto 0; min-height:46px; padding:12px 22px; width:fit-content;
-  font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--sumi); text-decoration:none;
-  border:1px solid rgba(200,157,222,.5); border-radius:999px;
-  background:linear-gradient(120deg, rgba(200,157,222,.16), rgba(200,157,222,.05));
-  transition:border-color .25s ease, transform .25s ease;
- }
- .site-open-mobile:hover{ border-color:rgba(200,157,222,.9); transform:translateY(-2px); }
  @media (max-width:760px){
   .site-pop{ padding:10px 12px; font-size:16px; }
  }
 
  /* ── Industrial 3D dimensional-breakdown expansion (under a project) ── */
- .work-expansion{ margin: 14px 0 6px; }
- .work-expansion .we-head{ margin-bottom: 4px; }
- .we-eyebrow{ display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--murasaki); margin-bottom:10px; }
- .we-rule{ width:30px; height:1px; background:var(--murasaki); opacity:.7; }
- .we-title{ font-family:var(--script); font-size:clamp(30px,4vw,48px); font-weight:600; line-height:1; color:var(--paper); margin:0; }
- .we-title span{ font-family:var(--mono); font-size:.32em; letter-spacing:.05em; color:var(--mono-grey); text-transform:uppercase; vertical-align:middle; margin-left:6px; }
- .we-note{ font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:var(--mono-grey); margin:8px 0 0; }
- .we-frame{
-  position:relative; margin-top:18px;
-  height:min(84vh, 780px); min-height:520px;
-  border-radius:16px; overflow:hidden;
-  background: radial-gradient(130% 95% at 80% 6%, #1b1626 0%, #09080c 56%), #09080c;
-  border:1px solid rgba(200,157,222,.22);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 30px 80px rgba(0,0,0,.5);
- }
- .we-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
- .we-corner{ position:absolute; width:16px; height:16px; border:1px solid rgba(224,168,96,.5); pointer-events:none; z-index:2; }
- .we-corner.tl{ top:12px; left:12px; border-right:0; border-bottom:0; }
- .we-corner.tr{ top:12px; right:12px; border-left:0; border-bottom:0; }
- .we-corner.bl{ bottom:12px; left:12px; border-right:0; border-top:0; }
- .we-corner.br{ bottom:12px; right:12px; border-left:0; border-top:0; }
- @media (max-width:760px){ .we-frame{ height:66vh; min-height:400px; } }
 
  /* ── Butterfly band: one origin, projects placed by the reach of their effect ── */
  .ripple-band{
@@ -2227,16 +1998,6 @@
   .about-grid{ grid-template-columns: 1fr; gap: 40px; }
  }
 
- .about-title{
-  font-family: var(--script);
-  font-size: clamp(56px, 7vw, 96px);
-  color: var(--sumi);
-  line-height: .95;
-  transform: rotate(-1.5deg);
-  margin-bottom: 36px;
- }
- .about-title .dot{ color: var(--hinomaru); }
-
  .about-body{
   font-family: "Times New Roman", Times, Georgia, serif;
   font-size: 19px;
@@ -2287,13 +2048,6 @@
 
  /* Portrait — squircle inside a "liquid glass" pocket. Sits below the meta-list
     in the about section's right column. */
- .portrait-glass{
-  /* Portrait now leads the about section's left column — sits before the title */
-  margin: 0 0 44px;
-  max-width: 460px;
-  position: relative;
-  isolation: isolate;
- }
  /* Dedicated fade-in for the portrait — slightly slower than the general
     .reveal so it reads as its own deliberate moment when the about section
     comes into view. Subtle scale-up gives it depth, as if surfacing through
@@ -2505,11 +2259,6 @@
  /* Current role — same purple family as the hero emphasis words
     (product / brand / business strategy), bold so it stands out on the
     white about card. */
- #about .about-body .role-now{
-  color: #a87fc9 !important;
-  font-weight: 700;
-  font-style: normal;
- }
  [data-theme="dark"] #about .meta-item .v,
  [data-theme="dark"] #about .meta-item .v.green{ color: #1b1714; }
  [data-theme="dark"] #about .meta-item .k{ color: rgba(27,23,20,.55); }
@@ -2543,16 +2292,6 @@
   .foot-row .right a{ padding: 11px 18px; font-size: 12.5px; }
  }
 
- .foot-sign{
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
-  margin-top:22px; padding-top:18px;
-  border-top:1px solid var(--rule);
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--mono-grey); opacity:.7;
- }
- .foot-sign .foot-dot{ opacity:.5; }
- .foot-sign time{ color:var(--sumi-soft); }
-
  .foot-mark{
   font-family: var(--script);
   font-size: clamp(32px, 8vw, 43px);
@@ -2577,16 +2316,6 @@
  }
  @media (max-width: 600px){
   .foot-mark{ font-size: clamp(24px, 7vw, 32px); gap: 8px; margin-bottom: 28px; }
-  .foot-lines{ width: 38px !important; height: 38px !important; }
- }
- .foot-lines{
-  width: 52px !important;
-  height: 52px !important;
-  display: block;
-  flex-shrink: 0;
-  object-fit: contain;
-  background: transparent !important;
-  filter: brightness(1.2) contrast(1.1);
  }
  @keyframes ink-shimmer{
   0%   { background-position: 120% 0; }
@@ -2633,14 +2362,6 @@
   24% { transform: scale(1.3); }
   32% { transform: scale(1); }
  }
- .foot-quote{
-  font-family: var(--serif); font-style: italic;
-  font-size: 18px;
-  color: var(--sumi-soft);
-  max-width: 40ch;
-  margin-bottom: 60px;
-  line-height: 1.5;
- }
 
  .reveal{ opacity: 0; transform: translateY(20px); transition: all .9s cubic-bezier(.2,.8,.2,1); }
  .reveal.in{ opacity: 1; transform: none; }
@@ -2657,14 +2378,6 @@
  .hero .hero-row{ opacity: 1; }
  @keyframes tagline-show{
   to { opacity: 1; }
- }
-
- .skate-letter{
-  display: inline-block;
-  opacity: 0;
-  transform: translateX(-22px);
-  filter: blur(1.5px);
-  animation: skate-letter 0.7s cubic-bezier(.22,.61,.36,1) forwards;
  }
  @keyframes skate-letter{
   0%   { opacity: 0; transform: translateX(-22px); filter: blur(1.5px); }
@@ -2771,6 +2484,15 @@
    linear-gradient(180deg, rgba(250,247,236,.35), rgba(250,247,236,0) 42%);
  }
  /* Van Gogh, Wheatfield with Crows (1890) — held far back so the type reads */
+ /* Tendai-ji, Iwate — Setouchi's own temple */
+ #splash[data-art="sky"] .sp-art{
+  background-image: url("media/summer-sky.jpg") !important;
+  background-position: 40% 45% !important;
+ }
+ #splash[data-art="temple"] .sp-art{
+  background-image: url("media/tendaiji-temple.jpg") !important;
+  background-position: 50% 42% !important;
+ }
  #splash[data-art="wave"] .sp-art{
   background-image: url("media/hokusai-wave.jpg") !important;
   background-position: 62% 60% !important;
@@ -2808,7 +2530,6 @@
   animation: sp-caret .95s steps(2) infinite;
  }
  #splash .sp-qcaret.done{ display: none; }
- #splash .sp-jp{ font-family: var(--jp); font-size: .62em; letter-spacing: .16em; color: var(--sumi-soft); opacity: .7; margin-left: .5em; }
  #splash .sp-cmd{ margin-top: 12px; opacity: 0; transition: opacity .35s ease; color: var(--mono-grey); display: flex; align-items: center; }
  #splash .sp-cmd.show{ opacity: 1; }
  #splash .sp-caret{
@@ -2858,7 +2579,6 @@
   #splash .sp-status{ left: 16px; right: 16px; font-size: 8.5px; letter-spacing: .14em; gap: 8px; }
   #splash .sp-status .jp{ display: none; }
   #splash .sp-tate{ font-size: 10px; right: 16px; top: 14px; }
-  #splash .sp-jp{ display: none; }
  }
  @media (prefers-reduced-motion: reduce){
   #splash .sp-status i, #splash .sp-cmd.show{ opacity: 1; }
@@ -2914,10 +2634,12 @@
 
   // type the quote, then the command
   var DAYS = [
-   { q: '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”', by: '— Vincent van Gogh', art: '' },
-   { q: '“One who does not hold himself in high regard is a slave.”', by: '— Natsume Sōseki', art: 'wave' }
+   { q: '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”', by: '— Vincent van Gogh', jq: '「魂の中には大きな炎が燃えているのに、誰もそこで暖をとろうとしない。通りすがりの人には、煙突からのぼるわずかな煙しか見えないのだ。」', jby: '— フィンセント・ファン・ゴッホ', art: '' },
+   { q: '“One who does not hold himself in high regard is a slave.”', by: '— Natsume Sōseki', jq: '「自らを尊しと思わぬものは奴隷なり」', jby: '— 夏目漱石', art: 'wave' },
+   { q: '“I love people who have been hurt deeply and have suffered much. Those who know deep despair become, in equal measure, people of deep love.”', by: '— Jakuchō Setouchi', art: 'temple' },
+   { q: '“Whether you see the word ‘impossible’ as a wall or as a springboard — that alone can change your whole life.”', by: '— Takuya Kimura', art: 'sky' }
   ];
-  // Alternate per visit: 1st open → Van Gogh, 2nd → Sōseki, 3rd → Van Gogh…
+  // Rotate per visit: Van Gogh → Sōseki → Setouchi → Kimura, then repeat
   var visitN = 0;
   try{ visitN = parseInt(localStorage.getItem('ss-visit') || '0', 10) || 0; localStorage.setItem('ss-visit', String(visitN + 1)); }catch(_){}
   var TODAY = DAYS[visitN % DAYS.length];
@@ -3067,6 +2789,7 @@
     <a href="#about" class="nav-link">About</a>
     <a href="#news" class="nav-link">Dispatch</a>
     <span class="topnav-social">
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="日本語に切り替え"><span data-l="en">EN</span><span data-l="ja">日本語</span></button>
       <a class="topnav-btn github" href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.7 5.38-5.26 5.67.42.36.79 1.07.79 2.16v3.2c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
       </a>
@@ -3119,27 +2842,7 @@
           mask-image: radial-gradient(68% 72% at 58% 52%, #000 46%, rgba(0,0,0,.4) 72%, transparent 90%);
  }
  @media (max-width: 700px){ .hero-bg img{ right: -30%; width: 150vw; opacity: .5; } }
- @media (prefers-reduced-motion: reduce){
-  .hero-cosmos{ animation: none; }
- }
- @media (max-width: 760px){
-  .hero-cosmos{ width: 96vw; right: -24vw; top: 62%; opacity: .42; }
- }
  footer .wrap{ position: relative; }
- .foot-butterfly{
-  position: absolute;
-  top: -22px; right: 0;
-  width: clamp(80px, 14vw, 140px);
-  height: auto;
-  pointer-events: none;
-  user-select: none; -webkit-user-select: none;
-  /* Static white Japanese stamp — no animation */
-  opacity: 1;
- }
-
- @media (max-width: 720px){
-  .foot-butterfly{ width: 132px; top: -4px; opacity: .82; }
- }
 
  /* ══════════════════════════════════════════════════════════════
     PHONE PASS — readability floor + density.
@@ -3162,7 +2865,6 @@
   .pocket-tab, .pk-label{ font-size: 11.5px; }
   .bs-dateline .sub, .bs-edition .sub{ font-size: 10.5px; }
   .sf-ticket{ font-size: 10.5px; }
-  .foot-sign, .foot-dot{ font-size: 11px; }
   .music-tip{ font-size: 10.5px; }
 
   /* ── 2. Project menu bar: bigger labels + a visible scroll edge ── */
@@ -3200,33 +2902,11 @@
   .work-dots .dot{ padding: 5px 10px; }
  }
  /* ── Current-role badge beside the hero tagline ── */
- .hero-now{
-  display: inline-flex; align-items: center; gap: 11px;
-  margin-top: 22px;
-  padding: 9px 16px 9px 13px;
-  border-radius: 999px;
-  font-family: var(--mono);
-  text-decoration: none;
-  background: linear-gradient(120deg, rgba(168,127,201,.2), rgba(168,127,201,.06));
-  border: 1px solid rgba(168,127,201,.45);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 8px 26px rgba(0,0,0,.28);
-  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s;
- }
- .hero-now:hover{ transform: translateY(-2px); border-color: rgba(168,127,201,.85); }
- .hero-now-pulse{
-  width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto;
-  background: #a87fc9;
-  animation: now-pulse 2s ease-out infinite;
- }
  @keyframes now-pulse{
   0%{ box-shadow: 0 0 0 0 rgba(168,127,201,.55); }
   70%{ box-shadow: 0 0 0 9px rgba(168,127,201,0); }
   100%{ box-shadow: 0 0 0 0 rgba(168,127,201,0); }
  }
- .hero-now-tag{ font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #ffffff; font-weight: 700; }
- .hero-now-role{ font-size: 12.5px; letter-spacing: .02em; color: #ffffff; overflow:visible; white-space:nowrap; }
- .hero-now-role strong{ color: #ffffff; font-weight: 700; }
  /* Per-letter drum ripple (shared by the badge + collection sub) */
  .dl{ display:inline-block; transform-origin:center bottom; animation: letter-drum 3s ease-in-out infinite; animation-delay: calc(var(--i) * .055s); will-change: transform; }
  .hero-now-role, .collection-sub{ perspective: 480px; }
@@ -3237,12 +2917,6 @@
   88%{ transform: translateY(0); }
  }
  @media (prefers-reduced-motion: reduce){ .dl{ animation: none; } }
- @media (max-width: 600px){
-  .hero-now{ flex-wrap: nowrap; gap: 8px; padding: 8px 13px; }
-  .hero-now-tag{ font-size: 8.5px; letter-spacing: .14em; }
-  .hero-now-role{ font-size: clamp(10.5px, 3vw, 12.5px); letter-spacing: 0; white-space: normal; line-height: 1.3; }
- }
- @media (prefers-reduced-motion: reduce){ .hero-now-pulse{ animation: none; } }
 
  /* ── Tech HUD overlay framing the hero ── */
  .hero{ --hud: rgba(200,157,222,.55); }
@@ -3273,12 +2947,6 @@
  @keyframes hud-ping{ 0%{ box-shadow:0 0 0 0 rgba(142,176,138,.55);} 70%{ box-shadow:0 0 0 7px rgba(142,176,138,0);} 100%{ box-shadow:0 0 0 0 rgba(142,176,138,0);} }
  .hud-status .clock{ color: var(--murasaki); font-variant-numeric: tabular-nums; }
  /* coordinate tag, top-right — sits BELOW the portrait medallion so they never overlap */
- .hud-coord{
-  position: absolute; right: 4px; top: 172px;
-  font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--mono-grey); text-align: right; line-height: 1.7;
- }
- .hud-coord b{ color: var(--murasaki); font-weight: 500; }
  /* slow vertical scan line sweeping the hero */
  .hud-scan{
   position: absolute; left: 0; right: 0; top: 0; height: 1px;
@@ -3289,14 +2957,12 @@
  @keyframes hud-sweep{ 0%{ transform: translateY(0); opacity:0; } 8%{ opacity:.5; } 92%{ opacity:.5; } 100%{ transform: translateY(min(70vh,560px)); opacity:0; } }
  @media (max-width: 700px){
   .hero-hud{ inset: 10px; }
-  .hud-coord{ display: none; }
   .hud-status{ gap: 9px; font-size: 10px; letter-spacing: .1em; }
   .hud-status .geo{ display: none; }
  }
  @media (prefers-reduced-motion: reduce){ .hud-scan, .hud-status .live i{ animation: none; } }
 </style>
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true"><canvas id="heroField"></canvas></div>
   <figure class="hero-photo" aria-hidden="true">
     <img src="media/hero-shibuya-bw.jpg" alt="" fetchpriority="high">
     <figcaption>Shibuya Crossing · 渋谷</figcaption>
@@ -3327,8 +2993,8 @@
   <div class="wrap">
     <div class="eyebrow"></div>
 
-    <figure class="hero-avatar" aria-label="Shoki Sakuma at Zojoji Temple, Tokyo Tower behind">
-      <img src="media/img-kdq3f0-1ju3.jpg" alt="Shoki Sakuma">
+    <figure class="hero-avatar" aria-label="Shoki Sakuma, black-and-white portrait at a bistro">
+      <img src="media/avatar-bistro-bw.jpg" alt="Shoki Sakuma">
     </figure>
 
     <h1 class="name">
@@ -3348,8 +3014,6 @@
     </div>
   </div>
 </section>
-
-
 
 <!-- ─────────── SELECTED WORK ─────────── -->
 <section class="section" id="work">
@@ -3546,7 +3210,6 @@
           <iframe src="https://shoks77.github.io/AIRABLE.AC/" title="Airable — live site" loading="lazy" allow="fullscreen"></iframe>
         </div>
       </div>
-
 
       <!-- 04 — Okinawa Gubernatorial Election 2026 -->
       <article class="work-panel" data-index="3">
@@ -3833,31 +3496,7 @@
 <style>
  #sandbox{ position:relative; overflow:hidden; }
  #sandbox.section{ padding: 36px 0 80px; }
- .sandbox-cosmos{
-  position:absolute;
-  top:50%; left:50%;
-  width:min(760px, 100vw);
-  height:auto;
-  transform:translate(-50%,-50%);
-  z-index:0;
-  pointer-events:none;
-  opacity:.7;
-  filter:blur(.3px) saturate(1.5) brightness(1.25) contrast(1.1);
-  mix-blend-mode:screen;   /* black field drops out, only the stars glow over the dark bg */
-  -webkit-mask:radial-gradient(circle at center, #000 28%, transparent 72%);
-          mask:radial-gradient(circle at center, #000 28%, transparent 72%);
- }
  #sandbox .wrap{ position:relative; z-index:1; }
- @media (max-width: 600px){
-  .sandbox-cosmos{
-   width: 175vw;
-   opacity: .85;
-   filter: blur(.3px) saturate(1.6) brightness(1.35) contrast(1.1);
-   -webkit-mask: radial-gradient(circle at center, #000 36%, transparent 78%);
-           mask: radial-gradient(circle at center, #000 36%, transparent 78%);
-  }
- }
- .sandbox-grid{ display:block; }
  /* Sandbox intro line */
  .sandbox-sub{
   font-family:var(--serif); font-style:italic; font-weight:300;
@@ -3917,15 +3556,6 @@
  .sf-desc{ font-family:var(--serif); font-size:15.5px; line-height:1.65; color:var(--sumi-soft); max-width:38ch; }
  .sf-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
  .sf-tags span{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--mono-grey); border:1px solid var(--rule); border-radius:999px; padding:5px 11px; }
- .sf-link{
-  display:inline-flex; align-items:center; gap:9px; margin-top:8px; align-self:flex-start;
-  font-family:var(--mono); font-size:12px; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--sumi); border-bottom:1px solid var(--sumi); padding-bottom:3px; text-decoration:none;
-  transition:gap .25s ease, color .25s ease, border-color .25s ease;
- }
- .sf-link .a{ transition:transform .25s ease; }
- .sf-link:hover{ color:var(--murasaki); border-color:var(--murasaki); gap:14px; }
- .sf-link:hover .a{ transform:translate(3px,-3px); }
  .sf-eyebrow{
   position:absolute; top:16px; right:18px; z-index:5;
   font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
@@ -3940,73 +3570,9 @@
   .sandbox-feature{ grid-template-columns:1fr; }
   .sf-shots{ min-height:280px; }
  }
- .sandbox-experiments-label{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--mono-grey); display:flex; align-items:center; gap:12px; margin:0 0 22px;
- }
- .sandbox-experiments-label::after{ content:""; flex:1; height:1px; background:var(--rule); }
- .polaroids{
-  position:relative; display:flex; flex-wrap:wrap;
-  justify-content:center; align-items:flex-start;
-  gap:24px; padding: 8px 0;
- }
- .polaroid{
-  position: relative;
-  padding: 8px;
-  width: clamp(172px,18.5vw,210px);
-  border-radius: 28px;
-  background: linear-gradient(
-    150deg,
-    rgba(255,255,255,.20) 0%,
-    rgba(255,255,255,.05) 38%,
-    rgba(255,255,255,.015) 62%,
-    rgba(255,255,255,.12) 100%
-  );
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-          backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255,255,255,.3);
-  box-shadow:
-    inset 0 1.5px 0 rgba(255,255,255,.6),
-    inset 0 -1px 1px rgba(255,255,255,.14),
-    inset 1px 0 0 rgba(255,255,255,.16),
-    0 26px 55px rgba(0,0,0,.5),
-    0 4px 12px rgba(0,0,0,.3);
-  rotate:0deg;
-  transition:rotate .5s cubic-bezier(.2,.8,.2,1), translate .5s cubic-bezier(.2,.8,.2,1);
- }
  /* glossy diagonal sheen */
- .polaroid::before{
-  content:""; position:absolute; inset:0; border-radius:28px; z-index:2;
-  background: linear-gradient(118deg,
-    rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 14%, rgba(255,255,255,0) 32%,
-    rgba(255,255,255,0) 72%, rgba(255,255,255,.14) 90%, rgba(255,255,255,0) 100%);
-  mix-blend-mode: screen; pointer-events:none;
- }
  /* prism rim light */
- .polaroid::after{
-  content:""; position:absolute; inset:0; border-radius:28px; padding:1px; z-index:3;
-  background: linear-gradient(135deg,
-    rgba(255,180,200,.5), rgba(180,210,255,0) 35%,
-    rgba(190,255,225,0) 65%, rgba(210,190,255,.5));
-  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor; mask-composite:exclude;
-  opacity:.5; pointer-events:none;
- }
- .polaroid img,
- .polaroid video{ display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:20px; background:#1c1b1a; position:relative; z-index:1; box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
- .polaroid.wide{ width:clamp(300px,36vw,420px); }
- .polaroid.wide img{ aspect-ratio:3/2; }
- .polaroid.square img{ aspect-ratio:1/1; }
  /* Tapsta app shots — show full landscape frame at natural ratio, no crop */
- .polaroid.tapsta-shot{ width:clamp(360px,42vw,560px); }
- .polaroid.tapsta-shot img{ aspect-ratio:3278/1588; object-fit:contain; background:#0d0c19; }
- .polaroid:hover{ rotate:0deg; translate:0 -10px; z-index:8; }
- @media (max-width:560px){
-  .polaroids{ gap:18px; }
-  .polaroid{ width:74vw; }
-  .polaroid.wide{ width:84vw; }
- }
 </style>
 <!-- ─────────── EXPERIENCE LOGO MARQUEE ─────────── -->
 <section class="exp-marquee" aria-label="Experience">
@@ -4106,7 +3672,7 @@
             </p>
             <p>
               Now, back in Tokyo, I'm exploring new ideas and connecting passionate
-              communities through <em>Figma</em> and etc.
+              communities through <a class="inline-link" href="https://fig-events.figma.com/mc-tokyo-2026-oct-day2/" target="_blank" rel="noopener noreferrer"><em>Figma</em></a> and etc.
             </p>
             <p>
               Always happy to meet <em class="hl">ventures</em> and
@@ -4147,20 +3713,6 @@
 <style>
  #collection{ position:relative; overflow:hidden; }
  #collection.section{ padding: 64px 0 56px; }
- .collection-water{
-  position:absolute;
-  top:50%; left:50%;
-  width:min(1100px, 130vw);
-  height:auto;
-  transform:translate(-50%,-50%);
-  z-index:0;
-  pointer-events:none;
-  opacity:.5;
-  filter:saturate(1.25) brightness(1.05) contrast(1.05);
-  mix-blend-mode:screen;   /* dark field drops out, the iridescent water glows over the bg */
-  -webkit-mask:radial-gradient(ellipse at center, #000 32%, transparent 78%);
-          mask:radial-gradient(ellipse at center, #000 32%, transparent 78%);
- }
  #collection .wrap{ position:relative; z-index:1; }
  .collection-sub{
   font-family:var(--serif); font-style:italic; font-weight:300;
@@ -4570,7 +4122,6 @@
       <div class="bs-rule"></div>
       <div class="bs-rule thin"></div>
 
-
       <div class="bs-columns">
 
         <!-- ENTRY 01 — Edicum cover feature. Image: Gould-store photo (rendered B&W). -->
@@ -4839,38 +4390,10 @@
   document.addEventListener("mouseleave", () => halo.classList.remove("is-on"));
  })();
 
- (function(){
-  const btn = document.getElementById("themeToggle");
-  if (!btn) return;
-  btn.setAttribute("aria-label", "Back to the opening");
-  btn.setAttribute("title", "Back to the opening");
-  btn.addEventListener("click", () => {
-   window.scrollTo({ top: 0, behavior: "smooth" });
-  });
- })();
-
- function pad(n){ return String(n).padStart(2,"0"); }
- function tickClock(){
-  const now = new Date();
-  const fmt = (tz) => {
-   const parts = new Intl.DateTimeFormat("en-US",{
-    hour:"2-digit", minute:"2-digit", second:"2-digit",
-    hour12:false, timeZone: tz
-   }).formatToParts(now).reduce((a,p)=>(a[p.type]=p.value,a),{});
-   return `${parts.hour}:${parts.minute}:${parts.second}`;
-  };
-  const nyc = document.getElementById("nyc"); if (nyc) nyc.textContent = fmt("America/New_York");
-  const tyo = document.getElementById("tyo"); if (tyo) tyo.textContent = fmt("Asia/Tokyo");
-  const tc = document.getElementById("topclock");
-  if (tc) tc.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", second: "2-digit" });
- }
- tickClock(); setInterval(tickClock, 1000);
-
  const io = new IntersectionObserver((entries)=>{
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
  }, { threshold: 0.12 });
  document.querySelectorAll(".reveal, .reveal-portrait").forEach(el => io.observe(el));
-
 
  (function setupNameType(){
   const lines = document.querySelectorAll(".name .ghost, .name .script");
@@ -5258,196 +4781,6 @@
  }
  try{ rippleBand(); }catch(e){ console.warn("rippleBand", e); }
 
- /* Hero contour field — one origin; deviation amplifies with distance.
-    Micro perturbation at the source, wide divergence at the edges. */
- function heroField(){
-  var cv = document.getElementById("heroField");
-  if (!cv || !cv.getContext) return;
-  var ctx = cv.getContext("2d");
-  var hero = document.querySelector(".hero");
-  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // Small screens get a lighter draw: fewer rings, no shadow blur, 1× DPR, 30fps.
-  var LOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
-  function blur(px){ ctx.shadowBlur = LOW ? 0 : px; }
-  var W = 0, H = 0, dpr = 1, ox = 0, oy = 0, maxD = 1, step = 6, live = true;
-
-  function size(){
-   var r = cv.getBoundingClientRect();
-   if (!r.width || !r.height) return false;
-   dpr = Math.min(window.devicePixelRatio || 1, 2);
-   W = r.width; H = r.height;
-   cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-   ox = W * 0.68; oy = H * 0.5;
-   maxD = Math.hypot(Math.max(ox, W - ox), Math.max(oy, H - oy));
-   step = W > 900 ? 5 : 8;
-   return true;
-  }
-
-  // Ensō — a single brush circle that draws itself once, then breathes with the cursor.
-  // Strokes accumulate on an offscreen sheet so the finished circle costs one drawImage per frame.
-  var off = document.createElement("canvas"), octx = off.getContext("2d");
-  var R = 0, ecx = 0, ecy = 0, N = 0, done = -1, strands = [];
-  var TH0 = 2.05, SWEEP = 5.62, DUR = 3.4;
-  var begin = null, still2 = still;
-  var mx = 0, my = 0, tx = 0, ty = 0;
-
-  function sstep(e0, e1, x){ x = Math.max(0, Math.min(1, (x - e0) / (e1 - e0))); return x * x * (3 - 2 * x); }
-  function setup(){
-   off.width = cv.width; off.height = cv.height;
-   octx.setTransform(dpr, 0, 0, dpr, 0, 0);
-   octx.clearRect(0, 0, W, H);
-   R = Math.min(W * 0.2, H * 0.27, 330);
-   ecx = W * (W > 900 ? 0.7 : 0.64); ecy = H * 0.47;
-   N = LOW ? 520 : 1100;
-   var B = LOW ? 14 : 30;
-   strands = [];
-   for (var k = 0; k < B; k++){
-    var seed = Math.sin(k * 91.7 + 3.1) * 43758.5; seed -= Math.floor(seed);
-    strands.push({ o: (k + 0.5) / B - 0.5, a: 0.5 + seed * 0.42, f: 0.06 + seed * 0.11, ph: seed * 40, lw: LOW ? 2.1 : 1.35 });
-   }
-   done = -1; hairs = null;
-  }
-  function pt(i){
-   var s = i / N, th = TH0 + SWEEP * s;
-   var r = R * (1 + 0.032 * Math.sin(2 * th + 0.6) + 0.012 * Math.sin(3 * th + 1.1) + 0.03 * s);
-   var w = R * 0.19 * (0.38 + 0.62 * sstep(0, 0.07, s)) * (1 + 0.1 * Math.sin(s * 3.1)) * (1 - 0.42 * sstep(0.5, 1, s));
-   return { x: ecx + Math.cos(th) * r, y: ecy + Math.sin(th) * r, nx: Math.cos(th), ny: Math.sin(th), w: w, s: s };
-  }
-  // Bristle brush: each hair carries its own ink and runs dry on its own.
-  // Solid where the brush is loaded; long, natural dry-brush streaks as it empties.
-  var hairs = null;
-  function rnd(n){ var x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); }
-  function mkHairs(){
-   hairs = [];
-   var B = LOW ? 34 : 78;
-   for (var k = 0; k < B; k++){
-    var o = (k + 0.5) / B - 0.5 + (rnd(k + 1) - 0.5) * (0.6 / B);
-    var edgeness = Math.abs(o) * 2;
-    hairs.push({
-     o: o,
-     ink: 1.05 + rnd(k + 7) * 0.45 - edgeness * 0.55,
-     rate: 1.0 + rnd(k + 13) * 0.9 + edgeness * 0.5,
-     f: 14 + rnd(k + 19) * 26, ph: rnd(k + 23) * 60,
-     wf: 6 + rnd(k + 29) * 9, wph: rnd(k + 31) * 40,
-     lw: 0.9 + rnd(k + 37) * 0.8
-    });
-   }
-  }
-  function inkAt(hr, s){ return hr.ink - hr.rate * Math.pow(sstep(0.42, 1, s), 1.15); }
-  function hairPos(hr, i){
-   var p = pt(i);
-   var o = hr.o + 0.035 * Math.sin(p.s * hr.wf + hr.wph);
-   return [p.x + p.nx * o * p.w, p.y + p.ny * o * p.w, p.s, p.w];
-  }
-  function drawUpTo(target){
-   if (target <= done) return;
-   if (!hairs) mkHairs();
-   var from = Math.max(done, 0);
-   octx.save();
-   octx.lineCap = "round";
-   octx.lineJoin = "round";
-   for (var k = 0; k < hairs.length; k++){
-    var hr = hairs[k];
-    var wFrac = 2.3 / hairs.length;
-    var prev = hairPos(hr, from), open = false;
-    octx.beginPath();
-    for (var i = from + 1; i <= target; i++){
-     var cur = hairPos(hr, i), ink = inkAt(hr, cur[2]);
-     var gap = ink < 0.32 ? (0.32 - ink) * 2.6 : 0;
-     var n = 0.5 + 0.5 * Math.sin(cur[2] * hr.f + hr.ph);
-     if (ink > 0 && n > gap){
-      if (!open){ octx.moveTo(prev[0], prev[1]); open = true; }
-      octx.lineTo(cur[0], cur[1]);
-     } else open = false;
-     prev = cur;
-    }
-    var mid = inkAt(hr, (from + target) / 2 / N);
-    octx.strokeStyle = "rgba(24,21,18," + (0.5 + 0.45 * Math.max(0, Math.min(1, mid))).toFixed(3) + ")";
-    octx.lineWidth = Math.max(hr.lw, pt(Math.round((from + target) / 2)).w * wFrac);
-    octx.stroke();
-   }
-   octx.restore();
-   done = target;
-  }
-
-  var coarse = window.matchMedia && window.matchMedia("(hover: none)").matches;
-  if (!coarse && !still && hero){
-   hero.addEventListener("pointermove", function(ev){
-    var r = cv.getBoundingClientRect();
-    tx = ((ev.clientX - r.left) / r.width - 0.5) * 2;
-    ty = ((ev.clientY - r.top) / r.height - 0.5) * 2;
-   });
-   hero.addEventListener("pointerleave", function(){ tx = 0; ty = 0; });
-  }
-  function ready(){
-   var sp = document.getElementById("splash");
-   return !sp || sp.classList.contains("gone") || sp.style.display === "none" || !sp.isConnected;
-  }
-
-  function draw(t){
-   if (off.width !== cv.width || off.height !== cv.height || !N) setup();
-   if (begin === null){ if (still2) begin = -99; else if (ready()) begin = t + 0.35; }
-   var e = begin === null ? 0 : Math.max(0, Math.min(1, (t - begin) / DUR));
-   var prog = e < 0.5 ? 2 * e * e : 1 - Math.pow(-2 * e + 2, 2) / 2;
-   drawUpTo(Math.round(prog * N));
-
-   mx += (tx - mx) * 0.06; my += (ty - my) * 0.06;
-   ctx.clearRect(0, 0, W, H);
-   // faint echo, drifting against the cursor — the brush's shadow on the paper
-   ctx.save();
-   ctx.globalAlpha = 0.07;
-   ctx.drawImage(off, -mx * 16, -my * 12, W, H);
-   ctx.restore();
-   // the circle itself, leaning toward the cursor
-   ctx.save();
-   ctx.translate(ecx + mx * 10, ecy + my * 8);
-   ctx.rotate(mx * 0.035);
-   ctx.translate(-ecx, -ecy);
-   ctx.drawImage(off, 0, 0, W, H);
-   ctx.restore();
-  }
-
-  var t0 = performance.now();
-  var drawn = false;
-  function paint(t){
-   if (!W || cv.width <= 300) size();
-   if (!W || cv.width <= 300) return false;
-   draw(t);
-   drawn = true;
-   return true;
-  }
-  var lastPaint = 0;
-  function frame(now){
-   if (still){ if (!paint(0)) requestAnimationFrame(frame); return; }
-   if (live && (!LOW || now - lastPaint > 33)){ lastPaint = now; paint((now - t0) / 1000); }
-   requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-  // still mode has no animation loop to fall back on: keep retrying until a
-  // draw genuinely lands (the intro overlay leaves the canvas unmeasurable).
-  if (still){
-   var tries = 0;
-   var iv = setInterval(function(){ if (paint(0) || ++tries > 80) clearInterval(iv); }, 150);
-   window.addEventListener("load", function(){ paint(0); });
-   window.addEventListener("splash-done", function(){ setTimeout(function(){ paint(0); }, 60); });
-  }
-  if (hero && "IntersectionObserver" in window){
-   new IntersectionObserver(function(e){ live = e[0].isIntersecting; }, { threshold: 0 }).observe(hero);
-  }
-  function remeasure(){
-   LOW = window.matchMedia && window.matchMedia("(max-width: 900px)").matches;
-   size(); paint(still ? 0 : (performance.now() - t0) / 1000);
-  }
-  if ("ResizeObserver" in window) new ResizeObserver(remeasure).observe(cv);
-  var rt;
-  window.addEventListener("resize", function(){
-   clearTimeout(rt);
-   rt = setTimeout(remeasure, 180);
-  });
- }
- try{ heroField(); }catch(e){ console.warn("heroField", e); }
-
  document.querySelectorAll(".nav-link").forEach(link => {
   link.addEventListener("click", (e) => {
    const href = link.getAttribute("href");
@@ -5463,8 +4796,6 @@
    });
   });
  });
-
-
 
  const sunrise = document.querySelector(".sunrise-interlude");
  if (sunrise){
@@ -5705,100 +5036,6 @@
    });
   }, { threshold: 0.18 });
   io.observe(footer);
- })();
-</script>
-
-<!-- ─────────── OPENING PIANO (original elegant piano motif, Web Audio) ─────────── -->
-<script>
- (function openingPiano(){
-  return; /* disabled — the YouTube track is the page's music now */
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (sessionStorage.getItem('shoki-chime') === 'played') return;
-
-  function playPiano(){
-   var AC = window.AudioContext || window.webkitAudioContext;
-   if (!AC) return;
-   var ctx = new AC();
-   if (ctx.state === 'suspended') ctx.resume();
-
-   var t0 = ctx.currentTime + 0.05;
-
-   // master + gentle ambience (feedback delay reads as soft hall reverb)
-   var master = ctx.createGain();
-   master.gain.value = 0.5;
-   var comp = ctx.createDynamicsCompressor();
-   master.connect(comp); comp.connect(ctx.destination);
-
-   var delay = ctx.createDelay(1.0);
-   delay.delayTime.value = 0.26;
-   var fb = ctx.createGain();  fb.gain.value = 0.28;
-   var wet = ctx.createGain(); wet.gain.value = 0.32;
-   delay.connect(fb); fb.connect(delay);
-   delay.connect(wet); wet.connect(master);
-
-   // One elegant, felt-piano note: fundamental + soft harmonics, fast attack,
-   // long exponential decay, rounded by a lowpass. Original motif — not a score.
-   function note(freq, start, dur, vel){
-    var s = t0 + start, e = s + dur;
-    var amp = vel == null ? 1 : vel;
-    var lp = ctx.createBiquadFilter();
-    lp.type = 'lowpass';
-    lp.frequency.setValueAtTime(2600, s);
-    lp.frequency.exponentialRampToValueAtTime(900, e);
-
-    var vca = ctx.createGain();
-    vca.gain.setValueAtTime(0.0001, s);
-    vca.gain.exponentialRampToValueAtTime(0.9 * amp, s + 0.012);
-    vca.gain.exponentialRampToValueAtTime(0.18 * amp, s + dur * 0.45);
-    vca.gain.exponentialRampToValueAtTime(0.0001, e);
-
-    var parts = [[1, 1.0], [2, 0.4], [3, 0.16], [4, 0.07]];
-    parts.forEach(function(p){
-     var o = ctx.createOscillator();
-     o.type = 'triangle';
-     o.frequency.value = freq * p[0];
-     var g = ctx.createGain();
-     g.gain.value = p[1];
-     o.connect(g); g.connect(vca);
-     o.start(s); o.stop(e + 0.05);
-    });
-    lp.connect(master); lp.connect(delay);
-    vca.connect(lp);
-   }
-
-   // Calm Fmaj7→Cadd9 arpeggio resolving upward — refined, unhurried, luxe.
-   var F3=174.61, A3=220.00, C4=261.63, E4=329.63, F4=349.23,
-       G4=392.00, A4=440.00, C5=523.25, E5=659.25, F5=698.46;
-
-   note(F3, 0.00, 2.4, 0.55);   // soft bass root
-   note(C4, 0.18, 2.0, 0.55);
-   note(A4, 0.40, 1.8, 0.7);
-   note(C5, 0.62, 1.7, 0.75);
-   note(E5, 0.92, 1.7, 0.8);    // peak of the phrase
-   note(G4, 1.45, 1.6, 0.55);   // gentle inner-voice answer
-   note(F5, 1.78, 2.2, 0.85);   // final resolve, lingering
-
-   sessionStorage.setItem('shoki-chime', 'played');
-  }
-
-  function arm(){
-   var fired = false;
-   function go(){
-    if (fired) return;
-    fired = true;
-    try { playPiano(); } catch(e){}
-    remove();
-   }
-   function remove(){
-    ['pointerdown','keydown','wheel','touchstart','scroll'].forEach(function(ev){
-     window.removeEventListener(ev, go, true);
-    });
-   }
-   ['pointerdown','keydown','wheel','touchstart','scroll'].forEach(function(ev){
-    window.addEventListener(ev, go, { capture: true, once: false, passive: true });
-   });
-  }
-  arm();
  })();
 </script>
 
@@ -6069,6 +5306,70 @@
 </script>
 
 <script>
+/* ── EN / 日本語: swaps copy in place; brand + project names stay in English ── */
+(function(){
+ var DICT = {"Scroll and explore":"スクロールして探索","Solving complex problems across business strategy, product, and brand. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.":"<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の3つの視点から、複雑な課題を解決します。ニューヨークと東京を拠点に、人とのコラボレーションとインサイトを大切にしながら、アイデアを目に見える成果と優れたデザインへと形にしています。","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations (Freelance)":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","U.S. Market Development":"米国市場開拓","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Co-invented a modular men's grooming device integrating lip care and fragrance, designed for scalable, refill-based consumer use with two teammates from GWU, within L'Oréal Groupe's innovation with 5,000+ consumer research + forecasted 24 M retail store + e-commerce sales.":"<em class=\"hl\">GWUのチームメイト2名</em>と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式の低価格帯サブスクリプションで拡張しやすい設計とし、L'Oréal Groupe のイノベーションのもとで<em class=\"hl\">5,000件以上の消費者調査</em>を実施、アメリカ展開で実店舗とECを合わせて約36億円の売上を予測しました。","Built with five teammates from Yale, Stanford Graduates, and GWU — Clean climate systems, reimagined for the home and commercial. Submitted to the James Dyson Award 2026, the international design and engineering prize for student-led inventions that solve a real problem.":"<em class=\"hl\">Yale、Stanford の卒業生、GWU の5名のチームメイト</em>を集めてチームを発足し、共に開発した家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Grew the campaign's X following to 24,000+, winning the under-30 segment — the candidate was elected with 59.4% of the vote. Built Claude prompt-engineering workflows with a 3-person team for X content strategy and real-time response.":"選挙陣営のXフォロワーを<em class=\"hl\">24,000人以上</em>に伸ばし、<em class=\"hl\">30歳未満の層</em>で支持を獲得しました。候補者は8年ぶりに<em class=\"hl\">得票率59.4%</em>で当選しています。また<em class=\"hl\">2名のチーム</em>で Claude を使ったプロンプトエンジニアリングのワークフローを構築し、Xのコンテンツ戦略とリアルタイム対応を担いました。","Event identity and creative direction for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — the through-line across staging, digital campaigns, beauty tech demos, and guest experience — staged as an open recruiting event for every student. Managed L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room.":"ジョージ・ワシントン大学の Grand Ballroom で開催された、L'Oréal USA 初のワシントンD.C.でのアクティベーションで、Brandstorm のイベントのブランディングとマーケティングを担当しました。ステージング、デジタルキャンペーン、ビューティーテックのデモ、来場者体験までを一貫した流れでつなぎ、<em class=\"hl\">ビジネススクールの学生に開かれた採用イベント</em>として実施しました。L'Oréal、GW の運営陣、Whole Foods Market との調整を通じて、<em class=\"hl\">500名以上の来場者</em>を迎えました。","Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of 100–200 high-spend guests cut new-operations training time and cost by roughly 40%.":"洗練された季節の料理と細やかなおもてなしで10年連続ミシュラン一つ星を保持する、東京の高級レストランのオペレーションと顧客関係システムを再構築しました。<em class=\"hl\">100〜200名の高単価顧客</em>のデータベースと、シェフとソムリエの知識をまとめることで、新しいオペレーションの教育にかかる時間と人件費を<em class=\"hl\">約40%</em>削減しました。","Helped the brand's first East Coast market entry and runs U.S. marketing by bringing Dr. Ishii products into Washington, D.C. with GW Women in Business (GWWB), while actively exploring merchandise display channels for its rice fermentation–based skincare technology.":"ブランド初の米国東海岸進出を支援し、<em class=\"hl\">GW Women in Business</em>と連携して Dr. Ishii の製品をワシントンD.C.に届けながら、米国でのマーケティングを担いました。あわせて、米発酵をベースにしたスキンケア技術の店頭展開のフランチャイズを積極的に開拓しています。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside two teammates, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を<em class=\"hl\">学生ボランティア</em>として共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","View Research Paper →":"研究論文を見る →","View the Scene →":"会場の様子を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"実験と、寄り道。","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて · 板場","Cooking":"料理","Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo — where plating, timing, and anticipating a guest's needs became a craft I still design by.":"ミシュラン星付きレストランや The Ritz-Carlton Tokyo で過ごした時間の中で、盛り付け、タイミング、そしてお客様の求めるものを先回りして察することが、今もデザインの軸になっている技術になりました。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Visited":"訪問済","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生"};
+ var SCOPED = {".topnav":{"Work":"作品","About":"自己紹介","Dispatch":"お知らせ"},".meta-list":{"Brand Strategy Marketing Intern":"Figma Japan：初の大学生プログラムを構築中","L'Oréal Paris · CPD":"David Stanley Hewett Studio：アートセールス＆ビジネスデベロップメント ／ Buddy 企画研究所＆幼稚園＆卒業生：特別アプリを開発中"}};
+ var INLINE = /^(EM|STRONG|B|I|BR|A)$/;
+ var OKCLS = /(^|\s)(hl|dl|amp|tagline-dash|bs-note)(\s|$)/;
+ var SKIP = /^(SCRIPT|STYLE|SVG|IFRAME|CANVAS|NOSCRIPT|TEXTAREA|INPUT)$/i;
+ function norm(s){ return s.replace(/[\u2018\u2019]/g, "'").replace(/\s+/g, " ").trim(); }
+ function inlineOnly(el){
+  var all = el.getElementsByTagName("*");
+  for (var i = 0; i < all.length; i++){
+   var c = all[i];
+   if (INLINE.test(c.tagName)) continue;
+   if (c.tagName === "SPAN" && OKCLS.test(c.className || "")) continue;
+   return false;
+  }
+  return true;
+ }
+ function look(el, key){
+  for (var sel in SCOPED){ if (el.closest && el.closest(sel) && SCOPED[sel][key] != null) return SCOPED[sel][key]; }
+  return DICT[key];
+ }
+ var pairs = null, tnodes = null;
+ function collect(root){
+  pairs = []; tnodes = [];
+  (function visit(el){
+   if (SKIP.test(el.tagName) || el.id === "langToggle" || (el.classList && el.classList.contains("term-track"))) return;
+   if (el.id !== "heroTagline" && el.id !== "tagTxt"){
+    var ja = look(el, norm(el.textContent));
+    if (ja != null && inlineOnly(el)){ pairs.push([el, el.innerHTML, ja]); return; }
+   }
+   for (var n = el.firstChild; n; n = n.nextSibling){
+    if (n.nodeType === 1) visit(n);
+    else if (n.nodeType === 3){
+     var k = norm(n.nodeValue); if (!k) continue;
+     var t = look(el, k);
+     if (t != null){ var m = n.nodeValue.match(/^(\s*)[\s\S]*?(\s*)$/); tnodes.push([n, n.nodeValue, m[1] + t + m[2]]); }
+    }
+   }
+  })(root);
+ }
+ var TITLE = { en: document.title, ja: "佐久間聖暉 — ビジネス戦略・プロダクト・ブランド" };
+ function apply(lang){
+  if (!pairs) collect(document.body);
+  var j = lang === "ja" ? 2 : 1, i;
+  for (i = 0; i < pairs.length; i++) pairs[i][0].innerHTML = pairs[i][j];
+  for (i = 0; i < tnodes.length; i++) tnodes[i][0].nodeValue = tnodes[i][j];
+  var tt = document.getElementById("tagTxt"), src = document.querySelector("#heroTagline .tag-src");
+  if (tt && src && tt.textContent.length && document.querySelector("#heroTagline .tag-caret.done")) tt.innerHTML = src.innerHTML;
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute("data-lang", lang);
+  document.title = TITLE[lang];
+  var b = document.getElementById("langToggle");
+  if (b) b.setAttribute("aria-label", lang === "ja" ? "Switch to English" : "日本語に切り替え");
+ }
+ window.__setLang = function(lang){ try{ localStorage.setItem("ss-lang", lang); }catch(e){} apply(lang); };
+ if (document.documentElement.getAttribute("data-lang") === "ja") apply("ja");
+ var btn = document.getElementById("langToggle");
+ if (btn) btn.addEventListener("click", function(){
+  window.__setLang(document.documentElement.getAttribute("data-lang") === "ja" ? "en" : "ja");
+ });
+})();
+</script>
+<script>
 (function(){
  var host = document.getElementById('tagTxt');
  var p = document.getElementById('heroTagline');
@@ -6137,9 +5438,6 @@
  html[data-theme="light"] .name .ghost,
  html[data-theme="light"] .name .script,
  html[data-theme="light"] .name-kanji{ color: #1b1714; }
- html[data-theme="light"] .hero-now-tag,
- html[data-theme="light"] .hero-now-role,
- html[data-theme="light"] .hero-now-role strong{ color: #1b1714; }
 
  /* Sunrise interlude → paper dawn */
  html[data-theme="light"] .sunrise-interlude{ background: #f4f1ea; }
@@ -6173,7 +5471,6 @@
  html[data-theme="light"] .media-gallery .gallery-video{ background: #ebe6dc; }
 
  /* Sandbox card → paper card on a linen board */
- html[data-theme="light"] .sandbox-cosmos{ display: none; }
  html[data-theme="light"] .sandbox-feature{
   background: #fbf9f4;
   border: 1px solid rgba(27,23,20,.12);
@@ -6215,9 +5512,6 @@
  html[data-theme="light"] .topbar .topnav-btn{ background: #f4f1ea; color: #1b1714; }
  html[data-theme="light"] .topbar .topnav-btn svg{ fill: #1b1714; }
  html[data-theme="light"] .topbar .topnav-btn.email svg{ fill: none; stroke: #1b1714; }
- html[data-theme="light"] .topbar .topnav-time,
- html[data-theme="light"] .topbar .monogram{ color: #f4f1ea; border-left-color: rgba(244,241,234,.16); }
- html[data-theme="light"] .topbar .theme-toggle{ border-color: rgba(244,241,234,.3); color: #f4f1ea; }
  /* ── Editorial hero: B&W Shibuya plate, name crosses into it (difference blend) ── */
  html[data-hero] .hero-bg{ display: none; }
  html[data-hero] .hero .wrap{ z-index: auto; }
@@ -6327,5 +5621,37 @@
  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !v.hidden) close(); });
 })();
 </script>
+<style>
+ .lang-toggle{
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0; padding: 2px; height: 23px;
+  border: 1px solid rgba(244,241,234,.32); border-radius: 999px; background: transparent;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; line-height: 1;
+ }
+ .lang-toggle span{ padding: 4px 7px; border-radius: 999px; color: rgba(244,241,234,.72); transition: background .2s, color .2s; }
+ .lang-toggle span[data-l="ja"]{ font-family: var(--jp); letter-spacing: .04em; }
+ html[data-lang="en"] .lang-toggle span[data-l="en"],
+ html[data-lang="ja"] .lang-toggle span[data-l="ja"]{ background: #f4f1ea; color: #1b1714; }
+ .lang-toggle:focus-visible{ outline: 2px solid var(--murasaki); outline-offset: 2px; }
+ @media (hover: none){ .lang-toggle{ position: relative; } .lang-toggle::after{ content:""; position:absolute; inset:-11px -4px; } }
+ html[lang="ja"] body{ font-family: var(--mono), "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; line-break: strict; }
+ html[lang="ja"] .desc, html[lang="ja"] .about-body p, html[lang="ja"] .bs-body,
+ html[lang="ja"] .sf-desc, html[lang="ja"] .tagline{ word-break: auto-phrase; line-height: 1.9; letter-spacing: .03em; }
+ html[lang="ja"] .desc, html[lang="ja"] .about-body p, html[lang="ja"] .bs-body, html[lang="ja"] .sf-desc,
+ html[lang="ja"] .tagline, html[lang="ja"] .meta .v, html[lang="ja"] .meta-list .v,
+ html[lang="ja"] .bs-head, html[lang="ja"] .sunrise-tagline{
+  font-family: "Times New Roman", Times, "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 500; font-feature-settings: "palt" 1;
+ }
+ html[lang="ja"] .rb-frame::after{ content: "スワイプ →"; }
+ html[lang="ja"] .meta-list .v, html[lang="ja"] .meta-list .v *{
+  font-family: "Times New Roman", Times, "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important;
+  font-weight: 500; letter-spacing: .02em; text-transform: none; line-height: 1.7;
+  font-size: 14px !important; color: inherit !important; opacity: 1 !important;
+  font-weight: 700 !important;
+ }
+ .about-body a.inline-link{ color: inherit; text-decoration: underline; text-decoration-color: var(--murasaki); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+ .about-body a.inline-link:hover{ color: var(--murasaki); }
+</style>
 </body>
 </html>
