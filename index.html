@@ -370,69 +370,6 @@
     original position; floated to the RIGHT of the full name, just above the
     background particle field. Same placement on phone / tablet / desktop. */
  .hero{ }
- /* ── Sumi-ink drips ───────────────────────────────────────────────
-    Thin glossy black-ink streaks that bleed down slightly from the very
-    top edge, each ending in a swelling droplet that detaches and falls a
-    little. Wet sheen + faint murasaki edge so they read on the dark bg. */
- .ink-drips{
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 220px;
-  z-index: 3;
-  pointer-events: none;
-  overflow: visible;
- }
- .ink-drip{
-  position: absolute;
-  top: -2px;
-  left: var(--x);
-  width: var(--w);
-  height: 0;
-  border-radius: 0 0 var(--w) var(--w);
-  background:
-   linear-gradient(180deg, rgba(8,7,9,0) 0%, rgba(14,11,16,.9) 28%, #0a0810 100%);
-  box-shadow:
-   inset 1px 0 0 rgba(200,157,222,.18),
-   inset -1px 0 0 rgba(0,0,0,.6);
-  transform-origin: top center;
-  animation: ink-bleed var(--dur, 10s) ease-in-out var(--delay, 0s) infinite;
- }
- /* the swelling droplet at the tip */
- .ink-drip::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -3px;
-  width: calc(var(--w) * 1.9);
-  height: calc(var(--w) * 1.9);
-  border-radius: 50%;
-  transform: translateX(-50%) scale(0);
-  background:
-   radial-gradient(circle at 38% 32%, rgba(214,196,224,.55) 0%, rgba(20,16,24,.95) 42%, #07060a 100%);
-  box-shadow: 0 2px 5px rgba(0,0,0,.5);
-  animation: ink-drop var(--dur, 10s) ease-in var(--delay, 0s) infinite;
- }
- @keyframes ink-bleed{
-  0%       { height: 0; opacity: 0; }
-  12%      { opacity: .95; }
-  45%, 62% { height: var(--reach, 40px); opacity: .95; }
-  86%      { height: var(--reach, 40px); opacity: .55; }
-  100%     { height: var(--reach, 40px); opacity: 0; }
- }
- @keyframes ink-drop{
-  0%, 50%  { transform: translateX(-50%) translateY(0) scale(0); opacity: 0; }
-  60%      { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
-  72%      { transform: translateX(-50%) translateY(6px) scale(1.05); opacity: 1; }
-  88%      { transform: translateX(-50%) translateY(26px) scale(.7); opacity: .35; }
-  100%     { transform: translateX(-50%) translateY(40px) scale(.4); opacity: 0; }
- }
- @media (prefers-reduced-motion: reduce){
-  .ink-drips{ display: none; }
- }
- @media (max-width: 600px){
-  .ink-drips{ height: 150px; }
-  .ink-drip{ --reach: calc(var(--reach) * .7); }
- }
  .hero-avatar{
   position: absolute;
   z-index: 2;
@@ -2840,14 +2777,6 @@
   </div>
   <div class="hinomaru-deco" aria-hidden="true"></div>
 
-  <!-- Sumi-ink drips: thin glossy ink streaks slowly bleeding from the top edge -->
-  <div class="ink-drips" aria-hidden="true">
-    <span class="ink-drip" style="--x:14%;  --w:5px;  --delay:0s;   --dur:9s;  --reach:46px;"></span>
-    <span class="ink-drip" style="--x:33%;  --w:3px;  --delay:3.4s; --dur:11s; --reach:30px;"></span>
-    <span class="ink-drip" style="--x:58%;  --w:6px;  --delay:1.6s; --dur:10s; --reach:58px;"></span>
-    <span class="ink-drip" style="--x:77%;  --w:4px;  --delay:5.1s; --dur:12s; --reach:38px;"></span>
-    <span class="ink-drip" style="--x:90%;  --w:3px;  --delay:2.3s; --dur:10.5s;--reach:26px;"></span>
-  </div>
 
   <div class="wrap">
     <div class="eyebrow"></div>
@@ -5563,6 +5492,26 @@
  html[data-lang="en"] .music-ask [data-l="ja"], html[data-lang="ja"] .music-ask [data-l="en"]{ display: none; }
  html[lang="ja"] .ma-q{ font-family: var(--jp); }
  @media (max-width: 600px){ .music-ask{ right: 12px; bottom: 66px; } }
+ /* ── Top bar on phones: everything on one line, nothing clipped ── */
+ @media (max-width: 480px){
+  .topbar{ padding: 6px 10px; }
+  .topbar .nav-link{ font-size: 12.5px; padding: 2px 6px; }
+  .topnav{ min-width: 0; }
+  .topnav-social{ margin-left: 4px; padding-left: 6px; gap: 5px; }
+  .topnav-btn{ width: 20px; height: 20px; }
+  /* language pill shows only the language you can switch to */
+  .lang-toggle{ padding: 1px; height: 20px; }
+  .lang-toggle span{ padding: 3px 7px; }
+  html[data-lang="en"] .lang-toggle span[data-l="en"],
+  html[data-lang="ja"] .lang-toggle span[data-l="ja"]{ display: none; }
+  html[data-lang="en"] .lang-toggle span[data-l="ja"],
+  html[data-lang="ja"] .lang-toggle span[data-l="en"]{ color: #f4f1ea; background: transparent; }
+ }
+ @media (max-width: 350px){
+  .topbar .nav-link{ font-size: 11.5px; padding: 2px 4px; }
+  .topnav-social{ gap: 4px; padding-left: 4px; }
+  .topnav-btn{ width: 19px; height: 19px; }
+ }
 </style>
 </body>
 </html>
