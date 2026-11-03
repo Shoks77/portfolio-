@@ -9,14 +9,12 @@
 <script>(function(){var l=null;try{l=localStorage.getItem('ss-lang')}catch(e){}if(l!=='ja'&&l!=='en'){l=/^ja\b/i.test(navigator.language||'')?'ja':'en'}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
 <title>Shoki Sakuma — Business Strategy, Product & Brand</title>
 
-<!-- ─────────── SEO / Social meta ─────────── -->
 <meta name="description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
 <meta name="keywords" content="Shoki Sakuma, 佐久間聖暉, business strategy, product strategy, brand strategy, portfolio, Airable, LooksMax, L'Oréal Paris, HumanX, Figma, Tokyo, New York" />
 <meta name="author" content="Shoki Sakuma" />
 <meta name="theme-color" content="#0d0c0b" />
 <link rel="canonical" href="https://shoks.studio/" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Shoki Sakuma — Business Strategy, Product & Brand" />
 <meta property="og:description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
@@ -25,15 +23,12 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="ja_JP" />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Shoki Sakuma — Business Strategy, Product & Brand" />
 <meta name="twitter:description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
 
-<!-- Favicon: the Lorenz butterfly from the hero -->
 <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
 
-<!-- Type system: distinctive, not generic -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;800;900&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
@@ -363,7 +358,8 @@
 
  .hero{
   padding: 24px 0 24px;
-  position: relative;
+  position: sticky; position: -webkit-sticky; top: var(--hero-top, 0px);
+  z-index: 0;
   overflow-x: clip;
  }
  /* Circular portrait medallion — pulled out of flow so the name keeps its
@@ -817,8 +813,6 @@
   .logo-cell{ width: 92px; height: 92px; margin: 0 10px; padding: 10px; }
   .marquee-row{ animation-duration: 19.1s; }
  }
-
- 
 
  .dawn-texture{
   display: none;
@@ -1552,7 +1546,6 @@
  [data-theme="dark"] .view-switch button{ color: rgba(255,255,255,.7); }
  [data-theme="dark"] .view-switch button.on{ color: #12101a; background: var(--murasaki); }
 
-
  /* ── Live site embed — full-bleed sheet (like the 3D breakdown) ── */
  .work-image.site-embed{
   display:block; width:100%; padding:0; margin:14px 0 6px;
@@ -2257,7 +2250,6 @@
   </svg>
 </template>
 
-<!-- ─────────── OPENING SPLASH (terminal window, fades once ready) ─────────── -->
 <style>
  #splash{
   position: fixed;
@@ -2572,7 +2564,6 @@
  })();
 </script>
 
-<!-- ─────────── SCROLL PROGRESS MARKER (vertical grid of section dots) ─────────── -->
 <style>
  .scroll-marker{
   position: fixed;
@@ -2625,7 +2616,6 @@
 <nav class="scroll-marker" aria-label="Page sections" id="scrollMarker"></nav>
 <div class="cursor-halo" id="cursorHalo" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b><b></b><b></b><b></b><u id="cursorCoord">000 · 000</u></div>
 
-<!-- ─────────── TOP BAR ─────────── -->
 <header class="topbar">
   <nav class="topnav">
     <a href="#work" class="nav-link">Work</a>
@@ -2646,7 +2636,6 @@
   </nav>
 </header>
 
-<!-- ─────────── HERO ─────────── -->
 <style>
  .hero .wrap{ position: relative; z-index: 2; }
  footer .wrap{ position: relative; }
@@ -2777,7 +2766,6 @@
   </div>
   <div class="hinomaru-deco" aria-hidden="true"></div>
 
-
   <div class="wrap">
     <div class="eyebrow"></div>
 
@@ -2803,7 +2791,12 @@
   </div>
 </section>
 
-<!-- ─────────── SELECTED WORK ─────────── -->
+<div class="page-two" id="pageTwo">
+  <div class="fog" aria-hidden="true">
+    <span class="fog-puff p1"></span><span class="fog-puff p2"></span><span class="fog-puff p3"></span>
+    <span class="fog-puff p4"></span><span class="fog-puff p5"></span><span class="fog-puff p6"></span>
+  </div>
+
 <section class="section" id="work">
   <div class="wrap">
     <div class="section-head reveal">
@@ -2815,7 +2808,6 @@
       <span class="jp">作品集</span>
     </div>
 
-    <!-- Butterfly band — one origin, seven projects placed by the reach of their effect -->
     <div class="rb-frame reveal">
     <div class="ripple-band" aria-label="Projects by scale of effect">
       <canvas id="rippleField" aria-hidden="true"></canvas>
@@ -2841,7 +2833,6 @@
 
     <div class="work-cinema shelf">
 
-      <!-- 01 — LooksMax™ -->
       <article class="work-panel" data-index="0">
         <span class="ghost-word">LooksMax</span>
         <div class="work-image media-gallery">
@@ -2899,7 +2890,6 @@
         </div>
       </article>
 
-      <!-- 01 · 3D dimensional breakdown — minimal pocket extension under LooksMax -->
       <div class="pocket reveal" data-screen-label="LooksMax 3D Breakdown">
         <button class="pocket-tab" type="button" aria-expanded="true" aria-controls="pk-looksmax">
           <span class="pk-rule"></span>
@@ -2913,7 +2903,6 @@
         </div>
       </div>
 
-      <!-- 02 — L’Oréal Paris -->
       <article class="work-panel" data-index="1">
         <span class="ghost-word">L’Oréal</span>
         <div class="work-image" style="display:flex; align-items:center; justify-content:center; background:#fff;">
@@ -2934,7 +2923,6 @@
         </div>
       </article>
 
-      <!-- 02 · L’Oréal Paris — PDP pages, a second display inside the project -->
       <div class="work-image site-embed reveal" data-screen-label="L’Oréal Paris PDP">
         <div class="site-window site-window--light">
           <div class="site-chrome">
@@ -2954,7 +2942,6 @@
         </div>
       </div>
 
-      <!-- 03 — Airable -->
       <article class="work-panel" data-index="2">
         <span class="ghost-word">Airable</span>
         <div class="work-image" style="display:flex; align-items:center; justify-content:center;">
@@ -2976,7 +2963,6 @@
         </div>
       </article>
 
-      <!-- 03 · Airable live site — the canonical site, first under the panel -->
       <div class="work-image site-embed reveal" data-screen-label="Airable Live Site">
         <div class="site-window">
           <div class="site-chrome">
@@ -2988,7 +2974,6 @@
         </div>
       </div>
 
-      <!-- 04 — Okinawa Gubernatorial Election 2026 -->
       <article class="work-panel" data-index="3">
         <span class="ghost-word">Okinawa</span>
         <div class="work-image media-gallery okinawa-gallery">
@@ -3026,7 +3011,6 @@
         </div>
       </article>
 
-      <!-- 05 — Ignite Your Innovation -->
       <article class="work-panel" data-index="4">
         <span class="ghost-word">Ignite</span>
         <div class="work-image media-gallery ignite-gallery">
@@ -3073,7 +3057,6 @@
         </div>
       </article>
 
-      <!-- 03 — Shirosaka -->
       <article class="work-panel" data-index="5">
         <span class="ghost-word">Shirosaka</span>
         <div class="work-image media-gallery shirosaka-gallery">
@@ -3120,7 +3103,6 @@
         </div>
       </article>
 
-      <!-- 04 — Dr. Ishii -->
       <article class="work-panel" data-index="6">
         <span class="ghost-word">Ishii</span>
         <div class="work-image media-gallery ishii-gallery">
@@ -3170,7 +3152,6 @@
         </div>
       </article>
 
-      <!-- 06 — Human X -->
       <article class="work-panel" data-index="7">
         <span class="ghost-word">Human X</span>
         <div class="work-image media-gallery humanx-gallery">
@@ -3214,7 +3195,6 @@
         </div>
       </article>
 
-      <!-- 07 — Auréole -->
       <article class="work-panel" data-index="8">
         <span class="ghost-word">Auréole</span>
         <div class="work-image media-gallery aureole-gallery">
@@ -3253,7 +3233,6 @@
         </div>
       </article>
 
-      <!-- 07 · 3D engineering breakdown — minimal pocket extension under Auréole -->
       <div class="pocket reveal" data-screen-label="Auréole 3D Breakdown">
         <button class="pocket-tab" type="button" aria-expanded="true" aria-controls="pk-aureole">
           <span class="pk-rule"></span>
@@ -3351,7 +3330,7 @@
  /* prism rim light */
  /* Tapsta app shots — show full landscape frame at natural ratio, no crop */
 </style>
-<!-- ─────────── EXPERIENCE LOGO MARQUEE ─────────── -->
+
 <section class="exp-marquee" aria-label="Experience">
   <div class="exp-label">Built & Grown with</div>
   <div class="marquee-track">
@@ -3408,7 +3387,7 @@
 
   </div>
 </section>
-<!-- ─────────── ABOUT ─────────── -->
+
 <section class="section" id="about">
   <img class="about-bg" src="media/img-kbq2z-3mfr.jpg" alt="" aria-hidden="true"/>
   <div class="wrap">
@@ -3464,7 +3443,11 @@
       <div class="meta-list reveal">
         <div class="meta-item">
           <div class="k">Recent Role</div>
-          <div class="v" style="font-style:italic;color:var(--mono-grey);font-size:15px">Figma Japan: Building Japan's first university student program<br/><span>David Stanley Hewett Studio: Art Sales &amp; Business Development / Buddy Planning Lab, Kindergarten &amp; Alumni: Developing a dedicated app</span></div>
+          <div class="v act-pills">
+            <span class="act-pill"><b>Figma Japan</b><span class="act-sep">·</span>Building Japan's first university student program</span>
+            <span class="act-pill"><b>David Stanley Hewett Studio</b><span class="act-sep">·</span>Art Sales &amp; Business Development</span>
+            <span class="act-pill"><b>Buddy Planning Lab, Kindergarten &amp; Alumni</b><span class="act-sep">·</span>Developing a dedicated app</span>
+          </div>
           <div class="meta-links">
             <a class="meta-btn github" href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.7 5.38-5.26 5.67.42.36.79 1.07.79 2.16v3.2c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
@@ -3486,7 +3469,6 @@
   </div>
 </section>
 
-<!-- ─────────── VISIT COLLECTION (postage stamps) ─────────── -->
 <style>
  #collection{ position:relative; overflow:hidden; }
  #collection.section{ padding: 64px 0 56px; }
@@ -3722,7 +3704,6 @@
   </div>
 </section>
 
-<!-- ─────────── NEWS / DISPATCH (newspaper broadsheet) ─────────── -->
 <style>
  .news-section{ background: var(--paper); }
  .broadsheet{
@@ -3901,7 +3882,6 @@
 
       <div class="bs-columns">
 
-        <!-- ENTRY 01 — Edicum cover feature. Image: Gould-store photo (rendered B&W). -->
         <article class="bs-entry">
           <figure class="bs-thumb">
             <img src="media/img-1g1wfza-by3e.jpg" alt="Shoki Sakuma featured by Edicum, photographed at Gould Academy" loading="lazy" />
@@ -3919,7 +3899,6 @@
           </a>
         </article>
 
-        <!-- ENTRY 02 — Crowdfunding (GoFundMe). Add an <img> in a .bs-thumb figure here if you want a photo. -->
         <article class="bs-entry">
           <div class="bs-kicker">Crowdfunding</div>
           <h3 class="bs-head">A campaign worth sharing</h3>
@@ -3967,12 +3946,10 @@
  })();
 </script>
 
-<!-- ─────────── SUNRISE INTERLUDE ─────────── -->
 <section class="sunrise-interlude" aria-hidden="true">
   <div class="sunrise-sky"></div>
   <div class="sunrise-clouds"></div>
 
-  <!-- Reference photograph plugged in above the daybreak scene -->
   <div class="dawn-texture" aria-hidden="true"></div>
 
   <div class="sunrise-sun"><canvas id="sunSphere" width="220" height="220"></canvas></div>
@@ -3980,7 +3957,6 @@
   <div class="sunrise-sea"></div>
   <div class="sunrise-grain"></div>
 
-  <!-- Manifesto line — sits below the sphere, fades in once the section is live -->
   <div class="sunrise-tagline">
     <span class="tagline-dash">—</span>
     I'm drawn to building work that creates
@@ -3989,7 +3965,6 @@
   </div>
 </section>
 
-<!-- ─────────── FOOTER ─────────── -->
 <footer id="contact">
   <div class="wrap">
     <div class="foot-row">
@@ -4002,6 +3977,7 @@
     </div>
   </div>
 </footer>
+</div>
 
 <script>
 
@@ -4711,7 +4687,6 @@
  })();
 </script>
 
-<!-- ─────────── SCROLL PROGRESS MARKER ─────────── -->
 <script>
  (function scrollMarker(){
   const rail = document.getElementById("scrollMarker");
@@ -4767,7 +4742,6 @@
  })();
 </script>
 
-<!-- ─────────── FOOTER MARK SKATE ─────────── -->
 <script>
  (function skateFootMark(){
   var mark = document.querySelector('.foot-mark');
@@ -4806,7 +4780,6 @@
  })();
 </script>
 
-<!-- ─────────── ABOUT PORTRAIT CAROUSEL (auto-shuffle) ─────────── -->
 <script>
  (function aboutCarousel(){
   var root = document.getElementById('aboutCarousel');
@@ -4879,7 +4852,6 @@
  })();
 </script>
 
-<!-- ─────────── MINIMAL LIQUID-GLASS MUSIC CAPSULE ─────────── -->
 <div class="music-term" id="musicTerm" role="group" aria-label="Music player">
   <button type="button" class="term-play" id="musicToggle" aria-label="Play music" aria-pressed="false">
     <svg id="termIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
@@ -5091,8 +5063,8 @@
 <script>
 /* ── EN / 日本語: swaps copy in place; brand + project names stay in English ── */
 (function(){
- var DICT = {"Scroll and explore":"スクロールして探索","Solving complex problems across business strategy, product, and brand. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.":"<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の3つの視点から、複雑な課題を解決します。ニューヨークと東京を拠点に、人とのコラボレーションとインサイトを大切にしながら、アイデアを目に見える成果と優れたデザインへと形にしています。","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations (Freelance)":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","U.S. Market Development":"米国市場開拓","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Co-invented a modular men's grooming device integrating lip care and fragrance, designed for scalable, refill-based consumer use with two teammates from GWU, within L'Oréal Groupe's innovation with 5,000+ consumer research + forecasted 24 M retail store + e-commerce sales.":"<em class=\"hl\">GWUのチームメイト2名</em>と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式の低価格帯サブスクリプションで拡張しやすい設計とし、L'Oréal Groupe のイノベーションのもとで<em class=\"hl\">5,000件以上の消費者調査</em>を実施、アメリカ展開で実店舗とECを合わせて約36億円の売上を予測しました。","Built with five teammates from Yale, Stanford Graduates, and GWU — Clean climate systems, reimagined for the home and commercial. Submitted to the James Dyson Award 2026, the international design and engineering prize for student-led inventions that solve a real problem.":"<em class=\"hl\">Yale、Stanford の卒業生、GWU の5名のチームメイト</em>を集めてチームを発足し、共に開発した家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Grew the campaign's X following to 24,000+, winning the under-30 segment — the candidate was elected with 59.4% of the vote. Built Claude prompt-engineering workflows with a 3-person team for X content strategy and real-time response.":"選挙陣営のXフォロワーを<em class=\"hl\">24,000人以上</em>に伸ばし、<em class=\"hl\">30歳未満の層</em>で支持を獲得しました。候補者は8年ぶりに<em class=\"hl\">得票率59.4%</em>で当選しています。また<em class=\"hl\">2名のチーム</em>で Claude を使ったプロンプトエンジニアリングのワークフローを構築し、Xのコンテンツ戦略とリアルタイム対応を担いました。","Event identity and creative direction for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — the through-line across staging, digital campaigns, beauty tech demos, and guest experience — staged as an open recruiting event for every student. Managed L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room.":"ジョージ・ワシントン大学の Grand Ballroom で開催された、L'Oréal USA 初のワシントンD.C.でのアクティベーションで、Brandstorm のイベントのブランディングとマーケティングを担当しました。ステージング、デジタルキャンペーン、ビューティーテックのデモ、来場者体験までを一貫した流れでつなぎ、<em class=\"hl\">ビジネススクールの学生に開かれた採用イベント</em>として実施しました。L'Oréal、GW の運営陣、Whole Foods Market との調整を通じて、<em class=\"hl\">500名以上の来場者</em>を迎えました。","Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of 100–200 high-spend guests cut new-operations training time and cost by roughly 40%.":"洗練された季節の料理と細やかなおもてなしで10年連続ミシュラン一つ星を保持する、東京の高級レストランのオペレーションと顧客関係システムを再構築しました。<em class=\"hl\">100〜200名の高単価顧客</em>のデータベースと、シェフとソムリエの知識をまとめることで、新しいオペレーションの教育にかかる時間と人件費を<em class=\"hl\">約40%</em>削減しました。","Helped the brand's first East Coast market entry and runs U.S. marketing by bringing Dr. Ishii products into Washington, D.C. with GW Women in Business (GWWB), while actively exploring merchandise display channels for its rice fermentation–based skincare technology.":"ブランド初の米国東海岸進出を支援し、<em class=\"hl\">GW Women in Business</em>と連携して Dr. Ishii の製品をワシントンD.C.に届けながら、米国でのマーケティングを担いました。あわせて、米発酵をベースにしたスキンケア技術の店頭展開のフランチャイズを積極的に開拓しています。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside two teammates, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を<em class=\"hl\">学生ボランティア</em>として共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","View Research Paper →":"研究論文を見る →","View the Scene →":"会場の様子を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて","Cooking":"料理","Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo — where plating, timing, and anticipating a guest's needs became a craft I still design by.":"ミシュラン星付きレストランや The Ritz-Carlton Tokyo で過ごした時間の中で、盛り付け、タイミング、そしてお客様の求めるものを先回りして察することが、今もデザインの軸になっている技術になりました。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Visited":"訪問済","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生"};
- var SCOPED = {".topnav":{"Work":"作品","About":"自己紹介","Dispatch":"お知らせ"},".meta-list":{"Figma Japan: Building Japan's first university student program":"Figma Japan：日本で初の大学生プログラムを構築中","David Stanley Hewett Studio: Art Sales & Business Development / Buddy Planning Lab, Kindergarten & Alumni: Developing a dedicated app":"David Stanley Hewett Studio：アートセールス＆ビジネスデベロップメント ／ Buddy 企画研究所＆幼稚園＆卒業生：特別アプリを開発中"}};
+ var DICT = {"Scroll and explore":"スクロールして探索","Solving complex problems across business strategy, product, and brand. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.": "<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の3つの視点から、社会課題を解決したいです。ニューヨークと東京を拠点に、人とのコラボレーションと消費者のインサイトを大切にしながら、アイデアを目に見える成果と優れたデザインへと形にします。","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations (Freelance)":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","U.S. Market Development":"米国市場開拓","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Co-invented a modular men's grooming device integrating lip care and fragrance, designed for scalable, refill-based consumer use with two teammates from GWU, within L'Oréal Groupe's innovation with 5,000+ consumer research + forecasted 24 M retail store + e-commerce sales.":"<em class=\"hl\">GWUのチームメイト2名</em>と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式の低価格帯サブスクリプションで拡張しやすい設計とし、L'Oréal Groupe のイノベーションのもとで<em class=\"hl\">5,000件以上の消費者調査</em>を実施、アメリカ展開で実店舗とECを合わせて約36億円の売上を予測しました。","Built with five teammates from Yale, Stanford Graduates, and GWU — Clean climate systems, reimagined for the home and commercial. Submitted to the James Dyson Award 2026, the international design and engineering prize for student-led inventions that solve a real problem.":"<em class=\"hl\">Yale、Stanford の卒業生、GWU の5名のチームメイト</em>を集めてチームを発足し、共に開発した家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Grew the campaign's X following to 24,000+, winning the under-30 segment — the candidate was elected with 59.4% of the vote. Built Claude prompt-engineering workflows with a 3-person team for X content strategy and real-time response.":"選挙陣営のXフォロワーを<em class=\"hl\">24,000人以上</em>に伸ばし、<em class=\"hl\">30歳未満の層</em>で支持を獲得しました。候補者は8年ぶりに<em class=\"hl\">得票率59.4%</em>で当選しています。また<em class=\"hl\">2名のチーム</em>で Claude を使ったプロンプトエンジニアリングのワークフローを構築し、Xのコンテンツ戦略とリアルタイム対応を担いました。","Event identity and creative direction for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — the through-line across staging, digital campaigns, beauty tech demos, and guest experience — staged as an open recruiting event for every student. Managed L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room.":"ジョージ・ワシントン大学の Grand Ballroom で開催された、L'Oréal USA 初のワシントンD.C.でのアクティベーションで、Brandstorm のイベントのブランディングとマーケティングを担当しました。ステージング、デジタルキャンペーン、ビューティーテックのデモ、来場者体験までを一貫した流れでつなぎ、<em class=\"hl\">ビジネススクールの学生に開かれた採用イベント</em>として実施しました。L'Oréal、GW の運営陣、Whole Foods Market との調整を通じて、<em class=\"hl\">500名以上の来場者</em>を迎えました。","Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of 100–200 high-spend guests cut new-operations training time and cost by roughly 40%.":"洗練された季節の料理と細やかなおもてなしで10年連続ミシュラン一つ星を保持する、東京の高級レストランのオペレーションと顧客関係システムを再構築しました。<em class=\"hl\">100〜200名の高単価顧客</em>のデータベースと、シェフとソムリエの知識をまとめることで、新しいオペレーションの教育にかかる時間と人件費を<em class=\"hl\">約40%</em>削減しました。","Helped the brand's first East Coast market entry and runs U.S. marketing by bringing Dr. Ishii products into Washington, D.C. with GW Women in Business (GWWB), while actively exploring merchandise display channels for its rice fermentation–based skincare technology.":"ブランド初の米国東海岸進出を支援し、<em class=\"hl\">GW Women in Business</em>と連携して Dr. Ishii の製品をワシントンD.C.に届けながら、米国でのマーケティングを担いました。あわせて、米発酵をベースにしたスキンケア技術の店頭展開のフランチャイズを積極的に開拓しています。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside two teammates, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を<em class=\"hl\">学生ボランティア</em>として共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","View Research Paper →":"研究論文を見る →","View the Scene →":"会場の様子を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて","Cooking":"料理","Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo — where plating, timing, and anticipating a guest's needs became a craft I still design by.":"ミシュラン星付きレストランや The Ritz-Carlton Tokyo で過ごした時間の中で、盛り付け、タイミング、そしてお客様の求めるものを先回りして察することが、今もデザインの軸になっている技術になりました。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Visited":"訪問済","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生"};
+ var SCOPED = {".topnav":{"Work":"作品","About":"自己紹介","Dispatch":"お知らせ"},".meta-list":{"Building Japan's first university student program":"日本で初の大学生プログラムを構築中","Art Sales & Business Development":"アートセールス＆ビジネスデベロップメント","Buddy Planning Lab, Kindergarten & Alumni":"Buddy 企画研究所＆幼稚園＆卒業生","Developing a dedicated app":"特別アプリを開発中"}};
  var INLINE = /^(EM|STRONG|B|I|BR|A)$/;
  var OKCLS = /(^|\s)(hl|dl|amp|tagline-dash|bs-note)(\s|$)/;
  var SKIP = /^(SCRIPT|STYLE|SVG|IFRAME|CANVAS|NOSCRIPT|TEXTAREA|INPUT)$/i;
@@ -5513,5 +5485,162 @@
   .topnav-btn{ width: 19px; height: 19px; }
  }
 </style>
+<style>
+ /* ── Page two: paper sheet that rises over the hero ── */
+ .page-two{
+  position: relative; z-index: 2;
+  background: var(--paper);
+  margin-top: 8vh;
+  border-top-left-radius: 22px; border-top-right-radius: 22px;
+  box-shadow: 0 -24px 60px rgba(20,18,15,.18);
+ }
+ .fog{
+  position: absolute; left: -10vw; right: -10vw; top: -36vh; height: 62vh;
+  pointer-events: none; z-index: 3; overflow: hidden;
+  opacity: var(--fog, 1);
+  transition: opacity .15s linear;
+ }
+ .fog-puff{
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(244,241,234,.98), rgba(244,241,234,.75) 45%, rgba(244,241,234,0) 100%);
+  filter: blur(26px);
+  will-change: transform;
+  animation: fog-drift 18s ease-in-out infinite alternate;
+ }
+ .fog-puff.p1{ left: -6%; top: 28%; width: 48vw; height: 30vh; animation-duration: 21s; }
+ .fog-puff.p2{ left: 22%; top: 40%; width: 56vw; height: 34vh; animation-duration: 17s; animation-delay: -6s; }
+ .fog-puff.p3{ left: 52%; top: 24%; width: 50vw; height: 32vh; animation-duration: 23s; animation-delay: -11s; }
+ .fog-puff.p4{ left: 72%; top: 46%; width: 44vw; height: 28vh; animation-duration: 19s; animation-delay: -3s; }
+ .fog-puff.p5{ left: 10%; top: 58%; width: 70vw; height: 30vh; animation-duration: 25s; animation-delay: -14s; opacity: .9; }
+ .fog-puff.p6{ left: 40%; top: 10%; width: 40vw; height: 26vh; animation-duration: 15s; animation-delay: -8s; opacity: .7; }
+ @keyframes fog-drift{
+  from{ transform: translate3d(-4%, 0, 0) scale(1); }
+  to  { transform: translate3d( 5%, -6%, 0) scale(1.08); }
+ }
+ /* Hero dims gently as the sheet covers it (layout untouched) */
+ .hero::after{
+  content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background: var(--paper); opacity: calc(var(--hero-p, 0) * .5);
+ }
+ @media (max-width: 760px){
+  .page-two{ border-top-left-radius: 16px; border-top-right-radius: 16px; }
+  .fog{ top: -28vh; height: 50vh; }
+  .fog-puff{ filter: blur(18px); }
+ }
+ @media (prefers-reduced-motion: reduce){ .fog-puff{ animation: none; } }
+</style>
+<script>
+(function(){
+ var p2 = document.getElementById('pageTwo'), root = document.documentElement;
+ if (!p2) return;
+ var ticking = false;
+ var hero = document.querySelector('.hero');
+ function fit(){
+  // Taller than the screen (phones): pin by the bottom edge so the tagline is never cut off
+  if (!hero) return;
+  var over = hero.offsetHeight - window.innerHeight;
+  root.style.setProperty('--hero-top', over > 0 ? (-over) + 'px' : '0px');
+ }
+ function update(){
+  ticking = false;
+  var vh = window.innerHeight, top = p2.getBoundingClientRect().top;
+  var p = Math.min(1, Math.max(0, (vh - top) / vh));
+  root.style.setProperty('--hero-p', p.toFixed(3));
+  var fog = 1 - Math.min(1, Math.max(0, (p - 0.35) / 0.5));
+  root.style.setProperty('--fog', fog.toFixed(3));
+ }
+ function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }
+ window.addEventListener('scroll', onScroll, { passive: true });
+ window.addEventListener('resize', function(){ fit(); onScroll(); });
+ window.addEventListener('load', fit);
+ fit(); update();
+})();
+</script>
+<style>
+ /* ── Current activities: three liquid-glass pills ── */
+ .act-pills{ display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font-style: normal; }
+ .act-pill{
+  position: relative; display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 0 6px;
+  padding: 10px 18px 11px; border-radius: 999px;
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.45; letter-spacing: .01em;
+  color: var(--sumi);
+  background: linear-gradient(135deg, rgba(255,255,255,.55), rgba(255,255,255,.18) 60%, rgba(255,255,255,.3));
+  -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.7);
+  box-shadow:
+   inset 0 1px 0 rgba(255,255,255,.9),
+   inset 0 -1px 0 rgba(27,23,20,.06),
+   0 1px 2px rgba(27,23,20,.06),
+   0 10px 28px -12px rgba(27,23,20,.28);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+ }
+ .act-pill::before{ /* specular highlight along the top edge */
+  content: ""; position: absolute; left: 10%; right: 10%; top: 1px; height: 45%; border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,0)); pointer-events: none;
+ }
+ .act-pill:hover{ transform: translateY(-1px) scale(1.01); box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 14px 34px -12px rgba(27,23,20,.34); }
+ .act-pill b{ font-weight: 600; color: var(--sumi); }
+ .act-pill .act-sep{ color: var(--murasaki); font-weight: 700; }
+ [data-theme="dark"] .act-pill{
+  color: #f0ece3; background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.05) 60%, rgba(255,255,255,.1));
+  border-color: rgba(255,255,255,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 10px 28px -12px rgba(0,0,0,.6);
+ }
+ [data-theme="dark"] .act-pill b{ color: #fff; }
+ html[lang="ja"] .act-pill{ font-size: 13px; letter-spacing: .02em; }
+ html[lang="ja"] .meta-list .act-pill, html[lang="ja"] .meta-list .act-pill *{ font-family: var(--mono), var(--jp), sans-serif !important; font-weight: 500; }
+ html[lang="ja"] .meta-list .act-pill b{ font-weight: 700; }
+ @media (max-width: 480px){ .act-pill{ font-size: 12px; padding: 9px 15px 10px; } }
+</style>
+<style>
+ @media (max-width: 700px){
+  .rb-frame{ cursor: grab; }
+  .rb-frame::after{ content: "← swipe →"; }
+  html[lang="ja"] .rb-frame::after{ content: "← スワイプ →"; }
+  .rb-frame.is-held{ cursor: grabbing; }
+  .rb-frame.is-held::after{ opacity: 0; }
+ }
+ @media (max-width: 700px) and (prefers-reduced-motion: reduce){ .rb-frame::after{ content: "swipe →"; } }
+</style>
+<script>
+(function(){
+ var frame = document.querySelector('.rb-frame'); if (!frame) return;
+ var mq = window.matchMedia('(max-width: 700px)');
+ var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if (still) return;
+ var raf = 0, t0 = 0, held = false, resumeAt = 0, seen = false, pauseT = 0;
+ var PERIOD = 11000; // one full left→right→left sway
+ function range(){ return Math.max(0, frame.scrollWidth - frame.clientWidth); }
+ function tick(now){
+  raf = requestAnimationFrame(tick);
+  if (!mq.matches || !seen || held || now < resumeAt) return;
+  if (!t0) t0 = now - pauseT;
+  var r = range(); if (!r) return;
+  var ph = ((now - t0) % PERIOD) / PERIOD;            // 0..1
+  var e = 0.5 - 0.5 * Math.cos(ph * Math.PI * 2);      // eased 0→1→0
+  frame.scrollLeft = e * r;
+ }
+ function hold(){ held = true; frame.classList.add('is-held'); }
+ function release(){
+  held = false; frame.classList.remove('is-held');
+  resumeAt = performance.now() + 2600;
+  // resume from wherever the finger left it, not with a jump
+  var r = range(); if (!r){ t0 = 0; return; }
+  var e = Math.max(0, Math.min(1, frame.scrollLeft / r));
+  var ph = Math.acos(1 - 2 * e) / (Math.PI * 2);      // invert the ease on the rising half
+  pauseT = ph * PERIOD; t0 = 0;
+ }
+ frame.addEventListener('touchstart', hold, { passive: true });
+ frame.addEventListener('touchend', release, { passive: true });
+ frame.addEventListener('touchcancel', release, { passive: true });
+ frame.addEventListener('pointerdown', function(e){ if (e.pointerType !== 'touch') hold(); });
+ window.addEventListener('pointerup', function(){ if (held) release(); });
+ // only sway while the band is on screen
+ if ('IntersectionObserver' in window){
+  new IntersectionObserver(function(es){ seen = es[0].isIntersecting; if (!seen){ pauseT = t0 ? (performance.now() - t0) % PERIOD : 0; t0 = 0; } }, { threshold: .2 }).observe(frame);
+ } else seen = true;
+ document.addEventListener('visibilitychange', function(){ if (document.hidden){ pauseT = t0 ? (performance.now() - t0) % PERIOD : 0; t0 = 0; } });
+ raf = requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
