@@ -496,22 +496,10 @@
   position: relative;
   border-right: .07em solid transparent;
  }
- /* ── Lupin-opening typewriter: each line clips open character-by-character
-    with a block cursor riding the right edge, fast and kinetic. ── */
- .name .ghost.type-go,
- .name .script.type-go{
-  animation:
-   name-type var(--dur, 1s) steps(var(--steps, 6)) var(--delay, .25s) forwards,
-   name-cursor .42s steps(2) var(--delay, .25s) var(--blinks, 8);
- }
- @keyframes name-type{
-  from { width: 0; }
+
   to   { width: var(--w); }
  }
- @keyframes name-cursor{
-  0%, 100% { border-right-color: var(--hinomaru); }
-  50%      { border-right-color: transparent; }
- }
+
  @media (prefers-reduced-motion: reduce){
   .name .ghost, .name .script{ width: auto; border-right-color: transparent; animation: none; }
  }
@@ -2820,8 +2808,8 @@
         <button type="button" class="rb-node" data-target="5" style="--x:16%; --h:70;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Shirosaka</span><span class="rb-s">UI/UX Project</span></span></button>
         <button type="button" class="rb-node" data-target="0" style="--x:26%; --h:175;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">LooksMax™</span><span class="rb-s">#1 in the U.S.</span></span></button>
         <button type="button" class="rb-node" data-target="4" style="--x:38%; --h:100;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">IDSA.GW</span><span class="rb-s">500+ in a room</span></span></button>
-        <button type="button" class="rb-node" data-target="7" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
-        <button type="button" class="rb-node" data-target="6" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
+        <button type="button" class="rb-node" data-target="6" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
+        <button type="button" class="rb-node" data-target="7" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
         <span class="rb-node rb-node--now" style="--x:65%; --h:118;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Morgan Stanley</span><span class="rb-s">Early Insight Program</span></span></span>
         <button type="button" class="rb-node" data-target="2" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
         <button type="button" class="rb-node rb-node--now" data-target="1" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></button>
@@ -2963,6 +2951,29 @@
         </div>
       </article>
 
+      <section class="air-show reveal" data-screen-label="Airable Showcase" aria-label="Airable — the product up close">
+        <div class="air-stage">
+          <figure class="air-plate is-on" data-tone="light">
+            <img src="media/airable-ed-artist.jpg" alt="Airable — Artist Edition face plate, a painted geometric panel over the black louvred body" loading="lazy">
+            <figcaption><span class="air-k">Artist Edition</span><span class="air-t">A face plate you'd hang on purpose.</span></figcaption>
+          </figure>
+          <figure class="air-plate" data-tone="dark">
+            <img src="media/airable-ed-stormzy.jpg" alt="Airable × Stormzy — Flagship Edition, matte black unit beside a portrait" loading="lazy">
+            <figcaption><span class="air-k">Flagship Edition</span><span class="air-t">Matte black. Nothing to hide.</span></figcaption>
+          </figure>
+          <figure class="air-plate" data-tone="dark">
+            <img src="media/airable-ed-sculpture.jpg" alt="Airable × Eilis O'Connell — Sculpture Edition with a cut-metal lattice shell" loading="lazy">
+            <figcaption><span class="air-k">Sculpture Edition</span><span class="air-t">A shell cut like a sculpture.</span></figcaption>
+          </figure>
+          <figure class="air-plate" data-tone="light">
+            <img src="media/airable-drawing.jpg" alt="Airable 360° face plate engineering drawing — front elevation and section B–B, 280 mm" loading="lazy">
+            <figcaption><span class="air-k">Engineering</span><span class="air-t">280 mm. Every radius decided.</span></figcaption>
+          </figure>
+          <div class="air-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+          <a class="air-more" href="https://shoks77.github.io/AIRABLE.AC/" target="_blank" rel="noopener noreferrer">Full story on the Airable site <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
       <div class="work-image site-embed reveal" data-screen-label="Airable Live Site">
         <div class="site-window">
           <div class="site-chrome">
@@ -3000,11 +3011,11 @@
           <div class="index"><span class="kanji-num" aria-hidden="true">四</span>04 / 09 <span class="pill">Campaign</span></div>
           <h3>Okinawa Gubernatorial<br/>Election 2026</h3>
           <div class="meta">
-            <span class="k">Role</span><span class="v role">Digital Campaign Operations (Freelance)</span>
+            <span class="k">Role</span><span class="v role">Digital Campaign Operations Lead</span>
             <span class="k">Location</span><span class="v">Tokyo, Japan</span>
             <span class="k">Year</span><span class="v">Aug – Sep 2026</span>
           </div>
-          <p class="desc">Grew the campaign’s X following to <em class="hl">24,000+</em>, winning the <em class="hl">under-30 segment</em> — the candidate was elected with <em class="hl">59.4% of the vote</em>. Built Claude prompt-engineering workflows with a <em class="hl">3-person team</em> for X content strategy and real-time response.</p>
+          <p class="desc">Ran the candidate’s <em class="hl">official X account</em> — posts, in his voice — and grew it to <em class="hl">24,000+ followers</em>, winning the <em class="hl">under-30 segment</em>. The candidate was elected with <em class="hl">59.4% of the vote</em>. Built Claude prompt-engineering workflows with a <em class="hl">3-person team</em> for content strategy and real-time response.</p>
           <div class="cta-group">
             <a class="cta" href="https://x.com/GentaKoja" target="_blank" rel="noopener noreferrer">View on X <span aria-hidden="true">↗</span></a>
           </div>
@@ -3012,52 +3023,6 @@
       </article>
 
       <article class="work-panel" data-index="4">
-        <span class="ghost-word">Ignite</span>
-        <div class="work-image media-gallery ignite-gallery">
-          <div class="gallery-track">
-            <figure class="gallery-slide is-active">
-              <img src="media/img-1910w6d-y67.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm 2026 official event poster with IDSA | GW, GWU Department of OSC, and GW Student Affairs branding" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-7ejpjl-vgv.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm USC Grand Ballroom event poster, red lip variant" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-160j8pz-12ur.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm USC Grand Ballroom event poster, blue crystal variant" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-1ay6gsq-13zv.jpg" alt="L'Oréal × GW IDSA 2025 Recap — collage of L'Oréal Brandstorm campus kickoff event at George Washington University, including panel speakers, product display, and student attendance" loading="lazy">
-            </figure>
-          </div>
-          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
-          </button>
-          <button class="gallery-arrow next" type="button" aria-label="Next slide">
-            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
-          </button>
-          <div class="gallery-dots" role="tablist" aria-label="Ignite gallery">
-            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — Brandstorm 2026 event poster"></button>
-            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — poster red"></button>
-            <button class="gallery-dot" data-slide="2" aria-label="Slide 3 — poster blue"></button>
-            <button class="gallery-dot" data-slide="3" aria-label="Slide 4 — 2025 Recap collage"></button>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">伍</span>05 / 09</div>
-          <h3>IDSA.GW</h3>
-          <div class="meta">
-            <span class="k">Role</span><span class="v role">Co-Founder · Creative &amp; Partnership Lead</span>
-            <span class="k">Category</span><span class="v">Event · Brand · Logistics</span>
-            <span class="k">Year</span><span class="v">2025</span>
-          </div>
-          <p class="desc">Event identity and creative direction for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — the through-line across staging, digital campaigns, beauty tech demos, and guest experience — staged as an open <em class="hl">recruiting event for every student</em>. Managed L'Oréal, GW leadership, and Whole Foods Market to bring <em class="hl">500+ attendees</em> into the room.</p>
-          <div class="cta-group">
-            <a href="https://lines-pause-09134074.figma.site" target="_blank" rel="noopener noreferrer" class="cta">View Research Paper →</a>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7405367124157960192" target="_blank" rel="noopener noreferrer" class="cta">View the Scene →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-panel" data-index="5">
         <span class="ghost-word">Shirosaka</span>
         <div class="work-image media-gallery shirosaka-gallery">
           <div class="gallery-track">
@@ -3088,7 +3053,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 09</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">伍</span>05 / 09</div>
           <h3>Shirosaka</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Operations &amp; UI/UX Designer</span>
@@ -3103,7 +3068,95 @@
         </div>
       </article>
 
+      <article class="work-panel" data-index="5">
+        <span class="ghost-word">Ignite</span>
+        <div class="work-image media-gallery ignite-gallery">
+          <div class="gallery-track">
+            <figure class="gallery-slide is-active">
+              <img src="media/img-1910w6d-y67.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm 2026 official event poster with IDSA | GW, GWU Department of OSC, and GW Student Affairs branding" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/img-7ejpjl-vgv.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm USC Grand Ballroom event poster, red lip variant" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/img-160j8pz-12ur.jpg" alt="Ignite Your Innovation — L'Oréal Brandstorm USC Grand Ballroom event poster, blue crystal variant" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/img-1ay6gsq-13zv.jpg" alt="L'Oréal × GW IDSA 2025 Recap — collage of L'Oréal Brandstorm campus kickoff event at George Washington University, including panel speakers, product display, and student attendance" loading="lazy">
+            </figure>
+          </div>
+          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
+          </button>
+          <button class="gallery-arrow next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
+          </button>
+          <div class="gallery-dots" role="tablist" aria-label="Ignite gallery">
+            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — Brandstorm 2026 event poster"></button>
+            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — poster red"></button>
+            <button class="gallery-dot" data-slide="2" aria-label="Slide 3 — poster blue"></button>
+            <button class="gallery-dot" data-slide="3" aria-label="Slide 4 — 2025 Recap collage"></button>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 09</div>
+          <h3>IDSA.GW</h3>
+          <div class="meta">
+            <span class="k">Role</span><span class="v role">Co-Founder</span>
+            <span class="k">Category</span><span class="v">Event · Brand · Logistics</span>
+            <span class="k">Year</span><span class="v">2025</span>
+          </div>
+          <p class="desc">IDSA.GW is the design firm at GW, running event partnerships with <em class="hl">L'Oréal USA, Figma, Z Fellows, Tatte, Salesforce, JP Morgan</em> and more. Its first chapter: event identity for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — staging, digital campaigns, beauty tech demos, and guest experience, staged as an open <em class="hl">recruiting event for every student</em>. Managed L'Oréal, GW leadership, and Whole Foods Market to bring <em class="hl">500+ attendees</em> into the room — the <em class="hl">foundation</em> for continued success. Several more projects followed with the partners above.</p>
+          <div class="cta-group">
+            <a href="https://idsagw.figma.site/" target="_blank" rel="noopener noreferrer" class="cta">Visit IDSA.GW →</a>
+          </div>
+        </div>
+      </article>
+
       <article class="work-panel" data-index="6">
+        <span class="ghost-word">Human X</span>
+        <div class="work-image media-gallery humanx-gallery">
+          <div class="gallery-track">
+            <figure class="gallery-slide is-active">
+              <img src="media/img-1wbd5fp-17bj.jpg" alt="HumanX 2026 — main expo entrance with illuminated [x] sculpture, SHOW MAP wall, and conference attendees walking through the venue" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/img-xis7sk-l4z.jpg" alt="HumanX 2026 — Agentic AI Pavilion stage with the screen title card, speaker podium, and San Francisco skyline mural" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/img-42w0gn-s13.jpg" alt="HumanX 2026 — Shoki Sakuma on the Agentic AI Pavilion floor with attendees gathered around a speaker presentation" loading="lazy">
+            </figure>
+          </div>
+          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
+          </button>
+          <button class="gallery-arrow next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
+          </button>
+          <div class="gallery-dots" role="tablist" aria-label="HumanX gallery">
+            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — expo entrance"></button>
+            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — Agentic AI Pavilion stage"></button>
+            <button class="gallery-dot" data-slide="2" aria-label="Slide 3 — pavilion floor"></button>
+          </div>
+        </div>
+        <div class="work-info">
+          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 09</div>
+          <h3>Human X</h3>
+          <div class="meta">
+            <span class="k">Role</span><span class="v role">Pavilion Stage Co-Lead</span>
+            <span class="k">Category</span><span class="v">AI · Agentic · Event</span>
+            <span class="k">Year</span><span class="v">2026</span>
+          </div>
+          <p class="desc">
+            Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside
+            <em class="hl">two teammates</em>, supporting a fast-moving showcase of
+            <em class="hl">20+ sponsored sessions</em>.
+          </p>
+          <a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
+        </div>
+      </article>
+
+      <article class="work-panel" data-index="7">
         <span class="ghost-word">Ishii</span>
         <div class="work-image media-gallery ishii-gallery">
           <div class="gallery-track">
@@ -3134,7 +3187,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 09</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">八</span>08 / 09</div>
           <h3>Dr. Ishii</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">U.S. Market Development</span>
@@ -3149,49 +3202,6 @@
             its rice fermentation–based skincare technology.
           </p>
           <a href="https://dr-ishiiselectusa.com/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
-        </div>
-      </article>
-
-      <article class="work-panel" data-index="7">
-        <span class="ghost-word">Human X</span>
-        <div class="work-image media-gallery humanx-gallery">
-          <div class="gallery-track">
-            <figure class="gallery-slide is-active">
-              <img src="media/img-1wbd5fp-17bj.jpg" alt="HumanX 2026 — main expo entrance with illuminated [x] sculpture, SHOW MAP wall, and conference attendees walking through the venue" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-xis7sk-l4z.jpg" alt="HumanX 2026 — Agentic AI Pavilion stage with the screen title card, speaker podium, and San Francisco skyline mural" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-42w0gn-s13.jpg" alt="HumanX 2026 — Shoki Sakuma on the Agentic AI Pavilion floor with attendees gathered around a speaker presentation" loading="lazy">
-            </figure>
-          </div>
-          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
-          </button>
-          <button class="gallery-arrow next" type="button" aria-label="Next slide">
-            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
-          </button>
-          <div class="gallery-dots" role="tablist" aria-label="HumanX gallery">
-            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — expo entrance"></button>
-            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — Agentic AI Pavilion stage"></button>
-            <button class="gallery-dot" data-slide="2" aria-label="Slide 3 — pavilion floor"></button>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">八</span>08 / 09</div>
-          <h3>Human X</h3>
-          <div class="meta">
-            <span class="k">Role</span><span class="v role">Pavilion Stage Co-Lead</span>
-            <span class="k">Category</span><span class="v">AI · Agentic · Event</span>
-            <span class="k">Year</span><span class="v">2026</span>
-          </div>
-          <p class="desc">
-            Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside
-            <em class="hl">two teammates</em>, supporting a fast-moving showcase of
-            <em class="hl">20+ sponsored sessions</em>.
-          </p>
-          <a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
         </div>
       </article>
 
@@ -3394,6 +3404,10 @@
     <div class="section-head reveal">
       <span>About</span>
       <span class="jp">自己紹介</span>
+    </div>
+    <div class="about-hi reveal">
+      <p class="about-hi-k">First, the highlights.</p>
+      <h2 class="about-hi-t"><span class="grad">Who is Shoki?</span></h2>
     </div>
 
     <div class="about-grid">
@@ -4216,17 +4230,17 @@
     line.style.setProperty("--dur", dur + "ms");
     line.style.setProperty("--delay", startDelay + "ms");
     line.style.setProperty("--blinks", Math.ceil((dur + 650) / 420));
-    // force reflow so the freshly-set vars are picked up before the class
+    // Ink reveal: the line is fully laid out, then bleeds into focus like sumi on wet paper
+    settleLine(line);
+    line.style.setProperty("--ink-delay", startDelay + "ms");
     void line.offsetWidth;
-    line.classList.add("type-go");
-    // once the line finishes typing, release ALL constraints so the full name
-    // can never clip on a narrow (mobile) viewport
+    line.classList.add("ink-go");
     line.addEventListener("animationend", function onEnd(e){
-     if (e.animationName !== "name-type") return;
+     if (e.animationName !== "ink-in") return;
      line.removeEventListener("animationend", onEnd);
-     settleLine(line);
+     line.classList.add("inked");
     });
-    startDelay += dur + 230;   // next line starts after this one finishes
+    startDelay += 900;   // second line follows while the first is still settling
    });
    // Belt-and-suspenders: no matter what happens with the animation events
    // on real mobile Safari, force every line fully visible after the run.
@@ -5063,7 +5077,7 @@
 <script>
 /* ── EN / 日本語: swaps copy in place; brand + project names stay in English ── */
 (function(){
- var DICT = {"Scroll and explore":"スクロールして探索","Solving complex problems across business strategy, product, and brand. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.": "<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の3つの視点から、社会課題を解決したいです。ニューヨークと東京を拠点に、人とのコラボレーションと消費者のインサイトを大切にしながら、アイデアを目に見える成果と優れたデザインへと形にします。","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations (Freelance)":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","U.S. Market Development":"米国市場開拓","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Co-invented a modular men's grooming device integrating lip care and fragrance, designed for scalable, refill-based consumer use with two teammates from GWU, within L'Oréal Groupe's innovation with 5,000+ consumer research + forecasted 24 M retail store + e-commerce sales.":"<em class=\"hl\">GWUのチームメイト2名</em>と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式の低価格帯サブスクリプションで拡張しやすい設計とし、L'Oréal Groupe のイノベーションのもとで<em class=\"hl\">5,000件以上の消費者調査</em>を実施、アメリカ展開で実店舗とECを合わせて約36億円の売上を予測しました。","Built with five teammates from Yale, Stanford Graduates, and GWU — Clean climate systems, reimagined for the home and commercial. Submitted to the James Dyson Award 2026, the international design and engineering prize for student-led inventions that solve a real problem.":"<em class=\"hl\">Yale、Stanford の卒業生、GWU の5名のチームメイト</em>を集めてチームを発足し、共に開発した家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Grew the campaign's X following to 24,000+, winning the under-30 segment — the candidate was elected with 59.4% of the vote. Built Claude prompt-engineering workflows with a 3-person team for X content strategy and real-time response.":"選挙陣営のXフォロワーを<em class=\"hl\">24,000人以上</em>に伸ばし、<em class=\"hl\">30歳未満の層</em>で支持を獲得しました。候補者は8年ぶりに<em class=\"hl\">得票率59.4%</em>で当選しています。また<em class=\"hl\">2名のチーム</em>で Claude を使ったプロンプトエンジニアリングのワークフローを構築し、Xのコンテンツ戦略とリアルタイム対応を担いました。","Event identity and creative direction for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — the through-line across staging, digital campaigns, beauty tech demos, and guest experience — staged as an open recruiting event for every student. Managed L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room.":"ジョージ・ワシントン大学の Grand Ballroom で開催された、L'Oréal USA 初のワシントンD.C.でのアクティベーションで、Brandstorm のイベントのブランディングとマーケティングを担当しました。ステージング、デジタルキャンペーン、ビューティーテックのデモ、来場者体験までを一貫した流れでつなぎ、<em class=\"hl\">ビジネススクールの学生に開かれた採用イベント</em>として実施しました。L'Oréal、GW の運営陣、Whole Foods Market との調整を通じて、<em class=\"hl\">500名以上の来場者</em>を迎えました。","Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of 100–200 high-spend guests cut new-operations training time and cost by roughly 40%.":"洗練された季節の料理と細やかなおもてなしで10年連続ミシュラン一つ星を保持する、東京の高級レストランのオペレーションと顧客関係システムを再構築しました。<em class=\"hl\">100〜200名の高単価顧客</em>のデータベースと、シェフとソムリエの知識をまとめることで、新しいオペレーションの教育にかかる時間と人件費を<em class=\"hl\">約40%</em>削減しました。","Helped the brand's first East Coast market entry and runs U.S. marketing by bringing Dr. Ishii products into Washington, D.C. with GW Women in Business (GWWB), while actively exploring merchandise display channels for its rice fermentation–based skincare technology.":"ブランド初の米国東海岸進出を支援し、<em class=\"hl\">GW Women in Business</em>と連携して Dr. Ishii の製品をワシントンD.C.に届けながら、米国でのマーケティングを担いました。あわせて、米発酵をベースにしたスキンケア技術の店頭展開のフランチャイズを積極的に開拓しています。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside two teammates, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を<em class=\"hl\">学生ボランティア</em>として共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","View Research Paper →":"研究論文を見る →","View the Scene →":"会場の様子を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて","Cooking":"料理","Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo — where plating, timing, and anticipating a guest's needs became a craft I still design by.":"ミシュラン星付きレストランや The Ritz-Carlton Tokyo で過ごした時間の中で、盛り付け、タイミング、そしてお客様の求めるものを先回りして察することが、今もデザインの軸になっている技術になりました。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Visited":"訪問済","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生"};
+ var DICT = {"Scroll and explore":"スクロールして探索","Artist Edition":"アーティスト・エディション","A face plate you'd hang on purpose.":"飾りたくなるフェイスプレート。","Flagship Edition":"フラッグシップ・エディション","Matte black. Nothing to hide.":"マットブラック。隠すものは何もない。","Sculpture Edition":"スカルプチャー・エディション","A shell cut like a sculpture.":"彫刻のように切り出したシェル。","Engineering":"エンジニアリング","280 mm. Every radius decided.":"280mm。すべてのRに理由がある。","Full story on the Airable site":"詳しくは Airable のサイトへ","First, the highlights.":"まずは、ハイライトから。","Who is Shoki?":"聖暉って、誰？","Solving complex problems across business strategy, product, and brand. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.": "<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の3つの視点から、社会課題を解決したいです。ニューヨークと東京を拠点に、人とのコラボレーションと消費者のインサイトを大切にしながら、アイデアを目に見える成果と優れたデザインへと形にします。","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations Lead":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","U.S. Market Development":"米国市場開拓","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Co-invented a modular men's grooming device integrating lip care and fragrance, designed for scalable, refill-based consumer use with two teammates from GWU, within L'Oréal Groupe's innovation with 5,000+ consumer research + forecasted 24 M retail store + e-commerce sales.":"<em class=\"hl\">GWUのチームメイト2名</em>と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式の低価格帯サブスクリプションで拡張しやすい設計とし、L'Oréal Groupe のイノベーションのもとで<em class=\"hl\">5,000件以上の消費者調査</em>を実施、アメリカ展開で実店舗とECを合わせて約36億円の売上を予測しました。","Built with five teammates from Yale, Stanford Graduates, and GWU — Clean climate systems, reimagined for the home and commercial. Submitted to the James Dyson Award 2026, the international design and engineering prize for student-led inventions that solve a real problem.":"<em class=\"hl\">Yale、Stanford の卒業生、GWU の5名のチームメイト</em>を集めてチームを発足し、共に開発した家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Ran the candidate's official X account — posts, in his voice — and grew it to 24,000+ followers, winning the under-30 segment. The candidate was elected with 59.4% of the vote. Built Claude prompt-engineering workflows with a 3-person team for content strategy and real-time response.":"候補者の<em class=\"hl\">公式Xアカウント</em>を運用し、本人の言葉で投稿を発信しました。フォロワーを<em class=\"hl\">24,000人以上</em>に伸ばし、<em class=\"hl\">30歳未満の層</em>で支持を獲得。候補者は<em class=\"hl\">得票率59.4%</em>で当選しています。また<em class=\"hl\">3名のチーム</em>で Claude を使ったプロンプトエンジニアリングのワークフローを構築し、コンテンツ戦略とリアルタイム対応を担いました。","IDSA.GW is the design firm at GW, running event partnerships with L'Oréal USA, Figma, Z Fellows, Tatte, Salesforce, JP Morgan and more. Its first chapter: event identity for L'Oréal Brandstorm's first Washington, D.C. activation, at GW's Grand Ballroom — staging, digital campaigns, beauty tech demos, and guest experience, staged as an open recruiting event for every student. Managed L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room — the foundation for continued success. Several more projects followed with the partners above.":"IDSA.GW はジョージ・ワシントン大学のデザインファームで、<em class=\"hl\">L'Oréal USA、Figma、Z Fellows、Tatte、Salesforce、JP Morgan</em> などとイベントパートナーシップを展開しています。その第一章として、GW の Grand Ballroom で開催された L'Oréal Brandstorm 初のワシントンD.C.でのアクティベーションで、イベントのアイデンティティを担当。ステージング、デジタルキャンペーン、ビューティーテックのデモ、来場者体験までを一貫させ、<em class=\"hl\">すべての学生に開かれた採用イベント</em>として実施しました。L'Oréal、GW の運営陣、Whole Foods Market との調整を通じて<em class=\"hl\">500名以上の来場者</em>を迎え、継続的な成功に向けた<em class=\"hl\">土台</em>を築きました。その後も上記のパートナーと複数のプロジェクトを手がけています。","Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of 100–200 high-spend guests cut new-operations training time and cost by roughly 40%.":"洗練された季節の料理と細やかなおもてなしで10年連続ミシュラン一つ星を保持する、東京の高級レストランのオペレーションと顧客関係システムを再構築しました。<em class=\"hl\">100〜200名の高単価顧客</em>のデータベースと、シェフとソムリエの知識をまとめることで、新しいオペレーションの教育にかかる時間と人件費を<em class=\"hl\">約40%</em>削減しました。","Helped the brand's first East Coast market entry and runs U.S. marketing by bringing Dr. Ishii products into Washington, D.C. with GW Women in Business (GWWB), while actively exploring merchandise display channels for its rice fermentation–based skincare technology.":"ブランド初の米国東海岸進出を支援し、<em class=\"hl\">GW Women in Business</em>と連携して Dr. Ishii の製品をワシントンD.C.に届けながら、米国でのマーケティングを担いました。あわせて、米発酵をベースにしたスキンケア技術の店頭展開のフランチャイズを積極的に開拓しています。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside two teammates, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を<em class=\"hl\">学生ボランティア</em>として共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","Visit IDSA.GW →":"IDSA.GW を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて","Cooking":"料理","Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo — where plating, timing, and anticipating a guest's needs became a craft I still design by.":"ミシュラン星付きレストランや The Ritz-Carlton Tokyo で過ごした時間の中で、盛り付け、タイミング、そしてお客様の求めるものを先回りして察することが、今もデザインの軸になっている技術になりました。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Visited":"訪問済","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生"};
  var SCOPED = {".topnav":{"Work":"作品","About":"自己紹介","Dispatch":"お知らせ"},".meta-list":{"Building Japan's first university student program":"日本で初の大学生プログラムを構築中","Art Sales & Business Development":"アートセールス＆ビジネスデベロップメント","Buddy Planning Lab, Kindergarten & Alumni":"Buddy 企画研究所＆幼稚園＆卒業生","Developing a dedicated app":"特別アプリを開発中"}};
  var INLINE = /^(EM|STRONG|B|I|BR|A)$/;
  var OKCLS = /(^|\s)(hl|dl|amp|tagline-dash|bs-note)(\s|$)/;
@@ -5640,6 +5654,353 @@
  } else seen = true;
  document.addEventListener('visibilitychange', function(){ if (document.hidden){ pauseT = t0 ? (performance.now() - t0) % PERIOD : 0; t0 = 0; } });
  raf = requestAnimationFrame(tick);
+})();
+</script>
+<style>
+ /* ── Scroll zoom (Apple-style): imagery starts small and grows to full size as it rises into view ── */
+ .zm{ --z: 0; will-change: transform, opacity; transform-origin: 50% 60%; }
+ .zm.zm-on{
+  transform: scale(calc(0.62 + 0.38 * var(--z))) translateY(calc((1 - var(--z)) * 48px));
+  opacity: calc(0.35 + 0.65 * var(--z));
+ }
+ .hero-photo.zm.zm-on{ transform-origin: 70% 50%; transform: scale(calc(1.18 - 0.18 * var(--z))); opacity: 1; }
+ .zm.zm-on img, .zm.zm-on video, .zm.zm-on iframe{ transform: none; }
+ @media (prefers-reduced-motion: reduce){ .zm.zm-on{ transform: none !important; opacity: 1 !important; } }
+</style>
+<script>
+(function(){
+ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ var SEL = '.work-image, .portrait-deck, .sf-media, .bs-figure, .stamp, .pk-phone, .rb-frame, .hero-photo';
+ var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function(e){
+  if (e.closest('#splash, #docViewer')) return false;
+  return !(e.parentElement && e.parentElement.closest(SEL));   // outermost match only
+ });
+ els.forEach(function(e){ e.classList.add('zm'); });
+ var cinema = document.querySelector('.work-cinema');
+ var raf = 0, vh = window.innerHeight;
+ var clamp = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
+ var ease = function(t){ return 1 - Math.pow(1 - t, 3); };
+ function paint(){
+  raf = 0;
+  var inShelf = cinema && cinema.classList.contains('shelf');
+  for (var i = 0; i < els.length; i++){
+   var e = els[i];
+   if (inShelf && e.closest('.work-panel')){          // shelf rows stay flat
+    if (e.__on){ e.__on = false; e.classList.remove('zm-on'); e.__z = undefined; }
+    continue;
+   }
+   var r = e.getBoundingClientRect();
+   if (r.bottom < -200 || r.top > vh + 200) continue;
+   var z;
+   if (e.classList.contains('hero-photo')) z = clamp(1 - (-r.top) / (vh * 0.9));
+   else z = ease(clamp((vh - r.top) / (vh * 0.62)));   // 0 at the fold → 1 after rising 62% of the viewport
+   if (e.__z !== z){ e.__z = z; e.style.setProperty('--z', z.toFixed(3)); }
+   if (!e.__on){ e.__on = true; e.classList.add('zm-on'); }
+  }
+ }
+ function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+ window.addEventListener('scroll', onScroll, { passive: true });
+ window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
+ if (cinema) new MutationObserver(onScroll).observe(cinema, { attributes: true, attributeFilter: ['class'] });
+ paint();
+})();
+</script>
+<style>
+ /* ── Layered sections (Apple-style): each section is a card that slides over the one before,
+       which recedes — shrinks, dims, drops back — as it's covered. No pinning, so long sections still scroll. ── */
+ .page-two > .ly{ position: relative; transform-origin: 50% 100%; --cv: 0; }
+ .page-two > .ly.ly-on{
+  transform: scale(calc(1 - 0.07 * var(--cv))) translateY(calc(var(--cv) * -18px));
+  opacity: calc(1 - 0.55 * var(--cv));
+  will-change: transform, opacity;
+ }
+ .page-two > .ly + .ly{ border-top-left-radius: 22px; border-top-right-radius: 22px; }
+ .page-two > .ly + .ly::before{ /* shadow lip, only while sliding over */
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; pointer-events: none;
+  border-radius: inherit; box-shadow: 0 -24px 60px rgba(20,18,15,.22), 0 -2px 0 rgba(20,18,15,.06);
+  opacity: var(--lip, 0);
+ }
+ .page-two > .ly.ly-on .reveal{ transition: none; }
+ @media (prefers-reduced-motion: reduce){ .page-two > .ly.ly-on{ transform: none !important; opacity: 1 !important; } .page-two > .ly + .ly::before{ display: none; } }
+</style>
+<script>
+(function(){
+ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+ var p2 = document.getElementById('pageTwo'); if (!p2) return;
+ var ly = Array.prototype.filter.call(p2.children, function(e){ return /^(SECTION|FOOTER)$/.test(e.tagName); });
+ ly.forEach(function(s, i){
+  s.classList.add('ly'); s.style.zIndex = 2 + i;
+  var bg = getComputedStyle(s).backgroundColor;
+  if (bg === 'rgba(0, 0, 0, 0)' || bg === 'transparent') s.style.backgroundColor = 'var(--paper)';
+ });
+ var vh = window.innerHeight, raf = 0;
+ var clamp = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
+ function paint(){
+  raf = 0;
+  for (var i = 0; i < ly.length - 1; i++){
+   var prev = ly[i], next = ly[i + 1], r = next.getBoundingClientRect();
+   var cv = clamp((vh - r.top) / (vh * 0.55));      // next enters at the fold → fully "over" 55% later
+   var pr = prev.getBoundingClientRect();
+   if (pr.bottom < -vh || r.top > vh + 100) cv = 0;  // both far away → rest state
+   if (cv > 0){
+    if (!prev.__on){ prev.__on = true; prev.classList.add('ly-on'); }
+    prev.style.setProperty('--cv', cv.toFixed(3));
+    next.style.setProperty('--lip', (Math.sin(Math.PI * Math.min(cv, 1)) ).toFixed(3));
+   } else if (prev.__on){
+    prev.__on = false; prev.classList.remove('ly-on'); prev.style.removeProperty('--cv'); next.style.removeProperty('--lip');
+   }
+  }
+ }
+ function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+ window.addEventListener('scroll', onScroll, { passive: true });
+ window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
+ var cinema = document.querySelector('.work-cinema');
+ if (cinema) new MutationObserver(onScroll).observe(cinema, { attributes: true, attributeFilter: ['class'] });
+ paint();
+})();
+</script>
+<style>
+ .about-hi{ margin: 6px 0 44px; max-width: 920px; position: relative; z-index: 1; }
+ .about-hi-k{ margin: 0 0 10px; font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--mono-grey); }
+ .about-hi-t{ margin: 0; font-family: "Times New Roman", Times, serif; font-weight: 600; font-size: clamp(34px, 5.2vw, 68px); line-height: 1.05; letter-spacing: -.02em; color: var(--sumi); text-wrap: balance; }
+ .about-hi-t .grad{
+  background: linear-gradient(100deg, var(--murasaki) 0%, var(--hinomaru) 38%, oklch(0.62 0.13 268) 70%, var(--murasaki) 100%);
+  background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: hi-shimmer 9s ease-in-out infinite alternate;
+ }
+ @keyframes hi-shimmer{ from{ background-position: 0% 50%; } to{ background-position: 100% 50%; } }
+ .about-hi-s{ margin: 16px 0 0; max-width: 56ch; font-family: var(--mono); font-size: 14px; line-height: 1.75; color: var(--sumi); opacity: .8; }
+ html[lang="ja"] .about-hi-t{ font-family: var(--jp); font-weight: 700; letter-spacing: .01em; line-height: 1.22; font-size: clamp(30px, 4.6vw, 60px); }
+ html[lang="ja"] .about-hi-s{ font-family: var(--jp); line-height: 1.9; }
+
+ .d3-stage{ perspective: 1400px; perspective-origin: 50% 40%; }
+ .d3{ --rx: 0; --dz: 0; }
+ .d3.d3-on{ transform: rotateX(calc(var(--rx) * 1deg)) translateZ(calc(var(--dz) * 1px)); will-change: transform; backface-visibility: hidden; }
+
+ .rb-frame{ perspective: 1100px; perspective-origin: 50% 20%; }
+ .ripple-band{ --mx: 0; --my: 0; transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+ @media (min-width: 701px){
+  .ripple-band{ transform: rotateX(calc(12deg + var(--my) * -4deg)) rotateY(calc(var(--mx) * 3deg)); transform-style: preserve-3d; }
+  .rb-frame:hover .ripple-band{ transition-duration: .18s; }
+  .rb-node{ transform: translateZ(28px); }
+  .rb-node .rb-cap{ text-shadow: 0 10px 22px rgba(27,23,20,.18); }
+ }
+
+ @media (hover: hover) and (min-width: 901px){
+  .work-cinema:not(.shelf) .work-image{ --hx: 0; --hy: 0; transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
+  .work-cinema:not(.shelf) .work-panel:hover .work-image{
+   transform: perspective(1200px) rotateX(calc(var(--hy) * -6deg)) rotateY(calc(var(--hx) * 8deg)) translateZ(14px);
+   box-shadow: 0 30px 60px -20px rgba(27,23,20,.35);
+  }
+ }
+
+ html.snap-work{ scroll-snap-type: y proximity; }
+ html.snap-work .work-cinema:not(.shelf) .work-panel{ scroll-snap-align: start; scroll-margin-top: 84px; }
+ html.snap-work .work-cinema:not(.shelf) .site-embed, html.snap-work .work-cinema:not(.shelf) .pocket{ scroll-snap-align: none; }
+
+ #splash{ perspective: 1200px; }
+ #splash .sp-win{ transform-origin: 50% 60%; animation: sp-arrive 1.1s cubic-bezier(.2,.8,.2,1) both; }
+ @keyframes sp-arrive{ from{ transform: translateY(26px) rotateX(10deg) scale(.96); opacity: 0; } to{ transform: none; opacity: 1; } }
+ #splash.is-done .sp-win{ animation: sp-through .7s cubic-bezier(.6,0,.4,1) both; }
+ @keyframes sp-through{ to{ transform: translateZ(900px) rotateX(-4deg); opacity: 0; } }
+ /* Elements that both zoom and tilt: compose the two transforms instead of letting one win */
+ .zm.zm-on.d3.d3-on{
+  transform: rotateX(calc(var(--rx) * 1deg)) translateZ(calc(var(--dz) * 1px))
+             scale(calc(0.62 + 0.38 * var(--z))) translateY(calc((1 - var(--z)) * 48px));
+ }
+ @media (prefers-reduced-motion: reduce){
+  #splash .sp-win, #splash.is-done .sp-win{ animation: none; }
+  .about-hi-t .grad{ animation: none; }
+  .zm.zm-on.d3.d3-on{ transform: none !important; }
+  .d3.d3-on, .ripple-band{ transform: none !important; }
+ }
+</style>
+<script>
+(function(){
+ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var narrow = window.matchMedia('(max-width: 900px)');
+ var html = document.documentElement;
+ var cinema = document.querySelector('.work-cinema');
+ function syncSnap(){ if (!cinema) return; html.classList.toggle('snap-work', !cinema.classList.contains('shelf')); }
+ if (cinema){ syncSnap(); new MutationObserver(syncSnap).observe(cinema, { attributes: true, attributeFilter: ['class'] }); }
+ if (reduce) return;
+
+ var SEL = '.work-panel, .sf-media, .portrait-deck, .bs-figure, .stamp';
+ var cards = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function(e){ return !e.closest('#splash, #docViewer'); });
+ cards.forEach(function(c){ c.classList.add('d3'); if (c.parentElement) c.parentElement.classList.add('d3-stage'); });
+ var vh = window.innerHeight, raf = 0;
+ function paint(){
+  raf = 0;
+  var shelf = cinema && cinema.classList.contains('shelf');
+  var amp = narrow.matches ? 5 : 9;
+  for (var i = 0; i < cards.length; i++){
+   var c = cards[i];
+   if (shelf && c.classList.contains('work-panel')){ if (c.__on){ c.__on = false; c.classList.remove('d3-on'); } continue; }
+   var r = c.getBoundingClientRect();
+   if (r.bottom < -100 || r.top > vh + 100){ if (c.__on){ c.__on = false; c.classList.remove('d3-on'); } continue; }
+   var t = ((r.top + r.bottom) / 2 - vh / 2) / (vh / 2);
+   if (t < -1) t = -1; if (t > 1) t = 1;
+   c.style.setProperty('--rx', (t * amp).toFixed(2)); c.style.setProperty('--dz', (-Math.abs(t) * 60).toFixed(1));
+   if (!c.__on){ c.__on = true; c.classList.add('d3-on'); }
+  }
+ }
+ function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+ window.addEventListener('scroll', onScroll, { passive: true });
+ window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
+ if (cinema) new MutationObserver(onScroll).observe(cinema, { attributes: true, attributeFilter: ['class'] });
+ paint();
+
+ if (window.matchMedia('(hover: hover)').matches){
+  var band = document.querySelector('.ripple-band'), frame = document.querySelector('.rb-frame');
+  if (band && frame){
+   frame.addEventListener('mousemove', function(e){
+    var r = frame.getBoundingClientRect();
+    band.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
+    band.style.setProperty('--my', ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
+   });
+   frame.addEventListener('mouseleave', function(){ band.style.setProperty('--mx', 0); band.style.setProperty('--my', 0); });
+  }
+  document.querySelectorAll('.work-panel').forEach(function(p){
+   var img = p.querySelector('.work-image'); if (!img) return;
+   p.addEventListener('mousemove', function(e){
+    var r = img.getBoundingClientRect();
+    img.style.setProperty('--hx', ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
+    img.style.setProperty('--hy', ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
+   });
+   p.addEventListener('mouseleave', function(){ img.style.setProperty('--hx', 0); img.style.setProperty('--hy', 0); });
+  });
+ }
+})();
+</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+  <filter id="inkBleed" x="-20%" y="-30%" width="140%" height="160%" color-interpolation-filters="sRGB">
+   <feTurbulence type="fractalNoise" baseFrequency="0.011 0.018" numOctaves="3" seed="11" result="grain"/>
+   <feDisplacementMap in="SourceGraphic" in2="grain" xChannelSelector="R" yChannelSelector="G" scale="0" result="warp">
+    <animate attributeName="scale" values="110;110;26;0" keyTimes="0;.08;.6;1" dur="2.3s" begin="indefinite" fill="freeze" id="inkA"/>
+   </feDisplacementMap>
+   <feGaussianBlur in="warp" stdDeviation="0" result="soft">
+    <animate attributeName="stdDeviation" values="16;16;3;0" keyTimes="0;.08;.6;1" dur="2.3s" begin="indefinite" fill="freeze" id="inkB"/>
+   </feGaussianBlur>
+   <feComponentTransfer in="soft" result="pool">
+    <feFuncA type="gamma" amplitude="1" exponent="0.55" offset="0"/>
+   </feComponentTransfer>
+   <feMerge><feMergeNode in="pool"/></feMerge>
+  </filter>
+ </defs>
+</svg>
+<style>
+ /* ── Sumi ink reveal for the hero name. Typeface stays crisp; only the arrival is liquid. ── */
+ .name .ghost.ink-go, .name .script.ink-go{
+  filter: url(#inkBleed);
+  animation: ink-in 2.3s cubic-bezier(.3,.7,.2,1) var(--ink-delay, 0ms) both;
+  will-change: filter, opacity, transform;
+ }
+ /* .typed carries animation:none !important — restate the reveal above it, then release everything on .inked */
+ .name .ghost.typed.ink-go, .name .script.typed.ink-go{ animation: ink-in 2.3s cubic-bezier(.3,.7,.2,1) var(--ink-delay, 0ms) both !important; }
+ .name .ghost.inked, .name .script.inked{ filter: none !important; animation: none !important; will-change: auto; }
+ @keyframes ink-in{
+  0%   { opacity: 0; transform: scale(1.04) translateY(.03em); }
+  10%  { opacity: .55; }
+  55%  { opacity: 1; }
+  100% { opacity: 1; transform: none; }
+ }
+ @media (prefers-reduced-motion: reduce){ .name .ghost.ink-go, .name .script.ink-go{ filter: none; animation: none; } }
+</style>
+<script>
+(function(){
+ // Fire the SVG filter's own timeline each time a line starts its ink reveal (desktop + mobile Safari both honour SMIL here).
+ var a = document.getElementById('inkA'), b = document.getElementById('inkB');
+ if (!a || !b) return;
+ var lines = document.querySelectorAll('.name .ghost, .name .script');
+ lines.forEach(function(l){
+  l.addEventListener('animationstart', function(e){
+   if (e.animationName !== 'ink-in') return;
+   try{ a.beginElement(); b.beginElement(); }catch(_){}
+   // safety: always release the filter even if animationend is missed
+   setTimeout(function(){ l.classList.add('inked'); }, 2700);
+  });
+ });
+ // belt-and-braces for browsers that never start the animation at all
+ setTimeout(function(){ lines.forEach(function(l){ if (l.classList.contains('ink-go')) l.classList.add('inked'); }); }, 9000);
+})();
+</script>
+<style>
+ /* ── Airable showcase: pinned stage, each plate zooms from small to full as you scroll, then hands off ── */
+ .air-show{ position: relative; height: calc(4 * 72vh + 28vh); margin: 8px 0 28px; }
+ .air-stage{ position: sticky; top: 14vh; height: 72vh; overflow: hidden; border-radius: 22px; background: #0e0d0c; transition: background .6s ease; }
+ .air-stage[data-tone="light"]{ background: #f1efe9; }
+ .air-plate{ position: absolute; inset: 0; margin: 0; display: grid; grid-template-rows: minmax(0,1fr); grid-template-columns: minmax(0,1fr); place-items: center; opacity: 0; pointer-events: none; }
+ .air-plate{ padding: clamp(16px, 3.5vh, 36px) clamp(18px, 4vw, 56px) calc(clamp(22px, 5vh, 64px) + 56px); box-sizing: border-box; }
+ .air-plate img{ width: auto; height: 100%; min-height: 0; max-width: 100%; max-height: 100%; object-fit: contain; justify-self: center; align-self: center; transform: scale(var(--s, .6)); transform-origin: 50% 50%; will-change: transform; }
+ .air-plate.is-on{ opacity: 1; pointer-events: auto; }
+ .air-plate figcaption{
+  position: absolute; left: clamp(18px, 4vw, 56px); bottom: clamp(22px, 5vh, 64px); max-width: 28ch;
+  opacity: var(--c, 0); transform: translateY(calc((1 - var(--c, 0)) * 18px));
+  font-family: var(--mono); color: #f4f1ea;
+ }
+ .air-stage[data-tone="light"] .air-plate figcaption{ color: var(--sumi); }
+ .air-k{ display: block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: .7; margin-bottom: 8px; }
+ .air-t{ display: block; font-family: "Times New Roman", Times, serif; font-size: clamp(22px, 2.6vw, 38px); line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
+ html[lang="ja"] .air-t{ font-family: var(--jp); font-weight: 600; letter-spacing: .01em; line-height: 1.3; }
+ .air-dots{ position: absolute; right: clamp(16px, 3vw, 36px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; }
+ .air-dots i{ width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .3; color: #f4f1ea; transition: opacity .3s, transform .3s; }
+ .air-stage[data-tone="light"] .air-dots i{ color: var(--sumi); }
+ .air-dots i.on{ opacity: 1; transform: scale(1.5); }
+ .air-more{
+  position: absolute; right: clamp(18px, 4vw, 56px); bottom: clamp(22px, 5vh, 64px);
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+  color: #f4f1ea; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(244,241,234,.4);
+  background: rgba(244,241,234,.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background .25s, color .25s;
+ }
+ .air-more:hover{ background: #f4f1ea; color: #0e0d0c; }
+ .air-stage[data-tone="light"] .air-more{ color: var(--sumi); border-color: rgba(27,23,20,.35); background: rgba(255,255,255,.4); }
+ .air-stage[data-tone="light"] .air-more:hover{ background: var(--sumi); color: #f4f1ea; }
+ .work-cinema.shelf > .air-show{ display: none; }
+ html.snap-work .air-show{ scroll-snap-align: none; }
+ @media (max-width: 760px){
+  .air-show{ height: calc(4 * 68svh + 32svh); }
+  .air-stage{ top: 12svh; height: 68svh; border-radius: 14px; }
+  .air-plate{ padding: 12px 14px 168px; }
+  .air-plate figcaption{ max-width: 60vw; }
+  .air-more{ right: auto; left: clamp(18px, 4vw, 56px); bottom: 18px; font-size: 10px; padding: 8px 12px; }
+  .air-plate figcaption{ bottom: 68px; }
+ }
+ @media (prefers-reduced-motion: reduce){ .air-plate img{ transform: none; } .air-plate figcaption{ opacity: 1; transform: none; } }
+</style>
+<script>
+(function(){
+ var show = document.querySelector('.air-show'); if (!show) return;
+ var stage = show.querySelector('.air-stage'), plates = show.querySelectorAll('.air-plate'), dots = show.querySelectorAll('.air-dots i');
+ var n = plates.length, vh = window.innerHeight, raf = 0, cur = -1;
+ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var clamp = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
+ var ease = function(t){ return 1 - Math.pow(1 - t, 3); };
+ function paint(){
+  raf = 0;
+  var r = show.getBoundingClientRect();
+  var stageH = stage.getBoundingClientRect().height, top = parseFloat(getComputedStyle(stage).top) || 0;
+  var total = r.height - stageH - top; if (total <= 0) return;
+  var p = clamp((top - r.top) / total);                 // 0 → 1 across the pinned run
+  var seg = Math.min(n - 1, Math.floor(p * n)), f = p * n - seg;   // which plate, and how far through it
+  if (seg !== cur){
+   cur = seg;
+   plates.forEach(function(pl, i){ pl.classList.toggle('is-on', i === seg); });
+   dots.forEach(function(d, i){ d.classList.toggle('on', i === seg); });
+   stage.setAttribute('data-tone', plates[seg].getAttribute('data-tone'));
+  }
+  if (reduce) return;
+  var grow = ease(clamp(f / 0.7));               // zoom in over the first 70% of the segment
+  var leave = seg < n - 1 ? clamp((f - 0.85) / 0.15) : 0;   // last 15%: ease out before hand-off
+  var s = 0.62 + 0.38 * grow - 0.06 * leave;   // tops out at 1 = fully inside the frame
+  var pl = plates[seg];
+  pl.style.setProperty('--s', s.toFixed(3));
+  pl.style.setProperty('--c', (clamp((f - 0.25) / 0.3) * (1 - leave)).toFixed(3));
+ }
+ function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
+ window.addEventListener('scroll', onScroll, { passive: true });
+ window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
+ paint();
 })();
 </script>
 </body>
