@@ -45,7 +45,7 @@
   --mono-grey:    #6f675c;
   --rule:         rgba(27,23,20,.14);
   --hinomaru:     #c8402f;
-  --murasaki:     #8a5bb3;
+  --murasaki:     #b5543a;
   --matcha:       #5f8a5a;
   --ink-warm:     #2a2420;
 
@@ -308,7 +308,7 @@
   background: transparent; border:none;
   color:#EADBF4; cursor:pointer; transition:.18s ease; padding:0;
  }
- .music-term .term-play:hover{ background: rgba(200,157,222,.16); }
+ .music-term .term-play:hover{ background: rgba(181,84,58,.16); }
  .music-term .term-play svg{ width:11px; height:11px; fill:currentColor; }
  /* Playing: the eq bars sit as a tiny arc under the glyph */
  .music-term .eq{ position:absolute; left:50%; bottom:7px; transform:translateX(-50%); pointer-events:none; }
@@ -320,7 +320,7 @@
   font-family:var(--mono); font-size:8.5px; letter-spacing:.14em; text-transform:uppercase;
   color:#ECEAF4; white-space:nowrap;
   background:linear-gradient(150deg, rgba(34,29,48,.92), rgba(13,11,19,.9));
-  border:1px solid rgba(200,157,222,.4);
+  border:1px solid rgba(181,84,58,.4);
   padding:6px 9px; border-radius:8px;
   box-shadow:0 12px 30px rgba(0,0,0,.5);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
@@ -328,7 +328,7 @@
   transition:opacity .25s ease, transform .25s ease;
  }
  .music-tip b{ color:#C89DDE; font-weight:600; }
- .music-tip::after{ content:""; position:absolute; top:100%; right:14px; border:5px solid transparent; border-top-color:rgba(200,157,222,.4); }
+ .music-tip::after{ content:""; position:absolute; top:100%; right:14px; border:5px solid transparent; border-top-color:rgba(181,84,58,.4); }
  .music-term:hover .music-tip{ opacity:1; transform:translateY(0); }
  .music-term .eq{ display:flex; align-items:flex-end; gap:1.6px; height:7px; }
  .music-term .eq span{ width:1.6px; height:2px; border-radius:1px; background:linear-gradient(#C89DDE,#E0A860); opacity:.5; transform-origin:bottom; }
@@ -792,7 +792,7 @@
   color: inherit;
  }
  .logo-link:focus-visible{
-  outline: 2px solid rgba(200,157,222,.7);
+  outline: 2px solid rgba(181,84,58,.7);
   outline-offset: 4px;
   border-radius: 8px;
  }
@@ -1304,8 +1304,8 @@
  .award-badge strong{ color: #1b1714; font-weight: 700; letter-spacing: .02em; }
  .award-badge.global{
   color: #1b1714;
-  background: linear-gradient(135deg, rgba(200,157,222,.18), rgba(200,157,222,.04));
-  border-color: rgba(200,157,222,.5);
+  background: linear-gradient(135deg, rgba(181,84,58,.18), rgba(181,84,58,.04));
+  border-color: rgba(181,84,58,.5);
  }
  .award-badge.global strong{ color: #1b1714; }
  @media (max-width: 720px){
@@ -1313,8 +1313,8 @@
   .award-badge{ font-size: 10.5px; padding: 6px 12px 6px 10px; }
  }
  .work-info h3{
-  font-family: var(--serif);
-  font-weight: 300;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 400;
   font-size: clamp(40px, 5vw, 70px);
   line-height: .95;
   letter-spacing: -.02em;
@@ -1376,12 +1376,12 @@
   font-style: normal;
   font-weight: 600;
   color: var(--sumi);
-  background: linear-gradient(transparent 62%, rgba(200,157,222,.34) 62%);
+  background: linear-gradient(transparent 62%, rgba(181,84,58,.34) 62%);
   padding: 0 1px;
  }
  [data-theme="dark"] .work-info .desc .hl{
   color: #F2EFF7;
-  background: linear-gradient(transparent 62%, rgba(200,157,222,.3) 62%);
+  background: linear-gradient(transparent 62%, rgba(181,84,58,.3) 62%);
  }
  /* Measured-result line — sits under the description, quietly emphasised */
  .work-info .cta{
@@ -1542,7 +1542,7 @@
  .site-window{
   width:100%;
   border-radius:18px; overflow:hidden;
-  border:1px solid rgba(200,157,222,.3);
+  border:1px solid rgba(181,84,58,.3);
   background:#0d0b13;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.12), 0 30px 70px rgba(0,0,0,.55), 0 4px 14px rgba(0,0,0,.35);
  }
@@ -1581,14 +1581,14 @@
   padding-inline: calc(50vw - 50%);
   overflow: hidden;
   background:
-   radial-gradient(115% 150% at 4% 96%, rgba(200,157,222,.16) 0%, rgba(200,157,222,.05) 26%, transparent 62%),
+   radial-gradient(115% 150% at 4% 96%, rgba(181,84,58,.16) 0%, rgba(181,84,58,.05) 26%, transparent 62%),
    linear-gradient(180deg, rgba(12,11,17,.03), rgba(12,11,17,.09));
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
  }
  [data-theme="dark"] .ripple-band{
   background:
-   radial-gradient(115% 150% at 4% 96%, rgba(200,157,222,.26) 0%, rgba(200,157,222,.07) 28%, transparent 64%),
+   radial-gradient(115% 150% at 4% 96%, rgba(181,84,58,.26) 0%, rgba(181,84,58,.07) 28%, transparent 64%),
    linear-gradient(180deg, #0b0a10, #07060b);
  }
  .ripple-band canvas{
@@ -1597,7 +1597,7 @@
  /* Baseline the magnitude ticks hang from */
  .rb-base{
   position:absolute; left:0; right:0; bottom:52px; height:1px; z-index:2;
-  background:linear-gradient(90deg, rgba(200,157,222,.5), rgba(122,116,108,.22) 55%, transparent);
+  background:linear-gradient(90deg, rgba(181,84,58,.5), rgba(122,116,108,.22) 55%, transparent);
   pointer-events:none;
  }
  .rb-origin{
@@ -1609,14 +1609,14 @@
   position:relative; flex:0 0 auto;
   width:14px; height:14px; border-radius:50%; background:#efe4fb;
   box-shadow:
-   0 0 0 5px rgba(200,157,222,.2),
-   0 0 0 12px rgba(200,157,222,.09),
-   0 0 34px 6px rgba(200,157,222,.75);
+   0 0 0 5px rgba(181,84,58,.2),
+   0 0 0 12px rgba(181,84,58,.09),
+   0 0 34px 6px rgba(181,84,58,.75);
   animation: rb-beat 2.6s ease-in-out infinite;
  }
  @keyframes rb-beat{
-  0%,100%{ box-shadow:0 0 0 5px rgba(200,157,222,.2), 0 0 0 12px rgba(200,157,222,.09), 0 0 34px 6px rgba(200,157,222,.75); }
-  50%    { box-shadow:0 0 0 8px rgba(200,157,222,.14), 0 0 0 18px rgba(200,157,222,.05), 0 0 48px 10px rgba(200,157,222,.95); }
+  0%,100%{ box-shadow:0 0 0 5px rgba(181,84,58,.2), 0 0 0 12px rgba(181,84,58,.09), 0 0 34px 6px rgba(181,84,58,.75); }
+  50%    { box-shadow:0 0 0 8px rgba(181,84,58,.14), 0 0 0 18px rgba(181,84,58,.05), 0 0 48px 10px rgba(181,84,58,.95); }
  }
  .rb-o-text{
   font-family:var(--mono); line-height:1.35; display:flex; flex-direction:column; gap:3px;
@@ -1642,14 +1642,14 @@
  .rb-node::after{
   content:""; position:absolute; left:50%; bottom:0; width:1px; height:100%;
   transform:translateX(-50%);
-  background:linear-gradient(180deg, var(--murasaki), rgba(200,157,222,.05));
+  background:linear-gradient(180deg, var(--murasaki), rgba(181,84,58,.05));
   opacity:.35; transition:opacity .3s;
  }
  .rb-mark{
   position:relative; z-index:1; flex:0 0 auto;
   width:9px; height:9px; border-radius:50%;
   background:var(--murasaki);
-  box-shadow:0 0 0 4px rgba(200,157,222,.14), 0 0 16px 2px rgba(200,157,222,.5);
+  box-shadow:0 0 0 4px rgba(181,84,58,.14), 0 0 16px 2px rgba(181,84,58,.5);
   transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
  }
  .rb-cap{
@@ -1668,18 +1668,18 @@
  }
  .rb-node:hover .rb-mark, .rb-node:focus-visible .rb-mark{
   transform:scale(1.9);
-  box-shadow:0 0 0 7px rgba(200,157,222,.2), 0 0 30px 6px rgba(200,157,222,.9);
+  box-shadow:0 0 0 7px rgba(181,84,58,.2), 0 0 30px 6px rgba(181,84,58,.9);
  }
  .rb-node:hover::after, .rb-node:focus-visible::after{ opacity:.9; }
  .rb-node:hover .rb-t, .rb-node:focus-visible .rb-t{
-  color:var(--murasaki); text-shadow:0 0 22px rgba(200,157,222,.6);
+  color:var(--murasaki); text-shadow:0 0 22px rgba(181,84,58,.6);
  }
  .rb-node:hover .rb-s, .rb-node:focus-visible .rb-s{ opacity:1; }
  .rb-node:focus-visible{ outline:none; }
  /* Current role — a marker, not a project link */
  .rb-node--now{ cursor:default; }
  button.rb-node--now[data-target]{ cursor:pointer; }
- .rb-node--now .rb-mark{ background:#efe4fb; box-shadow:0 0 0 5px rgba(200,157,222,.18), 0 0 22px 3px rgba(200,157,222,.7); }
+ .rb-node--now .rb-mark{ background:#efe4fb; box-shadow:0 0 0 5px rgba(181,84,58,.18), 0 0 22px 3px rgba(181,84,58,.7); }
  .rb-node--now .rb-t{ color:var(--murasaki); }
  .rb-axis{
   position:absolute; right:max(2.2%, calc(50vw - 50% + 4px)); bottom:20px; z-index:4;
@@ -1744,11 +1744,11 @@
   padding:9px 15px; border-radius:999px; cursor:pointer;
   font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
   color:var(--murasaki);
-  background:linear-gradient(120deg, rgba(200,157,222,.14), rgba(200,157,222,.04));
-  border:1px solid rgba(200,157,222,.4);
+  background:linear-gradient(120deg, rgba(181,84,58,.14), rgba(181,84,58,.04));
+  border:1px solid rgba(181,84,58,.4);
   transition:transform .25s ease, border-color .25s ease;
  }
- .pocket-tab:hover{ border-color:rgba(200,157,222,.72); transform:translateY(-1px); }
+ .pocket-tab:hover{ border-color:rgba(181,84,58,.72); transform:translateY(-1px); }
  .pk-rule{ width:22px; height:1px; background:var(--murasaki); opacity:.7; }
  .pk-chev{ font-size:15px; line-height:1; color:var(--murasaki); transition:transform .3s ease; }
  .pocket-tab[aria-expanded="true"] .pk-chev{ transform:rotate(45deg); }
@@ -1759,7 +1759,7 @@
  .pk-phone{
   width:100%; height:min(90vh, 1000px);
   border-radius:18px; overflow:hidden; position:relative;
-  background:#09080c; border:1px solid rgba(200,157,222,.22); padding:0;
+  background:#09080c; border:1px solid rgba(181,84,58,.22); padding:0;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 30px 70px rgba(0,0,0,.5);
  }
  .pk-phone::before{ content:none; }
@@ -2240,315 +2240,130 @@
 
 <style>
  #splash{
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center;
   background: var(--paper);
-  transition: opacity .7s ease, visibility .7s ease;
+  transition: opacity .8s ease, visibility .8s ease;
  }
  #splash.is-done{ opacity: 0; visibility: hidden; pointer-events: none; }
  #splash .splash-mark{ display: none; }
-
- /* macOS-style window */
- #splash .sp-win{
-  width: min(760px, 100%);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(26,24,22,.10);
-  box-shadow: 0 34px 80px rgba(26,24,22,.16), 0 4px 14px rgba(26,24,22,.07);
-  transform: translateY(6px) scale(.985);
-  opacity: 0;
-  animation: sp-in .7s cubic-bezier(.22,.9,.24,1) .06s forwards;
- }
- @keyframes sp-in{ to{ transform: translateY(0) scale(1); opacity: 1; } }
-
- #splash .sp-bar{
-  position: relative;
-  display: flex; align-items: center;
-  height: 40px; padding: 0 14px;
-  background: #fdfcfa;
-  border-bottom: 1px solid rgba(26,24,22,.09);
- }
- #splash .sp-lights{ display: flex; gap: 8px; }
- #splash .sp-lights i{ width: 11px; height: 11px; border-radius: 50%; display: block; }
- #splash .sp-lights i.r{ background: #ec6a5e; }
- #splash .sp-lights i.y{ background: #f4bf4f; }
- #splash .sp-lights i.g{ background: #61c454; }
- #splash .sp-title{
-  position: absolute; left: 0; right: 0; margin: 0 auto;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-family: var(--mono); font-size: 13px; font-weight: 700;
-  letter-spacing: .01em; color: var(--sumi); pointer-events: none;
- }
- #splash .sp-folder{
-  position: relative; width: 17px; height: 13px; border-radius: 2.5px;
-  background: var(--murasaki); display: block; flex: 0 0 auto;
- }
- #splash .sp-folder::before{
-  content: ""; position: absolute; top: -3.5px; left: 0;
-  width: 7px; height: 4px; border-radius: 2px 2px 0 0; background: var(--murasaki);
- }
-
- #splash .sp-body{
-  position: relative;
-  min-height: clamp(260px, 44vh, 380px);
-  padding: 22px 24px 20px;
-  background: #fff;
- }
- /* soft palette wash standing in for the window's photo */
- #splash .sp-wash{
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-   radial-gradient(120% 90% at 78% 16%, rgba(200,157,222,.26), transparent 62%),
-   radial-gradient(90% 80% at 96% 96%, rgba(214,90,80,.10), transparent 60%),
-   linear-gradient(180deg, rgba(250,247,236,.35), rgba(250,247,236,0) 42%);
- }
- /* Van Gogh, Wheatfield with Crows (1890) — held far back so the type reads */
- /* Tendai-ji, Iwate — Setouchi's own temple */
- #splash[data-art="sky"] .sp-art{
-  background-image: url("media/summer-sky.jpg") !important;
-  background-position: 40% 45% !important;
- }
- #splash[data-art="temple"] .sp-art{
-  background-image: url("media/tendaiji-temple.jpg") !important;
-  background-position: 50% 42% !important;
- }
- #splash[data-art="wave"] .sp-art{
-  background-image: url("media/hokusai-wave.jpg") !important;
-  background-position: 62% 60% !important;
- }
  #splash .sp-art{
-  position: absolute; inset: 0; pointer-events: none;
-  background: url("media/vangogh-wheatfield.jpg") center/cover no-repeat;
-  opacity: .55;
+  position: absolute; inset: 0;
+  background: url("media/vangogh-wheatfield.jpg") center 58% / cover no-repeat;
+  opacity: 0; animation: sp-art-in 1.6s ease .1s forwards;
  }
- #splash .sp-art::after{
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(255,255,255,.93) 0%, rgba(255,255,255,.62) 46%, rgba(255,255,255,.06) 100%);
+ @keyframes sp-art-in{ to{ opacity: .42; } }
+ #splash .sp-veil{
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(244,241,234,.92), rgba(244,241,234,.55) 60%, rgba(244,241,234,.2));
  }
- #splash .sp-tate{
-  position: absolute; right: 24px; top: 20px;
-  font-family: var(--jp); font-size: 12px; line-height: 1.5;
-  letter-spacing: .3em; text-align: center;
-  color: var(--sumi-soft); opacity: .5; pointer-events: none;
+ #splash .sp-boot{
+  position: relative; display: grid; justify-items: center; gap: 22px;
+  width: min(640px, calc(100% - 48px)); text-align: center;
+  opacity: 0; animation: sp-boot-in 1s cubic-bezier(.2,.8,.2,1) .35s forwards;
  }
- #splash .sp-console{ position: relative; font-family: var(--mono); }
- #splash .sp-line{ font-size: clamp(14px, 1.5vw, 17px); line-height: 1.6; }
- #splash .sp-prompt{
-  color: #14120f; font-weight: 500;
-  font-size: clamp(12px, 1.25vw, 14.5px); line-height: 1.7;
-  max-width: 60ch; text-wrap: pretty;
+ @keyframes sp-boot-in{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: none; } }
+ #splash .sp-mark{
+  width: 72px; height: 72px; border-radius: 18px; overflow: hidden;
+  display: grid; place-items: center;
+  background: var(--sumi);
+  box-shadow: 0 10px 30px rgba(26,24,22,.18);
  }
- #splash .sp-by{
-  display: block; color: #4a443c; letter-spacing: .06em; margin-top: 2px;
-  opacity: 0; transition: opacity .5s ease;
+ #splash .sp-mark img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+ #splash .sp-quote{
+  margin: 6px 0 0; max-width: 46ch;
+  font-family: "Times New Roman", Times, serif; font-size: clamp(17px, 2.1vw, 22px); line-height: 1.5;
+  color: var(--sumi); text-wrap: balance;
+  min-height: 3lh;
  }
+ #splash .sp-by{ display: block; margin-top: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mono-grey); opacity: 0; transition: opacity .5s; }
  #splash .sp-by.show{ opacity: 1; }
- #splash .sp-qcaret{
-  display: inline-block; width: .5em; height: 1em; margin-left: 1px;
-  vertical-align: -.12em; background: #14120f; opacity: .8;
-  animation: sp-caret .95s steps(2) infinite;
- }
- #splash .sp-qcaret.done{ display: none; }
- #splash .sp-cmd{ margin-top: 12px; opacity: 0; transition: opacity .35s ease; color: var(--mono-grey); display: flex; align-items: center; }
- #splash .sp-cmd.show{ opacity: 1; }
- #splash .sp-caret{
-  display: inline-block; width: .56em; height: 1.05em; margin-left: 1px;
-  background: var(--sumi); opacity: .82;
-  animation: sp-caret .95s steps(2) infinite;
- }
- @keyframes sp-caret{ 50%{ opacity: 0; } }
-
- #splash .sp-run{
-  -webkit-appearance: none; appearance: none; border: 0; background: transparent;
-  margin: 18px 0 0; padding: 4px 2px;
-  display: inline-flex; align-items: center; gap: 9px;
-  font-family: var(--mono); font-size: clamp(14px, 1.5vw, 17px); font-weight: 700;
-  color: var(--sumi); cursor: pointer;
-  opacity: 0; transform: translateY(3px);
-  transition: color .2s ease, gap .2s ease, opacity .4s ease, transform .4s ease;
- }
- #splash .sp-run.show{ opacity: 1; transform: none; }
- #splash .sp-run:hover{ color: var(--murasaki); gap: 13px; }
- #splash .sp-run .tri{ color: var(--murasaki); }
- #splash .sp-run:focus-visible{ outline: 2px solid var(--murasaki); outline-offset: 3px; border-radius: 3px; }
-
- #splash .sp-out{
-  position: relative; margin-top: 16px;
-  font-family: var(--mono); font-size: 11.5px; line-height: 1.85;
-  letter-spacing: .04em; color: var(--mono-grey);
- }
- #splash .sp-out b{ color: var(--murasaki); font-weight: 500; }
-
- /* status footer inside the window */
+ #splash .sp-progress{ width: min(260px, 60vw); height: 2px; background: rgba(26,24,22,.12); border-radius: 2px; overflow: hidden; }
+ #splash .sp-progress i{ display: block; height: 100%; width: 0%; background: var(--sumi); transition: width .25s linear; }
  #splash .sp-status{
-  position: absolute; left: 24px; right: 24px; bottom: 16px;
-  display: flex; align-items: center; gap: 11px;
-  font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--mono-grey);
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--mono-grey);
  }
- #splash .sp-status i{ width: 6px; height: 6px; border-radius: 50%; background: var(--hinomaru); animation: sp-blink .85s steps(1) infinite; }
- #splash .sp-status .jp{ font-family: var(--jp); letter-spacing: .14em; text-transform: none; color: var(--sumi-soft); }
- #splash .sp-status .sp-pct{ margin-left: auto; color: var(--sumi); font-variant-numeric: tabular-nums; letter-spacing: .1em; }
- @keyframes sp-blink{ 50%{ opacity: .18; } }
-
+ #splash .sp-status .jp{ font-family: var(--jp); letter-spacing: .2em; text-transform: none; }
+ #splash .sp-pct{ font-variant-numeric: tabular-nums; }
+ #splash .sp-skip{
+  position: absolute; right: 22px; bottom: 20px;
+  -webkit-appearance: none; appearance: none; border: 0; cursor: pointer; background: transparent;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--mono-grey); padding: 8px 10px; opacity: .7;
+ }
+ #splash .sp-skip:hover{ opacity: 1; color: var(--sumi); }
  @media (max-width: 600px){
-  #splash{ padding: 16px; }
-  #splash .sp-body{ padding: 18px 16px 18px; min-height: 250px; }
-  #splash .sp-title{ font-size: 11.5px; }
-  #splash .sp-status{ left: 16px; right: 16px; font-size: 8.5px; letter-spacing: .14em; gap: 8px; }
+  #splash .sp-boot{ gap: 18px; }
+  #splash .sp-mark{ width: 60px; height: 60px; border-radius: 15px; }
+  #splash .sp-quote{ font-size: 15.5px; min-height: 0; }
   #splash .sp-status .jp{ display: none; }
-  #splash .sp-tate{ font-size: 10px; right: 16px; top: 14px; }
  }
  @media (prefers-reduced-motion: reduce){
-  #splash .sp-status i, #splash .sp-cmd.show{ opacity: 1; }
- #splash .sp-caret{ animation: none; }
-  #splash .sp-win{ animation: none; opacity: 1; transform: none; }
+  #splash .sp-art, #splash .sp-boot{ animation: none; opacity: 1; }
+  #splash .sp-art{ opacity: .42; }
  }
-</style>
+ </style>
 <div id="splash" role="status" aria-label="Loading">
-  <div class="sp-win">
-    <div class="sp-bar">
-      <span class="sp-lights" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></span>
-      <span class="sp-title"><span class="sp-folder" aria-hidden="true"></span>shoki sakuma portfolio</span>
-    </div>
-    <div class="sp-body">
-      <div class="sp-wash" aria-hidden="true"></div>
-      <div class="sp-art" aria-hidden="true"></div>
-      <span class="sp-tate" aria-hidden="true">佐久間<br/>聖暉</span>
-      <div class="sp-console">
-        <div class="sp-line sp-prompt">&gt; <span id="spQuote"></span><span class="sp-qcaret" id="spQCaret" aria-hidden="true"></span><span class="sp-by" id="spBy">— Vincent van Gogh</span></div>
-        <div class="sp-line sp-cmd"><span id="spCmd"></span><span class="sp-caret" aria-hidden="true"></span></div>
-        <button type="button" class="sp-run" id="spRun"><span class="tri" aria-hidden="true">&#9656;</span>Run</button>
-        <div class="sp-out" id="spOut" aria-hidden="true"></div>
-      </div>
-      <div class="sp-status">
-        <i></i><span id="spPhase">Initializing</span><span class="jp" id="spPhaseJp">初期化</span>
-        <span class="sp-pct"><span id="splashPct">000</span>%</span>
-      </div>
-    </div>
+  <div class="sp-art" aria-hidden="true"></div>
+  <div class="sp-veil" aria-hidden="true"></div>
+  <div class="sp-boot">
+    <div class="sp-mark" aria-hidden="true"><img src="media/favicon.svg" alt=""></div>
+    <p class="sp-quote"><span id="spQuote"></span><span class="sp-by" id="spBy">— Vincent van Gogh</span></p>
+    <div class="sp-progress" aria-hidden="true"><i id="spBarFill"></i></div>
+    <div class="sp-status"><span id="spPhase">Starting</span><span class="jp" id="spPhaseJp">起動中</span><span class="sp-pct"><span id="splashPct">0</span>%</span></div>
   </div>
+  <button type="button" class="sp-skip" id="spRun">Skip</button>
 </div>
 <script>
  (function splash(){
-  var el = document.getElementById('splash');
-  if (!el) return;
-  var pctEl  = document.getElementById('splashPct');
-  var cmdEl  = document.getElementById('spCmd');
-  var runEl  = document.getElementById('spRun');
-  var outEl  = document.getElementById('spOut');
-  var dismissed = false, ran = false, pct = 0;
-
-  var phases = [['Initializing','初期化'], ['Loading assets','アセット読込'], ['Rendering','描画中'], ['Ready','準備完了']];
+  var el = document.getElementById('splash'); if (!el) return;
+  var pctEl = document.getElementById('splashPct'), bar = document.getElementById('spBarFill');
+  var qEl = document.getElementById('spQuote'), byEl = document.getElementById('spBy'), skip = document.getElementById('spRun');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dismissed = false, pct = 0;
+  var phases = [['Starting','起動中'], ['Loading','読み込み中'], ['Almost there','まもなく'], ['Ready','準備完了']];
   function setPhase(v){
-   var i = v >= 100 ? 3 : v > 66 ? 2 : v > 33 ? 1 : 0;
+   var i = v >= 100 ? 3 : v > 70 ? 2 : v > 30 ? 1 : 0;
    var a = document.getElementById('spPhase'), b = document.getElementById('spPhaseJp');
-   if (a) a.textContent = phases[i][0];
-   if (b) b.textContent = phases[i][1];
+   if (a) a.textContent = phases[i][0]; if (b) b.textContent = phases[i][1];
   }
   function setPct(v){
    pct = Math.max(pct, Math.min(100, Math.round(v)));
-   if (pctEl) pctEl.textContent = String(pct).padStart(3, '0');
+   if (pctEl) pctEl.textContent = String(pct);
+   if (bar) bar.style.width = pct + '%';
    setPhase(pct);
   }
-
-  // type the quote, then the command
-  var DAYS = [
-   { q: '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”', by: '— Vincent van Gogh', jq: '「魂の中には大きな炎が燃えているのに、誰もそこで暖をとろうとしない。通りすがりの人には、煙突からのぼるわずかな煙しか見えないのだ。」', jby: '— フィンセント・ファン・ゴッホ', art: '' },
-   { q: '“One who does not hold himself in high regard is a slave.”', by: '— Natsume Sōseki', jq: '「自らを尊しと思わぬものは奴隷なり」', jby: '— 夏目漱石', art: 'wave' },
-   { q: '“I love people who have been hurt deeply and have suffered much. Those who know deep despair become, in equal measure, people of deep love.”', by: '— Jakuchō Setouchi', art: 'temple' },
-   { q: '“Whether you see the word ‘impossible’ as a wall or as a springboard — that alone can change your whole life.”', by: '— Takuya Kimura', art: 'sky' }
-  ];
-  // Rotate per visit: Van Gogh → Sōseki → Setouchi → Kimura, then repeat
-  var visitN = 0;
-  try{ visitN = parseInt(localStorage.getItem('ss-visit') || '0', 10) || 0; localStorage.setItem('ss-visit', String(visitN + 1)); }catch(_){}
-  var TODAY = DAYS[visitN % DAYS.length];
-  var QUOTE = TODAY.q;
-  (function(){
-   var sp = document.getElementById('splash');
-   if (sp && TODAY.art) sp.setAttribute('data-art', TODAY.art);
-   var by = document.getElementById('spBy');
-   if (by) by.textContent = TODAY.by;
-  })();
-  var CMD   = 'open("the.journey")';
-  var qEl = document.getElementById('spQuote');
-  var qCaret = document.getElementById('spQCaret');
-  var byEl = document.getElementById('spBy');
-  var cmdWrap = cmdEl ? cmdEl.parentElement : null;
-  var qi = 0, i = 0, typer = null;
-
-  var qTyper = setInterval(function(){
-   if (qi >= QUOTE.length){
-    clearInterval(qTyper);
-    if (qCaret) qCaret.classList.add('done');
-    if (byEl) byEl.classList.add('show');
-    setTimeout(typeCmd, 420);
-    return;
-   }
-   if (qEl) qEl.textContent = QUOTE.slice(0, ++qi);
-  }, 24);
-
-  function typeCmd(){
-   if (cmdWrap) cmdWrap.classList.add('show');
-   typer = setInterval(function(){
-    if (i >= CMD.length){
-     clearInterval(typer);
-     if (runEl){ runEl.classList.add('show'); try{ runEl.focus({ preventScroll: true }); }catch(_){ } }
-     return;
-    }
-    if (cmdEl) cmdEl.textContent = CMD.slice(0, ++i);
-   }, 46);
-  }
-
-  function run(){
-   if (qi < QUOTE.length){   // still typing → skip ahead instead of running
-    clearInterval(qTyper);
-    if (qEl) qEl.textContent = QUOTE;
-    if (qCaret) qCaret.classList.add('done');
-    if (byEl) byEl.classList.add('show');
-    qi = QUOTE.length;
-    typeCmd();
-    return;
-   }
-   if (ran) return;
-   ran = true;
-   if (runEl) runEl.style.opacity = '.45';
-   finish();
-  }
-  if (runEl) runEl.addEventListener('click', run);
-
+  var QUOTE = '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”';
+  var JQ = '「魂の中には大きな炎が燃えているのに、誰もそこで暖をとろうとしない。通りすがりの人には、煙突からのぼるわずかな煙しか見えないのだ。」';
+  if (document.documentElement.lang === 'ja'){ QUOTE = JQ; if (byEl) byEl.textContent = '— フィンセント・ファン・ゴッホ'; }
+  var DUR = reduce ? 1200 : 14600;         // total boot time (~10s longer)
   var t0 = performance.now(), raf;
   function tick(now){
-   setPct(92 * (1 - Math.exp(-(now - t0) / 1100)));
-   if (!dismissed && pct < 100) raf = requestAnimationFrame(tick);
+   var p = Math.min(1, (now - t0) / DUR);
+   var e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;   // ease in-out
+   setPct(e * 100);
+   var n = Math.round(Math.min(1, p / .78) * QUOTE.length);  // quote finishes at 78%
+   if (qEl && qEl.textContent.length !== n) qEl.textContent = reduce ? QUOTE : QUOTE.slice(0, n);
+   if (byEl && p > .8) byEl.classList.add('show');
+   if (p < 1 && !dismissed) raf = requestAnimationFrame(tick); else finish();
   }
-  raf = requestAnimationFrame(tick);
-
   function finish(){
-   if (dismissed) return;
-   dismissed = true;
-   setPct(100);
-   if (typer) clearInterval(typer);
-   if (qTyper) clearInterval(qTyper);
-   if (qEl) qEl.textContent = QUOTE;
-   if (cmdEl) cmdEl.textContent = CMD;
+   if (dismissed) return; dismissed = true;
+   setPct(100); if (qEl) qEl.textContent = QUOTE; if (byEl) byEl.classList.add('show');
    if (raf) cancelAnimationFrame(raf);
    setTimeout(function(){
     el.classList.add('is-done');
     window.__splashDone = true;
     window.dispatchEvent(new Event('splash-done'));
-    setTimeout(function(){ if (el && el.parentNode) el.parentNode.removeChild(el); }, 800);
-   }, 240);
+    setTimeout(function(){ if (el && el.parentNode) el.parentNode.removeChild(el); }, 900);
+   }, 420);
   }
-
-  // Enter/Space anywhere also runs it; nothing auto-runs — the visitor presses Run.
-  document.addEventListener('keydown', function(k){
-   if (!ran && (k.key === 'Enter' || k.key === ' ')){ k.preventDefault(); run(); }
-  });
-  setTimeout(function(){ if (!ran) run(); }, 20000); // last-resort release
+  if (skip) skip.addEventListener('click', finish);
+  document.addEventListener('keydown', function(k){ if (k.key === 'Enter' || k.key === ' ' || k.key === 'Escape'){ k.preventDefault(); finish(); } });
+  el.addEventListener('click', function(e){ if (e.target === el || e.target.classList.contains('sp-veil') || e.target.classList.contains('sp-art')) finish(); });
+  raf = requestAnimationFrame(tick);
+  setTimeout(finish, DUR + 1500); // safety
  })();
 </script>
 
@@ -2692,7 +2507,7 @@
  @media (prefers-reduced-motion: reduce){ .dl{ animation: none; } }
 
  /* ── Tech HUD overlay framing the hero ── */
- .hero{ --hud: rgba(200,157,222,.55); }
+ .hero{ --hud: rgba(181,84,58,.55); }
  .hero-hud{
   position: absolute; inset: 14px; z-index: 1;
   pointer-events: none;
@@ -2773,7 +2588,7 @@
     <div class="hero-row">
       <p class="tagline" id="heroTagline" data-typed>
         <span class="tag-txt" id="tagTxt"></span><span class="tag-caret" aria-hidden="true"></span>
-        <span class="tag-src" hidden>Solving complex problems across <em>business strategy</em>, <em>product</em>, and <em>brand</em>. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.</span>
+        <span class="tag-src" hidden>I work where <em>business strategy</em>, <em>product</em>, and <em>brand</em> meet. Based between New York and Tokyo, I turn research into things people actually use.</span>
       </p>
     </div>
   </div>
@@ -2809,9 +2624,8 @@
         <button type="button" class="rb-node" data-target="0" style="--x:26%; --h:175;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">LooksMax™</span><span class="rb-s">#1 in the U.S.</span></span></button>
         <button type="button" class="rb-node" data-target="5" style="--x:38%; --h:100;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">IDSA.GW</span><span class="rb-s">500+ in a room</span></span></button>
         <button type="button" class="rb-node" data-target="6" style="--x:50%; --h:190;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">HumanX</span><span class="rb-s">20+ Sponsors</span></span></button>
-        <button type="button" class="rb-node" data-target="7" style="--x:57%; --h:75;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Dr. Ishii</span><span class="rb-s">Marketing</span></span></button>
         <span class="rb-node rb-node--now" style="--x:65%; --h:118;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Morgan Stanley</span><span class="rb-s">Early Insight Program</span></span></span>
-        <button type="button" class="rb-node" data-target="2" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
+        <button type="button" class="rb-node" data-target="3" style="--x:73%; --h:160;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Airable</span><span class="rb-s">The Air Itself</span></span></button>
         <button type="button" class="rb-node rb-node--now" data-target="1" style="--x:82%; --h:200;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">L’Oréal Paris</span><span class="rb-s">Brand Strategy Intern</span></span></button>
         <span class="rb-node rb-node--now" style="--x:93%; --h:110;"><span class="rb-mark"></span><span class="rb-cap"><span class="rb-t">Figma</span><span class="rb-s">Student Program Coordinator<br/>Tokyo</span></span></span>
       </div>
@@ -2854,7 +2668,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">壱</span>01 / 09 <span class="pill">Flagship</span></div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">壱</span>01 / 08 <span class="pill">Flagship</span></div>
           <h3>LooksMax™</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Team Lead &middot; Product Strategy</span>
@@ -2865,12 +2679,7 @@
             <span class="award-badge global"><strong>L'Oréal Brandstorm</strong>&nbsp;USA Winner</span>
             <span class="award-badge global"><strong>Global Top 10</strong></span>
           </div>
-          <p class="desc">
-            Co-invented a modular men's grooming device integrating lip care
-            and fragrance, designed for scalable, refill-based consumer use
-            with <em class="hl">two teammates from GWU</em>, within L'Oréal Groupe's innovation with <em class="hl">5,000+ consumer research</em>
-            + forecasted <em class="hl">24 M</em> retail store + e-commerce sales.
-          </p>
+          <p class="desc">Co-invented a modular men's grooming device that combines lip care and fragrance, built on a refillable subscription with two teammates from GWU. Grounded in 5,000+ consumer research responses for L'Oréal Groupe, with a <em class="hl">forecast of $24M in U.S. retail and e-commerce sales</em>.</p>
           <div class="cta-group">
             <a href="https://www.linkedin.com/posts/lor%C3%A9al_2025-loreal-brandstorm-finals-usa-activity-7318272247905869827-6Ql8/" target="_blank" rel="noopener noreferrer" class="cta">View Achievements →</a>
             <a href="https://www.loreal.com/en/brandstorm/" target="_blank" rel="noopener noreferrer" class="cta">View Brandstorm →</a>
@@ -2897,7 +2706,7 @@
           <img src="media/logo-loreal-paris.png" alt="L’Oréal Paris" loading="lazy" style="width:58%; max-width:320px; height:auto; object-fit:contain;"/>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">弐</span>02 / 09 <span class="pill">Recent</span></div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">弐</span>02 / 08 <span class="pill">Recent</span></div>
           <h3>L’Oréal Paris</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Brand Strategy Marketing Intern</span>
@@ -2931,22 +2740,38 @@
       </div>
 
       <article class="work-panel" data-index="2">
-        <span class="ghost-word">Airable</span>
-        <div class="work-image" style="display:flex; align-items:center; justify-content:center;">
-          <img src="media/airable-device.jpg" alt="Airable — the final product, design language complementing the filtration functionality" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
+        <span class="ghost-word">Okinawa</span>
+        <div class="work-image media-gallery okinawa-gallery">
+          <div class="gallery-track">
+            <figure class="gallery-slide is-active">
+              <img src="media/okinawa-kumoji.jpg" alt="Candidate Genta Koja with supporters at the Kumoji intersection, Naha" loading="lazy">
+            </figure>
+            <figure class="gallery-slide">
+              <img src="media/okinawa-certificate.jpg" alt="The governor-elect receiving his certificate of election" loading="lazy">
+            </figure>
+          </div>
+          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
+          </button>
+          <button class="gallery-arrow next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
+          </button>
+          <div class="gallery-dots" role="tablist" aria-label="Okinawa campaign gallery">
+            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — Kumoji intersection"></button>
+            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — certificate of election"></button>
+          </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 09 <span class="pill">Hardware</span></div>
-          <h3>Airable</h3>
+          <div class="index"><span class="kanji-num" aria-hidden="true">参</span>03 / 08 <span class="pill">Campaign</span></div>
+          <h3>Okinawa Gubernatorial<br/>Election 2026</h3>
           <div class="meta">
-            <span class="k">Role</span><span class="v role">Head of Research &amp; Innovation</span>
-            <span class="k">Category</span><span class="v">Hardware · Product</span>
-            <span class="k">Year</span><span class="v">2026</span>
+            <span class="k">Role</span><span class="v role">Digital Campaign Operations Lead</span>
+            <span class="k">Location</span><span class="v">Tokyo, Japan</span>
+            <span class="k">Year</span><span class="v">Aug – Sep 2026</span>
           </div>
-          <p class="desc">Built with <em class="hl">five teammates from Yale, Stanford Graduates, and GWU</em> — Clean climate systems, reimagined for the home and commercial. Submitted to the <em class="hl">James Dyson Award 2026</em>, the international design and engineering prize for student-led inventions that solve a real problem.</p>
+          <p class="desc">Ran the candidate's official X account, writing posts in his voice, and <em class="hl">added 24,000+ new followers</em>, winning the under-30 segment. He was elected with 59.4% of the vote. With a three-person team, I built Claude prompt-engineering workflows for content strategy and real-time response.</p>
           <div class="cta-group">
-            <a class="cta" href="https://shoks77.github.io/AIRABLE.AC/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
-            <a class="cta" href="https://www.jamesdysonaward.org/2026/project/airable" target="_blank" rel="noopener noreferrer">Dyson Award entry <span aria-hidden="true">↗</span></a>
+            <a class="cta" href="https://x.com/GentaKoja" target="_blank" rel="noopener noreferrer">View on X <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
@@ -2983,38 +2808,22 @@
       </div>
 
       <article class="work-panel" data-index="3">
-        <span class="ghost-word">Okinawa</span>
-        <div class="work-image media-gallery okinawa-gallery">
-          <div class="gallery-track">
-            <figure class="gallery-slide is-active">
-              <img src="media/okinawa-kumoji.jpg" alt="Candidate Genta Koja with supporters at the Kumoji intersection, Naha" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/okinawa-certificate.jpg" alt="The governor-elect receiving his certificate of election" loading="lazy">
-            </figure>
-          </div>
-          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
-          </button>
-          <button class="gallery-arrow next" type="button" aria-label="Next slide">
-            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
-          </button>
-          <div class="gallery-dots" role="tablist" aria-label="Okinawa campaign gallery">
-            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — Kumoji intersection"></button>
-            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — certificate of election"></button>
-          </div>
+        <span class="ghost-word">Airable</span>
+        <div class="work-image" style="display:flex; align-items:center; justify-content:center;">
+          <img src="media/airable-device.jpg" alt="Airable — the final product, design language complementing the filtration functionality" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center;"/>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">四</span>04 / 09 <span class="pill">Campaign</span></div>
-          <h3>Okinawa Gubernatorial<br/>Election 2026</h3>
+          <div class="index"><span class="kanji-num" aria-hidden="true">四</span>04 / 08 <span class="pill">Hardware</span></div>
+          <h3>Airable</h3>
           <div class="meta">
-            <span class="k">Role</span><span class="v role">Digital Campaign Operations Lead</span>
-            <span class="k">Location</span><span class="v">Tokyo, Japan</span>
-            <span class="k">Year</span><span class="v">Aug – Sep 2026</span>
+            <span class="k">Role</span><span class="v role">Head of Research &amp; Innovation</span>
+            <span class="k">Category</span><span class="v">Hardware · Product</span>
+            <span class="k">Year</span><span class="v">2026</span>
           </div>
-          <p class="desc">Ran the candidate’s <em class="hl">official X account</em> — posts, in his voice — and grew it to <em class="hl">24,000+ followers</em>, winning the <em class="hl">under-30 segment</em>. The candidate was elected with <em class="hl">59.4% of the vote</em>. Built Claude prompt-engineering workflows with a <em class="hl">3-person team</em> for content strategy and real-time response.</p>
+          <p class="desc">Clean climate systems for the home and commercial spaces, built with five teammates from Yale, Stanford, and GWU. Submitted to the <em class="hl">James Dyson Award 2026</em>, the international design and engineering prize for student inventions that solve a real problem.</p>
           <div class="cta-group">
-            <a class="cta" href="https://x.com/GentaKoja" target="_blank" rel="noopener noreferrer">View on X <span aria-hidden="true">↗</span></a>
+            <a class="cta" href="https://shoks77.github.io/AIRABLE.AC/" target="_blank" rel="noopener noreferrer">Visit site <span aria-hidden="true">↗</span></a>
+            <a class="cta" href="https://www.jamesdysonaward.org/2026/project/airable" target="_blank" rel="noopener noreferrer">Dyson Award entry <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
@@ -3050,14 +2859,14 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">伍</span>05 / 09</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">伍</span>05 / 08</div>
           <h3>Shirosaka</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Operations &amp; UI/UX Designer</span>
             <span class="k">Category</span><span class="v">CRM · Ops · UI/UX</span>
             <span class="k">Year</span><span class="v">2025</span>
           </div>
-          <p class="desc">Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of <em class="hl">100–200 high-spend guests</em> cut new-operations training time and cost by <em class="hl">roughly 40%</em>.</p>
+          <p class="desc">Rebuilt operations and the guest-relationship system for a one-Michelin-star restaurant in Tokyo that has held its star for 10 consecutive years. A database of 100 to 200 high-spend guests, combined with the chef's and sommelier's knowledge, <em class="hl">cut training time and labor cost for new operations by about 40%</em>.</p>
           <div class="cta-group">
             <a href="https://chroma-video-34182257.figma.site" target="_blank" rel="noopener noreferrer" class="cta">View Internal CRM →</a>
             <a href="https://www.shirosaka.jp/english/" target="_blank" rel="noopener noreferrer" class="cta">Visit Restaurant →</a>
@@ -3096,14 +2905,14 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 09</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">六</span>06 / 08</div>
           <h3>IDSA.GW</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Co-Founder</span>
             <span class="k">Category</span><span class="v">Event · Brand · Logistics</span>
             <span class="k">Year</span><span class="v">2025</span>
           </div>
-          <p class="desc">IDSA.GW is GW's design firm, partnering on events with <em class="hl">L'Oréal USA, Figma, Z Fellows, Tatte, Salesforce, JP Morgan</em> and more. First chapter: event identity for L'Oréal Brandstorm's first D.C. activation at GW's Grand Ballroom — an open <em class="hl">recruiting event for every student</em>. Coordinated L'Oréal, GW leadership, and Whole Foods Market to bring <em class="hl">500+ attendees</em> into the room, the <em class="hl">foundation</em> for the projects that followed.</p>
+          <p class="desc">Today, IDSA.GW is GW's design firm, running events with L'Oréal USA, Figma, Z Fellows, Tatte, Salesforce, JP Morgan and more. My part was the very first year: event identity for L'Oréal Brandstorm's first D.C. activation at GW's Grand Ballroom, an open recruiting event for every student. I coordinated L'Oréal, GW leadership, and Whole Foods Market to <em class="hl">bring 500+ attendees into the room</em>, which became the starting point for everything that followed.</p>
           <div class="cta-group">
             <a href="https://idsagw.figma.site/" target="_blank" rel="noopener noreferrer" class="cta">Visit IDSA.GW →</a>
           </div>
@@ -3137,72 +2946,19 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 09</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">七</span>07 / 08</div>
           <h3>Human X</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Pavilion Stage Co-Lead</span>
             <span class="k">Category</span><span class="v">AI · Agentic · Event</span>
             <span class="k">Year</span><span class="v">2026</span>
           </div>
-          <p class="desc">
-            Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside the
-            <em class="hl">HumanX team</em>, supporting a fast-moving showcase of
-            <em class="hl">20+ sponsored sessions</em>.
-          </p>
+          <p class="desc">Co-led the Agentic AI Pavilion Stage at HumanX 2026 with the HumanX team, supporting a fast-moving showcase of <em class="hl">20+ sponsored sessions</em>.</p>
           <a href="https://www.humanx.co/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
         </div>
       </article>
 
       <article class="work-panel" data-index="7">
-        <span class="ghost-word">Ishii</span>
-        <div class="work-image media-gallery ishii-gallery">
-          <div class="gallery-track">
-            <figure class="gallery-slide is-active">
-              <img src="media/img-ys4a9l-yhv.jpg" alt="Dr. Ishii — F-Ishii Basic Lotion product flyer with Japanese rice ferment filtrate story, dermatology heritage credit, and U.S. launch promotional offer" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-1pjclsh-11p7.jpg" alt="Dr. Ishii — U.S. activation table at the INVENT / GWWIB Spring Conference, featuring Basic Lotion boxes, sample sachets, and partner products" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-10bu4re-bs3.jpg" alt="Dr. Ishii — full I.C.B.L. travel set with cleansing oil, foaming wash, basic lotion, essence lotion, and gel cream in branded clear pouch" loading="lazy">
-            </figure>
-            <figure class="gallery-slide">
-              <img src="media/img-57c6yt-a2v.jpg" alt="Dr. Ishii — Ferment Line Travel Kit, 3D product render showing the case with cylindrical product containers, tube, and lid" loading="lazy">
-            </figure>
-          </div>
-          <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
-          </button>
-          <button class="gallery-arrow next" type="button" aria-label="Next slide">
-            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
-          </button>
-          <div class="gallery-dots" role="tablist" aria-label="Dr. Ishii gallery">
-            <button class="gallery-dot is-active" data-slide="0" aria-label="Slide 1 — product flyer"></button>
-            <button class="gallery-dot" data-slide="1" aria-label="Slide 2 — U.S. activation table"></button>
-            <button class="gallery-dot" data-slide="2" aria-label="Slide 3 — full I.C.B.L. travel kit"></button>
-            <button class="gallery-dot" data-slide="3" aria-label="Slide 4 — Ferment Line Travel Kit 3D render"></button>
-          </div>
-        </div>
-        <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">八</span>08 / 09</div>
-          <h3>Dr. Ishii</h3>
-          <div class="meta">
-            <span class="k">Role</span><span class="v role">U.S. Market Development</span>
-            <span class="k">Category</span><span class="v">Marketing · Brand Activation</span>
-            <span class="k">Year</span><span class="v">2026</span>
-          </div>
-          <p class="desc">
-            Helped the brand's first East Coast market entry and runs
-            U.S. marketing by bringing Dr. Ishii products into Washington,
-            D.C. with <em class="hl">GW Women in Business (GWWB)</em>, while actively
-            exploring merchandise display channels for
-            its rice fermentation–based skincare technology.
-          </p>
-          <a href="https://dr-ishiiselectusa.com/" target="_blank" rel="noopener noreferrer" class="cta">View Project →</a>
-        </div>
-      </article>
-
-      <article class="work-panel" data-index="8">
         <span class="ghost-word">Auréole</span>
         <div class="work-image media-gallery aureole-gallery">
           <div class="gallery-track">
@@ -3225,7 +2981,7 @@
           </div>
         </div>
         <div class="work-info">
-          <div class="index"><span class="kanji-num" aria-hidden="true">九</span>09 / 09</div>
+          <div class="index"><span class="kanji-num" aria-hidden="true">八</span>08 / 08</div>
           <h3>Auréole</h3>
           <div class="meta">
             <span class="k">Role</span><span class="v role">Concept &amp; Product Design</span>
@@ -3383,11 +3139,7 @@
       <div class="sf-body">
         <div class="sf-kicker">In the kitchen · 板場</div>
         <div class="sf-title">Cooking</div>
-        <p class="sf-desc">
-          Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo —
-          where plating, timing, and anticipating a guest's needs became a craft I
-          still design by.
-        </p>
+        <p class="sf-desc">I worked the line in Michelin-starred kitchens and at The Ritz-Carlton Tokyo. Plating, timing, and reading what a guest needs before they ask still shape how I design.</p>
         <div class="sf-tags"><span>Hobby</span><span>Ritz-Carlton</span><span>Plating</span><span>Hospitality</span></div>
       </div>
     </div>
@@ -3401,9 +3153,6 @@
     <div class="section-head reveal">
       <span>About</span>
       <span class="jp">自己紹介</span>
-    </div>
-    <div class="about-hi reveal">
-      <h2 class="about-hi-t"><span class="grad">Who is Shoki?</span></h2>
     </div>
 
     <div class="about-grid">
@@ -3456,7 +3205,7 @@
           <div class="v act-pills">
             <span class="act-pill"><b>Figma Japan</b><span class="act-sep">·</span>Building Japan's first university student program</span>
             <span class="act-pill"><b>David Stanley Hewett Studio</b><span class="act-sep">·</span>Art Sales &amp; Business Development</span>
-            <span class="act-pill"><b>Buddy Planning Lab, Kindergarten &amp; Alumni</b><span class="act-sep">·</span>Developing a dedicated app</span>
+            <span class="act-pill"><b>Buddy Group</b><span class="act-sep">·</span>Developing an app for the group</span>
           </div>
           <div class="meta-links">
             <a class="meta-btn github" href="https://github.com/shoks77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -3547,18 +3296,10 @@
   font-family:var(--mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase;
   color:rgba(27,23,20,.5);
  }
- .stamp-postmark{
-  position:absolute; left:-6px; bottom:26px; width:58px; height:58px;
-  background:url("media/hanko-seal.png") center/contain no-repeat;
-  font-size:0; color:transparent;
-  rotate:-9deg; opacity:.5; pointer-events:none;
-  mix-blend-mode:multiply;
- }
  @media (max-width:560px){
   .stamp{ width:43%; }
-  .stamp-postmark{ display:none; }
  }
-</style>
+ </style>
 <section class="section" id="collection">
   <div class="wrap">
     <div class="section-head reveal">
@@ -3590,7 +3331,6 @@
             <span class="stamp-region">California · USA</span>
           </div>
         </div>
-        <div class="stamp-postmark">Visited</div>
       </article>
 
       <article class="stamp" style="--ang:3deg; --accent:var(--murasaki);">
@@ -3614,7 +3354,6 @@
             <span class="stamp-region">District of Columbia</span>
           </div>
         </div>
-        <div class="stamp-postmark">Visited</div>
       </article>
 
       <article class="stamp" style="--ang:-2deg; --accent:oklch(0.72 0.09 248);">
@@ -3640,7 +3379,6 @@
             <span class="stamp-region">New York · USA</span>
           </div>
         </div>
-        <div class="stamp-postmark">Visited</div>
       </article>
 
       <article class="stamp" style="--ang:5deg; --accent:var(--hinomaru);">
@@ -3665,7 +3403,6 @@
             <span class="stamp-region">東京 · Japan</span>
           </div>
         </div>
-        <div class="stamp-postmark">Visited</div>
       </article>
 
       <article class="stamp" style="--ang:-4deg; --accent:var(--matcha);">
@@ -3684,10 +3421,9 @@
             <span class="stamp-region">Maine · USA</span>
           </div>
         </div>
-        <div class="stamp-postmark">Visited</div>
       </article>
 
-      <article class="stamp" style="--ang:4deg; --accent:oklch(0.62 0.13 268);">
+      <article class="stamp" style="--ang:4deg; --accent:#8a6a4a;">
         <div class="stamp-inner">
           <div class="stamp-img">
             <span class="stamp-country">FRANCE</span>
@@ -3707,7 +3443,6 @@
             <span class="stamp-region">Île-de-France · France</span>
           </div>
         </div>
-        <div class="stamp-postmark">Visited</div>
       </article>
 
     </div>
@@ -4422,8 +4157,8 @@
     ctx.moveTo(ox, oy);
     ctx.lineTo(ox + Math.cos(a) * span, oy + Math.sin(a) * span * 0.9);
     var g = ctx.createLinearGradient(ox, oy, ox + Math.cos(a) * span, oy + Math.sin(a) * span * 0.9);
-    g.addColorStop(0, "rgba(200,157,222,.20)");
-    g.addColorStop(1, "rgba(200,157,222,0)");
+    g.addColorStop(0, "rgba(181,84,58,.20)");
+    g.addColorStop(1, "rgba(181,84,58,0)");
     ctx.strokeStyle = g;
     ctx.stroke();
    }
@@ -4436,7 +4171,7 @@
     var p = i / RINGS;
     ctx.lineWidth = 0.6 + p * 0.9;
     ctx.strokeStyle = "rgba(120,80,160," + (0.10 + p * 0.22).toFixed(3) + ")";
-    ctx.shadowColor = "rgba(200,157,222,.45)";
+    ctx.shadowColor = "rgba(181,84,58,.45)";
     blur(p * 9);
     arc(p * span, 1.5 + p * p * 26, t, i * 0.8);
    }
@@ -4449,7 +4184,7 @@
     var e = 1 - p;
     ctx.lineWidth = 1.1 + p * 2.4;
     ctx.strokeStyle = "rgba(138,91,179," + (0.75 * e * e).toFixed(3) + ")";
-    ctx.shadowColor = "rgba(200,157,222,.95)";
+    ctx.shadowColor = "rgba(181,84,58,.95)";
     blur(22 * e + 6);
     arc(p * span, 1.5 + p * p * 26, t, 0);
    });
@@ -4467,12 +4202,12 @@
     ctx.bezierCurveTo(mx, prev.y, mx, cur.y, cur.x, cur.y);
    }
    var tg = ctx.createLinearGradient(ox, oy, W, 0);
-   tg.addColorStop(0, "rgba(200,157,222,.15)");
+   tg.addColorStop(0, "rgba(181,84,58,.15)");
    tg.addColorStop(0.45, "rgba(214,178,236,.6)");
    tg.addColorStop(1, "rgba(240,224,255,.95)");
    ctx.strokeStyle = tg;
    ctx.lineWidth = 1.6;
-   ctx.shadowColor = "rgba(200,157,222,.8)";
+   ctx.shadowColor = "rgba(181,84,58,.8)";
    blur(16);
    ctx.stroke();
 
@@ -4484,7 +4219,7 @@
    ctx.beginPath();
    ctx.arc(sx, sy, 3.2, 0, Math.PI * 2);
    ctx.fillStyle = "rgba(248,240,255,.98)";
-   ctx.shadowColor = "rgba(200,157,222,1)";
+   ctx.shadowColor = "rgba(181,84,58,1)";
    blur(26);
    ctx.fill();
    ctx.restore();
@@ -5073,8 +4808,8 @@
 <script>
 /* ── EN / 日本語: swaps copy in place; brand + project names stay in English ── */
 (function(){
- var DICT = {"Scroll and explore":"スクロールして探索","Artist Edition":"アーティスト・エディション","A face plate you'd hang on purpose.":"飾りたくなるフェイスプレート。","Sculpture Edition":"スカルプチャー・エディション","A shell cut like a sculpture.":"彫刻のように切り出したシェル。","Engineering":"エンジニアリング","Full story on the Airable site":"詳しくは Airable のサイトへ","Who is Shoki?":"聖暉って、誰？","Solving complex problems across business strategy, product, and brand. NYC–Tokyo based. Driven by collaboration, insight, and turning ideas into measurable impact and greater design.": "<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の3つの視点から、社会課題を解決したいです。ニューヨークと東京を拠点に、人とのコラボレーションと消費者のインサイトを大切にしながら、アイデアを目に見える成果と優れたデザインへと形にします。","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations Lead":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","U.S. Market Development":"米国市場開拓","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Co-invented a modular men's grooming device integrating lip care and fragrance, designed for scalable, refill-based consumer use with two teammates from GWU, within L'Oréal Groupe's innovation with 5,000+ consumer research + forecasted 24 M retail store + e-commerce sales.":"<em class=\"hl\">GWUのチームメイト2名</em>と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式の低価格帯サブスクリプションで拡張しやすい設計とし、L'Oréal Groupe のイノベーションのもとで<em class=\"hl\">5,000件以上の消費者調査</em>を実施、アメリカ展開で実店舗とECを合わせて約36億円の売上を予測しました。","Built with five teammates from Yale, Stanford Graduates, and GWU — Clean climate systems, reimagined for the home and commercial. Submitted to the James Dyson Award 2026, the international design and engineering prize for student-led inventions that solve a real problem.":"<em class=\"hl\">Yale、Stanford の卒業生、GWU の5名のチームメイト</em>を集めてチームを発足し、共に開発した家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Ran the candidate's official X account — posts, in his voice — and grew it to 24,000+ followers, winning the under-30 segment. The candidate was elected with 59.4% of the vote. Built Claude prompt-engineering workflows with a 3-person team for content strategy and real-time response.":"候補者の<em class=\"hl\">公式Xアカウント</em>を運用し、本人の言葉で投稿を発信しました。フォロワーを<em class=\"hl\">24,000人以上</em>に伸ばし、<em class=\"hl\">30歳未満の層</em>で支持を獲得。候補者は<em class=\"hl\">得票率59.4%</em>で当選しています。また<em class=\"hl\">3名のチーム</em>で Claude を使ったプロンプトエンジニアリングのワークフローを構築し、コンテンツ戦略とリアルタイム対応を担いました。","IDSA.GW is GW's design firm, partnering on events with L'Oréal USA, Figma, Z Fellows, Tatte, Salesforce, JP Morgan and more. First chapter: event identity for L'Oréal Brandstorm's first D.C. activation at GW's Grand Ballroom — an open recruiting event for every student. Coordinated L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room, the foundation for the projects that followed.":"IDSA.GW はジョージ・ワシントン大学のデザインファームで、<em class=\"hl\">L'Oréal USA、Figma、Z Fellows、Tatte、Salesforce、JP Morgan</em> などとイベントを共催しています。第一章は、GW の Grand Ballroom で開催された L'Oréal Brandstorm 初のD.C.アクティベーションのイベントアイデンティティ。<em class=\"hl\">すべての学生に開かれた採用イベント</em>として実施し、L'Oréal、GW の運営陣、Whole Foods Market と連携して<em class=\"hl\">500名以上の来場者</em>を迎えました。その後のプロジェクトにつながる<em class=\"hl\">土台</em>です。","Re-built operations and the guest-relationship system for a one-Michelin-starred luxury dining restaurant in Tokyo, holder of its star for 10 consecutive years through refined seasonal cuisine and precise hospitality. A database of 100–200 high-spend guests cut new-operations training time and cost by roughly 40%.":"洗練された季節の料理と細やかなおもてなしで10年連続ミシュラン一つ星を保持する、東京の高級レストランのオペレーションと顧客関係システムを再構築しました。<em class=\"hl\">100〜200名の高単価顧客</em>のデータベースと、シェフとソムリエの知識をまとめることで、新しいオペレーションの教育にかかる時間と人件費を<em class=\"hl\">約40%</em>削減しました。","Helped the brand's first East Coast market entry and runs U.S. marketing by bringing Dr. Ishii products into Washington, D.C. with GW Women in Business (GWWB), while actively exploring merchandise display channels for its rice fermentation–based skincare technology.":"ブランド初の米国東海岸進出を支援し、<em class=\"hl\">GW Women in Business</em>と連携して Dr. Ishii の製品をワシントンD.C.に届けながら、米国でのマーケティングを担いました。あわせて、米発酵をベースにしたスキンケア技術の店頭展開のフランチャイズを積極的に開拓しています。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 alongside the HumanX team, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を <em class=\"hl\">HumanX チーム</em>と共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","Visit IDSA.GW →":"IDSA.GW を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて","Cooking":"料理","Time on the line in Michelin-starred dining and at The Ritz-Carlton Tokyo — where plating, timing, and anticipating a guest's needs became a craft I still design by.":"ミシュラン星付きレストランや The Ritz-Carlton Tokyo で過ごした時間の中で、盛り付け、タイミング、そしてお客様の求めるものを先回りして察することが、今もデザインの軸になっている技術になりました。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Visited":"訪問済","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生"};
- var SCOPED = {".topnav":{"Work":"作品","About":"自己紹介","Dispatch":"お知らせ"},".meta-list":{"Building Japan's first university student program":"日本で初の大学生プログラムを構築中","Art Sales & Business Development":"アートセールス＆ビジネスデベロップメント","Buddy Planning Lab, Kindergarten & Alumni":"Buddy 企画研究所＆幼稚園＆卒業生","Developing a dedicated app":"特別アプリを開発中"}};
+ var DICT = {"Scroll and explore":"スクロールして探索","Artist Edition":"アーティスト・エディション","A face plate you'd hang on purpose.":"飾りたくなるフェイスプレート。","Sculpture Edition":"スカルプチャー・エディション","A shell cut like a sculpture.":"彫刻のように切り出したシェル。","Engineering":"エンジニアリング","Full story on the Airable site":"詳しくは Airable のサイトへ","Shibuya Crossing · 渋谷":"渋谷スクランブル交差点","Full":"全体","the origin":"原点","UI/UX Project":"UI/UXプロジェクト","#1 in the U.S.":"全米1位","500+ in a room":"来場者500名以上","20+ Sponsors":"スポンサー20社以上","Marketing":"マーケティング","Early Insight Program":"アーリー・インサイト・プログラム","The Air Itself":"ジェームズ ダイソン アワード","Brand Strategy Intern":"ブランド戦略インターン","Student Program CoordinatorTokyo":"日本の学生プログラムを<br/>構築中","scale of effect →":"影響の広がり →","Flagship":"代表作","Recent":"最新","Hardware":"ハードウェア","Campaign":"選挙","Role":"役割","Category":"カテゴリー","Year":"年","Location":"拠点","Team Lead · Product Strategy":"プロダクト開発＆戦略","Product · Strategy · Logistics":"プロダクト・戦略・ロジスティクス","Brand Strategy Marketing Intern":"ブランド戦略マーケティング・インターン","Brand Strategy · Consumer Products & AI":"ブランド戦略・消費財・AI","Head of Research & Innovation":"リサーチ＆イノベーション責任者","Hardware · Product":"ハードウェア・プロダクト","Digital Campaign Operations Lead":"デジタル選挙運営リード","Tokyo, Japan":"日本・東京","Aug – Sep 2026":"2026年8月〜9月","Co-Founder · Creative & Partnership Lead":"共同創業者","Event · Brand · Logistics":"イベント・ブランド・ロジスティクス","Operations & UI/UX Designer":"オペレーション＆UI/UXデザイナー","CRM · Ops · UI/UX":"CRM・運営・UI/UX","Marketing · Brand Activation":"マーケティング・ブランドアクティベーション","Pavilion Stage Co-Lead":"パビリオンステージ共同リード","AI · Agentic · Event":"AI・エージェント・イベント","Concept & Product Design":"コンセプト＆プロダクトデザイン","Fragrance · Jewelry · Product":"フレグランス・ジュエリー・プロダクト","L'Oréal Brandstorm USA Winner":"<strong>L'Oréal Brandstorm</strong> 全米優勝","Global Top 10":"世界トップ10","Conceptualized & designed a wearable fragrance object for the luxury jewelry market, translating scent into a piece of adornment that lives at the wrist.":"ラグジュアリージュエリー市場に向けて、身につけるフレグランスオブジェクトを構想・デザインしました。香りを、手首に宿る装身具へと落とし込んでいます。","View Achievements →":"実績を見る →","View Brandstorm →":"Brandstorm を見る →","Consumer Voice Hub for Busy Marketers":"忙しいマーケターのための Consumer Voice Hub","True Match — a Competitive Analysis":"True Match — 競合分析","Visit site":"サイトを見る","Dyson Award entry":"Dyson Award 応募ページ","View on X":"Xで見る","Visit IDSA.GW →":"IDSA.GW を見る →","View Internal CRM →":"社内CRMを見る →","Visit Restaurant →":"レストランを見る →","View Project →":"プロジェクトを見る →","Industrial Design · Dimensional Breakdown":"インダストリアルデザイン・寸法図","Industrial Design · Engineering Breakdown":"インダストリアルデザイン・構造図","PDP Pages":"商品詳細ページ（PDP）","Built & Grown with":"共に築き、育ててもらった企業","Experiments, side quests.":"","Off the pass":"<i></i>厨房より","Table 4 · Fire main":"4番卓 · <b>メイン出し</b>","In the kitchen · 板場":"厨房にて","Cooking":"料理","Hobby":"趣味","Plating":"盛り付け","Hospitality":"ホスピタリティ","Hi, I'm Shoki. I'm from Tokyo, with a perspective shaped by studying in Washington, D.C., and working in New York.":"はじめまして、佐久間聖暉（ショウキ）です。<em>東京</em>出身で、<em>メイン州</em>と<em>ワシントンD.C.</em>での留学、<em>ニューヨーク</em>での仕事を通じて、視野を広げてきました。","Curious about what makes people love a product — and what makes the business behind it work. I enjoy connecting creative ideas with consumer insights and numbers, whether exploring a product concept, shaping a brand story, or bringing communities together.":"人がプロダクトを好きになる理由と、それを支えるビジネスが成り立つ理由に関心があります。プロダクトのコンセプトを探るときも、ブランドストーリーを形にするときも、コミュニティをつなぐときも、<em>クリエイティブなアイデア</em>を<em>消費者インサイト</em>や<em>結果に紐づく数字</em>と結びつけることを大切にしています。","Experiences in Michelin-starred dining and at The Ritz-Carlton Tokyo taught me to notice the small things: what people care about, what they need, and what they don't always say.":"<em>ミシュラン星付きレストラン</em>と<em>The Ritz-Carlton Tokyo</em>での経験から、人が何を大切にし、何を必要とし、何を口にしないのかという、小さなことに気づく力を学びました。","Now, back in Tokyo, I'm exploring new ideas and connecting passionate communities through Figma and etc.":"現在は東京に戻り、<a class=\"inline-link\" href=\"https://fig-events.figma.com/mc-tokyo-2026-oct-day2/\" target=\"_blank\" rel=\"noopener noreferrer\"><em>Figma</em></a>などを通じて新しいアイデアを探り、情熱あるコミュニティをつなぎながら、アプリを開発しています。","Always happy to meet ventures and start-up people building something they care about for international benefits, in Japanese or English.":"国際的な価値のために<em class=\"hl\">大切に思うもの</em>をつくっている<em class=\"hl\">ベンチャー</em>や<em class=\"hl\">スタートアップの方々</em>と、いつでもお会いしたいと思っています。<em>日本語</em>でも<em>英語</em>でも歓迎です。","Recent Role":"現在の活動","Status":"ステータス","Open to opportunities":"新しい機会を募集中","Places that shaped my eye.":"私の眼を育てた場所<span class=\"amp\">。</span>","San Francisco":"サンフランシスコ","California · USA":"カリフォルニア州 · アメリカ","Washington":"ワシントン","District of Columbia":"コロンビア特別区","New York":"ニューヨーク","New York · USA":"ニューヨーク州 · アメリカ","Tokyo":"東京","東京 · Japan":"東京都 · 日本","Maine":"メイン","Maine · USA":"メイン州 · アメリカ","Paris":"パリ","Île-de-France · France":"イル＝ド＝フランス · フランス","Field Notes":"フィールドノート","Tokyo · New York":"東京 · ニューヨーク","Featured":"特集","Crowdfunding":"クラウドファンディング","On the cover of Edicum's first issue":"Edicum 創刊号の表紙に","Edicum — a study-abroad organization with over 50 years of history that has helped 7,800 high-school students grow into global talent — featured me on the cover of their inaugural issue.":"50年以上の歴史を持ち、7,800人の高校生をグローバル人材へと送り出してきた留学支援団体 Edicum の創刊号で、表紙に取り上げていただきました。","Read the feature":"記事を読む","A campaign worth sharing":"シェアしたいキャンペーン","I've raised $15k in support of a cause close to me. Every contribution — and every share — helped it move forward. Take a look, and pass along my life story if it resonates with you. P.S. The campaign is currently closed.":"身近で大切な目的のために、<em style=\"font-style:normal;color:var(--hinomaru)\">$15k</em>の支援を集めることができました。ひとつひとつのご支援とシェアが、前に進む力になりました。私の人生の物語に共感していただけたら、ぜひご覧になって広めていただけると嬉しいです。 <span class=\"bs-note\">追伸：現在、キャンペーンは終了しています。</span>","Support the campaign":"キャンペーンを見る","What's next?":"次は？","— I'm drawn to building work that creates emotion, connection, and lasting impressions. —":"<span class=\"tagline-dash\">—</span> 人の<em>心を動かし</em>、<em>つながり</em>を生み、<em>長く記憶に残る</em>仕事をつくっていきたいと思っています。 <span class=\"tagline-dash\">—</span>","Email":"メール","♪ Shoki's tune — tap to play":"♪ <b>Shoki の一曲</b> — タップで再生","Co-invented a modular men's grooming device that combines lip care and fragrance, built on a refillable subscription with two teammates from GWU. Grounded in 5,000+ consumer research responses for L'Oréal Groupe, with a forecast of $24M in U.S. retail and e-commerce sales.":"GWUのチームメイト2名と共に、リップケアとフレグランスを一体化したモジュール式のメンズグルーミングデバイスを共同発明しました。詰め替え式のサブスクリプションを前提とした設計で、L'Oréal Groupe 向けに5,000件以上の消費者調査を実施。<em class=\"hl\">アメリカ展開で実店舗とECを合わせて約36億円の売上を予測</em>しました。","Clean climate systems for the home and commercial spaces, built with five teammates from Yale, Stanford, and GWU. Submitted to the James Dyson Award 2026, the international design and engineering prize for student inventions that solve a real problem.":"Yale、Stanford、GWU の5名のチームメイトと共に開発した、家庭用・業務用のクリーンな空調システムです。Webサイトも開発し、現実の課題を解決する学生発明を対象とした国際的なデザイン・エンジニアリング賞、<em class=\"hl\">James Dyson Award 2026</em> に応募しました。","Ran the candidate's official X account, writing posts in his voice, and added 24,000+ new followers, winning the under-30 segment. He was elected with 59.4% of the vote. With a three-person team, I built Claude prompt-engineering workflows for content strategy and real-time response.":"候補者の公式Xアカウントを運用し、本人の言葉で投稿を書きました。<em class=\"hl\">フォロワーを従来より24,000人以上増やし</em>、30歳未満の層で支持を獲得。候補者は得票率59.4%で当選しています。3名のチームで、Claude を使ったプロンプトエンジニアリングのワークフローを構築し、コンテンツ戦略とリアルタイム対応を担いました。","Rebuilt operations and the guest-relationship system for a one-Michelin-star restaurant in Tokyo that has held its star for 10 consecutive years. A database of 100 to 200 high-spend guests, combined with the chef's and sommelier's knowledge, cut training time and labor cost for new operations by about 40%.":"10年連続でミシュラン一つ星を保持する東京のレストランで、オペレーションと顧客関係システムを再構築しました。100〜200名の高単価顧客のデータベースに、シェフとソムリエの知識をまとめることで、<em class=\"hl\">新しいオペレーションの教育にかかる時間と人件費を約40%削減</em>しました。","Today, IDSA.GW is GW's design firm, running events with L'Oréal USA, Figma, Z Fellows, Tatte, Salesforce, JP Morgan and more. My part was the very first year: event identity for L'Oréal Brandstorm's first D.C. activation at GW's Grand Ballroom, an open recruiting event for every student. I coordinated L'Oréal, GW leadership, and Whole Foods Market to bring 500+ attendees into the room, which became the starting point for everything that followed.":"現在、IDSA.GW はジョージ・ワシントン大学のデザインファームとして、L'Oréal USA、Figma、Z Fellows、Tatte、Salesforce、JP Morgan などとイベントを展開しています。私が担ったのはその最初の1年。GW の Grand Ballroom で開催された L'Oréal Brandstorm 初のD.C.アクティベーションで、すべての学生に開かれた採用イベントのイベントアイデンティティを手がけました。L'Oréal、GW の運営陣、Whole Foods Market と連携して<em class=\"hl\">500名以上の来場者を迎え</em>、ここがその後のすべての出発点になりました。","Co-led the Agentic AI Pavilion Stage at HumanX 2026 with the HumanX team, supporting a fast-moving showcase of 20+ sponsored sessions.":"HumanX 2026 の Agentic AI Pavilion Stage を HumanX チームと共同で運営し、<em class=\"hl\">20以上のスポンサーセッション</em>が次々と展開されるショーケースを支えました。","I work where business strategy, product, and brand meet. Based between New York and Tokyo, I turn research into things people actually use.":"<em>ビジネス戦略</em>・<em>プロダクト</em>・<em>ブランド</em>の交わる領域で仕事をしています。ニューヨークと東京を拠点に、リサーチを、実際に人の手に届くかたちへと落とし込んでいます。","I worked the line in Michelin-starred kitchens and at The Ritz-Carlton Tokyo. Plating, timing, and reading what a guest needs before they ask still shape how I design.":"ミシュラン星付きの厨房と The Ritz-Carlton Tokyo で現場に立っていました。盛り付け、タイミング、そしてお客様が口にする前に求めているものを読むこと。それが今も私のデザインの土台です。料理が趣味で、高校時代には料理クラブを運営し、地元のベーカリーと提携して、オリジナルレシピの日本生まれのとんかつサンドをメイン州で販売させていただいていました。"};
+ var SCOPED = {".topnav":{"Work":"作品","About":"自己紹介","Dispatch":"お知らせ"},".meta-list":{"Building Japan's first university student program":"日本で初の大学生プログラムを構築中","Art Sales & Business Development":"アートセールス＆ビジネスデベロップメント","Buddy Group":"Buddy グループ","Developing an app for the group":"グループ向けアプリを開発中"}};
  var INLINE = /^(EM|STRONG|B|I|BR|A)$/;
  var OKCLS = /(^|\s)(hl|dl|amp|tagline-dash|bs-note)(\s|$)/;
  var SKIP = /^(SCRIPT|STYLE|SVG|IFRAME|CANVAS|NOSCRIPT|TEXTAREA|INPUT)$/i;
@@ -5601,106 +5336,7 @@
  html[lang="ja"] .meta-list .act-pill b{ font-weight: 700; }
  @media (max-width: 480px){ .act-pill{ font-size: 12px; padding: 9px 15px 10px; } }
 </style>
-<style>
- @media (max-width: 700px){
-  .rb-frame{ cursor: grab; }
-  .rb-frame::after{ content: "← swipe →"; }
-  html[lang="ja"] .rb-frame::after{ content: "← スワイプ →"; }
-  .rb-frame.is-held{ cursor: grabbing; }
-  .rb-frame.is-held::after{ opacity: 0; }
- }
- @media (max-width: 700px) and (prefers-reduced-motion: reduce){ .rb-frame::after{ content: "swipe →"; } }
-</style>
-<script>
-(function(){
- var frame = document.querySelector('.rb-frame'); if (!frame) return;
- var mq = window.matchMedia('(max-width: 700px)');
- var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- if (still) return;
- var raf = 0, t0 = 0, held = false, resumeAt = 0, seen = false, pauseT = 0;
- var PERIOD = 11000; // one full left→right→left sway
- function range(){ return Math.max(0, frame.scrollWidth - frame.clientWidth); }
- function tick(now){
-  raf = requestAnimationFrame(tick);
-  if (!mq.matches || !seen || held || now < resumeAt) return;
-  if (!t0) t0 = now - pauseT;
-  var r = range(); if (!r) return;
-  var ph = ((now - t0) % PERIOD) / PERIOD;            // 0..1
-  var e = 0.5 - 0.5 * Math.cos(ph * Math.PI * 2);      // eased 0→1→0
-  frame.scrollLeft = e * r;
- }
- function hold(){ held = true; frame.classList.add('is-held'); }
- function release(){
-  held = false; frame.classList.remove('is-held');
-  resumeAt = performance.now() + 2600;
-  // resume from wherever the finger left it, not with a jump
-  var r = range(); if (!r){ t0 = 0; return; }
-  var e = Math.max(0, Math.min(1, frame.scrollLeft / r));
-  var ph = Math.acos(1 - 2 * e) / (Math.PI * 2);      // invert the ease on the rising half
-  pauseT = ph * PERIOD; t0 = 0;
- }
- frame.addEventListener('touchstart', hold, { passive: true });
- frame.addEventListener('touchend', release, { passive: true });
- frame.addEventListener('touchcancel', release, { passive: true });
- frame.addEventListener('pointerdown', function(e){ if (e.pointerType !== 'touch') hold(); });
- window.addEventListener('pointerup', function(){ if (held) release(); });
- // only sway while the band is on screen
- if ('IntersectionObserver' in window){
-  new IntersectionObserver(function(es){ seen = es[0].isIntersecting; if (!seen){ pauseT = t0 ? (performance.now() - t0) % PERIOD : 0; t0 = 0; } }, { threshold: .2 }).observe(frame);
- } else seen = true;
- document.addEventListener('visibilitychange', function(){ if (document.hidden){ pauseT = t0 ? (performance.now() - t0) % PERIOD : 0; t0 = 0; } });
- raf = requestAnimationFrame(tick);
-})();
-</script>
-<style>
- /* ── Scroll zoom (Apple-style): imagery starts small and grows to full size as it rises into view ── */
- .zm{ --z: 0; will-change: transform, opacity; transform-origin: 50% 60%; }
- .zm.zm-on{
-  transform: scale(calc(0.62 + 0.38 * var(--z))) translateY(calc((1 - var(--z)) * 48px));
-  opacity: calc(0.35 + 0.65 * var(--z));
- }
- .hero-photo.zm.zm-on{ transform-origin: 70% 50%; transform: scale(calc(1.18 - 0.18 * var(--z))); opacity: 1; }
- .zm.zm-on img, .zm.zm-on video, .zm.zm-on iframe{ transform: none; }
- @media (prefers-reduced-motion: reduce){ .zm.zm-on{ transform: none !important; opacity: 1 !important; } }
-</style>
-<script>
-(function(){
- if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
- var SEL = '.work-image, .portrait-deck, .sf-media, .bs-figure, .stamp, .pk-phone, .rb-frame, .hero-photo';
- var els = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function(e){
-  if (e.closest('#splash, #docViewer')) return false;
-  return !(e.parentElement && e.parentElement.closest(SEL));   // outermost match only
- });
- els.forEach(function(e){ e.classList.add('zm'); });
- var cinema = document.querySelector('.work-cinema');
- var raf = 0, vh = window.innerHeight;
- var clamp = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
- var ease = function(t){ return 1 - Math.pow(1 - t, 3); };
- function paint(){
-  raf = 0;
-  var inShelf = cinema && cinema.classList.contains('shelf');
-  for (var i = 0; i < els.length; i++){
-   var e = els[i];
-   if (inShelf && e.closest('.work-panel')){          // shelf rows stay flat
-    if (e.__on){ e.__on = false; e.classList.remove('zm-on'); e.__z = undefined; }
-    continue;
-   }
-   var r = e.getBoundingClientRect();
-   if (r.bottom < -200 || r.top > vh + 200) continue;
-   var z;
-   if (e.classList.contains('hero-photo')) z = clamp(1 - (-r.top) / (vh * 0.9));
-   else z = ease(clamp((vh - r.top) / (vh * 0.62)));   // 0 at the fold → 1 after rising 62% of the viewport
-   if (e.__z !== z){ e.__z = z; e.style.setProperty('--z', z.toFixed(3)); }
-   if (!e.__on){ e.__on = true; e.classList.add('zm-on'); }
-  }
- }
- function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
- window.addEventListener('scroll', onScroll, { passive: true });
- window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
- if (cinema) new MutationObserver(onScroll).observe(cinema, { attributes: true, attributeFilter: ['class'] });
- paint();
-})();
-</script>
+
 <style>
  /* ── Layered sections (Apple-style): each section is a card that slides over the one before,
        which recedes — shrinks, dims, drops back — as it's covered. No pinning, so long sections still scroll. ── */
@@ -5753,118 +5389,6 @@
  var cinema = document.querySelector('.work-cinema');
  if (cinema) new MutationObserver(onScroll).observe(cinema, { attributes: true, attributeFilter: ['class'] });
  paint();
-})();
-</script>
-<style>
- .about-hi{ margin: 6px 0 44px; max-width: 920px; position: relative; z-index: 1; }
- .about-hi-t{ margin: 0; font-family: "Times New Roman", Times, serif; font-weight: 600; font-size: clamp(34px, 5.2vw, 68px); line-height: 1.05; letter-spacing: -.02em; color: var(--sumi); text-wrap: balance; }
- .about-hi-t .grad{
-  background: linear-gradient(100deg, var(--murasaki) 0%, var(--hinomaru) 38%, oklch(0.62 0.13 268) 70%, var(--murasaki) 100%);
-  background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
-  animation: hi-shimmer 9s ease-in-out infinite alternate;
- }
- @keyframes hi-shimmer{ from{ background-position: 0% 50%; } to{ background-position: 100% 50%; } }
- .about-hi-s{ margin: 16px 0 0; max-width: 56ch; font-family: var(--mono); font-size: 14px; line-height: 1.75; color: var(--sumi); opacity: .8; }
- html[lang="ja"] .about-hi-t{ font-family: var(--jp); font-weight: 700; letter-spacing: .01em; line-height: 1.22; font-size: clamp(30px, 4.6vw, 60px); }
- html[lang="ja"] .about-hi-s{ font-family: var(--jp); line-height: 1.9; }
-
- .d3-stage{ perspective: 1400px; perspective-origin: 50% 40%; }
- .d3{ --rx: 0; --dz: 0; }
- .d3.d3-on{ transform: rotateX(calc(var(--rx) * 1deg)) translateZ(calc(var(--dz) * 1px)); will-change: transform; backface-visibility: hidden; }
-
- .rb-frame{ perspective: 1100px; perspective-origin: 50% 20%; }
- .ripple-band{ --mx: 0; --my: 0; transform-origin: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
- @media (min-width: 701px){
-  .ripple-band{ transform: rotateX(calc(12deg + var(--my) * -4deg)) rotateY(calc(var(--mx) * 3deg)); transform-style: preserve-3d; }
-  .rb-frame:hover .ripple-band{ transition-duration: .18s; }
-  .rb-node{ transform: translateZ(28px); }
-  .rb-node .rb-cap{ text-shadow: 0 10px 22px rgba(27,23,20,.18); }
- }
-
- @media (hover: hover) and (min-width: 901px){
-  .work-cinema:not(.shelf) .work-image{ --hx: 0; --hy: 0; transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
-  .work-cinema:not(.shelf) .work-panel:hover .work-image{
-   transform: perspective(1200px) rotateX(calc(var(--hy) * -6deg)) rotateY(calc(var(--hx) * 8deg)) translateZ(14px);
-   box-shadow: 0 30px 60px -20px rgba(27,23,20,.35);
-  }
- }
-
- html.snap-work{ scroll-snap-type: y proximity; }
- html.snap-work .work-cinema:not(.shelf) .work-panel{ scroll-snap-align: start; scroll-margin-top: 84px; }
- html.snap-work .work-cinema:not(.shelf) .site-embed, html.snap-work .work-cinema:not(.shelf) .pocket{ scroll-snap-align: none; }
-
- #splash{ perspective: 1200px; }
- #splash .sp-win{ transform-origin: 50% 60%; animation: sp-arrive 1.1s cubic-bezier(.2,.8,.2,1) both; }
- @keyframes sp-arrive{ from{ transform: translateY(26px) rotateX(10deg) scale(.96); opacity: 0; } to{ transform: none; opacity: 1; } }
- #splash.is-done .sp-win{ animation: sp-through .7s cubic-bezier(.6,0,.4,1) both; }
- @keyframes sp-through{ to{ transform: translateZ(900px) rotateX(-4deg); opacity: 0; } }
- /* Elements that both zoom and tilt: compose the two transforms instead of letting one win */
- .zm.zm-on.d3.d3-on{
-  transform: rotateX(calc(var(--rx) * 1deg)) translateZ(calc(var(--dz) * 1px))
-             scale(calc(0.62 + 0.38 * var(--z))) translateY(calc((1 - var(--z)) * 48px));
- }
- @media (prefers-reduced-motion: reduce){
-  #splash .sp-win, #splash.is-done .sp-win{ animation: none; }
-  .about-hi-t .grad{ animation: none; }
-  .zm.zm-on.d3.d3-on{ transform: none !important; }
-  .d3.d3-on, .ripple-band{ transform: none !important; }
- }
-</style>
-<script>
-(function(){
- var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- var narrow = window.matchMedia('(max-width: 900px)');
- var html = document.documentElement;
- var cinema = document.querySelector('.work-cinema');
- function syncSnap(){ if (!cinema) return; html.classList.toggle('snap-work', !cinema.classList.contains('shelf')); }
- if (cinema){ syncSnap(); new MutationObserver(syncSnap).observe(cinema, { attributes: true, attributeFilter: ['class'] }); }
- if (reduce) return;
-
- var SEL = '.work-panel, .sf-media, .portrait-deck, .bs-figure, .stamp';
- var cards = Array.prototype.slice.call(document.querySelectorAll(SEL)).filter(function(e){ return !e.closest('#splash, #docViewer'); });
- cards.forEach(function(c){ c.classList.add('d3'); if (c.parentElement) c.parentElement.classList.add('d3-stage'); });
- var vh = window.innerHeight, raf = 0;
- function paint(){
-  raf = 0;
-  var shelf = cinema && cinema.classList.contains('shelf');
-  var amp = narrow.matches ? 5 : 9;
-  for (var i = 0; i < cards.length; i++){
-   var c = cards[i];
-   if (shelf && c.classList.contains('work-panel')){ if (c.__on){ c.__on = false; c.classList.remove('d3-on'); } continue; }
-   var r = c.getBoundingClientRect();
-   if (r.bottom < -100 || r.top > vh + 100){ if (c.__on){ c.__on = false; c.classList.remove('d3-on'); } continue; }
-   var t = ((r.top + r.bottom) / 2 - vh / 2) / (vh / 2);
-   if (t < -1) t = -1; if (t > 1) t = 1;
-   c.style.setProperty('--rx', (t * amp).toFixed(2)); c.style.setProperty('--dz', (-Math.abs(t) * 60).toFixed(1));
-   if (!c.__on){ c.__on = true; c.classList.add('d3-on'); }
-  }
- }
- function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
- window.addEventListener('scroll', onScroll, { passive: true });
- window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
- if (cinema) new MutationObserver(onScroll).observe(cinema, { attributes: true, attributeFilter: ['class'] });
- paint();
-
- if (window.matchMedia('(hover: hover)').matches){
-  var band = document.querySelector('.ripple-band'), frame = document.querySelector('.rb-frame');
-  if (band && frame){
-   frame.addEventListener('mousemove', function(e){
-    var r = frame.getBoundingClientRect();
-    band.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
-    band.style.setProperty('--my', ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
-   });
-   frame.addEventListener('mouseleave', function(){ band.style.setProperty('--mx', 0); band.style.setProperty('--my', 0); });
-  }
-  document.querySelectorAll('.work-panel').forEach(function(p){
-   var img = p.querySelector('.work-image'); if (!img) return;
-   p.addEventListener('mousemove', function(e){
-    var r = img.getBoundingClientRect();
-    img.style.setProperty('--hx', ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
-    img.style.setProperty('--hy', ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
-   });
-   p.addEventListener('mouseleave', function(){ img.style.setProperty('--hx', 0); img.style.setProperty('--hy', 0); });
-  });
- }
 })();
 </script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -5952,7 +5476,6 @@
  .air-stage[data-tone="light"] .air-more{ color: var(--sumi); border-color: rgba(27,23,20,.35); background: rgba(255,255,255,.4); }
  .air-stage[data-tone="light"] .air-more:hover{ background: var(--sumi); color: #f4f1ea; }
  .work-cinema.shelf > .air-show{ display: none; }
- html.snap-work .air-show{ scroll-snap-align: none; }
  @media (max-width: 760px){
   .air-show{ height: calc(3 * 68svh + 32svh); }
   .air-stage{ top: 12svh; height: 68svh; border-radius: 14px; }
@@ -5998,50 +5521,6 @@
  paint();
 })();
 </script>
-<style>
- @media (max-width: 760px), (pointer: coarse) and (max-width: 1024px){
-  html.snap-work{ scroll-snap-type: none; }
-  html.snap-work .work-cinema:not(.shelf) .work-panel{ scroll-snap-align: none; scroll-margin-top: 0; }
-  .work-panel{ scroll-snap-align: none; }
-  .work-cinema{ scroll-snap-type: none; }
-  /* layered cards: stay flat on phone */
-  .page-two > .ly.ly-on{ transform: none !important; opacity: 1 !important; }
-  .page-two > .ly + .ly::before{ display: none; }
-  /* 3D tilt off */
-  .d3.d3-on, .zm.zm-on.d3.d3-on{ transform: none !important; }
-  .d3-stage{ perspective: none; }
-  /* zoom: gentle (94% → 100%, 14px rise), finishes within the first third of the screen */
-  .zm.zm-on{
-   transform: scale(calc(0.94 + 0.06 * var(--z))) translateY(calc((1 - var(--z)) * 14px));
-   opacity: calc(0.6 + 0.4 * var(--z));
-   transition: none;
-  }
-  .hero-photo.zm.zm-on{ transform: none; opacity: 1; }
- }
-</style>
-<script>
-(function(){
- // On phones, bring the zoom "settle point" much closer to the fold so blocks never sit shrunken mid-screen.
- var phone = window.matchMedia('(max-width: 760px), (pointer: coarse) and (max-width: 1024px)');
- if (!phone.matches) return;
- var els = document.querySelectorAll('.zm');
- var vh = window.innerHeight, raf = 0;
- function paint(){
-  raf = 0;
-  for (var i = 0; i < els.length; i++){
-   var e = els[i], r = e.getBoundingClientRect();
-   if (r.bottom < -100 || r.top > vh + 100) continue;
-   var z = (vh - r.top) / (vh * 0.3); if (z < 0) z = 0; if (z > 1) z = 1;
-   z = 1 - Math.pow(1 - z, 2);
-   e.style.setProperty('--z', z.toFixed(3));
-   if (!e.classList.contains('zm-on')) e.classList.add('zm-on');
-  }
- }
- function onScroll(){ if (!raf) raf = requestAnimationFrame(paint); }
- window.addEventListener('scroll', onScroll, { passive: true });
- window.addEventListener('resize', function(){ vh = window.innerHeight; onScroll(); });
- paint();
-})();
-</script>
+
 </body>
 </html>
