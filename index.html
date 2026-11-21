@@ -9,11 +9,13 @@
 <script>(function(){var l=null;try{l=localStorage.getItem('ss-lang')}catch(e){}if(l!=='ja'&&l!=='en'){l=/^ja\b/i.test(navigator.language||'')?'ja':'en'}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l;})();</script>
 <title>Shoki Sakuma — Business Strategy, Product & Brand</title>
 
+
 <meta name="description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
 <meta name="keywords" content="Shoki Sakuma, 佐久間聖暉, business strategy, product strategy, brand strategy, portfolio, Airable, LooksMax, L'Oréal Paris, HumanX, Figma, Tokyo, New York" />
 <meta name="author" content="Shoki Sakuma" />
 <meta name="theme-color" content="#0d0c0b" />
 <link rel="canonical" href="https://shoks.studio/" />
+
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Shoki Sakuma — Business Strategy, Product & Brand" />
@@ -23,11 +25,14 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="ja_JP" />
 
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Shoki Sakuma — Business Strategy, Product & Brand" />
 <meta name="twitter:description" content="Solving complex problems across business strategy, product, and brand. NYC–Tokyo based." />
 
+
 <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1437,30 +1442,12 @@
  .work-cinema.shelf > .work-panel .work-image img{ width:100%; height:100%; object-fit: cover; }
  .work-cinema.shelf > .work-panel .gallery-slide{ position: absolute; inset: 0; }
  .work-cinema.shelf > .work-panel .gallery-slide:not(.is-active){ opacity: 0; }
- .work-cinema.shelf > .work-panel .gallery-nav,
- .work-cinema.shelf > .work-panel .gallery-count,
- .work-cinema.shelf > .work-panel .gallery-dots,
- .work-cinema.shelf > .work-panel .award-badge,
- .work-cinema.shelf > .work-panel .award-row,
- .work-cinema.shelf > .work-panel .kanji-num,
- .work-cinema.shelf > .work-panel .desc,
- .work-cinema.shelf > .work-panel .meta .k,
- .work-cinema.shelf > .pocket,
- .work-cinema.shelf > .site-embed{ display: none !important; }
+ .work-cinema.shelf > .work-panel .gallery-dots, .work-cinema.shelf > .work-panel .award-badge, .work-cinema.shelf > .work-panel .award-row, .work-cinema.shelf > .work-panel .kanji-num, .work-cinema.shelf > .work-panel .desc, .work-cinema.shelf > .work-panel .meta .k, .work-cinema.shelf > .pocket, .work-cinema.shelf > .site-embed{ display: none !important; }
  /* Keep one way in on every shelf row: first link only */
  .work-cinema.shelf > .work-panel .cta-group{
   display: block; margin: 0; gap: 0;
  }
  .work-cinema.shelf > .work-panel .cta-group > *:not(:first-child){ display: none; }
- .work-cinema.shelf > .work-panel .cta-group.cta-both{ display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
- .work-cinema.shelf > .work-panel .cta-group.cta-both > *{ display: inline-flex !important; }
- .work-cinema.shelf > .work-panel .cta-group.cta-both .cta{
-  white-space: normal; letter-spacing: .06em; line-height: 1.35; max-width: 22ch;
- }
- @media (max-width: 900px){
-  .work-cinema.shelf > .work-panel .cta-group.cta-both{ grid-column: 1 / -1; }
-  .work-cinema.shelf > .work-panel .cta-group.cta-both .cta{ max-width: none; }
- }
  .work-cinema.shelf > .work-panel .work-info{
   padding: 0;
   display: grid;
@@ -1681,12 +1668,6 @@
  button.rb-node--now[data-target]{ cursor:pointer; }
  .rb-node--now .rb-mark{ background:#efe4fb; box-shadow:0 0 0 5px rgba(181,84,58,.18), 0 0 22px 3px rgba(181,84,58,.7); }
  .rb-node--now .rb-t{ color:var(--murasaki); }
- .rb-axis{
-  position:absolute; right:max(2.2%, calc(50vw - 50% + 4px)); bottom:20px; z-index:4;
-  pointer-events:none;
-  font-family:var(--mono); font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
-  color:var(--mono-grey); opacity:.62;
- }
  [data-theme="dark"] .rb-o-text b{ color:#f2eefb; }
  [data-theme="dark"] .rb-t{ color:#eae6f4; }
  @media (max-width: 1100px){
@@ -1703,7 +1684,6 @@
   .rb-o-dot{ width:11px; height:11px; }
   .rb-o-text b{ font-size:9px; letter-spacing:.1em; }
   .rb-o-text em{ font-size:7.5px; letter-spacing:.14em; }
-  .rb-axis{ display:none; }
  }
  /* Phone: the band keeps its true proportions inside a swipeable frame,
     rather than collapsing its labels into each other. */
@@ -1734,7 +1714,6 @@
   }
   .rb-t{ font-size:10px; letter-spacing:.05em; }
   .rb-s{ display:block; font-size:8px; letter-spacing:.09em; }
-  .rb-axis{ display:none; }
  }
 
  /* ── Minimal pocket extension (collapsed breakdown → iPhone-sized 3D) ── */
@@ -1755,24 +1734,7 @@
  .pocket-body{ overflow:hidden; display:none; }
  .pocket-body.open{ display:block; margin-top:18px; animation:pocket-in .35s ease both; }
  @keyframes pocket-in{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
- /* Full-width frame that fits the screen (no narrow phone crop) */
- .pk-phone{
-  width:100%; height:min(90vh, 1000px);
-  border-radius:18px; overflow:hidden; position:relative;
-  background:#09080c; border:1px solid rgba(181,84,58,.22); padding:0;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 30px 70px rgba(0,0,0,.5);
- }
- .pk-phone::before{ content:none; }
- .pk-phone iframe{ width:100%; height:100%; border:0; border-radius:18px; display:block; background:#09080c; }
- @media (min-width:768px){ .pk-phone{ height:min(92vh, 1080px); } }
- @media (min-width:1200px){ .pk-phone{ height:min(92vh, 1160px); } }
- @media (max-width:760px){ .pk-phone{ height:min(84vh, 760px); } }
-
- /* Product Journey — one fixed slide, auto-sized to its scaled content (no leftover blank space) */
- .pk-phone--journey{ height:auto; max-height:min(62vh, 620px); background:#0b0a10; position:relative; overflow:hidden; }
- .pk-phone--journey iframe{ transform:none; display:block; }
- @media (min-width:1200px){ .pk-phone--journey{ max-height:min(64vh, 660px); } }
- @media (max-width:760px){ .pk-phone--journey{ max-height:min(52vh, 480px); } }
+ /* Product Journey — one fixed slide{ height:auto; max-height:min(62vh, 620px); background:#0b0a10; position:relative; overflow:hidden; }
 
  @media (max-width: 900px){
   .work-panel,
@@ -2238,6 +2200,7 @@
   </svg>
 </template>
 
+
 <style>
  #splash{
   position: fixed; inset: 0; z-index: 9999;
@@ -2284,7 +2247,6 @@
   display: flex; align-items: center; gap: 12px;
   font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--mono-grey);
  }
- #splash .sp-status .jp{ font-family: var(--jp); letter-spacing: .2em; text-transform: none; }
  #splash .sp-pct{ font-variant-numeric: tabular-nums; }
  #splash .sp-skip{
   position: absolute; right: 22px; bottom: 20px;
@@ -2297,21 +2259,20 @@
   #splash .sp-boot{ gap: 18px; }
   #splash .sp-mark{ width: 60px; height: 60px; border-radius: 15px; }
   #splash .sp-quote{ font-size: 15.5px; min-height: 0; }
-  #splash .sp-status .jp{ display: none; }
  }
  @media (prefers-reduced-motion: reduce){
   #splash .sp-art, #splash .sp-boot{ animation: none; opacity: 1; }
   #splash .sp-art{ opacity: .42; }
  }
  </style>
-<div id="splash" role="status" aria-label="Loading">
+<div id="splash" role="status" aria-label="Loading" data-no-i18n translate="no">
   <div class="sp-art" aria-hidden="true"></div>
   <div class="sp-veil" aria-hidden="true"></div>
   <div class="sp-boot">
     <div class="sp-mark" aria-hidden="true"><img src="media/favicon.svg" alt=""></div>
     <p class="sp-quote"><span id="spQuote"></span><span class="sp-by" id="spBy">— Vincent van Gogh</span></p>
     <div class="sp-progress" aria-hidden="true"><i id="spBarFill"></i></div>
-    <div class="sp-status"><span id="spPhase">Starting</span><span class="jp" id="spPhaseJp">起動中</span><span class="sp-pct"><span id="splashPct">0</span>%</span></div>
+    <div class="sp-status"><span id="spPhase">Starting</span><span class="sp-pct"><span id="splashPct">0</span>%</span></div>
   </div>
   <button type="button" class="sp-skip" id="spRun">Skip</button>
 </div>
@@ -2322,11 +2283,11 @@
   var qEl = document.getElementById('spQuote'), byEl = document.getElementById('spBy'), skip = document.getElementById('spRun');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var dismissed = false, pct = 0;
-  var phases = [['Starting','起動中'], ['Loading','読み込み中'], ['Almost there','まもなく'], ['Ready','準備完了']];
+  var phases = ['Starting', 'Loading', 'Almost there', 'Ready'];
   function setPhase(v){
    var i = v >= 100 ? 3 : v > 70 ? 2 : v > 30 ? 1 : 0;
-   var a = document.getElementById('spPhase'), b = document.getElementById('spPhaseJp');
-   if (a) a.textContent = phases[i][0]; if (b) b.textContent = phases[i][1];
+   var a = document.getElementById('spPhase');
+   if (a) a.textContent = phases[i];
   }
   function setPct(v){
    pct = Math.max(pct, Math.min(100, Math.round(v)));
@@ -2335,8 +2296,6 @@
    setPhase(pct);
   }
   var QUOTE = '“A great fire burns within me, but no one stops to warm themselves at it, and passers-by only see a wisp of smoke.”';
-  var JQ = '「魂の中には大きな炎が燃えているのに、誰もそこで暖をとろうとしない。通りすがりの人には、煙突からのぼるわずかな煙しか見えないのだ。」';
-  if (document.documentElement.lang === 'ja'){ QUOTE = JQ; if (byEl) byEl.textContent = '— フィンセント・ファン・ゴッホ'; }
   var DUR = reduce ? 1200 : 14600;         // total boot time (~10s longer)
   var t0 = performance.now(), raf;
   function tick(now){
@@ -2366,6 +2325,7 @@
   setTimeout(finish, DUR + 1500); // safety
  })();
 </script>
+
 
 <style>
  .scroll-marker{
@@ -2419,6 +2379,7 @@
 <nav class="scroll-marker" aria-label="Page sections" id="scrollMarker"></nav>
 <div class="cursor-halo" id="cursorHalo" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b><b></b><b></b><b></b><u id="cursorCoord">000 · 000</u></div>
 
+
 <header class="topbar">
   <nav class="topnav">
     <a href="#work" class="nav-link">Work</a>
@@ -2438,6 +2399,7 @@
     </span>
   </nav>
 </header>
+
 
 <style>
  .hero .wrap{ position: relative; z-index: 2; }
@@ -2497,7 +2459,7 @@
  }
  /* Per-letter drum ripple (shared by the badge + collection sub) */
  .dl{ display:inline-block; transform-origin:center bottom; animation: letter-drum 3s ease-in-out infinite; animation-delay: calc(var(--i) * .055s); will-change: transform; }
- .hero-now-role, .collection-sub{ perspective: 480px; }
+ .collection-sub{ perspective: 480px; }
  @keyframes letter-drum{
   0%, 66%, 100%{ transform: translateY(0) rotateX(0deg); opacity:1; }
   74%{ transform: translateY(-62%) rotateX(-90deg); opacity:.35; }
@@ -2508,12 +2470,6 @@
 
  /* ── Tech HUD overlay framing the hero ── */
  .hero{ --hud: rgba(181,84,58,.55); }
- .hero-hud{
-  position: absolute; inset: 14px; z-index: 1;
-  pointer-events: none;
-  font-family: var(--mono);
-  transition: opacity .5s ease;
- }
  .hud-bracket{ position: absolute; width: 26px; height: 26px; border: 1px solid var(--hud); opacity: .8; }
  .hud-bracket.tl{ top: 0; left: 0; border-right: 0; border-bottom: 0; }
  .hud-bracket.tr{ top: 0; right: 0; border-left: 0; border-bottom: 0; }
@@ -2522,33 +2478,20 @@
  .hud-bracket::after{ content:""; position:absolute; width:4px; height:4px; background: var(--hinomaru); }
  .hud-bracket.tl::after{ top:-2px; left:-2px; } .hud-bracket.tr::after{ top:-2px; right:-2px; }
  .hud-bracket.bl::after{ bottom:-2px; left:-2px; } .hud-bracket.br::after{ bottom:-2px; right:-2px; }
- /* live status readout, bottom-left */
- .hud-status{
+ /* live status readout{
   position: absolute; left: 4px; bottom: 6px;
   display: flex; align-items: center; gap: 14px;
   font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase;
   color: var(--mono-grey);
  }
- .hud-status .sep{ width: 1px; height: 10px; background: var(--rule); }
- .hud-status .live{ display:flex; align-items:center; gap:7px; color: var(--sumi-soft); }
- .hud-status .live i{ width:6px; height:6px; border-radius:50%; background: var(--matcha); box-shadow:0 0 0 0 rgba(142,176,138,.6); animation: hud-ping 1.8s ease-out infinite; }
  @keyframes hud-ping{ 0%{ box-shadow:0 0 0 0 rgba(142,176,138,.55);} 70%{ box-shadow:0 0 0 7px rgba(142,176,138,0);} 100%{ box-shadow:0 0 0 0 rgba(142,176,138,0);} }
- .hud-status .clock{ color: var(--murasaki); font-variant-numeric: tabular-nums; }
- /* coordinate tag, top-right — sits BELOW the portrait medallion so they never overlap */
- /* slow vertical scan line sweeping the hero */
- .hud-scan{
+ /* coordinate tag{
   position: absolute; left: 0; right: 0; top: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--hud), transparent);
   opacity: .5;
   animation: hud-sweep 7s linear infinite;
  }
  @keyframes hud-sweep{ 0%{ transform: translateY(0); opacity:0; } 8%{ opacity:.5; } 92%{ opacity:.5; } 100%{ transform: translateY(min(70vh,560px)); opacity:0; } }
- @media (max-width: 700px){
-  .hero-hud{ inset: 10px; }
-  .hud-status{ gap: 9px; font-size: 10px; letter-spacing: .1em; }
-  .hud-status .geo{ display: none; }
- }
- @media (prefers-reduced-motion: reduce){ .hud-scan, .hud-status .live i{ animation: none; } }
 </style>
 <section class="hero">
   <figure class="hero-photo" aria-hidden="true">
@@ -2600,6 +2543,7 @@
     <span class="fog-puff p4"></span><span class="fog-puff p5"></span><span class="fog-puff p6"></span>
   </div>
 
+
 <section class="section" id="work">
   <div class="wrap">
     <div class="section-head reveal">
@@ -2611,6 +2555,7 @@
       <span class="jp">作品集</span>
     </div>
 
+    
     <div class="rb-frame reveal">
     <div class="ripple-band" aria-label="Projects by scale of effect">
       <canvas id="rippleField" aria-hidden="true"></canvas>
@@ -2635,6 +2580,7 @@
 
     <div class="work-cinema shelf">
 
+      
       <article class="work-panel" data-index="0">
         <span class="ghost-word">LooksMax</span>
         <div class="work-image media-gallery">
@@ -2687,6 +2633,7 @@
         </div>
       </article>
 
+      
       <div class="pocket reveal" data-screen-label="LooksMax 3D Breakdown">
         <button class="pocket-tab" type="button" aria-expanded="true" aria-controls="pk-looksmax">
           <span class="pk-rule"></span>
@@ -2700,6 +2647,7 @@
         </div>
       </div>
 
+      
       <article class="work-panel" data-index="1">
         <span class="ghost-word">L’Oréal</span>
         <div class="work-image" style="display:flex; align-items:center; justify-content:center; background:#fff;">
@@ -2720,6 +2668,7 @@
         </div>
       </article>
 
+      
       <div class="work-image site-embed reveal" data-screen-label="L’Oréal Paris PDP">
         <div class="site-window site-window--light">
           <div class="site-chrome">
@@ -2739,6 +2688,7 @@
         </div>
       </div>
 
+      
       <article class="work-panel" data-index="2">
         <span class="ghost-word">Okinawa</span>
         <div class="work-image media-gallery okinawa-gallery">
@@ -2776,6 +2726,7 @@
         </div>
       </article>
 
+      
       <section class="air-show reveal" data-screen-label="Airable Showcase" aria-label="Airable — the product up close">
         <div class="air-stage">
           <figure class="air-plate is-on" data-tone="light">
@@ -2796,6 +2747,7 @@
         </div>
       </section>
 
+      
       <div class="work-image site-embed reveal" data-screen-label="Airable Live Site">
         <div class="site-window">
           <div class="site-chrome">
@@ -2807,6 +2759,7 @@
         </div>
       </div>
 
+      
       <article class="work-panel" data-index="3">
         <span class="ghost-word">Airable</span>
         <div class="work-image" style="display:flex; align-items:center; justify-content:center;">
@@ -2828,6 +2781,7 @@
         </div>
       </article>
 
+      
       <article class="work-panel" data-index="4">
         <span class="ghost-word">Shirosaka</span>
         <div class="work-image media-gallery shirosaka-gallery">
@@ -2874,6 +2828,7 @@
         </div>
       </article>
 
+      
       <article class="work-panel" data-index="5">
         <span class="ghost-word">Ignite</span>
         <div class="work-image media-gallery ignite-gallery">
@@ -2919,6 +2874,7 @@
         </div>
       </article>
 
+      
       <article class="work-panel" data-index="6">
         <span class="ghost-word">Human X</span>
         <div class="work-image media-gallery humanx-gallery">
@@ -2958,6 +2914,7 @@
         </div>
       </article>
 
+      
       <article class="work-panel" data-index="7">
         <span class="ghost-word">Auréole</span>
         <div class="work-image media-gallery aureole-gallery">
@@ -2996,6 +2953,7 @@
         </div>
       </article>
 
+      
       <div class="pocket reveal" data-screen-label="Auréole 3D Breakdown">
         <button class="pocket-tab" type="button" aria-expanded="true" aria-controls="pk-aureole">
           <span class="pk-rule"></span>
@@ -3228,6 +3186,7 @@
   </div>
 </section>
 
+
 <style>
  #collection{ position:relative; overflow:hidden; }
  #collection.section{ padding: 64px 0 56px; }
@@ -3271,8 +3230,6 @@
   display:flex; align-items:center; justify-content:center; overflow:hidden;
  }
  .stamp-img svg{ width:62%; height:62%; }
- .stamp-img .emblem{ fill:none; stroke:var(--accent); stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
- .stamp-img .emblem-fine{ stroke-width:3; }
  .stamp-img .emblem-fill{ fill:var(--accent); }
  .stamp-val{
   position:absolute; top:7px; right:8px;
@@ -3449,6 +3406,7 @@
   </div>
 </section>
 
+
 <style>
  .news-section{ background: var(--paper); }
  .broadsheet{
@@ -3480,14 +3438,6 @@
   display:grid; grid-template-columns:1fr auto 1fr; align-items:flex-end; gap:18px;
   position:relative; z-index:1;
  }
- .bs-edition, .bs-dateline{
-  font-family:var(--mono); font-size:11px; letter-spacing:.16em;
-  text-transform:uppercase; color:rgba(27,23,20,.58);
- }
- .bs-dateline{ text-align:right; }
- /* second line of the dateline: a small “index/weather” strap like real papers */
- .bs-dateline .sub{ display:block; margin-top:3px; font-size:9.5px; letter-spacing:.13em; color:rgba(27,23,20,.42); }
- .bs-edition .sub{ display:block; margin-top:3px; font-size:9.5px; letter-spacing:.13em; color:rgba(27,23,20,.42); }
  .bs-title{
   font-family:'Bodoni Moda', var(--serif); font-weight:700;
   font-size:clamp(42px,7.4vw,96px); line-height:.86; letter-spacing:-.015em;
@@ -3590,7 +3540,6 @@
  @media (max-width:520px){ .bs-barcode .bars{ display:none; } }
  @media (max-width:860px){
   .bs-masthead{ grid-template-columns:1fr; text-align:center; gap:6px; }
-  .bs-edition, .bs-dateline{ text-align:center; }
   .bs-title{ white-space:normal; }
   .bs-columns{ grid-template-columns:1fr; gap:0; }
   .bs-entry:nth-child(2){
@@ -3627,6 +3576,7 @@
 
       <div class="bs-columns">
 
+        
         <article class="bs-entry">
           <figure class="bs-thumb">
             <img src="media/img-1g1wfza-by3e.jpg" alt="Shoki Sakuma featured by Edicum, photographed at Gould Academy" loading="lazy" />
@@ -3644,6 +3594,7 @@
           </a>
         </article>
 
+        
         <article class="bs-entry">
           <div class="bs-kicker">Crowdfunding</div>
           <h3 class="bs-head">A campaign worth sharing</h3>
@@ -3691,10 +3642,12 @@
  })();
 </script>
 
+
 <section class="sunrise-interlude" aria-hidden="true">
   <div class="sunrise-sky"></div>
   <div class="sunrise-clouds"></div>
 
+  
   <div class="dawn-texture" aria-hidden="true"></div>
 
   <div class="sunrise-sun"><canvas id="sunSphere" width="220" height="220"></canvas></div>
@@ -3702,6 +3655,7 @@
   <div class="sunrise-sea"></div>
   <div class="sunrise-grain"></div>
 
+  
   <div class="sunrise-tagline">
     <span class="tagline-dash">—</span>
     I'm drawn to building work that creates
@@ -3709,6 +3663,7 @@
     <span class="tagline-dash">—</span>
   </div>
 </section>
+
 
 <footer id="contact">
   <div class="wrap">
@@ -4432,6 +4387,7 @@
  })();
 </script>
 
+
 <script>
  (function scrollMarker(){
   const rail = document.getElementById("scrollMarker");
@@ -4487,6 +4443,7 @@
  })();
 </script>
 
+
 <script>
  (function skateFootMark(){
   var mark = document.querySelector('.foot-mark');
@@ -4524,6 +4481,7 @@
   io.observe(footer);
  })();
 </script>
+
 
 <script>
  (function aboutCarousel(){
@@ -4596,6 +4554,7 @@
   pips.forEach(function(p, m){ p.style.cursor = 'pointer'; p.addEventListener('click', function(ev){ ev.stopPropagation(); front = m; render(); start(); }); });
  })();
 </script>
+
 
 <div class="music-term" id="musicTerm" role="group" aria-label="Music player">
   <button type="button" class="term-play" id="musicToggle" aria-label="Play music" aria-pressed="false">
@@ -4832,7 +4791,7 @@
  function collect(root){
   pairs = []; tnodes = [];
   (function visit(el){
-   if (SKIP.test(el.tagName) || el.id === "langToggle" || (el.classList && el.classList.contains("term-track"))) return;
+   if (SKIP.test(el.tagName) || el.id === "langToggle" || el.id === "splash" || (el.classList && el.classList.contains("term-track"))) return;
    if (el.id !== "heroTagline" && el.id !== "tagTxt"){
     var ja = look(el, norm(el.textContent));
     if (ja != null && inlineOnly(el)){ pairs.push([el, el.innerHTML, ja]); return; }
@@ -5036,8 +4995,6 @@
  html[data-hero] .hero .name-kanji,
  html[data-hero] .hero .name-jp-stack{ position: relative; z-index: 3; }
  html[data-hero="c"] .hero .tagline{ max-width: min(40ch, 29vw); }
- html[data-hero] .hero .hud-status{ left: auto; right: 16px; z-index: 4; color: #f4f1ea; }
- html[data-hero] .hero .hud-status .geo{ color: rgba(244,241,234,.7); }
  html[data-hero] .hero{ padding-bottom: 56px; }
  html[data-hero] .hero-photo figcaption{ bottom: auto; top: 14px; }
  html[data-hero] .hero .hero-avatar{ z-index: 4; box-shadow: 0 0 0 6px #f4f1ea, 0 10px 30px rgba(0,0,0,.25); }
@@ -5239,12 +5196,6 @@
   border-top-left-radius: 22px; border-top-right-radius: 22px;
   box-shadow: 0 -24px 60px rgba(20,18,15,.18);
  }
- .fog{
-  position: absolute; left: -10vw; right: -10vw; top: -36vh; height: 62vh;
-  pointer-events: none; z-index: 3; overflow: hidden;
-  opacity: var(--fog, 1);
-  transition: opacity .15s linear;
- }
  .fog-puff{
   position: absolute; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(244,241,234,.98), rgba(244,241,234,.75) 45%, rgba(244,241,234,0) 100%);
@@ -5269,7 +5220,6 @@
  }
  @media (max-width: 760px){
   .page-two{ border-top-left-radius: 16px; border-top-right-radius: 16px; }
-  .fog{ top: -28vh; height: 50vh; }
   .fog-puff{ filter: blur(18px); }
  }
  @media (prefers-reduced-motion: reduce){ .fog-puff{ animation: none; } }
@@ -5325,7 +5275,6 @@
  }
  .act-pill:hover{ transform: translateY(-1px) scale(1.01); box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 14px 34px -12px rgba(27,23,20,.34); }
  .act-pill b{ font-weight: 600; color: var(--sumi); }
- .act-pill .act-sep{ color: var(--murasaki); font-weight: 700; }
  [data-theme="dark"] .act-pill{
   color: #f0ece3; background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.05) 60%, rgba(255,255,255,.1));
   border-color: rgba(255,255,255,.22); box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 10px 28px -12px rgba(0,0,0,.6);
