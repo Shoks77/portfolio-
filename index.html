@@ -3106,11 +3106,11 @@
 
         <div class="about-body about-body-split">
           <div class="about-col">
-            <p>
+            <p class="ab-step" style="--i:0">
               Hi, I'm Shoki. I grew up in <em class="hl">Tokyo</em>, studied in
               <em class="hl">Washington, D.C.</em>, and worked in <em class="hl">New York</em>.
             </p>
-            <p>
+            <p class="ab-step" style="--i:1">
               I like figuring out why people love a product, and what makes the
               business behind it work. Most of my work is turning <em class="hl">consumer data</em> into a
               <em class="hl">clear recommendation</em>: which product to build, how to
@@ -3118,16 +3118,16 @@
             </p>
           </div>
           <div class="about-col">
-            <p>
+            <p class="ab-step" style="--i:2">
               Experience in <em class="hl">Michelin-starred kitchens</em> and at
               <em class="hl">The Ritz-Carlton Tokyo</em> taught me to notice small things:
               what people care about, what they need, and what they don't say out loud.
             </p>
-            <p>
+            <p class="ab-step" style="--i:3">
               I'm back in Tokyo now, working at <em class="hl">Figma</em> and building a few
               things on the side.
             </p>
-            <p>
+            <p class="ab-step" style="--i:4">
               If you're building a <em class="hl">venture or start-up</em> you care about,
               in Japanese or English, <em class="hl">I'd like to meet you</em>.
             </p>
@@ -5525,5 +5525,21 @@
   .work-cinema:not(.shelf) > .work-panel .ghost-word{ display: none; }
  }
 </style>
+<style>
+ /* About: paragraphs surface one by one as the section scrolls in */
+ .ab-step{ opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--i, 0) * 160ms); }
+ .ab-step.on{ opacity: 1; transform: none; }
+ .ab-step .hl{ background-size: 0% 100%; background-repeat: no-repeat; transition: background-size .6s ease; transition-delay: calc(var(--i, 0) * 160ms + 420ms); }
+ .ab-step.on .hl{ background-size: 100% 100%; }
+ @media (prefers-reduced-motion: reduce){ .ab-step{ opacity: 1; transform: none; transition: none; } .ab-step .hl{ background-size: 100% 100%; transition: none; } }
+</style>
+<script>
+(function(){
+ var steps = document.querySelectorAll('.ab-step'); if (!steps.length) return;
+ if (!('IntersectionObserver' in window)){ steps.forEach(function(s){ s.classList.add('on'); }); return; }
+ var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } }); }, { threshold: .25, rootMargin: '0px 0px -8% 0px' });
+ steps.forEach(function(s){ io.observe(s); });
+})();
+</script>
 </body>
 </html>
